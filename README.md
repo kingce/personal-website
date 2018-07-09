@@ -3,7 +3,7 @@ Personal website via GitHub Pages cos I'm broke and can't afford hosting.
 https://kingce.github.io/personal-website/#
 
 ### Frameworks Used
-Pretty simple and straightforward. HTML5, CSS3, JavaScript with some Twitter Bootstrap and jQuery thrown in. 
+Pretty simple and straightforward. HTML5, CSS3, JavaScript with some Twitter Bootstrap and jQuery thrown in. Also used scrollReveal for animations.
 
 ### Future To-Do's 
 This website is pretty much done for all intents and purposes because I'm busy with coursework. When I have time, I'll fix the following - 
