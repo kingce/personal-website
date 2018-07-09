@@ -1,0 +1,315 @@
+
+/*=================================================================*/
+/*SECTIONS/GENERAL CSS*/
+/*=================================================================*/
+body { 
+    margin: 0;
+    background: #232323;
+    font-family: "Poppins", Arial, sans-serif;
+    color: white;
+}
+
+
+.landing { 
+    height: 100vh;
+}
+
+.landing h1 { 
+    color: white;
+    font-weight: 600;
+    font-family: Montserrat;
+    font-size: 100px;
+    text-align: center;
+    letter-spacing: 13px;
+    padding-top:35vh;
+}
+
+/*=================================================================*/
+/*-- Navbar --*/
+/*=================================================================*/
+
+.navbar-custom {
+    background-color: #232323;
+}
+
+.navbar-custom .nav-link { 
+    color: white;
+}
+
+.navbar-custom .nav-item: hover .nav-link { 
+    color: white;
+}
+
+.navbar-custom .navbar-brand { 
+    padding: 7px;
+    font-size: 30px;
+}
+
+
+
+/*=================================================================*/
+/*-- ABOUT --*/
+/*=================================================================*/
+
+.about { 
+    background: #fff;
+    color: black;
+    padding: 300px 50px 175px;
+    clip-path: polygon(0 10vw, 100% 0, 100% calc(100% - 10vw), 0 100%);
+}
+
+.greeting-card { 
+    background: #79c6f7;
+    padding: 15px 115px;
+    width: 300px;
+    margin-bottom: 70px;
+    box-shadow: 5px 10px 13px gray;
+    font-size: 50px;
+    border-radius: 7px;
+    color: white;
+}
+
+.face { 
+    border-radius: 7px;
+    height: auto;
+    width: 500px;
+    margin: 0 auto;
+    min-width: 300px;
+    clip-path: circle(47%);
+}
+
+/*=================================================================*/
+/*-- PROJECT HEADING --*/
+/*=================================================================*/
+
+.projects { 
+    padding: 50px 70px 30px;
+}
+
+.projects-showcase { 
+    padding-bottom: 300px;
+}
+
+/*=================================================================*/
+/*-- PROJECT CARDS -- */
+/*=================================================================*/
+
+.card { 
+    margin: 25px auto;
+    width: 70%;
+    height: 100%;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover { 
+    height: 110%;
+}
+
+.card-body { 
+    padding-top: 20%;
+    margin: 0 auto;
+}
+
+.project0 { 
+    background: linear-gradient( #79c6f7, #629fe5);
+    border-radius: 13px;
+    box-shadow: 5px 10px 13px black;
+}
+
+.project1 { 
+    background: linear-gradient( #8bb1ef, #6a97d8 );
+    border-radius: 13px;
+    box-shadow: 5px 10px 13px black;
+}
+
+.project2 { 
+    background: linear-gradient( #a6a4f2, #8985e2);
+    border-radius: 13px;
+    box-shadow: 5px 10px 13px black;
+}
+
+
+/*=================================================================*/
+/*-- SKILLS --*/
+/*=================================================================*/
+
+.skills { 
+    height: 125vh;
+    background: #fff;
+    color: black;
+    clip-path: polygon(0 0, 100% 10vw, 100% 100%, 0 calc(100% - 10vw) );
+}
+
+.skills-title { 
+    margin-top: 25vh;
+    background: #8bb1ef;
+    color: white;
+    text-align: center;
+    border-radius: 9px;
+    box-shadow: 5px 10px 13px gray;
+    font-size: 50px;
+    padding: 15px;
+    width: 300px;
+}
+
+.software-desc { 
+    font-size: 25px;
+    padding: 7vh 3vw;
+}
+
+.skills-display { 
+    margin-top: 30vh;
+}
+
+
+/*=================================================================*/
+/*-- MORE SKILLS --*/
+/*=================================================================*/
+
+.bonus-section { 
+    padding-top:90px;
+}
+
+.bonus-section li { 
+    list-style-type: none;
+    line-height: 45px;
+    font-size: 20px;
+    letter-spacing: 5px;
+}
+
+.blockquote { 
+    border-left: 3px solid white;
+    padding-left: 20px;
+}
+
+.resume-btn { 
+    background: white;
+    font-color: #232323;
+    box-shadow: 5px 7px 1px gray;
+}
+
+/*=================================================================*/
+/*-- CONTACT --*/
+/*=================================================================*/
+
+.contact { 
+    background: #fff;
+    margin-top: 90px;
+    padding-top: 10vh;
+    color: #232323;
+    clip-path: polygon(50% 0, 100% 10vh, 100% 100%, 0 100%, 0 10vh); 
+}
+
+.contact h2 { 
+    padding-bottom: 20px;
+    font-size: 50px;
+}
+
+.footerIcon { 
+    color: #232323;
+    transition: color 0.3s;
+}
+
+.footerIcon:hover { 
+    color: lightblue;
+}
+
+/*-- TYPOGRAPHY --*/
+
+
+em { 
+    font-family: "Montserrat",  sans-serif;
+    color: lightblue;
+    font-size: 30px
+    letter-spacing: 5px;
+    transition: 0.3s;
+}
+
+.skills-tier-1 { 
+    font-size: 40px;
+    background-image: -webkit-linear-gradient(#79c6f7, #629fe5);
+    background-image: -moz-linear-gradient(#79c6f7, #629fe5);
+    background-image: linear-gradient(#79c6f7, #629fe5); 
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family:Montserrat;
+    font-weight:600;
+    line-height: 130%;
+}
+
+.skills-tier-2 { 
+    font-size: 40px;
+    background-image: -webkit-linear-gradient( #8bb1ef, #6a97d8 );
+    background-image: -moz-linear-gradient( #8bb1ef, #6a97d8 );
+    background-image: linear-gradient( #8bb1ef, #6a97d8 ); 
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family:Montserrat;
+    font-weight:600;
+    line-height: 130%;
+}
+
+.skills-tier-3 { 
+    font-size: 40px;
+    background-image: -webkit-linear-gradient( #a6a4f2, #8985e2 );
+    background-image: -moz-linear-gradient( #a6a4f2, #8985e2 );
+    background-image: linear-gradient( #a6a4f2, #8985e2 ); 
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family:Montserrat;
+    font-weight:600;
+    line-height: 130%;
+}
+
+
+/*-- FOOTER --*/
+
+footer { 
+    background: #fff;
+    color: #232323;
+
+}
+
+
+/*-- FIXES for the figure --*/
+
+figure { 
+    position: relative;
+    width: 50%;
+    height: 37%;
+    margin: 0!important;
+}
+
+
+/*-- Just a bootstrap padding fix I heard about online lmao --*/
+
+[class*="col-"] { 
+    padding: 1rem;
+}
+
+
+/*---Media Queries---*/
+
+/*---Medium---*/
+@media (min-width: 768px) { 
+   .navbar { 
+       padding-right: 50px;
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
