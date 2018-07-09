@@ -11,6 +11,8 @@ This website is pretty much done for all intents and purposes because I'm busy w
 - [ ] Fix the janky animations 
 - [ ] Adjust padding on mobile 
 - [ ] (If I ever become not-broke) Get a nicer domain name
+- [ ] FAR in the future: refactor code. This was a learning experience, but honestly, I did a lot of silly things structurally that I need to change if I have time. 
+- [ ] Refactor CSS, it's not very DRY atm.
 
 
 ### Notes
