@@ -15,14 +15,48 @@ body {
 }
 
 .landing h1 { 
-    color: white;
     font-weight: 600;
     font-family: Montserrat;
-    font-size: 100px;
+    font-size: 400px;
     text-align: center;
     letter-spacing: 13px;
-    padding-top:35vh;
+    padding-top:15vh;
+    background: url("https://i.imgur.com/Ogn9EOg.jpg");
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
+
+.landing p { 
+    font-size: 30px;
+    letter-spacing: 7px;
+    background: url("https://i.imgur.com/Ogn9EOg.jpg");
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+} 
+
+.landing1 { 
+    background: linear-gradient( #79c6f7, #629fe5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.landing2 { 
+    background: linear-gradient( #8bb1ef, #6a97d8 );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.landing3 { 
+    background: linear-gradient( #a6a4f2, #8985e2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
 
 /*=================================================================*/
 /*-- Navbar --*/
@@ -274,15 +308,6 @@ footer {
 
 }
 
-
-/*-- FIXES for the figure --*/
-
-figure { 
-    position: relative;
-    width: 50%;
-    height: 37%;
-    margin: 0!important;
-}
 
 
 /*-- Just a bootstrap padding fix I heard about online lmao --*/

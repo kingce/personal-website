@@ -68,8 +68,9 @@
 <!-- ============================================================================== -->
 
 <div class="landing container-fluid text-center" id="home">
-    <h1>Daniel King</h1>
-    <p>designer. developer. daniel.</p>
+    <!-- Separate D and K for animations -->
+    <h1>D/K</h1>
+    <p><span class="landing1">designer.</span><span class="landing2"> developer.</span><span class="landing3"> daniel.</span></p>
 </div>
 
 
@@ -295,8 +296,15 @@
     });
 
     sr.reveal('.landing h1', { 
-        duration: 3000,
-        origin: 'top'
+        duration: 1000,
+        origin: 'left',
+        distance: '30vw'
+    });
+
+    sr.reveal('.landing p', { 
+        duration: 1000, 
+        origin: 'right', 
+        distance: '30vw'
     });
 
     sr.reveal('.about', { 
