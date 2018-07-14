@@ -4,11 +4,22 @@
 /*=================================================================*/
 body { 
     margin: 0;
-    background: #232323;
+    background: #131313;
     font-family: "Poppins", Arial, sans-serif;
     color: white;
 }
 
+
+.section-title { 
+    font-size: 70px;
+    letter-spacing: 7px;
+    background: url("https://static.tumblr.com/a7cbc56aa63be4a17682c7d12ceba92e/hosemhj/wVLo8ywn8/tumblr_static_tumblr_static__640.png");
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+	text-align: center;
+	white-space: normal;
+}
 
 .landing { 
     height: 100vh;
@@ -17,23 +28,35 @@ body {
 .landing h1 { 
     font-weight: 600;
     font-family: Montserrat;
-    font-size: 400px;
-    text-align: center;
-    letter-spacing: 13px;
-    padding-top:15vh;
-    background: url("https://i.imgur.com/Ogn9EOg.jpg");
+    font-size: 4vw;
+    text-align: right;
+    letter-spacing: 2vw;
+    padding-top:35vh;
+    background: url("https://static.tumblr.com/a7cbc56aa63be4a17682c7d12ceba92e/hosemhj/wVLo8ywn8/tumblr_static_tumblr_static__640.png");
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+	white-space: normal;
 }
 
 .landing p { 
-    font-size: 30px;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: .7vw;
+    letter-spacing: 3vw;
+	text-align: right;
+	white-space: nowrap;
+}
+
+.landing h2 { 
+    font-size: 25px;
     letter-spacing: 7px;
-    background: url("https://i.imgur.com/Ogn9EOg.jpg");
+    background: url("https://static.tumblr.com/a7cbc56aa63be4a17682c7d12ceba92e/hosemhj/wVLo8ywn8/tumblr_static_tumblr_static__640.png");
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+	text-align: right;
+	white-space: normal;
+	padding-right: 3vw;
 } 
 
 .landing1 { 
@@ -66,21 +89,9 @@ body {
     background-color: #232323;
 }
 
-.navbar-custom .nav-link { 
-    color: pink;
-}
-
 .navbar-custom { 
     color: white;
 }
-
-.navbar-custom .navbar-brand { 
-    padding: 7px;
-    font-size: 40px;
-    color: #79c6f7;
-}
-
-
 
 /*-- Colors for hover on nav-links --*/
 .home-link, .about-link, .projects-link, .software-link, .skills-link, .contacts-link { 
@@ -107,114 +118,92 @@ body {
 .about { 
     background: #fff;
     color: black;
-    padding: 300px 50px 175px;
-    clip-path: polygon(0 10vw, 100% 0, 100% calc(100% - 10vw), 0 100%);
+	padding: 70px 0;
 }
 
-.greeting-card { 
-    background: #79c6f7;
-    padding: 15px 115px;
-    width: 300px;
+.greeting { 
     margin-bottom: 70px;
-    box-shadow: 5px 10px 13px gray;
     font-size: 50px;
-    border-radius: 7px;
-    color: white;
+    color: gray;
 }
 
-.face { 
-    border-radius: 7px;
-    height: auto;
-    width: 500px;
-    margin: 0 auto;
-    min-width: 300px;
-    clip-path: circle(47%);
+.about p { 
+	letter-spacing: 5px;
 }
-
 /*=================================================================*/
-/*-- PROJECT HEADING --*/
+/*-- PROJECT DIVIDER --*/
 /*=================================================================*/
 
-.projects { 
-    padding: 50px 70px 30px;
+.projects-banner { 
+	width: 100vw;
+	height: 5vh;
+	overflow: hidden;
+	text-overflow: clip;
+	padding: 0;
+    background: url("https://static.tumblr.com/a7cbc56aa63be4a17682c7d12ceba92e/hosemhj/wVLo8ywn8/tumblr_static_tumblr_static__640.png");
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+	text-align: center;
+	font-size: 2vw;
 }
 
-.projects-showcase { 
-    padding-bottom: 300px;
-}
 
 /*=================================================================*/
 /*-- PROJECT CARDS -- */
 /*=================================================================*/
 
-.card { 
-    margin: 25px auto;
-    width: 70%;
-    height: 100%;
-    text-align: center;
-    transition: 0.3s;
+.project-row { 
+	background-color: #f7f7f7;
+	color: #131313;
 }
 
-.card:hover { 
-    height: 110%;
+.project-title { 
+	height: 50vh;
+	font-size: 19vw;
+	margin: 0 auto;
+	font-weight: 700;
+	text-align: center;
+	color: lightgray;
 }
 
-.card-body { 
-    padding-top: 20%;
-    margin: 0 auto;
+.project-description { 
+	height: 50vh;
+	padding-top: 13vh;
 }
-
-.project0 { 
-    background: linear-gradient( #79c6f7, #629fe5);
-    border-radius: 13px;
-    box-shadow: 5px 10px 13px black;
-}
-
-.project1 { 
-    background: linear-gradient( #8bb1ef, #6a97d8 );
-    border-radius: 13px;
-    box-shadow: 5px 10px 13px black;
-}
-
-.project2 { 
-    background: linear-gradient( #a6a4f2, #8985e2);
-    border-radius: 13px;
-    box-shadow: 5px 10px 13px black;
-}
-
 
 /*=================================================================*/
-/*-- SKILLS --*/
+/*-- SOFTWARE --*/
 /*=================================================================*/
 
 .skills { 
-    height: 125vh;
+    height: 35vh;
     background: #fff;
     color: black;
-    clip-path: polygon(0 0, 100% 10vw, 100% 100%, 0 calc(100% - 10vw) );
 }
 
-.skills-title { 
-    margin-top: 25vh;
-    background: #8bb1ef;
-    color: white;
-    text-align: center;
-    border-radius: 9px;
-    box-shadow: 5px 10px 13px gray;
-    font-size: 50px;
-    padding: 15px;
-    width: 300px;
+.software-title { 
+	font-size: 7vw;
+	height: 30vh;
+	padding: 1vw;
+	background-color: #131313;
+	color: white;
 }
 
-.software-desc { 
-    font-size: 25px;
-    padding: 7vh 3vw;
+.software-desc1 { 
+	font-size: 3vw;
+	width: 60vw;
 }
 
-.skills-display { 
-    margin-top: 30vh;
+.software-desc2 { 
+	font-size: 2vw;
+	width: 40vw;
 }
 
+.software-desc3 { 
+	font-size: 1vw;
+	width: 20vw;
+}
 
 /*=================================================================*/
 /*-- MORE SKILLS --*/
@@ -222,49 +211,18 @@ body {
 
 .bonus-section { 
     padding-top:90px;
+	background-color: #131313;
+	color: black;
 }
 
 .bonus-section li { 
+	color: white;
+	text-align: center;
     list-style-type: none;
     line-height: 45px;
     font-size: 20px;
     letter-spacing: 5px;
 }
-
-.blockquote { 
-    padding-left: 20px;
-}
-
-.quote1 { 
-    background: linear-gradient( #79c6f7, #629fe5);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    border-left: 3px solid #79c6f7;
-}
-
-.quote2 { 
-    background: linear-gradient( #8bb1ef, #6a97d8 );
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    border-left: 3px solid #8bb1ef;
-}
-
-.quote3 { 
-    background: linear-gradient( #a6a4f2, #8985e2);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    border-left: 3px solid #a6a4f2;
-}
-
-.resume-btn { 
-    background: white;
-    font-color: #232323;
-    box-shadow: 5px 7px 1px gray;
-}
-
 
 
 /*=================================================================*/
@@ -363,12 +321,6 @@ footer {
 
 /*---Media Queries---*/
 
-/*---Medium---*/
-@media (min-width: 768px) { 
-   .navbar { 
-       padding-right: 50px;
-   }
-}
 
 
 
