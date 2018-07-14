@@ -7,7 +7,7 @@ Pretty simple and straightforward. HTML5, CSS3, JavaScript with some Twitter Boo
 
 ### Future To-Do's 
 This website is pretty much done for all intents and purposes because I'm busy with coursework. When I have time, I'll fix the following - 
-- [ ] Re-style landing page 
+- [X] Re-style header
 - [ ] Fix the janky animations 
 - [ ] Adjust padding on mobile 
 - [ ] (If I ever become not-broke) Get a nicer domain name
