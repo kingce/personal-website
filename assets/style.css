@@ -22,7 +22,7 @@ body {
 }
 
 .landing { 
-    height: 100vh;
+    height: 90vh;
 }
 
 .landing h1 { 
@@ -116,7 +116,6 @@ body {
 /*=================================================================*/
 
 .about { 
-    background: #fff;
     color: black;
 	padding: 70px 0;
 }
@@ -124,28 +123,30 @@ body {
 .greeting { 
     margin-bottom: 70px;
     font-size: 50px;
-    color: gray;
+    color: white;
 }
 
+
 .about p { 
-	letter-spacing: 5px;
+	letter-spacing: 3px;
+    color: white;
+    text-align: center;
 }
 /*=================================================================*/
 /*-- PROJECT DIVIDER --*/
 /*=================================================================*/
 
 .projects-banner { 
-	width: 100vw;
-	height: 5vh;
-	overflow: hidden;
-	text-overflow: clip;
-	padding: 0;
+    margin: 3vh 9vw;
+	padding: 1.7vw;
     background: url("https://static.tumblr.com/a7cbc56aa63be4a17682c7d12ceba92e/hosemhj/wVLo8ywn8/tumblr_static_tumblr_static__640.png");
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
 	text-align: center;
-	font-size: 2vw;
+	font-size: 70px;
+    letter-spacing: 5vw;
+    box-shadow: 9px 7px 10px #101010;
 }
 
 
@@ -154,8 +155,7 @@ body {
 /*=================================================================*/
 
 .project-row { 
-	background-color: #f7f7f7;
-	color: #131313;
+	color: gray;
 }
 
 .project-title { 
@@ -164,12 +164,17 @@ body {
 	margin: 0 auto;
 	font-weight: 700;
 	text-align: center;
-	color: lightgray;
+	color: #232323;
+    text-shadow: 13px 13px 10px #101010;
 }
 
 .project-description { 
 	height: 50vh;
-	padding-top: 13vh;
+    margin-top: 3vh;
+	padding: 5vh;
+    color: white;
+    letter-spacing: 3px;
+    text-align: center;
 }
 
 /*=================================================================*/
@@ -178,31 +183,22 @@ body {
 
 .skills { 
     height: 35vh;
-    background: #fff;
-    color: black;
+    color: white;
+    text-align: center;
+    letter-spacing: 5px;
 }
 
-.software-title { 
-	font-size: 7vw;
-	height: 30vh;
-	padding: 1vw;
-	background-color: #131313;
-	color: white;
-}
 
 .software-desc1 { 
-	font-size: 3vw;
-	width: 60vw;
+	font-size: 70px;
 }
 
 .software-desc2 { 
-	font-size: 2vw;
-	width: 40vw;
+	font-size: 50px;
 }
 
 .software-desc3 { 
-	font-size: 1vw;
-	width: 20vw;
+	font-size: 40px;
 }
 
 /*=================================================================*/
@@ -230,26 +226,22 @@ body {
 /*=================================================================*/
 
 .contact { 
-    background: #fff;
+    background: #131313;
     margin-top: 90px;
+    padding-top: 50px;
     padding-top: 10vh;
-    color: #232323;
-    clip-path: polygon(50% 0, 100% 10vh, 100% 100%, 0 100%, 0 10vh); 
+    color: white;
 }
 
-.contact h2 { 
-    padding-bottom: 20px;
+.links-wrapper { 
+    text-align: right;
     font-size: 50px;
 }
 
-.footerIcon { 
-    color: #232323;
-    transition: color 0.3s;
+.links-wrapper a:link, .links-wrapper a:hover, .links-wrapper a:visited { 
+    color: white;
 }
 
-.footerIcon:hover { 
-    color: lightblue;
-}
 
 /*-- TYPOGRAPHY --*/
 
@@ -305,8 +297,7 @@ em {
 /*-- FOOTER --*/
 
 footer { 
-    background: #fff;
-    color: #232323;
+    background: black;
 
 }
 
