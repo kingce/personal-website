@@ -86,29 +86,15 @@ body {
 /*=================================================================*/
 
 .navbar-custom {
-    background-color: #232323;
+    background-color: #131313;
 }
 
 .navbar-custom { 
     color: white;
 }
 
-/*-- Colors for hover on nav-links --*/
-.home-link, .about-link, .projects-link, .software-link, .skills-link, .contacts-link { 
-    transition: border 0.3s;
-}
 
-.home-link:hover, .about-link:hover { 
-    border-bottom: 3px solid #79c6f7;
-}
 
-.projects-link:hover, .software-link:hover { 
-    border-bottom: 3px solid #8bb1ef;
-}
-
-.skills-link:hover, .contact-link:hover { 
-    border-bottom: 3px solid #a6a4f2;
-}
 
 
 /*=================================================================*/
@@ -228,10 +214,19 @@ body {
 .contact { 
     background: #131313;
     margin-top: 90px;
-    padding-top: 50px;
     padding-top: 10vh;
     color: white;
 }
+
+.contact-title { 
+    padding: 3vw;
+}
+
+.contact-title h2 { 
+    font-size: 70px;
+    letter-spacing: 3px;
+}
+
 
 .links-wrapper { 
     text-align: right;
