@@ -71,21 +71,25 @@ body {
     font-family: 'Comfortaa';
     text-align: left;
     font-size: 70px;
+    padding-top: 15px;
 }
 
 .software h2 { 
     color: #1fb6ff;
     font-size: 65px;
+    padding-top: 15px;
 }
 
 .software h3 { 
     color: #1b95f9;
     font-size: 50px;
+    padding-top: 15px;
 }
 
 .software h4 { 
     color: #1b7bf9;
     font-size: 35px;
+    padding-top: 15px;
 }
 
 
@@ -97,7 +101,7 @@ body {
 /*=================================================================*/
 
 .skills li { 
-    text-align: center;
+    text-align: right;
     list-style: none;
     padding-top: 13px;
 }
@@ -108,7 +112,9 @@ body {
     letter-spacing: 3px;
 }
 
-
+.skills img { 
+    width: 50vw;
+}
 
 /*=================================================================*/
 /*-- CONTACT --*/
