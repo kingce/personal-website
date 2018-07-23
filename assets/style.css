@@ -23,7 +23,8 @@ body {
 .landing { 
     height: 100vh;
     position: fixed;
-    background-color: white;
+    background-color: #3b55bf;
+    background-attachment: fixed;
 }
 
 
@@ -38,7 +39,7 @@ body {
     letter-spacing: 9px;
     text-align: right;
     padding-top:15vh;
-    color: #1fb6ff;
+    color: white;
 }
 
 .landing b , .landing i{ 
@@ -53,7 +54,7 @@ body {
     line-height: 1.6; 
 	text-align: right;
     padding-left: 40px;
-    color: #232323;
+    color: white;
 }
 
 /*=================================================================*/
@@ -66,6 +67,8 @@ body {
     text-align: right;
     padding: 7vh 7vw;
 }
+
+
 
 .software h1 { 
     font-family: 'Comfortaa';
@@ -125,6 +128,33 @@ body {
     width: 50vw;
 }
 
+
+/*=================================================================*/
+/*-- PROJECTS --*/
+/*=================================================================*/
+
+.projects { 
+    background-color: white;
+    color: #232323;
+    height: 100vh;
+}
+
+
+.projects h1 { 
+    text-align: right;
+    font-family: 'Comfortaa';
+    font-size: 50px;
+    padding:13vh 7vw;
+    
+}
+
+.project-card { 
+    font-family: 'Comfortaa';
+    color: white;
+    left: 1vw;
+    background-color: #232323;
+    padding: 40px;
+}
 
 /*=================================================================*/
 /*-- CONTACT --*/
