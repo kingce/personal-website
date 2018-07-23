@@ -101,20 +101,30 @@ body {
 /*=================================================================*/
 
 .skills li { 
-    text-align: right;
     list-style: none;
     padding-top: 13px;
 }
 
 .skills { 
+    text-align: center;
     background-color: #1fb6ff;
     font-size: 23px;
     letter-spacing: 3px;
+    padding: 7vh 7vw;
+}
+
+.skills h1 { 
+    font-family: 'Comfortaa';
+    text-align: left;
+    font-size: 70px;
+    padding-top: 15px;
+    color: white;
 }
 
 .skills img { 
     width: 50vw;
 }
+
 
 /*=================================================================*/
 /*-- CONTACT --*/
