@@ -9,207 +9,111 @@ body {
     color: white;
 }
 
-
-.section-title { 
-    font-size: 70px;
-    letter-spacing: 7px;
-    background: url("https://static.tumblr.com/a7cbc56aa63be4a17682c7d12ceba92e/hosemhj/wVLo8ywn8/tumblr_static_tumblr_static__640.png");
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-	text-align: center;
-	white-space: normal;
+.site { 
+    margin-top: 100vh;
+    position: absolute;
+    background-color: black;
 }
 
+/*=================================================================*/
+/* -- Landing Mast -- */
+/*=================================================================*/
+
+
 .landing { 
-    height: 90vh;
+    height: 100vh;
+    position: fixed;
+    background-color: white;
+}
+
+
+.landing img { 
+    width: 50vw;
 }
 
 .landing h1 { 
-    font-weight: 600;
-    font-family: Montserrat;
-    font-size: 4vw;
+    font-weight: 300;
+    font-family: 'Comfortaa';
+    font-size: 90px;
+    letter-spacing: 9px;
     text-align: right;
-    letter-spacing: 2vw;
-    padding-top:35vh;
-    background: url("https://static.tumblr.com/a7cbc56aa63be4a17682c7d12ceba92e/hosemhj/wVLo8ywn8/tumblr_static_tumblr_static__640.png");
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-	white-space: normal;
+    padding-top:15vh;
+    color: #1fb6ff;
 }
+
+.landing b , .landing i{ 
+    color: #1fb6ff;
+}
+
 
 .landing p { 
-    font-family: "Poppins", Arial, sans-serif;
-    font-size: .7vw;
-    letter-spacing: 3vw;
+    font-family:"Varela Round", "Poppins", Arial, sans-serif;
+    font-size: 19px;
+    letter-spacing: 1px;
+    line-height: 1.6; 
 	text-align: right;
-	white-space: nowrap;
-}
-
-.landing h2 { 
-    font-size: 25px;
-    letter-spacing: 7px;
-    background: url("https://static.tumblr.com/a7cbc56aa63be4a17682c7d12ceba92e/hosemhj/wVLo8ywn8/tumblr_static_tumblr_static__640.png");
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-	text-align: right;
-	white-space: normal;
-	padding-right: 3vw;
-} 
-
-.landing1 { 
-    background: linear-gradient( #79c6f7, #629fe5);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-.landing2 { 
-    background: linear-gradient( #8bb1ef, #6a97d8 );
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-.landing3 { 
-    background: linear-gradient( #a6a4f2, #8985e2);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-
-/*=================================================================*/
-/*-- Navbar --*/
-/*=================================================================*/
-
-.navbar-custom {
-    background-color: #131313;
-}
-
-.navbar-custom { 
-    color: white;
-}
-
-
-
-
-
-/*=================================================================*/
-/*-- ABOUT --*/
-/*=================================================================*/
-
-.about { 
-    color: black;
-	padding: 70px 0;
-}
-
-.greeting { 
-    margin-bottom: 70px;
-    font-size: 50px;
-    color: white;
-}
-
-
-.about p { 
-	letter-spacing: 3px;
-    color: white;
-    text-align: center;
-}
-/*=================================================================*/
-/*-- PROJECT DIVIDER --*/
-/*=================================================================*/
-
-.projects-banner { 
-    margin: 3vh 9vw;
-	padding: 1.7vw;
-    background: url("https://static.tumblr.com/a7cbc56aa63be4a17682c7d12ceba92e/hosemhj/wVLo8ywn8/tumblr_static_tumblr_static__640.png");
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-	text-align: center;
-	font-size: 70px;
-    letter-spacing: 5vw;
-    box-shadow: 9px 7px 10px #101010;
-}
-
-
-/*=================================================================*/
-/*-- PROJECT CARDS -- */
-/*=================================================================*/
-
-.project-row { 
-	color: gray;
-}
-
-.project-title { 
-	height: 50vh;
-	font-size: 19vw;
-	margin: 0 auto;
-	font-weight: 700;
-	text-align: center;
-	color: #232323;
-    text-shadow: 13px 13px 10px #101010;
-}
-
-.project-description { 
-	height: 50vh;
-    margin-top: 3vh;
-	padding: 5vh;
-    color: white;
-    letter-spacing: 3px;
-    text-align: center;
+    padding-left: 40px;
+    color: #232323;
 }
 
 /*=================================================================*/
 /*-- SOFTWARE --*/
 /*=================================================================*/
 
-.skills { 
-    height: 35vh;
-    color: white;
+.software { 
+    background-color: white;
+    color: #232323;
+    text-align: right;
+    padding: 7vh 7vw;
+}
+
+.software h1 { 
+    font-family: 'Comfortaa';
+    text-align: left;
+    font-size: 70px;
+}
+
+.software h2 { 
+    color: #1fb6ff;
+    font-size: 65px;
+}
+
+.software h3 { 
+    color: #1b95f9;
+    font-size: 50px;
+}
+
+.software h4 { 
+    color: #1b7bf9;
+    font-size: 35px;
+}
+
+
+
+
+
+/*=================================================================*/
+/*-- SKILLS --*/
+/*=================================================================*/
+
+.skills li { 
     text-align: center;
-    letter-spacing: 5px;
+    list-style: none;
+    padding-top: 13px;
 }
 
-
-.software-desc1 { 
-	font-size: 70px;
+.skills { 
+    background-color: #1fb6ff;
+    font-size: 23px;
+    letter-spacing: 3px;
 }
 
-.software-desc2 { 
-	font-size: 50px;
-}
-
-.software-desc3 { 
-	font-size: 40px;
-}
-
-/*=================================================================*/
-/*-- MORE SKILLS --*/
-/*=================================================================*/
-
-.bonus-section { 
-    padding-top:90px;
-	background-color: #131313;
-	color: black;
-}
-
-.bonus-section li { 
-	color: white;
-	text-align: center;
-    list-style-type: none;
-    line-height: 45px;
-    font-size: 20px;
-    letter-spacing: 5px;
-}
 
 
 /*=================================================================*/
 /*-- CONTACT --*/
 /*=================================================================*/
+
 
 .contact { 
     background: #131313;
@@ -249,51 +153,11 @@ em {
     transition: 0.3s;
 }
 
-.skills-tier-1 { 
-    font-size: 40px;
-    background-image: -webkit-linear-gradient(#79c6f7, #629fe5);
-    background-image: -moz-linear-gradient(#79c6f7, #629fe5);
-    background-image: linear-gradient(#79c6f7, #629fe5); 
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    font-family:Montserrat;
-    font-weight:600;
-    line-height: 130%;
-}
-
-.skills-tier-2 { 
-    font-size: 40px;
-    background-image: -webkit-linear-gradient( #8bb1ef, #6a97d8 );
-    background-image: -moz-linear-gradient( #8bb1ef, #6a97d8 );
-    background-image: linear-gradient( #8bb1ef, #6a97d8 ); 
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    font-family:Montserrat;
-    font-weight:600;
-    line-height: 130%;
-}
-
-.skills-tier-3 { 
-    font-size: 40px;
-    background-image: -webkit-linear-gradient( #a6a4f2, #8985e2 );
-    background-image: -moz-linear-gradient( #a6a4f2, #8985e2 );
-    background-image: linear-gradient( #a6a4f2, #8985e2 ); 
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    font-family:Montserrat;
-    font-weight:600;
-    line-height: 130%;
-}
-
 
 /*-- FOOTER --*/
 
 footer { 
     background: black;
-
 }
 
 
