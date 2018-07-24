@@ -12,7 +12,7 @@ body {
 .site { 
     margin-top: 100vh;
     position: absolute;
-    background-color: black;
+    background-color: white;
 }
 
 /*=================================================================*/
@@ -136,12 +136,9 @@ body {
 .projects { 
     background-color: white;
     color: #232323;
-    height: 100vh;
+    height: 30vh;
 }
 
-.projects p { 
-    font-family: 'Varela Round';
-}
 
 .projects h1 { 
     text-align: right;
@@ -151,36 +148,57 @@ body {
     
 }
 
+.cc-title h1 { 
+    color: rgba(256,256,256, 0.3);
+    font-family:'Josefin Sans';
+    font-size: 70px;
+    text-align: left;
+    padding: 0;
+}
+
+.cc-card { 
+    width: 39vw;
+    margin-left: 13vw;
+    padding: 30px 90px;
+    background-color: #3b55bf;
+}
+
+.hundred-card { 
+    font-family: 'Varela Round';
+    width: 39vw;
+    margin-left: 50vw;
+    padding: 30px 90px;
+    margin-bottom: 5vh;
+    background-color: #1fb6ff;
+}
+
+
 .project-card { 
     font-family: 'Comfortaa';
     color: white;
-    left: 1vw;
-    background-color: #232323;
-    padding: 40px;
+    margin-top: 50px;
+    border-radius: 7px;
+    box-shadow: 7px 7px 17px lightgray;
 }
 
-.campus-corners { 
-    background-color: #3b55bf;
-}
 
 /*=================================================================*/
 /*-- CONTACT --*/
 /*=================================================================*/
 
 
-.contact { 
-    background: #131313;
-    margin-top: 90px;
-    padding-top: 10vh;
-    color: white;
-}
+.social { 
+    background-color: #3b55bf;
 
+}
+ 
 .contact-title { 
     padding: 3vw;
 }
 
 .contact-title h2 { 
     font-size: 70px;
+    font-family: 'Comfortaa';
     letter-spacing: 3px;
 }
 
@@ -191,6 +209,7 @@ body {
 }
 
 .links-wrapper a:link, .links-wrapper a:hover, .links-wrapper a:visited { 
+    font-family: 'Comfortaa';
     color: white;
 }
 
@@ -198,20 +217,8 @@ body {
 /*-- TYPOGRAPHY --*/
 
 
-em { 
-    font-family: "Montserrat",  sans-serif;
-    color: lightblue;
-    font-size: 30px
-    letter-spacing: 5px;
-    transition: 0.3s;
-}
 
 
-/*-- FOOTER --*/
-
-footer { 
-    background: black;
-}
 
 
 
