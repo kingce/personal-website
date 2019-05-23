@@ -1,94 +1,85 @@
+<!-- 
+
+    This is the readable version of my portfolio site. This should never be used in production - instead see the branch containing the minified version of this site.
+
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="assets/power.png">
-
-    <title>Daniel King</title>
-
-    <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha884-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <title>Daniel King | Portfolio</title>
 
     <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" integrity="sha256-HtCCUh9Hkh//8U1OwcbD8epVEUdBvuI8wj1KtqMhNkI=" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
 
-<!-- ========================================================================= -->
-<!-- Landing Page -->
-<!-- ========================================================================= -->
-<div class="scroll-indicator"></div>
-
-<div class="landing-background">
-    <div class="landing animated fadeInUp slow" >
-        <h1><span class="title">daniel.</span></h1>
-    </div>
-</div>
-
-
-<!-- Bio -->
-
-<div class="info container-fluid">
-    <h3>Daniel King is a Taiwanese-American designer, developer, and student based in Bellingham, Washington. He is a believer in designing with intention and a strong advocate for inclusivity and diversity in STEM fields. Someday, he hopes to become a cat owner. Currently a computer science student at Western Washington University.</h3>
-
-    <hr>
-</div>
-
-
-
-<div class="contact container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <ul>
-                <li><a href="https://www.facebook.com/profile.php?id=100022710424140">facebook</a></li>
-                <li><a href="https://www.instagram.com/therealdanking/">instagram</a></li>
-                <li><a href="https://www.linkedin.com/in/daniel-king-8050aa150/">linkedin</a></li>
-                <li><a href="https://github.com/kingce">github</a></li>
-                <li><a href="mailto:chuan.e.king@gmail.com" target="_blank">email me</a></li>
-            </ul>
+    <!-- LANDING PAGE -->
+<section class="1">
+    <div class="landing">
+        <div class="landing-title">
+            <h1>dan</h1>
+        </div>
+        <div class="landing-subtitle">
+            <h2>design & develop</h2>
         </div>
     </div>
-</div>
+</section>
+
+
+<!-- ABOUT ME -->
+
+<section class="2">
+    <div class="about">
+        <h3>Daniel King is a Taiwanese-American designer, developer, and student based in Bellingham, Washington. He is a believer in designing with intention and a strong advocate for inclusivity and diversity in STEM fields. Someday, he hopes to become a cat owner. Currently a computer science student at Western Washington University.</h3>
+        <hr>
+    </div>
+</section>
+
+
+<section class="3">
+    <div class="skills">
+        <div class="skills-web">
+            <div class="skills-header-web">
+                <h1>web!</h1>
+            </div>
+            <div class="skills-content-web">
+            </div>
+        </div>
+        <div class="skills-code">
+        </div>
+        <div class="skills-design">
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <div class="contact">
+        <div class="contact-fb">
+        </div>
+        <div class="contact-insta">
+        </div>
+        <div class="contact-github">
+        </div>
+        <div class="contact-linkedin">
+        </div>
+        <div class="contact-email">
+        </div>
+    </div>
+</section>
 
 
 <!-- SCRIPTS -->
     <script type="text/javascript">
-      
-        //Title change
-        var i = 0;
-        function changeTitle() { 
-            var titles = ["daniel.", "designer.", "developer." ];
-            $('.title').fadeOut(500, function() { 
-                $('.title').text(titles[i]).fadeIn(500);
-            });
-            i=(i+1)%titles.length;
-        }
 
-        setInterval(changeTitle,3000);
-
-       //Title Scrolling rates
-        //Scroll Bar 
-        $(window).scroll(function() { 
-            var wintop = $(window).scrollTop();
-            var docheight = $(document).height();
-            var winheight = $(window).height();
-            var scrolled = (wintop/(docheight-winheight))*100;
-            console.log(wintop);
-
-            $('.scroll-indicator').css("width", (scrolled + "%"));
-
-        });
 
     </script>
 </body>

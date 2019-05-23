@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
+@import 'landing.css'; //Landing CSS 
+@import 'contact.css'; //Contact CSS
+@import 'skills.css'; //Skills CSS
+
+h3 { 
+    font-family: 'Playfair Display', Serif;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 1.9;
+    letter-spacing: 1px;
+}
+
+.about { 
+    height: 100vh;
+    background-color: #fff;
+    text-align: center;
+}
+
+/*-- Media Queries for responsive design --*/
+
+@media only screen and (max-width: 900px) {
+    .landing h1 { 
+        font-size: 50px;
+    }
+    .landing { 
+        width: 80%;
+        margin: 0 10%;
+    }
+   
+    h3 { 
+        font-size: 23px;
+    }
+}
+
