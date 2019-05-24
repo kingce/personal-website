@@ -1,22 +1,163 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300');
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
-@import 'landing.css'; //Landing CSS 
-@import 'contact.css'; //Contact CSS
-@import 'skills.css'; //Skills CSS
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,900&display=swap');
 
-h3 { 
-    font-family: 'Playfair Display', Serif;
-    font-weight: 400;
-    font-size: 35px;
-    line-height: 1.9;
-    letter-spacing: 1px;
+:root { 
+    --main-bg-color: #5569A0;
+    --content-font: 'Montserrat', Arial, sans-serif;
+    --emphasis-font: 'Playfair Display', serif;
 }
 
-.about { 
+html, body { 
+    margin: 0;
+    padding: 0;
+}
+
+
+/*--- LANDING ---*/
+
+.landing { 
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 8fr 1fr;
+    width: 100vw;
     height: 100vh;
-    background-color: #fff;
+    background-color: var(--main-bg-color);
+    z-index: -1;
+}
+
+.landing-title { 
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    color: white;
     text-align: center;
 }
+
+.landing-title h1 { 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 35vh;
+    padding-top: 10vh;
+    background: url(../assets/texture.jpg) no-repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.landing-title ul { 
+    list-style-type: none;
+}
+
+.landing-title li { 
+    font-family: var(--content-font);
+    font-weight: 300;
+    font-size: 15px;
+    padding: 10px 0px;
+}
+
+
+
+
+.spacer { 
+    height: 100vh;
+    background-color: rgba(0,0,0,0);
+}
+
+/*--- ABOUT ME ---*/
+.about { 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    z-index: 1;
+    height: 110vh;
+    margin-top: -10vh;
+}
+
+.window { 
+    grid-column-start: 1;
+    grid-column-end: 2;
+    background-color: rgba(0,0,0,0);
+}
+
+.about-bio {
+   grid-column-start: 2;
+   grid-column-end: 3;
+   background-color: #fff;
+   display: grid;
+   grid-template-rows: 10vh 100vh;
+}
+
+.about-tagline { 
+    background-color: var(--main-bg-color);
+}
+
+.about-tagline h3{ 
+    font-family: var(--content-font);
+    font-weight: 300;
+    font-size: 5vh;
+    margin: 0;
+    color: #333;
+    text-align: right;
+    padding-right: 1vw;
+}
+
+.about-content { 
+    background-color:#333;
+    color: white;
+    padding: 10% 27%;
+    text-align: justify;
+}
+
+.about-content hr { 
+    width: 50%;
+}
+
+.about-content h2.about-content-emphasis { 
+    font-family: var(--emphasis-font);
+    font-size: 25px;
+    text-align: left;
+}
+
+
+.about-content h2 { 
+    font-family: var(--content-font);
+    font-weight: 300;
+    font-size: 17px;
+}
+
+
+
+
+/*--- SKILLS ---*/
+
+.skills-container { 
+    display: grid;
+    grid-template-columnns: 1fr 1fr;
+    height: 100vh;
+}
+
+.skills { 
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: #fff;
+}
+
+
+
+/*--- CONTACT ---*/
+
+.contact { 
+    display: grid;
+    grid-template-colunmns: 1fr 1fr 1fr 1fr 1fr;
+    width: 100vw;
+}
+
+.contact-insta { 
+    background: gray;
+}
+
 
 /*-- Media Queries for responsive design --*/
 
