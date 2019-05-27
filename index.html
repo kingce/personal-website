@@ -20,6 +20,10 @@
 
 <body>
 
+  <div class="preloader"><h6>OwO</h6></div>
+  <div class="post-preloader"></div>
+
+  <div class="gridline"></div>
 
     <nav>
         <ul>
@@ -36,9 +40,9 @@
             <h2>DANIEL KING</h2>
         </div>
         <div class="landing-title">
-          <h1>~$ front end <span class="blue">developer</span> & <span class="blue">designer</span> </h1>
+          <h1>~$ front end <span class="blue">developer</span> & <span class="blue">designer</span></h1>
         </div>
-        <img class="landing-face" src="assets/face.jpg" alt="Picture of Daniel" align="middle" width=30% heigh=30%></img>
+        <img class="landing-face rellax" src="assets/face.jpg" alt="Picture of Daniel" align="middle" width=30% heigh=30%></img>
         <div class="landing-embellishment"></div>
     </section>
 
@@ -66,15 +70,55 @@
 
         <div class="skills-content">
           <h3>~$ I create <span class="blue">elegant</span> and <span class="blue">efficient</span>
-online experiences.</h3>
-          <p>
+online experiences using...</h3>
+          <div class="skills-list">
+              <ul>
+                <li>HTML5 & CSS3</li>
+                <li>Javascript</li>
+                <li>GSAP & jQuery</li>
+                <li>NodeJS, Express, MongoDB</li>
+                <li>Atomic Design & Style Guides</li>
+              </ul>
+          </div>
+
+          <div class="skills-blurb">
+            <p>Utilizing my formal education in computer science and my 3+ years of design study, I create beautiful interfaces that don't compromise in usability or performance. I believe in user centered design practices and can adapt to any workflow.
+</p>
+            <p>I have experience with development in popular front-end frameworks and REST api’s.
+</p>
+            <p>Check out some of my work below!</p>
+          </div>
         </div>
     </section>
 
 
+    <section id="contact">
+      <div class="contact-side side-title">
+        <h2>CONTACT</h2>
+      </div>
+      <h3 class="contact-blurb">LET'S CHAT.</h3>
+
+      <ul class="contact-links">
+        <a href="https://github.com/kingce" target="_blank"><li>github</li></a>
+        <a href="https://www.instagram.com/therealdanking/" target="_blank"><li>instagram</li></a>
+        <a href="mailto:chuan.e.king@gmail.com"><li>email me</li></a>
+      </ul>
+
+      <div class="about-site">
+        <h5>About this site</h5>
+      </div>
+
+      <div class="contact-embellishment"></div>
+
+    </section>
 
 
+
+    <script src="js/rellax.min.js"></script>
     <script type="text/javascript">
+      var rellax = new Rellax('.rellax', {
+        speed: 2
+      });
     </script>
 </body>
 </html>
