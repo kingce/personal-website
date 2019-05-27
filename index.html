@@ -8,88 +8,73 @@
 
     <title>Daniel King</title>
 
-    <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha884-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
     <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" integrity="sha256-HtCCUh9Hkh//8U1OwcbD8epVEUdBvuI8wj1KtqMhNkI=" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
 
-<!-- ========================================================================= -->
-<!-- Landing Page -->
-<!-- ========================================================================= -->
-<div class="scroll-indicator"></div>
 
-<div class="landing-background">
-    <div class="landing animated fadeInUp slow" >
-        <h1><span class="title">daniel.</span></h1>
-    </div>
-</div>
+    <nav>
+        <ul>
+            <a href=""><li>00. home</li></a>
+            <a href=""><li>01. about</li></a>
+            <a href=""><li>02. skills</li></a>
+            <a href=""><li>03. selected works</li></a>
+            <a href=""><li>04. contact</li></a>
+        </ul>
+    </nav>
 
-
-<!-- Bio -->
-
-<div class="info container-fluid">
-    <h3>Daniel King is a Taiwanese-American designer, developer, and student based in Bellingham, Washington. He is a believer in designing with intention and a strong advocate for inclusivity and diversity in STEM fields. Someday, he hopes to become a cat owner. Currently a computer science student at Western Washington University.</h3>
-
-    <hr>
-</div>
-
-
-
-<div class="contact container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <ul>
-                <li><a href="https://www.facebook.com/profile.php?id=100022710424140">facebook</a></li>
-                <li><a href="https://www.instagram.com/therealdanking/">instagram</a></li>
-                <li><a href="https://www.linkedin.com/in/daniel-king-8050aa150/">linkedin</a></li>
-                <li><a href="https://github.com/kingce">github</a></li>
-                <li><a href="mailto:chuan.e.king@gmail.com" target="_blank">email me</a></li>
-            </ul>
+    <section id="landing">
+        <div class="landing-name">
+            <h2>DANIEL KING</h2>
         </div>
-    </div>
-</div>
+        <div class="landing-title">
+          <h1>~$ front end <span class="blue">developer</span> & <span class="blue">designer</span> </h1>
+        </div>
+        <img class="landing-face" src="assets/face.jpg" alt="Picture of Daniel" align="middle" width=30% heigh=30%></img>
+        <div class="landing-embellishment"></div>
+    </section>
+
+    <section id="about">
+        <div class="about-num"><h1>01.</h1></div>
+        <div class="about side-title">
+            <h2>ABOUT</h2>
+        </div>
+
+        <div class="about-content">
+            <h3>Hey there! I'm Dan, a <span class="blue">designer</span>, <span class="blue">developer</span>, and <span class="blue">student</span> based in Bellingham, Washington.</h3>
+            <p>I'm passionate about user-centered design and the technology upon which it is built. As a current computer science student and a self-studying designer, I strive to create elegant and accessible online experiences.</p>
+            <p>I’m fascinated by interaction and motion design in the context of web, and I’m getting better at writing my own animations both in CSS and Javascript.</p>
+            <p>Currently, I’m employed as a web designer for WWU University Residences. In my free time, I enjoy hiking and powerlifting. Someday, I hope to become a cat owner.</p>
+            <p><a href="RESUME2018.pdf" target="_blank">Check out my resume</a></p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="skills-num"><h1>02.</h1></div>
+
+        <div class="skills side-title">
+            <h2>SKILLS</h2>
+        </div>
+
+        <div class="skills-content">
+          <h3>~$ I create <span class="blue">elegant</span> and <span class="blue">efficient</span>
+online experiences.</h3>
+          <p>
+        </div>
+    </section>
 
 
-<!-- SCRIPTS -->
+
+
     <script type="text/javascript">
-      
-        //Title change
-        var i = 0;
-        function changeTitle() { 
-            var titles = ["daniel.", "designer.", "developer." ];
-            $('.title').fadeOut(500, function() { 
-                $('.title').text(titles[i]).fadeIn(500);
-            });
-            i=(i+1)%titles.length;
-        }
-
-        setInterval(changeTitle,3000);
-
-       //Title Scrolling rates
-        //Scroll Bar 
-        $(window).scroll(function() { 
-            var wintop = $(window).scrollTop();
-            var docheight = $(document).height();
-            var winheight = $(window).height();
-            var scrolled = (wintop/(docheight-winheight))*100;
-            console.log(wintop);
-
-            $('.scroll-indicator').css("width", (scrolled + "%"));
-
-        });
-
     </script>
 </body>
 </html>
