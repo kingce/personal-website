@@ -4,12 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="assets/power.png">
 
     <title>Daniel King</title>
-
-    <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha884-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -20,46 +16,45 @@
   crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" integrity="sha256-HtCCUh9Hkh//8U1OwcbD8epVEUdBvuI8wj1KtqMhNkI=" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
 
-<!-- ========================================================================= -->
-<!-- Landing Page -->
-<!-- ========================================================================= -->
-<div class="scroll-indicator"></div>
 
-<div class="landing-background">
-    <div class="landing animated fadeInUp slow" >
-        <h1><span class="title">daniel.</span></h1>
-    </div>
-</div>
+    <div class="bg">
+        <div class="bg-1-wrapper">
+            <div class="bg-1-pre">
+            </div>
+            <div class="bg-1">
+                <h3>01. past</h3>
+            </div>
+        </div>
 
+        <div class="bg-2-wrapper">
+            <div class="bg-2-pre">
+            </div>
+            <div class="bg-2">
+                <h3>02. present</h3>
+            </div>
+        </div>
 
-<!-- Bio -->
-
-<div class="info container-fluid">
-    <h3>Daniel King is a Taiwanese-American designer, developer, and student based in Bellingham, Washington. He is a believer in designing with intention and a strong advocate for inclusivity and diversity in STEM fields. Someday, he hopes to become a cat owner. Currently a computer science student at Western Washington University.</h3>
-
-    <hr>
-</div>
-
-
-
-<div class="contact container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <ul>
-                <li><a href="https://www.facebook.com/profile.php?id=100022710424140">facebook</a></li>
-                <li><a href="https://www.instagram.com/therealdanking/">instagram</a></li>
-                <li><a href="https://www.linkedin.com/in/daniel-king-8050aa150/">linkedin</a></li>
-                <li><a href="https://github.com/kingce">github</a></li>
-                <li><a href="mailto:chuan.e.king@gmail.com" target="_blank">email me</a></li>
-            </ul>
+        <div class="bg-3-wrapper">
+            <div class="bg-3-pre">
+            </div>
+            <div class="bg-3">
+                <h3>03. future</h3>
+            </div>
         </div>
     </div>
-</div>
+
+    <div class="main-container">
+        <h1>THIS SITE IS <span class="title-emphasis">TEMPORARY</span></h1>
+    </div>
+
+    <div class="past">
+        
+    </div>
 
 
 <!-- SCRIPTS -->
@@ -67,17 +62,16 @@
       
         //Title change
         var i = 0;
-        function changeTitle() { 
-            var titles = ["daniel.", "designer.", "developer." ];
-            $('.title').fadeOut(500, function() { 
-                $('.title').text(titles[i]).fadeIn(500);
+        function changeText() { 
+            var text = ["TEMPORARY", "EPHEMERAL", "A PLACEHOLDER", "PRETENTIOUS", "BY DANIEL", "A PORTFOLIO" ];
+            $('.title-emphasis').fadeOut(100, function() { 
+                $('.title-emphasis').text(text[i]).fadeIn(100);
             });
-            i=(i+1)%titles.length;
+            i=(i+1)%text.length;
         }
 
-        setInterval(changeTitle,3000);
+        setInterval(changeText, 1000);
 
-       //Title Scrolling rates
         //Scroll Bar 
         $(window).scroll(function() { 
             var wintop = $(window).scrollTop();
@@ -91,5 +85,7 @@
         });
 
     </script>
+    <script src="js/mousefollower.js"></script>
+    <script src="js/modals.js"></script>
 </body>
 </html>
