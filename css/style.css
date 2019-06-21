@@ -61,7 +61,7 @@ html, body {
   height: 900vh;
   width: 100%;
   z-index:998;
-  animation: reveal-site 1s ease forwards;
+  animation: reveal-site .5s ease forwards;
   animation-delay: 3s;
 }
 
@@ -97,8 +97,8 @@ html, body {
   position: absolute;
   height: 900vh;
   width: 100%;
-  animation: reveal-site 1s ease forwards;
-  animation-delay: 3.5s;
+  animation: reveal-site .5s ease forwards;
+  animation-delay: 3.3s;
 }
 
 @keyframes dan-swipe {
@@ -136,6 +136,8 @@ html, body {
     left: 100%;
   }
 }
+
+
 /*--- NAVIGATION ---*/
 
 nav {
@@ -263,7 +265,7 @@ nav li {
     position: absolute;
     display: block;
     background-color: var(--accent-color);
-    height: 150px;
+    height: 17vh;
     width: 10px;
     top: 55%;
     right: 3%;
