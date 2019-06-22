@@ -24,26 +24,23 @@
 
     <div class="bg">
         <div class="bg-1-wrapper">
-            <div class="bg-1-pre">
+            <div class="bg-pre">
             </div>
             <div class="bg-1">
-                <h3>01. past</h3>
             </div>
         </div>
 
         <div class="bg-2-wrapper">
-            <div class="bg-2-pre">
+            <div class="bg-pre">
             </div>
             <div class="bg-2">
-                <h3>02. present</h3>
             </div>
         </div>
 
         <div class="bg-3-wrapper">
-            <div class="bg-3-pre">
+            <div class="bg-pre">
             </div>
             <div class="bg-3">
-                <h3>03. future</h3>
             </div>
         </div>
     </div>
@@ -51,19 +48,42 @@
     <div class="main-container">
         <h1>THIS SITE IS <span class="title-emphasis">TEMPORARY</span></h1>
     </div>
+    
+    <div class="nav-list">
+        <ul>
+            <li id="about-button">+ ABOUT</li>
+            <li><a href="https://github.com/kingce" target="_blank">+ GITHUB</a></li>
+            <li><a href="https://www.linkedin.com/in/daniel-king-8050aa150/" target="_blank">+ LINKEDIN</a></li>
+            <li><a href="mailto:chuan.e.king@gmail.com">+ EMAIL</a></li>
+            <li id="toggle_colorscheme">+ TOGGLE LIGHT/DARK MODE</li>
+        </ul>
+    </div>
 
-    <div class="past">
-        
+    <div id="transition_about">
+    </div>
+
+    <div id="about">
+        <div class="about-site">
+            <h3>+ about the site</h3>
+            <p>Like a lot of student designers, the author of the site likes to experiment and frequently redesign his portfolio page way too often. This site serves as a nicer looking 'Work In Progress' sign. It might be gone tomorrow. It might be here forever.</p>
+            <p><em>Built by scratch with HTML, CSS, jQuery, and GSAP by Daniel King.</em></p>
+        </div>
+
+        <div class="about-author">
+            <h3>+ about daniel</h3>
+            <p>Daniel King is a 20 year old designer, developer, and student based in Bellingham, Washington. He is currently employed as a web designer at WWU University Residences. In his free time, he enjoys reading, writing, and powerlifting. You can view his resume <a href="assets/RESUME2018.pdf" target="_blank">here</a>.</p>
+        </div>
     </div>
 
 
 <!-- SCRIPTS -->
-    <script type="text/javascript">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+<script type="text/javascript">
       
         //Title change
         var i = 0;
         function changeText() { 
-            var text = ["TEMPORARY", "EPHEMERAL", "A PLACEHOLDER", "PRETENTIOUS", "BY DANIEL", "A PORTFOLIO" ];
+            var text = ["TEMPORARY", "EPHEMERAL", "A PLACEHOLDER", "PRETENTIOUS", "BY DANIEL", "A PERSONAL SITE" ];
             $('.title-emphasis').fadeOut(100, function() { 
                 $('.title-emphasis').text(text[i]).fadeIn(100);
             });
@@ -87,5 +107,6 @@
     </script>
     <script src="js/mousefollower.js"></script>
     <script src="js/modals.js"></script>
+    <script src="js/color.js"></script>
 </body>
 </html>

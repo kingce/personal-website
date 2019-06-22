@@ -2,48 +2,57 @@
 //6.21.2019
 //Daniel King
 //
-//Custom modal implementation for placeholder website
+//Code for the modal-ish thing that happens and a bunch of other random fuckery
 //OBVIOUSLY REQUIRES JQUERY 
 
-function bg1_hover_in() { 
-    var bgpre = document.getElementsByClassName('bg-1-pre');
-    $(bgpre).toggleClass("bg-1-transition");
+function aboutClick() { 
+    document.getElementById('about-button').innerHTML = '+ HOME';
+    var x = document.getElementById('about');
+    var y = document.getElementById('transition_about');
+
+
+    //This is probably the world's most ghetto animation setup
+    //Pls make not bad 
+    $(document.getElementById('about-button')).css("pointer-events", "none");
+    $(y).addClass("transition_about_swipe"); 
+    setTimeout(function(){
+        x.style.display = "grid";
+        setTimeout(function() { 
+            $(y).removeClass("transition_about_swipe");
+            $(document.getElementById('about-button')).css("pointer-events", "auto");
+        },1000);
+    },500);
 }
 
-function bg1_hover_out() { 
-    var bgpre = document.getElementsByClassName('bg-1-pre');
-    $(bgpre).toggleClass("bg-1-transition"); 
+function backClick() { 
+    document.getElementById('about-button').innerHTML = '+ ABOUT';
+    var x = document.getElementById('about');
+    var y = document.getElementById('transition_about');
+    $(document.getElementById('about-button')).css("pointer-events", "none");
+    $(y).addClass("transition_about_swipe"); 
+    setTimeout(function(){
+        x.style.display = "none";
+        setTimeout(function() { 
+            $(y).removeClass("transition_about_swipe");
+            $(document.getElementById('about-button')).css("pointer-events", "auto");
+        },1000);
+    },500);
 }
-
-function bg2_hover_in() { 
-    var bgpre = document.getElementsByClassName('bg-2-pre');
-    $(bgpre).toggleClass("bg-2-transition");
-}
-
-function bg2_hover_out() { 
-    var bgpre = document.getElementsByClassName('bg-2-pre');
-    $(bgpre).toggleClass("bg-2-transition"); 
-}
-
-function bg3_hover_in() { 
-    var bgpre = document.getElementsByClassName('bg-3-pre');
-    $(bgpre).toggleClass("bg-3-transition");
-}
-
-function bg3_hover_out() { 
-    var bgpre = document.getElementsByClassName('bg-3-pre');
-    $(bgpre).toggleClass("bg-3-transition"); 
-}
-
 
 $(document).ready(() => { 
+    var aboutActive = false;
 
-    $(".bg-1 h3").hover(bg1_hover_in, bg1_hover_out);
-    $(".bg-2 h3").hover(bg2_hover_in, bg2_hover_out);
-    $(".bg-3 h3").hover(bg3_hover_in, bg3_hover_out);
+    $("#about-button").click(function() { 
 
-    $(".bg-1 h3").click(function() { 
-        console.log('heya');
+        if(aboutActive) { 
+            backClick();
+        } else { 
+            aboutClick();
+        }
+        aboutActive = !aboutActive;
     });
 
+    
+
 });
+
