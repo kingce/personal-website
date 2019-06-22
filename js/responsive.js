@@ -1,7 +1,7 @@
 //Responsive about slider cos i'm too lazy to write actual content LOL 
 
 function toggleMenu() { 
-    if( $(window).width() <= 400) { 
+    if( $(window).width() <= 500) { 
         var expanded = false;
 
         var x = document.getElementById('mobile-menu');
@@ -29,7 +29,7 @@ function toggleMenu() {
 $(document).ready(() => { 
     toggleMenu();
     if($(window).resize(() => { 
-        if($(window).width() >= 400) { 
+        if($(window).width() >= 500) { 
             console.log('yeet this outta here');
             document.getElementById('mobile-menu').style.display = 'none';
         } else { 

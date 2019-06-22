@@ -206,7 +206,7 @@ li a {
 
 
 /*--- SMARTPHONES (iphone 5s at 320px according to google console) ---*/
-@media only screen and (max-width : 400px) {
+@media only screen and (max-width : 500px) {
     /* TITLE */
     .main-container { 
         top: 35%;
