@@ -8,19 +8,19 @@
     <title>Daniel King</title>
 
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha884-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
     <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" integrity="sha256-HtCCUh9Hkh//8U1OwcbD8epVEUdBvuI8wj1KtqMhNkI=" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
 
+    <div id="mobile-menu">
+        <h2>> ABOUT</h2>
+    </div>
 
     <div class="bg">
         <div class="bg-1-wrapper">
@@ -92,21 +92,10 @@
 
         setInterval(changeText, 1000);
 
-        //Scroll Bar 
-        $(window).scroll(function() { 
-            var wintop = $(window).scrollTop();
-            var docheight = $(document).height();
-            var winheight = $(window).height();
-            var scrolled = (wintop/(docheight-winheight))*100;
-            console.log(wintop);
-
-            $('.scroll-indicator').css("width", (scrolled + "%"));
-
-        });
-
     </script>
     <script src="js/mousefollower.js"></script>
     <script src="js/modals.js"></script>
     <script src="js/color.js"></script>
+    <script src="js/responsive.js"></script>
 </body>
 </html>

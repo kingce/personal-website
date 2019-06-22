@@ -21,6 +21,7 @@ html, body {
 /* --- BAKCGROUND STUFF --- */
 
 .bg { 
+    position: fixed;
     background-color: #333;
     width: 100%;
     height:100vh;
@@ -177,6 +178,12 @@ li a {
     color: var(--main-text-color);
 }
 
+.mobile-menu { 
+    display: none;
+}
+.mobile-menu h2 { 
+    display: none;
+}
 
 /*--- ANIMATIONS ---*/
 
@@ -197,18 +204,68 @@ li a {
 }
 
 
+/*--- SMARTPHONES (iphone 5s at 320px according to google console) ---*/
+@media only screen and (max-width : 400px) {
+    /* TITLE */
+    .main-container { 
+        top: 35%;
+        position: absolute;
+        padding-left: 25px;
+    }
 
-@media only screen and (max-width: 900px) {
-    .landing h1 { 
-        font-size: 50px;
+    .main-container h1 { 
+        font-size: 30px;
+        letter-spacing:2.5px;
     }
-    .landing { 
-        width: 80%;
-        margin: 0 10%;
+
+    /* HIDE NAV LIST FOR THAT SPICY MINIMALISM */
+    /* JK IM LAZY AND I DONT WANNA WRITE MORE CODE */
+    .nav-list { 
+        display: none;
     }
-   
-    h3 { 
-        font-size: 23px;
+
+    /* ABOUT */
+    #about { 
+        position: absolute;
+        height: auto;
+        top: 100%;
+        display: none;
+    }
+
+    .about-site, .about-author { 
+        grid-columns-start: initial;
+        grid-column-end: initial;
+        position: relative;
+        padding: 25px;
+        margin-bottom: 50px;
+    }
+
+    
+
+    /* MOBILE ONLY STUFF */
+
+    #mobile-menu { 
+        width:100%;
+        height: 50px;
+        background-color: var(--about-secondary);
+        position: fixed;
+        bottom: 0;
+        z-index: 15;
+        display: block;
+        cursor: pointer;
+    }
+    
+    #mobile-menu h2{ 
+        position: absolute;
+        line-height: 0;
+        margin-left: 25px;
+        margin-top: 25px;
+        font-family: var(--secondary-font);
+        
+    }
+
+    .bg-1, .bg-2, .bg-3 { 
+        border-right: none;
     }
 
 }
