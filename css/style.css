@@ -205,6 +205,33 @@ li a {
 }
 
 
+/*--- fix for wonky height issues --- */
+@media only screen and (max-height: 800px) { 
+    .main-container { 
+        top: 45%;
+    }
+
+    .main-container h1 { 
+        font-size: 45px;
+        letter-spacing: 3px;
+    }
+
+    .about-author p, .about-site p { 
+        font-size: 15px;
+    }
+
+    .about-author h3, .about-site h3 { 
+        font-size: calc(15px * 1.618);
+    }
+
+    .about-author, .about-site { 
+        padding: 0px 50px 0px 0px;
+        position: absolute; 
+        top: 15%;
+    }
+
+}
+
 /*--- SMARTPHONES (iphone 5s at 320px according to google console) ---*/
 @media only screen and (max-width : 500px) {
     /* TITLE */
