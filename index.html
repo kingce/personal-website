@@ -18,6 +18,10 @@
 
 <body>
 
+    <div class="preloader">
+        <h1>loading unnecessary javascript...</h1>
+    </div>
+
     <div id="mobile-menu">
         <h2>> ABOUT</h2>
     </div>
@@ -78,19 +82,64 @@
 
 <!-- SCRIPTS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-<script type="text/javascript">
-      
-        //Title change
-        var i = 0;
-        function changeText() { 
-            var text = ["TEMPORARY", "EPHEMERAL", "A PLACEHOLDER", "PRETENTIOUS", "BY DANIEL", "A PERSONAL SITE" ];
-            $('.title-emphasis').fadeOut(100, function() { 
-                $('.title-emphasis').text(text[i]).fadeIn(100);
-            });
-            i=(i+1)%text.length;
-        }
+    <script src="js/baffle.min.js"></script>
+    <script type="text/javascript">
+        //PRELOADER ANIMS
+        
+        //Call baffler
+        const preloaderText = baffle(".preloader h1");
+        preloaderText.set({
+            speed: 75 
+        });
+        preloaderText.start();
+        preloaderText.reveal(3000);
 
-        setInterval(changeText, 1000);
+        setTimeout(() => { 
+            TweenMax.to(".preloader h1", 1, {
+                opacity: 0, 
+                y: 70,
+                ease: Expo.easeInOut
+            });
+
+            TweenMax.to(".preloader", 1, { 
+                delay: 1,
+                top: "-100%",
+                ease: Expo.easeInOut
+            });
+
+            TweenMax.from(".main-container h1", 1, { 
+                delay: 1.5,
+                opacity: 0,
+                y: 35, 
+                ease: Expo.easeInOut
+            });
+
+            TweenMax.staggerFrom(".nav-list li", 1, { 
+                delay: 1.7,
+                opacity: 0,
+                ease: Expo.easeInOut
+            }, 0.2);
+
+            
+        }, 3000);
+
+        
+    </script>
+    <script type="text/javascript">
+            var text = ["TEMPORARY", "EPHEMERAL", "A PLACEHOLDER", "PRETENTIOUS", "BY DANIEL", "A PERSONAL SITE" ];
+      
+        setTimeout(() => { 
+            var i = 0;
+            function changeText() { 
+                $('.title-emphasis').fadeOut(100, function() { 
+                    $('.title-emphasis').text(text[i]).fadeIn(100);
+                });
+                i=(i+1)%text.length;
+            }
+
+            setInterval(changeText, 1000);
+        }, 7000);
+
 
     </script>
     <script src="js/mousefollower.js"></script>
