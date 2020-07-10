@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400&family=Montserrat:ital,wght@0,900;1,900&display=swap');
 @import 'preloader.css';
 
 :root { 
     --off-black: #201F1F;
     --off-white: #EEEADD;
+    --light-gray: #D2D2D2;
 
     --dark-blue: #052332;
     --medium-blue: #00486B;
@@ -45,6 +46,30 @@ body {
     -ms-overflow-style:none;
 }
 
+
+/* ------------- BACKGROUND ------------- */
+.background-colorbox { 
+    background-color: var(--off-black);
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    z-index: -3;
+    margin: 0;
+    top: 0;
+}
+
+.secondary-bg-box { 
+    position: absolute;
+    display: block;
+    right:0;
+    top: 0;
+    width: 51vw;
+    height: 0vw;
+    background-color: var(--off-white);
+    z-index: -1;
+}
+
+
 /* -- CURSOR -- */
 
 .goo { 
@@ -56,7 +81,7 @@ body {
     position: fixed;
     display: block;
     border-radius: 0;
-    -wbekit-transform-origin: center center;
+    -webkit-transform-origin: center center;
     transform-origin: center center;
     mix-blend-mode: difference;
     top: 0;
@@ -97,6 +122,7 @@ body {
 }
 
 .lightswitch { 
+    cursor: pointer;
     width: 130px;
     height: 45px;
     position: absolute;
@@ -142,7 +168,7 @@ body {
     width: 51vw;
     height: 67vw;
     background-color: var(--off-black);
-    z-index: -1;
+    z-index: -2;
 }
 
 .main-dec { 
@@ -187,7 +213,7 @@ body {
     margin: 0;
 }
 
-.about-title::before { 
+.light-bar::before { 
     content: "";
     position: absolute;
     left: 18vw;
@@ -197,8 +223,18 @@ body {
     background-color: var(--off-white);
 }
 
+.dark-bar::before { 
+    content: "";
+    position: absolute;
+    left: 18vw;
+    top: 39%;
+    width: 30vw;
+    height: 2.5vw;
+    background-color: var(--off-black);
+}
+
 .about-text { 
-    font-family: var(--main-font);
+    font-family: var(--secondary-font);
     font-size: 1.75em;
     line-height: 1.75em;
 }
@@ -206,5 +242,170 @@ body {
 .about-image { 
     width: 100%;
 }
+
+
+/* ------------- SELECT ------------- */
+
+.select { 
+    position: relative;
+    height: 25vw;
+}
+
+.select-dark-box { 
+    width: 45vw;
+    height: 25vw;
+    background-color: var(--off-black);
+    position: absolute;
+
+}
+
+.select-word { 
+    font-family: var(--main-font);
+    font-size: 9vw;
+    font-weight: 100;
+    margin: 0;
+    color: var(--off-white);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 3vw;
+}
+
+.works-word { 
+    font-family: var(--main-font);
+    font-size: 9vw;
+    font-weight: 100;
+    margin: 0;
+    color: var(--off-black);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 48vw;
+}
+
+/* ------------- LEFT PROJECT BOX ------------- */
+
+.left-project { 
+    margin-top: 10vw;
+    height: 44vw;
+    position: relative;
+}
+
+.info-box { 
+    background-color: var(--off-black);
+    width: 30vw;
+    height: 37vw;
+    padding: 3.5vw;
+   
+}
+
+.info-content { 
+    color: var(--off-white);
+    font-family: var(--secondary-font);
+}
+
+.info-content h3 { 
+    font-size: 2vw;
+}
+
+.info-content p { 
+    font-size: 1.25vw;
+    line-height: 2vw;
+    font-weight: 300;
+}
+
+.lighter-text { 
+    font-weight: 300;
+}
+
+.project-link { 
+    font-family: var(--dec-font);
+    padding: 1vw 0;
+}
+
+.project-link a { 
+    text-decoration: none;
+    color: var(--off-white);
+}
+
+.left-project h1 { 
+    position: absolute;
+    left: 40vw;
+    font-size: 10vw;
+    font-family: var(--main-font);
+    font-weight: 100;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.gray-box { 
+    width: 55vw;
+    height: 15vw;
+    position: absolute;
+    right: 7vw;
+    bottom: 7vw;
+    background-color: var(--light-gray);
+    z-index: -1;
+}
+
+/* ------------- LEFT PROJECT BOX ------------- */
+
+.other-wrapper { 
+    margin-top: 15vw;
+}
+
+.other-title { 
+    position: relative;
+    margin: 21vw 0;
+}
+
+.other-heading { 
+    font-family: var(--main-font);
+    font-size: 7vw;
+    font-weight: 100;
+    text-align: center;
+}
+
+.other-bg-box { 
+    z-index: -1;
+    background-color: var(--light-gray);
+    width: 7vw;
+    height: 15vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ------------- OTHER PROJECTS ------------- */
+
+.other-project { 
+    margin: 10vw 0;
+}
+
+.other-project a { 
+    text-decoration: none;
+    color: var(--off-black);
+}
+
+.other-project-title { 
+    font-family: var(--main-font);
+    font-size: 7vw;
+    font-weight: 100;
+    text-align: center;
+    margin: 0;
+}
+
+.other-project-subtitle { 
+    font-family: var(--secondary-font);
+    font-size: 2vw;
+    font-weight: 700;
+    text-align: center;
+    color: #707070;
+    margin: 0;
+}
+
+
+
 
 
