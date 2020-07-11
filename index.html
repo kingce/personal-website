@@ -50,7 +50,7 @@
             </div>
             <div class="secondary-bg-box">
             </div>
-            <h1 class="main-dec">'20</h1>
+            <h1 class="rellax main-dec" data-relax-speed="7">'20</h1>
         </div>
 
         <div class="about">
@@ -73,7 +73,7 @@
             </div>
             <div class="select-light-box">
             </div>
-            <h1 class="works-word">WORKS</h1>
+            <h1 class="rellax works-word" data-rellax-speed="3">WORKS</h1>
         </div>
 
         <div class="left-project">
@@ -90,7 +90,7 @@
                 </div>
             </div>
 
-            <div class="gray-box">
+            <div class="rellax gray-box" data-rellax-speed="-3">
             </div>
 
             <h1>WTA<br>APP<br>CONCEPT</h1>
@@ -99,7 +99,7 @@
         <div class="other-wrapper">
             <div class="other-title">
                 <h1 class="other-heading">OTHER</h1>
-                <div class="other-bg-box"></div>
+                <div class="other-bg-box" ></div>
             </div>
 
             <div class="other-project">
@@ -109,7 +109,7 @@
                 </a>
             </div>
             <div class="other-project">
-                <a href="">
+                <a target="_blank" href="https://github.com/pdfgrader/pdfgrader">
                     <h1 class="other-project-title">PDFGRADER</h1>
                     <h3 class="other-project-subtitle"><em>software</em></h3>
                 </a>
@@ -123,7 +123,17 @@
 
         </div>
 
+        <div class="contact">
+            <div class="bg-box">
+            </div>
+            <h1 class="contact-text"><em><span class="contact-ree">CO</span><span class="tact short-lightbar">NTACT</span></em></h1>
+        </div>
+
     </div>
+
+    <footer>
+        <h3>&#169; DANIEL KING 2020</h3>
+    </footer>
 
 
     <!-- SCRIPTS -->
@@ -132,5 +142,11 @@
     <script src="js/modals.js"></script>
     <script src="js/color.js"></script>
     <script src="js/responsive.js"></script>
+    <script src="js/rellax.min.js"></script>
+    <script>
+        var rellax = new Rellax('.rellax', { 
+            center: true
+        });
+    </script>
 </body>
 </html>

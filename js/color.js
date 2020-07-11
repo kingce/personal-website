@@ -31,6 +31,9 @@ $(document).ready(() => {
             $(".about-title").removeClass("light-bar");
             $(".about-title").addClass("dark-bar");
 
+            $(".tact").removeClass("short-lightbar");
+            $(".tact").addClass("short-darkbar");
+
         } else { 
             console.log("TURNING LIGHTS ON, BAKA");
             // Light switch animation
@@ -56,6 +59,8 @@ $(document).ready(() => {
 
             $(".about-title").removeClass("dark-bar");
             $(".about-title").addClass("light-bar");
+            $(".tact").removeClass("short-darkbar");
+            $(".tact").addClass("short-lightbar");
         }
 
         light = !light;

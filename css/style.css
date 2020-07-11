@@ -249,6 +249,7 @@ body {
 .select { 
     position: relative;
     height: 25vw;
+    margin-top: 5vw;
 }
 
 .select-dark-box { 
@@ -351,7 +352,7 @@ body {
 /* ------------- LEFT PROJECT BOX ------------- */
 
 .other-wrapper { 
-    margin-top: 15vw;
+    margin-top: 17vw;
 }
 
 .other-title { 
@@ -405,7 +406,69 @@ body {
     margin: 0;
 }
 
+/* ------------- CONTACT ------------- */
 
+.contact { 
+    position: relative;
+    min-height: 30vw;
+}
+
+.contact-text { 
+    font-family: var(--secondary-font);
+    font-weight: 700;
+    position: absolute;
+    right: 5vw;
+    bottom: 0;
+    margin: 0;
+    font-size: 15vw;
+    color: var(--off-black);
+}
+
+.contact-ree { 
+    color: var(--off-white);
+}
+
+.bg-box { 
+    background-color: var(--off-black);
+    height: 35vw;
+    width: 39.5vw;
+    z-index: -1;
+    bottom: 0;
+    position: absolute;
+}
+
+.contact { 
+    margin-top: 15vw;
+}
+
+.short-lightbar::before { 
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 39%;
+    width: 33vw;
+    height: 5vw;
+    background-color: var(--off-white);
+}
+
+.short-darkbar::before { 
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 39%;
+    width: 33vw;
+    height: 5vw;
+    background-color: var(--off-black);
+}
+
+/* ------------- FOOTER SHIT ------------- */
+
+footer h3 { 
+    font-family: var(--dec-font);
+    font-size: 3vw;
+    text-align: center;
+    color: var(--off-black);
+}
 
 
 
