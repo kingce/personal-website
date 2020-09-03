@@ -151,6 +151,7 @@ body {
     font-family: var(--main-font);
     font-weight: 200;
     font-size: 15vw;
+    color: var(--off-black);
     margin: 0;
     position: absolute;
     top: 10vw;
@@ -235,8 +236,8 @@ body {
 
 .about-text { 
     font-family: var(--secondary-font);
-    font-size: 1.75em;
-    line-height: 1.75em;
+    font-size: 1.25vw;
+    line-height: 2.25vw;
 }
 
 .about-image { 
