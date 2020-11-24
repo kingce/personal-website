@@ -8,6 +8,8 @@
     <title>Daniel King</title>
 
 
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/c0acad0f63.js" crossorigin="anonymous"></script>
     <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -30,66 +32,80 @@
 
 <body>
 
-    <div class="preloader">
-        <h1>loading unnecessary javascript...</h1>
-    </div>
-
-    <div id="mobile-menu">
-        <h2>> ABOUT</h2>
-    </div>
-
-    <div class="bg">
-        <div class="bg-1-wrapper">
-            <div class="bg-pre">
-            </div>
-            <div class="bg-1">
-            </div>
+    <div class="landing">
+        <div class="title-block">
+            <h1 class="title off-white">DANIEL KING</h1>
+            <h3 class="subtitle off-white">DESIGNER & DEVELOPER</h3>
         </div>
 
-        <div class="bg-2-wrapper">
-            <div class="bg-pre">
-            </div>
-            <div class="bg-2">
-            </div>
-        </div>
+        <div class="circle-1"></div>
+        <div class="circle-2"></div>
+        <div class="circle-3"></div>
 
-        <div class="bg-3-wrapper">
-            <div class="bg-pre">
-            </div>
-            <div class="bg-3">
-            </div>
+    </div>
+
+    <div class="vertical-spacer-1x"></div>
+
+    <div class="about spacing-pre">
+        <div class="section-title-container">
+            <div class="bar"></div>
+            <h5 class="section-title off-white">ABOUT</h5>
+        </div>
+        <div class="section-content">
+            <p class="off-white">Heya! &#x270c; I'm Daniel - A Taiwanese-American student, designer, and developer based in Washington. I'm currently employed as a web designer at WWU's University Residence's Technology Department. If civilization doesn't crumble by then, I'll graduate Spring 2021 with a Bachelors in Computer Science and a double minor in Mathematics and UX Design.</p>
+            <p class="off-white">I'm pretty passionate about the way we interact with online interfaces and how we can make these experiences interesting yet accessible to everyone. In my free time, I enjoy illustrating, writing, powerlifting, keyboards, and tea.</p>
+            <p class="off-white">You can download my resume <a href=""><strong>here</strong></a>.</p>
         </div>
     </div>
 
-    <div class="main-container">
-        <h1>THIS SITE IS <span class="title-emphasis">TEMPORARY</span></h1>
-    </div>
-    
-    <div class="nav-list">
-        <ul>
-            <li id="about-button">+ ABOUT</li>
-            <li><a href="https://github.com/kingce" target="_blank">+ GITHUB</a></li>
-            <li><a href="https://www.linkedin.com/in/daniel-king-8050aa150/" target="_blank">+ LINKEDIN</a></li>
-            <li><a href="mailto:chuan.e.king@gmail.com">+ EMAIL</a></li>
-            <li id="toggle_colorscheme">+ TOGGLE LIGHT/DARK MODE</li>
-        </ul>
-    </div>
+    <div class="vertical-spacer-1x"></div>
 
-    <div id="transition_about">
+    <div class="section-title-container">
+        <h5 class="section-title off-white">PROJECTS</h5>
     </div>
-
-    <div id="about">
-        <div class="about-site">
-            <h3>+ about the site</h3>
-            <p>Like a lot of student designers, the author of the site likes to experiment and frequently redesign his portfolio page way too often. This site serves as a nicer looking 'Work In Progress' sign. It might be gone tomorrow. It might be here forever.</p>
-            <p><em>Built by scratch with HTML, CSS, jQuery, and GSAP by Daniel King.</em></p>
+    <div class="project-list section-content">
+        <div class="project-container">
+            <a href="">
+            <h5 class="project-title off-white">DAILY</h5>
+            </a>
         </div>
 
-        <div class="about-author">
-            <h3>+ about daniel</h3>
-            <p>Daniel King is a 20 year old designer, developer, and student based in Bellingham, Washington. He is currently employed as a web designer at WWU University Residences. In his free time, he enjoys reading, writing, and powerlifting. You can view his resume <a href="assets/RESUME2018.pdf" target="_blank">here</a>.</p>
+        <div class="project-container">
+            <a href="">
+            <h5 class="project-title off-white">WTA APP CONCEPT</h5>
+            </a>
+        </div>
+
+        <div class="project-container">
+            <a href="">
+            <h5 class="project-title off-white">PDFGrader</h5>
+            </a>
+        </div>
+
+        <div class="project-container">
+            <a href="">
+            <h5 class="project-title off-white">ACM Website</h5>
+            </a>
         </div>
     </div>
+
+    <div class="vertical-spacer-1x"></div>
+
+    <div class="contact">
+        <div class="section-title-container">
+            <div class="bar"></div>
+            <h5 class="section-title off-white">CONTACT</h5>
+        </div>
+        <div class="section-content-row">
+            <a href="#"><i class="fab fa-behance"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <footer>
+        <p class="off-white">&copy; 2020 | Designed and Developed by Daniel King</p>
+    </footer>
 
 
 <!-- SCRIPTS -->
@@ -136,23 +152,6 @@
         }, 3000);
 
         
-    </script>
-    <script type="text/javascript">
-            var text = ["TEMPORARY", "EPHEMERAL", "A PLACEHOLDER", "MINIMAL", "BY DANIEL", "A PERSONAL SITE", "DISGUSTANG", "IMPERMANENT", "INTERIM", "SHORT TERM", "PRETENTIOUS" ];
-      
-        setTimeout(() => { 
-            var i = 0;
-            function changeText() { 
-                $('.title-emphasis').fadeOut(150, function() { 
-                    $('.title-emphasis').text(text[i]).fadeIn(150);
-                });
-                i=(i+1)%text.length;
-            }
-
-            setInterval(changeText, 1000);
-        }, 7000);
-
-
     </script>
     <script src="js/mousefollower.js"></script>
     <script src="js/modals.js"></script>
