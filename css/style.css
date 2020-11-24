@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,900;1,200;1,400&display=swap');
 
 :root { 
-    --main-font: 'Montserrat', sans-serif;
+    --main-font: 'Nunito', sans-serif;
+    --title-font: 'Montserrat', sans-serif;
     --bg-color: #02070f;
 
     /* used to be 201f1f */
@@ -10,6 +11,9 @@
     --off-white: #EEEADD;
 
     --pale-white: #DFDFDF;
+    --pale-gray: #6F6F6F;
+    --pale-blue: #D0D2D8;
+    --pale-pink: #D7CED8;
 }
 
 ::selection { 
@@ -36,13 +40,49 @@ html, body {
 }
 
 .font-color-dark { 
-    color: var(--pale-white);
+    color: var(--off-black);
 }
 
+/* ARROW STUFF
+ * ------------------------------------------------*/
+
+.arrow { 
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    z-index: 3;
+    animation: upDown 2.5s ease-in-out infinite;
+}
+
+@keyframes upDown { 
+   0%, 100% { 
+       bottom: 10%;
+   }
+
+   50% { 
+       bottom: 13%;
+   }
+}
 
 /* ------------- Spacing ------------- */
 .vertical-spacer-1x { 
     height: 7em;
+}
+
+/* ------------- Typography ---------- */
+
+p { 
+    font-family: var(--main-font);
+    font-weight: 400;
+    font-size: 1.25em;
+    line-height: 2em;
+}
+
+p a { 
+    color: var(--off-black);
+    text-decoration: none;
 }
 
 /* ------------- Hero ------------- */
@@ -52,15 +92,45 @@ html, body {
     position: relative;
 }
 
+.bg-title { 
+    position: absolute;
+    z-index: 1;
+    font-size: 170vh;
+    line-height: 0;
+    margin: 0;
+
+    /* unable to select */
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.bg-title-d { 
+    color: var(--pale-blue);
+    top: 30%;
+    left: -30%;
+}
+
+.bg-title-k { 
+    top: 50%;
+    right: -30%;
+    color: var(--pale-pink);
+}
+
+
 .title-block { 
     position: absolute;
-    top: 50%;
+    top: 33%;
     left: 7%;
     transform: translate(0%, -50%);
+    z-index: 3;
 }
+
 .title { 
-    font-family: var(--main-font);
-    font-size: 3.5vw;
+    font-family: var(--title-font);
+    font-size: 5em; 
     font-weight: 900;
     line-height: 25%;
 }
@@ -122,31 +192,20 @@ html, body {
     position: relative;
     font-family: var(--main-font);
     font-weight: 200;
-    font-size: 2.5em;
+    font-size: 3em;
     position: relative;
     padding-left: 5em;
+    margin: 1em 0 0;
 }
 
 .section-title::before { 
     content: '';
     width: 2em;
-    border-bottom: solid 5px var(--off-white);
+    border-bottom: solid 5px var(--pale-gray);
     position: absolute; 
     left: 2em;
     top: 50%;
     z-index: 1;
-}
-
-p { 
-    font-family: var(--main-font);
-    font-weight: 200;
-    font-size: 1.5em;
-    line-height: 2em;
-}
-
-p a { 
-    color: white;
-    text-decoration: none;
 }
 
 .section-title-container { 
@@ -157,6 +216,33 @@ p a {
     margin: 2em 13em 0 3em;
 }
 
+/* ------------ Select Works --------- */
+
+.section-title-select-works { 
+    font-size: 3.75em;
+}
+
+.curve-container { 
+    margin: 0;
+}
+
+.select-project { 
+}
+
+.select-project-left {
+    display: flex;
+    flex-direction: row;
+}
+
+.select-works { 
+    background-image: linear-gradient(var(--pale-pink), var(--pale-blue));
+    height: 100vh;
+    margin: 0;
+}
+
+.select-project-content { 
+    padding-top: 3em;
+}
 
 /* ------------- PROJECT ------------- */
 
@@ -211,6 +297,11 @@ i {
 }
 
 /* ------------- FOOTER ------------- */
+
+.inline-arrow { 
+    font-size: 1.25em;
+    color: black;
+}
 footer { 
     text-align: center;
     font-size: .75em;
