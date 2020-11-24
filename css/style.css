@@ -35,6 +35,10 @@ html, body {
     scrollbar-width: none; /* Firefox scrollbar hide */
 }
 
+.font-color-dark { 
+    color: var(--pale-white);
+}
+
 
 /* ------------- Spacing ------------- */
 .vertical-spacer-1x { 
