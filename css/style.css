@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,900;1,200;1,400&display=swap');
 
 :root { 
     --main-font: 'Montserrat', sans-serif;
@@ -7,6 +8,8 @@
     /* used to be 201f1f */
     --off-black: #131313;
     --off-white: #EEEADD;
+
+    --pale-white: #DFDFDF;
 }
 
 ::selection { 
@@ -26,17 +29,12 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    /* background-color: #02070F;*/
-    background-color: var(--off-black);
+    background-color: var(--pale-white);
     overflow-x: hidden;
     -ms-overflow-style: none; /* IE and Edge scrollbar hide */
     scrollbar-width: none; /* Firefox scrollbar hide */
 }
 
-
-.off-white { 
-    color: var(--off-white);
-}
 
 /* ------------- Spacing ------------- */
 .vertical-spacer-1x { 
