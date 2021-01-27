@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,900;1,200;1,400&display=swap');
 
 :root { 
@@ -10,10 +10,14 @@
     --off-black: #131313;
     --off-white: #EEEADD;
 
+    --darker-gray: #2F2F2F;
+
     --pale-white: #DFDFDF;
     --pale-gray: #6F6F6F;
     --pale-blue: #D0D2D8;
     --pale-pink: #D7CED8;
+    --pastel-blue: #4A6496;
+    --pastel-pink: #CFBDD2;
 }
 
 ::selection { 
@@ -90,6 +94,15 @@ p a {
      font-weight: 400;
      font-size: 3.75em;
      line-height: 1em;
+}
+
+.select-project-content a { 
+    text-decoration: none;
+    font-family: var(--title-font);
+    font-weight: 700;
+    font-size: 1.75em;
+    color: var(--off-black);
+
 }
 
 /* ------------- Hero ------------- */
@@ -284,10 +297,6 @@ p a {
     transform: scale3d(1.1, 1.1, 1);
 }
 
-.idiot { 
-    display: none;
-}
-
 .project-container.idiot:hover { 
     display: inline-block;
 }
@@ -299,23 +308,61 @@ p a {
     font-weight: 700;
 }
 
-/* ------------- ICONS ------------- */
-i { 
-    color: var(--off-white);
-    font-size: 5em;
+/* OTHER PROJECTS
+ * ------------------------------------- */
+
+.other-work { 
+    margin: 5em 15em;
 }
+
+.other-work a { 
+    font-family: var(--title-font);
+    font-weight: 300;
+    color: var(--pale-gray);
+    text-decoration: none;
+    font-size: 3em;
+}
+
+.other-work a:hover { 
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    transform: scale3d(1.1, 1.1, 1);
+    padding-left: .5em;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--pastel-blue), var(--pastel-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 
+.other-work a:after { 
+    content: ' ' attr(title);
+    font-size: 0;
+    opacity: 0;
+    transition: opacity 0.2s 0s ease, font-size 0.2s 0.2s ease;
+}
+
+.other-work a:hover:after { 
+    color: var(--off-black);
+    font-size: 1em;
+    font-weight: 400;
+    opacity: 1;
+    transition: font-size 0.2s 0s ease, opacity 0.2s 0.2s ease;
+}
+*/
+
+.horizontal-divider { 
+    border-bottom: 3px solid gray;
+    width: 50vw;
+    margin: 1.75em 0;
+}
+
+/* CONTACT 
+ * ------------------------------------- */
 
 .contact { 
-    min-height: 1vh;
-    display: flex;
-    flex-direction: row;
-}
-
-.section-content-row { 
-    margin: 3em;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+    min-height: 90vh;
+    margin-top: 15em;
 }
 
 /* ------------- FOOTER ------------- */
@@ -328,6 +375,28 @@ footer {
     text-align: center;
     font-size: .75em;
     margin-bottom: 1em;
+}
+
+.contact-content { 
+    margin: 15em;
+}
+.contact-content h2 { 
+    font-family: var(--title-font);
+    font-size: 5em;
+    font-weight: 400;
+    line-height: 1em;
+}
+
+.link-container { 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.link-container a { 
+    font-size: 2.5em;
+    padding-right: .75em;
+    font-weight: 200;
 }
 
 /*--- fix for wonky height issues --- */

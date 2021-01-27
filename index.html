@@ -88,13 +88,13 @@
                     <p>Extracurricular UX design case study for a trading/information app for serious hobbyists and collectors. From ideation and paper prototyping to high fidelity mock ups to brand and visual identity, this was a side project to explore alternative interaction paradigms for mobile experiences.</p>
                     <h5><a href="">View on Behance</a></h5>
                 </div>
-                <img class="wta-image" src="./assets/wta_sample.png" alt="Screenshot of WTA APP" width="700px"></img>
+                <img class="wta-image" src="./assets/exchange_render.png" alt="Screenshot of Exchange Home Screen" width="700px"></img>
             </div>
 
             <div class="select-project select-project-left">
                 <div class="select-project-content">
                     <h3>DAILY</h3>
-                    <p>Designed and developed a full stack web app for habit tracking. This was a practical exploration of how thoughtful animation and user experience can be a catalyst for sustained habit retention in user behavior. Currently in closed beta. </p>
+                    <p>Designed and developed a full stack web app for habit tracking. This was a practical exploration of how thoughtful animation and human centric design can be a catalyst for sustained habit retention in user behavior. Currently in closed beta. </p>
                     <h5><a href="">View website</a></h5>
                 </div>
                 <img class="wta-image" src="./assets/wta_sample.png" alt="Screenshot of WTA APP" width="700px"></img>
@@ -110,10 +110,16 @@
 
     <div class="section-title-container">
         <h5 class="section-title font-color-dark">OTHER WORKS</h5> 
-    </div>
 
-    <div class="project-list section-content">
-
+        <div class="other-work">
+            <div class="horizontal-divider"></div>
+            <h3><a title="test" href="">PDFGrader</a></h3>
+            <div class="horizontal-divider"></div>
+            <h3><a href="">WWU Move In App</a></h3>
+            <div class="horizontal-divider"></div>
+            <h3><a href="">WWU x ACM Website</a></h3>
+            <div class="horizontal-divider"></div>
+        </div>
     </div>
 
     <div class="contact">
@@ -121,10 +127,18 @@
             <div class="bar"></div>
             <h5 class="section-title off-white">CONTACT</h5>
         </div>
-        <div class="section-content-row">
-            <a href="#"><i class="fab fa-behance"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+        <div class="contact-content">
+            <h2>Let's chat.</h2>
+            <div class="link-container">
+                <p><a href=""><em>behance</em></a></p>
+                <p><a href="">&#9679;</a></p>
+                <p><a href=""><em>linkedin</em></a></p>
+                <p><a href="">&#9679;</a></p>
+                <p><a href=""><em>github</em></a></p>
+                <p><a href="">&#9679;</a></p>
+                <p><a href=""><em>email</em></a></p>
+            </div>
         </div>
     </div>
 
@@ -137,15 +151,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="js/baffle.min.js"></script>
     <script type="text/javascript">
-        //PRELOADER ANIMS
-        
-        //Call baffler
-        const preloaderText = baffle(".preloader h1");
-        preloaderText.set({
-            speed: 75 
-        });
-        preloaderText.start();
-        preloaderText.reveal(3000);
 
         setTimeout(() => { 
             TweenMax.to(".preloader h1", 1, {
