@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,800;1,300;1,700&display=swap');
 @import 'preloader.css';
 
 :root { 
-    --main-text-color: #EFEDED;
-    --main-bg-color:;
+    --main-text-color: #FFFFFF;
+    --main-bg-color: #0C0C0C;
+    --dark-gray: #161616;
     --blinds-color:#EFEDED;
     --about-color: #16425B;
     --about-secondary: #D9DCD6;
-    --main-font: 'Open Sans', sans-serif;
+    --main-font: 'Montserrat', sans-serif;
     --secondary-font: 'Roboto Mono', monospace;
 }
 
@@ -17,174 +19,217 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
+    background-color: var(--main-bg-color);
+    overflow-x: hidden;
+    -ms-overflow-style: none; /* IE and Edge scrollbar hide */
+    scrollbar-width: none; /* Firefox scrollbar hide */
 }
 
-/* --- BAKCGROUND STUFF --- */
-
-.bg { 
-    position: fixed;
-    background-color: #333;
-    width: 100%;
-    height:100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    z-index: 0;
+h1, h2, h3, h4, h5, p { 
+    color: var(--main-text-color);
+    font-family: var(--main-font);
 }
 
-.bg-1-wrapper, .bg-2-wrapper, .bg-3-wrapper { 
+h2 { 
+    font-weight: 700;
+    font-size: 9vw;
+}
+
+::selection { 
+        background: black;
+}
+
+::-moz-selection { 
+    background: black;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* ----- HEADER ----- */
+
+.title { 
+    font-size: 7vw;
+    position: absolute;
+    z-index: 3;
+    left: 5vw;
+    margin-left: 3vw;
+    top: 7.5vw;
+    line-height: 7vw;
+}
+
+.title-1 .letter { 
+    display: inline-block;
+    line-height: 7vw;
+}
+
+.title-2 .letter { 
+    display: inline-block;
+    line-height: 7vw;
+}
+
+.landing p { 
+    font-size: 1.25vw;
+    position: absolute; 
+    right: 5vw;
+    z-index: 3;
+    bottom: 0;
+    margin: 0;
+}
+
+
+.landing { 
+    position: relative;
+    min-height: 50vw;
+    width: 100vw;
+}
+
+.bg-box {
+    width: 90vw;
+    height: 23vw;
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid #161616;
+}
+
+
+/* ----- INTERLUDE ------ */
+
+.interlude h5 { 
+    text-align: center;
+    font-size: 3vw;
+    font-weight: 300;
+    margin: 0;
+    padding: 9vw;
+}
+
+/* ----- ABOUT ----- */
+
+.about { 
+    position: relative;
+    height: 55vw;
+}
+
+.bg-box-small { 
+    width: 65vw;
+    height: 15vw;
+    z-index: 1;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: 5px solid #161616;
+}
+
+.about h2 { 
+    margin: 0;
+    margin-left: -2.5vw;
+    padding-bottom: 3vw;
+}
+
+.about-wrapper { 
+    display: flex;
+    position: absolute; 
+    z-index: 3;
+    top: 3vw;
+}
+
+.about-left { 
+    width: 50vw;
     position: relative;
 }
 
-/* --- NAV LIST --- */
-
-.nav-list { 
-    position: fixed;
-    left: 25px;
-    bottom: 25px;
-    z-index: 99;
+.about img { 
+    position: absolute;
+    right: 8vw;
+    top: 5vw;
+    width: 30vw;
 }
 
-.nav-list ul { 
-    list-style-type: none;
-    font-family: var(--secondary-font);
-    color: var(--main-text-color);
-    font-size: 23px;
+.about-right { 
+    width: 50vw;
 }
 
-li {  
-    padding-top: 2.5px;
-    padding-bottom: 2.5px;
-    -webkit-user-select: none;  /* Chrome all / Safari all */
-    -moz-user-select: none;     /* Firefox all */
-    -ms-user-select: none;      /* IE 10+ */
-    user-select: none;          /* Likely future */   
+.about-text { 
+    line-height: 2.5vw;
+    font-size: 1vw;
+    width: 35vw;
 }
 
-li:hover {
-    -webkit-transition: all 0.1s linear;
-    transition: all 0.1s linear;
-    transform: scale3d(1.1, 1.1, 1); 
-}    
-
-li a { 
-    text-decoration: none;
-    color: var(--main-text-color);
+.about h2::before { 
+    content: "01.";
+    position: relative;
+    font-size: 2vw;
+    top: -7vw;
+    left: -2vw;
+    color: gray;
 }
 
-#about-button, #toggle_colorscheme { 
-    cursor: pointer;
+/* ----- SELECT WORKS ----- */
+.works { 
+    position: relative;
+    height: 27vw;
 }
 
+.works h2 { 
+    position: absolute;
+    right: -3vw;
+}
 
-/*--- ABOUT ---*/
+.works h2::before { 
+    content: "02.";
+    position: relative;
+    font-size: 2vw;
+    top: -7vw;
+    left: -2vw;
+    color: gray;
+}
 
-#about { 
-    position: fixed;
+.work-wrapper { 
+    margin-left: 10vw;
+}
+
+.work h5 { 
+    font-size: 4vw;
+    margin: 0;
+    color: gray;
+}
+
+.work-bar { 
+    position: absolute;
+    background-color: white;
+    width: 7vw;
+    height: 5vw;
+    right: 0;
     top: 0;
-    height: 100%;
-    width: 100%;
-    background-color: var(--about-color);
-    z-index: 7;
-    display: none;
-    color: var(--main-text-color);
-    grid-template-columns: 500px 1fr 1fr;
+    
 }
 
-.about-site { 
-    grid-column-start: 2;
-    grid-column-end: 3;
+.work h5:hover { 
+    color: white;
+    font-size: 4.5vw;
+    transition: 1s;
 }
 
-.about-site h3, .about-author h3 { 
-    font-family: var(--main-font);
-    font-size: calc(17px * 1.618);
+
+.work a { 
+    text-decoration: none;
 }
 
-.about-site p, .about-author p { 
-    font-family: var(--secondary-font);
-    font-size: 17px;
-    line-height: 35px;
+
+
+.work { 
+    height: 9vw;
+    position: relative;
 }
 
-.about-author { 
-    grid-column-start: 3;
-    grid-column-end: 4;
-}
 
-.about-author a { 
-    color: var(--main-text-color);
-}
 
-.about-author, .about-site { 
-    padding: 0px 150px 0px 0px;
-    position: absolute; 
-    top: 30%;
-}
 
-#transition_about { 
-    position: fixed;
-    top:0;
-    height: 100%;
-    background-color: var(--about-secondary);
-    z-index: 9;
-}
-
-.transition_about_swipe { 
-    animation: swipe-reveal 1s ease forwards;
-}
-
-.bg-1 { 
-    border-right: 1px solid gray;
-    height: 100%;
-}
-
-.bg-2 { 
-    border-right: 1px solid gray;
-    height: 100%;
-}
-
-.bg-3 { 
-    border-right: 1px solid gray;
-    height: 100%;
-}
-
-.bg-pre { 
-    height:100%;
-    position: absolute;
-    left:0;
-    background-color: var(--blinds-color);
-}
-
-@keyframes bg-swipe { 
-    0% {
-    width: 0%;
-    }
-    100% {
-    width: 100%;
-    }
-}
-
-.main-container { 
-    background-color: transparent;
-    top: 50%;
-    position: absolute;
-    padding-left: 50px;
-    z-index: 1;
-}
-
-.main-container h1 { 
-    font-size: 55px;
-    letter-spacing: 3px;
-    font-family: var(--main-font);
-    color: var(--main-text-color);
-}
-
-.mobile-menu { 
-    display: none;
-}
-.mobile-menu h2 { 
-    display: none;
-}
 
 /*--- ANIMATIONS ---*/
 
