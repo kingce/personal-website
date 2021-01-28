@@ -25,14 +25,24 @@
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
     </script>
 
+    <!-- Generic favicon sizes -->
+    <link rel="icon" type="image/png" href="./assets/favicon-32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="./assets/favicon-128.png" sizes="128x128">
+    <!-- Just the one favicon size for apple lol -->
+    <link rel="apple-touch-icon" type="image/png" href="./assets/favicon-180.png" sizes="180x180">
+    <!--- ANIMATE ON SCROLL -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
 
     <nav>
-
-        
+        <ul>
+            <li><a href="#section-one">ABOUT</a></li>
+            <li><a href="#section-two">SELECT WORKS </a></li>
+            <li><a href="#section-three">CONTACT</a></li>
+        </ul>
     </nav>
 
     <div class="landing">
@@ -46,53 +56,79 @@
         <p>2021 PORTFOLIO</p>
     </div>
 
-
-    <div class="interlude">
-        <h5>DESIGN. DEVELOP. REPEAT.</h5>
-    </div>
-
-    <div class="about">
-        <div class="bg-box-small"></div>
-        <div class="about-wrapper">
-            <div class="about-left">
-                <img class="about-portrait" src="./assets/dan.jpeg" alt="Picture of Dan" ></img>
-            </div>
-            <div class="about-right">
-                <h2>ABOUT</h2>
-                <div class="about-text">
-                    <p>Heya! &#x270c; I'm Daniel - A Taiwanese-American student, designer, and developer based in Washington. I'm currently employed as a web designer at WWU's University Residence's Technology Department. If civilization doesn't crumble by then, I'll graduate Spring 2021 with a Bachelors in Computer Science and a double minor in Mathematics and UX Design.</p>
-                    <p>I'm pretty passionate about the way we interact with online interfaces and how we can make these experiences interesting yet accessible to everyone. In my free time, I enjoy illustrating, powerlifting, and tea.</p>
-                    <p>You can view my resume below!</p>
+    <div class="about" id="section-one">
+        <div class="wrapper-left">
+            <h3 data-aos="fade-in" data-aos-duration="750"><strong>Heya! &#x270c; I'm Daniel - a Taiwanese American <br> UX designer based in Washington.</strong></h3>
+            <p data-aos="fade-in" data-aos-duration="750">I'm a recent graduate from WWU's Computer Science program with a double minor in Math and UX Design. My multidisciplinary background gives me a unique perspective in collaborative design environments and how each task fits into the big picture. </p>
+            <p data-aos="fade-in" data-aos-duration="750">I'm a big believer in empathy and its role in the process. My personal UX approach is to use data-driven validation methods to iterate as often as possible in order to create an intuitive and delightful experience to all users.</p>
+            <div class="button-bar">
+                <div class="button no-fill" type="button">
+                <a href="">
+                    A LETTER TO YOU
+                </a>
                 </div>
-                <h4><a href="">VIEW RESUME</a></h4>
+                <div class="button fill" type="button">
+                <a href="">
+                    RESUME
+                </a>
+                </div>
             </div>
         </div>
     </div>
 
-
-    <div class="works">
+    <div class="works" id="section-two">
         <h2>SELECT WORKS</h2>
     </div>
 
-    <div class="work-wrapper">
-        <div class="work"> 
-            <a href="">
-                <h5>MENTAL REMINDER</h5>
+    <div class="select-works">
+        <div class="work-box work-1">
+            <a href="/mental-reminder">
+                <div class="inner-box inner-work-1">
+                    <div class="select-works-text">
+                        <h3>MENTAL REMINDER</h3>
+                        <p><small><em>School Project   &#9679;   UX Design Lead, Developer</em></small></p>
+                        <p>A minimal, mental-health based <br> reminder app with a focus on usability.</p>
+                    </div>
+                </div>
             </a>
-            <div class="work-bar"></div>
         </div>
+
+        <div class="work-box work-2">
+            <a href="">
+                <div class="inner-box inner-work-2">
+                    <div class="select-works-text">
+                        <h3>WWU Move-In App</h3>
+                        <p><small><em>Work Project &#9679; UX Designer</small></em></p>
+                        <p>Designed a progressive web app to guide over 400 <br> students through a socially distanced move-in process.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="work-box work-3">
+            <a href="">
+                <div class="inner-box inner-work-3">
+                    <div class="select-works-text">
+                        <h3>EXCHANGE</h3>
+                        <p><small>Personal Project &#9679; UX Designer, Case Study</small></p>
+                        <p>An app concept to bring niche hobby communities closer <br> through a dedicated platform for buying, selling, and trading.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="other-work-title">
+        <h2>OTHER WORKS</h2>
+    </div>
+    <div class="work-wrapper">
 
         <div class="work">
             <h5>WWU MOVE-IN APP</h5>
         </div>
 
-
         <div class="work">
             <h5>DAILY</h5>
-        </div>
-
-        <div class="work">
-            <h5>EXCHANGE</h5>
         </div>
 
         <div class="work">
@@ -104,29 +140,34 @@
         </div>
     </div>
 
-    <div class="contact">
-        <h4>CONTACT</h4>
-        <h5>LET'S BUILD SOMETHING</h5>
+    <div class="contact" id="section-three">
+        <h2>CONTACT</h2>
+        <h5><em>LET'S BUILD SOMETHING</em></h5>
     </div>
 
     <div class="linkbox">
+        <div class="small-linkbox">
+            <h4><a href="" target="_blank">Git</a></h4>
+            <h4><a href="" target="_blank">Ln</a></h4>
+            <h4><a href="" target="_blank">Be</a></h4>
+        </div>
     </div>
 
 
 
 
 <!-- SCRIPTS -->
+    <script src="./js/zenscroll-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+                AOS.init({ disable: 'mobile' });
+        });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script type="text/javascript">
         //PRELOADER ANIMS
         
-        //Call baffler
-        const preloaderText = baffle(".preloader h1");
-        preloaderText.set({
-            speed: 75 
-        });
-        preloaderText.start();
-        preloaderText.reveal(3000);
 
         setTimeout(() => { 
             TweenMax.to(".preloader h1", 1, {
@@ -193,9 +234,6 @@
 
 
     </script>
-    <script src="js/modals.js"></script>
-    <script src="js/color.js"></script>
-    <script src="js/responsive.js"></script>
     
 </body>
 </html>

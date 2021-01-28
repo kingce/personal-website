@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,800;1,300;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,700;0,800;1,200;1,300;1,700;1,800&display=swap');
 @import 'preloader.css';
 
 :root { 
@@ -15,12 +15,12 @@
 }
 
 html, body {
+    scroll-behavior: smooth;
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     background-color: var(--main-bg-color);
-    overflow-x: hidden;
     -ms-overflow-style: none; /* IE and Edge scrollbar hide */
     scrollbar-width: none; /* Firefox scrollbar hide */
 }
@@ -47,27 +47,53 @@ h2 {
     display: none;
 }
 
+/* ----- NAV ----- */
+
+nav { 
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    width: 94vw;
+    background-color: var(--main-bg-color);
+    font-family: var(--main-font);
+    font-size: 1.5vw;
+    font-weight: 700;
+    padding: 1vw 3vw;
+}
+
+nav ul { 
+    padding: 0;
+    display: flex;
+    margin: 0;
+    list-style-type: none;
+    justify-content: space-between;
+}
+
+nav li a { 
+    color: white;
+    text-decoration: none;
+}
 
 /* ----- HEADER ----- */
 
 .title { 
-    font-size: 7vw;
+    font-size: 6vw;
     position: absolute;
     z-index: 3;
-    left: 5vw;
+    left: 7vw;
     margin-left: 3vw;
     top: 7.5vw;
-    line-height: 7vw;
+    line-height: 5vw;
 }
 
 .title-1 .letter { 
     display: inline-block;
-    line-height: 7vw;
+    line-height: 5vw;
 }
 
 .title-2 .letter { 
     display: inline-block;
-    line-height: 7vw;
+    line-height: 5vw;
 }
 
 .landing p { 
@@ -82,7 +108,7 @@ h2 {
 
 .landing { 
     position: relative;
-    min-height: 50vw;
+    min-height: 40vw;
     width: 100vw;
 }
 
@@ -98,49 +124,63 @@ h2 {
 }
 
 
-/* ----- INTERLUDE ------ */
-
-.interlude h5 { 
-    text-align: center;
-    font-size: 3vw;
-    font-weight: 300;
-    margin: 0;
-    padding: 9vw;
-}
-
 /* ----- ABOUT ----- */
 
 .about { 
-    position: relative;
-    height: 55vw;
+    margin-top: 13vw;
 }
 
-.bg-box-small { 
-    width: 65vw;
-    height: 15vw;
-    z-index: 1;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    border: 5px solid #161616;
+.wrapper-left { 
+    width: 45vw;
+    margin-left: 5vw;
+    border-left: 5px solid #161616;
+    padding-left: 5vw;
 }
 
-.about h2 { 
-    margin: 0;
-    margin-left: -2.5vw;
-    padding-bottom: 3vw;
+.wrapper-left p { 
+    font-size: 1.35em;
+    line-height: 1.75em;
+    padding: .5em 0;
+
 }
 
-.about-wrapper { 
+.wrapper-left h3 { 
+    font-size: 1.75em;
+    line-height: 1.9em;
+}
+
+.button-bar { 
+    margin-top: 3vw;
     display: flex;
-    position: absolute; 
-    z-index: 3;
-    top: 3vw;
+    justify-content: space-between;
 }
 
-.about-left { 
-    width: 50vw;
-    position: relative;
+.button { 
+    font-size: 2vw;
+    font-weight: 700;
+    font-family: var(--main-font);
+    padding: 1vw 3vw;
+}
+
+.button-bar a { 
+    text-decoration: none;
+}
+
+.no-fill { 
+    background-color: var(--main-bg-color);
+    border: 1px solid white;
+}
+
+.no-fill a { 
+    color: var(--main-text-color);
+}
+
+.fill { 
+    background-color: var(--main-text-color);
+}
+
+.fill a { 
+    color: var(--main-bg-color);
 }
 
 .about img { 
@@ -150,43 +190,17 @@ h2 {
     width: 30vw;
 }
 
-.about-right { 
-    width: 50vw;
-}
-
-.about-text { 
-    line-height: 2.5vw;
-    font-size: 1vw;
-    width: 35vw;
-}
-
-.about h2::before { 
-    content: "01.";
-    position: relative;
-    font-size: 2vw;
-    top: -7vw;
-    left: -2vw;
-    color: gray;
-}
 
 /* ----- SELECT WORKS ----- */
 .works { 
     position: relative;
-    height: 27vw;
+    margin-top: 15vw;
+    height: 25vw;
 }
 
 .works h2 { 
     position: absolute;
-    right: -3vw;
-}
-
-.works h2::before { 
-    content: "02.";
-    position: relative;
-    font-size: 2vw;
-    top: -7vw;
-    left: -2vw;
-    color: gray;
+    right: 3vw;
 }
 
 .work-wrapper { 
@@ -228,8 +242,142 @@ h2 {
 }
 
 
+/* ----- CONTACT ----- */
+
+.contact { 
+    text-align: center;
+    margin-top: 7vw;
+}
+
+.contact h2 { 
+    margin: 0;
+}
+
+.contact h5 { 
+    font-size: 1.75vw;
+    font-weight: 300;
+    margin: 0;
+    letter-spacing: 1.07vw;
+}
 
 
+/* ----- LINKBOX ----- */
+
+.linkbox { 
+    position: relative;
+}
+
+.small-linkbox { 
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+    border: 1px solid white;
+    position: absolute;
+    z-index: 3;
+    justify-content: space-around;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin-top: 20vw;
+}
+
+.small-linkbox h4 { 
+    font-size: 3vw;
+}
+
+.small-linkbox a { 
+    text-decoration: none;
+    color: white;
+}
+
+.select-works{ 
+    position: relative;
+}
+
+.work-box { 
+    height: 30vw;
+    width: 90vw;
+    margin: 5vw;
+}
+
+.inner-box:hover { 
+    background-size: 110% 110%;
+    transition: all 0.7s linear;
+    -webkit-transition: all 0.7s linear;
+}
+
+.inner-box { 
+    transition: all 0.7s linear;
+    -webkit-transition: all 0.7s linear;
+    height: 30vw;
+    width: 90vw;
+    position: relative;
+}
+
+.inner-box a { 
+    text-decoration: none;
+}
+
+.select-works-text { 
+    position: absolute;
+    bottom: 3vw;
+    left: 3vw;
+}
+.select-works-text h3 { 
+    font-size: 3.5vw;
+    margin: 0;
+}
+
+.select-works-text small { 
+    font-size: 1vw;
+    font-weight: 400;
+}
+
+.select-works p { 
+    margin: .5vw 0;
+    font-size: 1.75vw;
+    font-weight: 300;
+}
+
+/* --- Work Specific CSS --- */
+.inner-work-1 { 
+    background-image: url("../assets/mental-reminder-sample.png");
+    background-repeat: no-repeat;
+    background-position: 43vw;
+    background-size: 50vw;
+    background-color: #2A3029;
+}
+
+.inner-work-1:hover { 
+    background-size: 55vw;
+    background-color: #667764;
+}
+
+.inner-work-2 { 
+    background-image: url("../assets/move-in-sample.png");
+    background-repeat: no-repeat;
+    background-position: 50vw;
+    background-size: 50vw;
+    background-color: #002F5E;
+}
+
+.inner-work-2:hover { 
+    background-size: 55vw;
+    background-color: #003F87;
+}
+
+.inner-work-3 { 
+    background-image: url("../assets/exchange-sample.png");
+    background-repeat: no-repeat;
+    background-position: 55vw;
+    background-size: 30vw;
+    background-color: #1D2337;
+}
+
+.inner-work-3:hover { 
+    background-size: 35vw;
+    background-color: #323E51;
+}
 
 /*--- ANIMATIONS ---*/
 
