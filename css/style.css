@@ -101,7 +101,7 @@ nav li a {
     position: absolute; 
     right: 5vw;
     z-index: 3;
-    bottom: 0;
+    bottom: -5vw;
     margin: 0;
 }
 
@@ -377,6 +377,11 @@ nav li a {
 .inner-work-3:hover { 
     background-size: 35vw;
     background-color: #323E51;
+}
+
+/* --- OTHER WORKS --- */
+.other-work-title { 
+    margin-left: 3vw;
 }
 
 /*--- ANIMATIONS ---*/
