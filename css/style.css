@@ -36,7 +36,7 @@ h2 {
 }
 
 ::selection { 
-        background: black;
+        background: gray;
 }
 
 ::-moz-selection { 
@@ -53,12 +53,11 @@ nav {
     position: fixed;
     top: 0;
     z-index: 5;
-    width: 94vw;
+    width: 90vw;
     background-color: var(--main-bg-color);
     font-family: var(--main-font);
-    font-size: 1.5vw;
-    font-weight: 700;
-    padding: 1vw 3vw;
+    font-size: 1.155vw;
+    padding: 2vw 5vw;
 }
 
 nav ul { 
@@ -83,26 +82,40 @@ nav li a {
     left: 7vw;
     margin-left: 3vw;
     top: 7.5vw;
-    line-height: 5vw;
+    line-height: 7vw;
 }
 
 .title-1 .letter { 
     display: inline-block;
-    line-height: 5vw;
+    line-height: 7vw;
 }
 
 .title-2 .letter { 
     display: inline-block;
-    line-height: 5vw;
+    line-height: 7vw;
+}
+
+.subtitle .subletter{ 
+    display: inline-block;
+    line-height: 3vw;
 }
 
 .landing p { 
-    font-size: 1.25vw;
+    font-size: 3vw;
     position: absolute; 
-    right: 5vw;
+    right: 6.9vw;
     z-index: 3;
-    bottom: -5vw;
+    top: 63%;
     margin: 0;
+}
+
+.landing-bar { 
+    height: .3vw;
+    width: 37vw;
+    background-color: gray;
+    position: absolute;
+    top: 67%;
+    left: 41%;
 }
 
 

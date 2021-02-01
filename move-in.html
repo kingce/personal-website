@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title> Move-In App - Daniel King Portfolio </title>
+
+        <link rel="icon" type="image/png" href="./assets/favicon-32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="./assets/favicon-128.png" sizes="128x128">
+        <link rel="apple-touch-icon" type="image/png" href="./assets/favicon-180.png" sizes="180x180">
+
+        <script src="https://kit.fontawesome.com/c0acad0f63.js" crossorigin="anonymous"></script>
+
+        <!-- Animate on Scroll -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+        <link rel="stylesheet" type="text/css" href="css/project.css">
+    </head>
+
+    <body>
+        <div class="menu">
+            <h5 class="move-in-accent">CONTENTS</h5>
+            <ul>
+                <li><a href="#brief">BRIEF</a></li>
+                <li><a href="#ideation">IDEATION</a></li>
+                <li><a href="#wireframing">WIREFRAMING</a></li>
+                <li><a href="#prototyping">PROTOTYPING</a></li>
+                <li><a href="#reflection">REFLECTION</a></li>
+            </ul>
+        </div>
+
+        <div class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            <a href="./index.html">
+                <h5>GO BACK</h5>
+            </a>
+        </div>
+
+        <div class="title">
+            <h3>PROJECT:</h3>
+            <h1>WWU Move-In App</h1>
+        </div>
+
+        <div class="project-info">
+            <div class="project-col">
+                <h5>TIMELINE:</h5>
+                <p>2 weeks - August 2020</p>
+            </div>
+            <div class="project-col">
+                <h5>PROJECT TYPE:</h5>
+                <p>Work, Web App Design</p>
+            </div>
+
+            <div class="project-col">
+                <h5>MY ROLE:</h5>
+                <p>Research, Wireframing, High fidelity prototypes</p>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div id="brief" class="brief">
+                <h2 class="move-in-accent">1 MINUTE BRIEF - TLDR;</h2>
+
+                <div class="brief-text brief-border-move-in">
+                    <h3>The Problem - </h3>
+                    <p>We had two weeks to design and prototype a new move-in app that would guide students through a socially distanced move-in. The logistics of the move-in were being decided concurrently with the design/development process, which demanded flexibility in design.</p>
+                    <h3>The Solution - </h3>
+                    <p>Designed a web-app using the same design language and information hierarchy as the Housing website. This saved on internal resources and made it easier for students already familiar with the site to use our app. To further assist with the shorter timeframe, the developers started work on the backend during the design process once the core user flow was locked down. This was made possible with close communication with the developers and saved on a lot of time and resources.  </p>
+
+                    <h3>What <em>I</em> did - </h3>
+                    <p>I collaborated with two other designers to conduct initial research on the technical and logistical constraints of the application. We then sketched out wireframes on invision. After we agreed on a set of wireframes and the core user flow, I was responsible for creeating high fidelity prototypes and refining the application, and also handled the handoff to the developers.</p>
+                </div>
+            </div>
+
+            <div class="section-padding ideation" id="ideation">
+                <h2>Ideation</h2>
+                <p class="m3"><strong>Understanding the core user flow</strong></p>
+                <p class="m3">Despite the ambiguity surrounding the details, we knew the core user-flow of the app wouldn't change. Users would need to schedule a move-in time and show a QR code on the move-in day. We started doing some light research and sketching based off of that knowledge and came up with our core user flow: </p>
+                <ol class="m3">
+                    <li>Read procedures</li>
+                    <li>Schedule check-in time</li>
+                    <li>Pre-checkin</li>
+                    <li>Check In</li>
+                    <li>Give feedback</li>
+                </ol>
+            </div>
+
+            <div class="section-padding wireframing" id="wireframing">
+                <h2>Wireframing - </h2>
+                <p class="m3"><strong>Due to the time constraints, we moved right into wireframing as soon as possible.</strong> Our team met on invision and spent a few hours hashing out different layout ideas on the virtual whiteboard. Most of the decisions made here involved the scheduling process - we initially wanted to include a calendar widget but realized that would be inefficient as move-in would at most span a week and there would be multiple options per day for move-in time slots. As such, we settled for a series of drop downs, as that would also greatly decrease development time. </p>
+            </div>
+        </div>
+
+        <img src="./assets/move-in/wireframes.png" width="100%"></img>
+        <p style="text-align: center; font-size: 1em;"><em>We went through several iterations for each screen to explore user requirements and challenge how we could lay things out</em></p>
+
+        <div class="content-wrapper">
+
+            <div class="section-padding prototyping" id="prototyping">
+                <h2>Prototyping - </h2>
+                <p class="m3"><strong>Designing for development was the number one priority.</strong>Our goal was never to make a cutting edge, trending looking web app. We needed something fast that looked passably good and fit into Western's branding guidelines, but more importantly we needed to design for code and make sure that our software team could implement our ideas very quickly.<p>
+                <p class="m3">For the most part, we kept layouts very linear - at most on some desktop screens we would use two columns but design it in such a way that it would translate naturally to flexbox. </p>
+                
+                <img class="m3" src="./assets/move-in/desktop-mobile-layouts.png" width="90%"></img>
+
+                <p class="m3">Since development was done concurrently with the design process, we would meet with developers frequently during their standups to iterate on different design ideas. This lead to key insights, such as leveraging the Material Design icon library instead of spending time making our own.</p>
+            </div>
+
+            <div class="section-padding reflection" id="reflection">
+                <h2>Reflection and Retrospective - </h2>
+                <p class="m3"><strong> Despite this not being the most aesthetically striking project, I'm proud of the work we did over those two weeks.</strong> This was my first proper UX project outside of case studies, and I felt like I learned a lot about the process as well as what it meant to collaborate with others in a creative, collaborative environment to meet deadlines. I was satisfied with the overall process and how we approached the design challenge. However,
+                looking back, I think there were a few things that I would have changed: </p>
+
+                <h3 class="move-in-accent">The Tools</h3>
+                <p class="m3"> Since the other designers had their own fair share of projects at the time, I was solely responsible for producing high fidelity prototypes. Since speed was a concern, I defaulted to using Illustrator at the time since that was what I was most comfortable with. However, this made small edits and collaboration a lot more difficult, as not everyone had illustrator.</p>
+                <p class="m3"><em>In retrospect, using Figma would have saved us a lot more time, despite my inexperience with that tool.</em> Figma is free and web based, which would have allowed the developers to chip in and edit during standups. Additionally, Figma's built-in CSS tools would have made the handoff a lot simpler as well.</p>
+
+                <h3 class="move-in-accent">The Platform</h3>
+                <p class="m3">There's not much to say here except that the majority of our time was spent on the mobile application. This made intuitive sense, since most people logging in the day of would be unlikely to be doing so on a desktop/laptop - the move-in user flow was intended to be experienced on mobile. However, this led us to neglect the desktop views in favor of polishing the mobile views a lot more. This is unfortunate, since a lot of people would most likely schedule
+                their arrival on a computer.</p>
+                <p class="m3">If I had more time, I would have designated someone to focus on the desktop view a little bit more and spent some more manpower/resources on polishing those up to the same level that we polished the mobile views.</p>
+                
+            </div>
+
+        </div>
+
+        <div class="end-card">
+            <h2>Thanks for scrolling! &#128591;</h2>
+        </div>
+
+    </body>
+</html>

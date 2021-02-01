@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,700;0,800;1,200;1,300;1,700;1,800&display=swap');
+@import 'endcard.css';
+@import 'menu.css';
 
 :root { 
     --main-text-color: #FFFFFF;
@@ -6,6 +8,8 @@
     --main-font: 'Montserrat', sans-serif;
     --mental-reminder-accent: #C2D1BE;
     --mental-reminder-dark-accent: #555B53;
+    --move-in-accent: #007AC8;
+    --move-in-dark-accent: #002F5E;
 }
 
 html, body { 
@@ -44,12 +48,31 @@ h1 {
     font-size: 3.815rem;
 }
 
+.m3 { 
+    margin: 3rem;
+}
+
+.m10 { 
+    margin: 10rem;
+}
+
+.lm3 { 
+    margin-left: 3rem;
+}
 .content-wrapper { 
     margin-left: 9vw;
 }
 
-.accent-color { 
+.section-padding { 
+    margin: 10rem;
+}
+
+.mental-reminder-accent { 
     color: var(--mental-reminder-accent);
+}
+
+.move-in-accent { 
+    color: var(--move-in-accent);
 }
 
 li { 
@@ -61,11 +84,11 @@ li {
 
 h5 { 
     font-size: 1.563rem;
-    color: var(--mental-reminder-accent);
 }
 
 .back-button { 
     display: flex;
+    margin: 3rem 9rem;
 }
 
 .back-button h5 { 
@@ -104,7 +127,6 @@ h5 {
 }
 
 .brief h2 { 
-    color: var(--mental-reminder-accent);
     font-weight: 700; 
     font-size: 3.052rem;
 }
@@ -114,8 +136,15 @@ h5 {
 }
 
 .brief-text { 
-    border-left: 1rem solid var(--mental-reminder-dark-accent);
     padding: 0 5rem;
+}
+
+.brief-border-mental-reminder { 
+    border-left: 1rem solid var(--mental-reminder-dark-accent);
+}
+
+.brief-border-move-in { 
+    border-left: 1rem solid var(--move-in-dark-accent);
 }
 
 /* --------------------------------------------------------------- PROJECT BRIEF */
@@ -128,9 +157,6 @@ h5 {
     margin: 3rem;
 }
 
-.challenge strong { 
-    color: var(--mental-reminder-accent);
-}
 
 /* --------------------------------------------------------------- PROCESS */
 .process { 
@@ -154,5 +180,12 @@ h5 {
 
 .research { 
     margin: 10rem;
+}
+
+.source { 
+    font-size: .75em;
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
 }
 

@@ -37,10 +37,16 @@
 
 <body>
 
+    <div class="preloader">
+        <div class="preloader-bar">
+        </div>
+    </div>
+
+
     <nav>
         <ul>
             <li><a href="#section-one">ABOUT</a></li>
-            <li><a href="#section-two">SELECT WORKS </a></li>
+            <li><a href="#section-two">WORKS </a></li>
             <li><a href="#section-three">CONTACT</a></li>
         </ul>
     </nav>
@@ -53,13 +59,14 @@
             <h1 class="title-2">KING</h1>
         </div>
 
-        <p>...is designing, coding, and probably drinking too much coffee.</p>
+        <div class="landing-bar"></div>
+        <p class="subtitle">'FOLIO 21</p>
     </div>
 
     <div class="about" id="section-one">
         <div class="wrapper-left">
             <h3 data-aos="fade-in" data-aos-duration="950"><strong>Heya! &#x270c; I'm Daniel - a Taiwanese American <br> UX designer based in Washington.</strong></h3>
-            <p data-aos="fade-in" data-aos-duration="950">I'm a recent graduate from WWU's Computer Science program with a double minor in Math and UX Design. My multidisciplinary background gives me a unique perspective in collaborative design environments and how each task fits into the big picture. </p>
+            <p data-aos="fade-in" data-aos-duration="950">I'm a student in WWU's Computer Science program with a double minor in Math and UX Design. My multidisciplinary background gives me a unique perspective in collaborative design environments and how each task fits into the big picture. </p>
             <p data-aos="fade-in" data-aos-duration="950">I'm a big believer in empathy and its role in the design process. My personal UX approach is to use data-driven validation methods to iterate as often as possible in order to create an intuitive and delightful experience to all users.</p>
             <div class="button-bar">
                 <div data-aos="fade-in" data-aos-duration="950" class="button no-fill" type="button">
@@ -94,7 +101,7 @@
         </div>
 
         <div class="work-box work-2">
-            <a href="">
+            <a href="./move-in.html">
                 <div class="inner-box inner-work-2">
                     <div class="select-works-text">
                         <h3>WWU Move-In App</h3>
@@ -106,7 +113,7 @@
         </div>
 
         <div class="work-box work-3">
-            <a href="">
+            <a href="./exchange.html">
                 <div class="inner-box inner-work-3">
                     <div class="select-works-text">
                         <h3>EXCHANGE</h3>
@@ -116,6 +123,7 @@
                 </div>
             </a>
         </div>
+
     </div>
 
     <div class="other-work-title">
@@ -129,6 +137,14 @@
 
         <div class="work">
             <h5>WTA APP CONCEPT</h5>
+        </div>
+
+        <div class="work">
+            <h5>KOTO DSGN CONCEPT</h5>
+        </div>
+
+        <div class="work">
+            <h5>RAMA WORKS WEBSITE REDESIGN</h5>
         </div>
 
         <div class="work">
@@ -161,44 +177,10 @@
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-    <script type="text/javascript">
-        //PRELOADER ANIMS
-        
-
-        setTimeout(() => { 
-            TweenMax.to(".preloader h1", 1, {
-                opacity: 0, 
-                y: 70,
-                ease: Expo.easeInOut
-            });
-
-            TweenMax.to(".preloader", 1, { 
-                delay: 1,
-                top: "-100%",
-                ease: Expo.easeInOut
-            });
-
-            TweenMax.from(".main-container h1", 1, { 
-                delay: 1.5,
-                opacity: 0,
-                y: 35, 
-                ease: Expo.easeInOut
-            });
-
-            TweenMax.staggerFrom(".nav-list li", 1, { 
-                delay: 1.7,
-                opacity: 0,
-                ease: Expo.easeInOut
-            }, 0.2);
-
-            
-        }, 3000);
-
-        
-    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script type="text/javascript">
+
 
         var textWrapper = document.querySelector('.title-1');
         textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
@@ -210,8 +192,8 @@
                 translateZ: 0,
                 opacity: [0,1],
                 easing: "easeOutExpo",
-                duration: 2000,
-                delay: (el, i) => 50 * i
+                duration: 3000,
+                delay: (el, i) => 3000 + 50 * i
             });
 
     var textWrapper = document.querySelector('.title-2');
@@ -224,12 +206,63 @@
                 translateZ: 0,
                 opacity: [0,1],
                 easing: "easeOutExpo",
-                duration: 2000,
-                delay: (el, i) => 130 + 50 * i
+                duration: 3000,
+                delay: (el, i) => 3200 + 50 * i
+    });
+
+    var textWrapper = document.querySelector('.subtitle');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='subletter'>$&</span>");
+
+    anime.timeline()
+    .add({
+                targets: '.subtitle .subletter',
+                translateY: [200,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 3000,
+                delay: (el, i) => 3200 + 50 * i
+    });
+
+    anime.timeline() 
+    .add({ 
+        targets: '.landing-bar',
+        width: [0, "37vw"],
+        easing: "easeOutExpo",
+        duration: 3000,
+        delay: 3500
     });
 
 
+    TweenMax.to(".preloader", 1.5, { 
+        top: "-100%",
+        ease: Expo.easeInOut,
+        delay: 2
+    });
+
+    var tl = new TimelineMax();
+    tl.from(".preloader-bar", 1, { 
+        scaleX: "0%",
+        ease: Expo.easeInOut,
+        transformOrigin: "0% 50%"
+    });
+
+    tl.to(".preloader-bar", 1, { 
+        scaleX: "0%",
+        ease: Expo.easeInOut,
+        transformOrigin: "100% 50%"
+    });
+    
+    var tl = new TweenMax.staggerFrom("nav ul li", 1, { 
+        opacity: 0,
+        y: 30,
+        ease: Expo.easeInOut,
+        delay: 3.5
+    }, 0.3);
+
     </script>
+
+    
     
 </body>
 </html>
