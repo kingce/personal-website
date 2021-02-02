@@ -23,12 +23,21 @@
     </head>
 
     <body>
+
+        <div class="picture">
+            <div class="cover">
+            </div>
+            <div class="inner-picture">
+            </div>
+        </div>
+
+        </div>
         <h2 data-aos="fade-in" data-aos-duration="1000">Hi! 你好! 初めまして!</h2>
 
         <p data-aos="fade-in" data-aos-duration="1000" class="intro">First off, thanks for taking the time to stop by - I really appreciate it! If you're here, that means you have some time to kill and want to know more about who you're working with. If this isn't the case and you're a busy recruiter who needs 30 second elevator pitches on all the cool projects I've worked on, click <a href="./index.html">here</a> and I'd be happy to show off the work I've done. </p>
 
         <p data-aos="fade-in" data-aos-duration="1000" >Alright, where to start? </p>
-        <p data-aos="fade-in" data-aos-duration="1000">I'm Daniel! I'm a 22 year old Taiwanese-American UX designer currently residing in the Greater Seattle Area. My background as a first generation immigrant has  offered me a unique perspective on the basics of UI design - I've always been interested in how we can distill layouts and elements in a way that's intuitive to understand independent of language. This fascination with underlying frameworks of communication has also sparked my interest in languages - I speak Mandarin Chinese and English fluently, and I'm working on my Japanese a lot during quarantine as well. でも僕の日本語はまだ上手ではありません </p>
+        <p data-aos="fade-in" data-aos-duration="1000">I'm Daniel! I'm a 22 year old Taiwanese-American UX designer currently residing in the Greater Seattle Area. My background as a first generation immigrant has  offered me a unique perspective on the basics of UI design - I've always been interested in how we can distill layouts and elements in a way that's intuitive to understand independent of language. This fascination with underlying frameworks of communication has also sparked my interest in languages - I speak Mandarin Chinese and English fluently, and I've been teaching myself Japanese during quarantine as well. でも僕の日本語はまだ上手ではありません </p>
 
         <p data-aos="fade-in" data-aos-duration="1000">I'm currently a student at Western Washington University, working towards a Bachelors in Computer Science and a double minor in Math and UX Design. I'm a big believer in multidisciplinary backgrounds in UX - so much of what we do (both internally and externally) inherently involves the ability to understand and connect with a perspective that might be different from ours. Having a multidisciplinary and worldly approach in my UX process helps me connect with coworkers and users alike, and I actively look to expand my worldview at every opportunity I get. </p>
 
@@ -37,7 +46,7 @@
         <p data-aos="fade-in" data-aos-duration="1000">Outside of work, I am a serial collector of niche hobbies. Beyond illustrating and writing, I'm an avid collector of mechanical keyboards. I also started teaching myself guitar since the global pandemic started, and that's been going pretty well! Before gyms closed, I was big into powerlifting as well. I'm super passionate about these hobbies and love to ramble on and on about them, so if you're interested in hearing about
         my favorite keyboard plate material or what powerlifting program I'm currently trying out, don't be afraid to hit me up!</p>
 
-        <p data-aos="fade-in" data-aos-duration="1000">Beyond that, there's not much else. Just another human trying his best out here. Thanks again for taking the time to read about me - I hope to work with you sometime! :) </p>
+        <p data-aos="fade-in" data-aos-duration="1000">And that's really about it! Thanks again for taking the time to read about me - I hope to work with you sometime! Feel free to write me back at <a href="mailto:chuan.e.king@gmail.com">chuan.e.king@gmail.com</a>, I'd love to hear from you.</p>
 
         <p data-aos="fade-in" data-aos-duration="1000">Warm regards,</p>
         <p data-aos="fade-in" data-aos-duration="1000">Daniel King</p>
@@ -49,6 +58,15 @@
         <div class="spacer">
         </div>
     </body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script>
+        TweenMax.to(".cover", 1, { 
+            scaleX: "0%",
+            ease: Expo.easeInOut,
+            transformOrigin: "100% 50%"
+        });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){

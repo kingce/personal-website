@@ -61,3 +61,33 @@ a {
     height: 7rem;
 }
 
+.inner-picture { 
+    background-image: url("../assets/dan1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #002F5E;
+    height: 30rem;
+    width: 20rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.cover { 
+    background-color:#191919;
+    height: 30rem;
+    width: 20rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
+
+
+.picture { 
+    position: relative;
+    height: 40rem;
+    width: 98vw;
+}
