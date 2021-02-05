@@ -10,6 +10,8 @@
     --mental-reminder-dark-accent: #555B53;
     --move-in-accent: #007AC8;
     --move-in-dark-accent: #002F5E;
+    --wta-accent: #99bce4;
+    --wta-dark-accent: #074362;
 }
 
 html, body { 
@@ -60,7 +62,8 @@ h1 {
     margin-left: 3rem;
 }
 .content-wrapper { 
-    margin-left: 9vw;
+    max-width: 95rem;
+    margin:auto;
 }
 
 .section-padding { 
@@ -73,6 +76,10 @@ h1 {
 
 .move-in-accent { 
     color: var(--move-in-accent);
+}
+
+.wta-accent { 
+    color: var(--wta-accent);
 }
 
 li { 
@@ -122,7 +129,7 @@ h5 {
 
 /* --------------------------------------------------------------- PROJECT BRIEF */
 
-.brief { 
+.brief, .m10 { 
     margin: 10rem;
 }
 
@@ -145,6 +152,10 @@ h5 {
 
 .brief-border-move-in { 
     border-left: 1rem solid var(--move-in-dark-accent);
+}
+
+.brief-border-wta { 
+    border-left: 1rem solid var(--wta-dark-accent);
 }
 
 /* --------------------------------------------------------------- PROJECT BRIEF */
@@ -189,3 +200,25 @@ h5 {
     font-weight: 800;
 }
 
+
+.persona { 
+    margin-top: 3rem;
+
+}
+
+.end-card-button a { 
+    text-decoration: none;
+    font-size: 2rem;
+    color: #0C0C0C;
+    padding: 1rem;
+    background-color: white;
+    margin: 3rem;
+    font-family: var(--main-font);
+    font-weight: 700;
+
+}
+
+.center { 
+    text-align: center;
+
+}

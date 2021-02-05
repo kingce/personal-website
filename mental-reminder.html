@@ -19,17 +19,6 @@
 
     <body>
 
-        <div class="menu">
-            <h5 class="mental-reminder-accent">CONTENTS</h5>
-            <ul>
-                <li><a href="#brief">Brief</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#ideation">Ideation</a></li>
-                <li><a href="#prototyping">Prototyping</a></li>
-                <li><a href="#validate">Validate</a></li>
-                <li><a href="#handoff">Handoff</a></li>
-            </ul>
-        </div>
 
         <div class="back-button">
             <i class="fas fa-arrow-left"></i>
@@ -66,7 +55,7 @@
                     <p>Many people with mental health issues can get overwhelmed by the amount of things they have to do, and their anxiety only gets exacerbated by the crowded and sterile UI of popular reminder apps on the market.</p>
                     <h3>The Solution - </h3>
                     <p>Design and implement a cross platform application with a minimal UI and feature set to gently remind users of the things they need to do. </p>
-                    <h3>What <em>I</em> did- </h3>
+                    <h3>What <em>I</em> did - </h3>
                     <p>I worked with three other students in the research and validation phases, as well as in implementation. <br> I was solely responsible for the design system/visual language, and high fidelity prototypes. I was also in charge of leading and managing the UX portion of the project in general.</p>
                 </div>
             </div>
@@ -115,11 +104,16 @@
 
                 <div class="m3">
                     <h3 class="mental-reminder-accent">User Personas</h3>
-                    <img class="m3" src="./assets/mental-reminder/persona1.png" width="80%"></img>
-                    <img class="m3" src="./assets/mental-reminder/persona2.png" width="80%"></img>
+                    <img class="persona" src="./assets/mental-reminder/persona1.png" width="100%"></img>
+                    <img class="persona" src="./assets/mental-reminder/persona2.png" width="100%"></img>
                 </div>
 
             </div>
+
+        </div>
+
+
+        <div class="content-wrapper">
 
             <div class="ideation m10" id="ideation">
                 <h2>Ideation & Iteration - </h2>
@@ -193,13 +187,16 @@
                 <div class="validate" id="validate">
                     <h2>Validate - </h2>
                     <p class="m3">With the high fidelity prototype in hand, we conducted a more formal round of user testing. Our goal for our project was to create something simple that is intuitive to use. With that in mind, our validation was set up to test 1) the speed and ease of which users are able to conduct basic tasks, and 2) whether or not, after on boarding, app gestures felt natural. </p>
+
+                    <img class="m3" src="./assets/mental-reminder/user-testing-fixes.png" width="80%"></img>
                     <p class="m3">The four formal user tests conducted validated our theories on the general usage and gestures. The key changes we made as a result of user testing was modifying the swipe right gesture on a reminder to complete the reminder instead of snooze - the rationale behind this was that most people who snooze from the push notification. If they were actively checking the home screen, it would make sense to enable them to complete a task ahead of time, a use case that we
                     overlooked during ideation.</p>
+                    <p class="m3">We also made sure to clarify any affordances that weren't immediately obvious to the user. The user testing sessions offered us valuable insight into what features were valued and what features could be further cut to reduce bloat. Although our script and sample tasks were built around a 'happy path' user story, often times the user would lead us off script in a direction that would ultimately prove enlightening - for example, learning that our ambiguous notification system felt 'condescending' rather than 'friendly' was something that never occurred to us due to our proximity to the project.</p>
                 </div>
 
                 <div class="handoff" id="handoff">
                     <h2>Handoff - </h2>
-                    <p class="m3">We're currently still in the development phase for this class project - it looks like our research has paid off though, as all of our intended features and gestures are do-able with the software frameworks we've selected for implementation. I'll post a link along with the finalized screens once the implementation is done!</p>
+                    <p class="m3">We're currently still in the development phase for this class project - it looks like our research has paid off though, as all of our intended features and gestures are do-able with the software frameworks we've selected for implementation. These screens are still subject to change depending on whether or not the timeframe is modified. I'll post a link along with the finalized screens once the implementation is done!</p>
                 </div>
 
                 <div class="final-screen" id="final-screen">
@@ -211,7 +208,19 @@
 
         <div class="end-card">
             <h2>Thanks for scrolling!  &#128591;</h2>
+            <div class="end-links">
+                <div class="end-card-button">
+                    <a  href="./index.html">Take me home</a>
+                </div
+                <p>Other projects: </p>
+                <div class="end-projects">
+                    <a href="">Mental Reminder</a>
+                    <a href="./move-in.html">Move-In App</a>
+                    <a href="./wta.html">WTA App Concept</a>
+                </div>
+            </div>
         </div>
+
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
         <script type="text/javascript">

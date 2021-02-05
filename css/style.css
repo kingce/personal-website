@@ -5,7 +5,7 @@
 
 :root { 
     --main-text-color: #FFFFFF;
-    --main-bg-color: #0C0C0C;
+    --main-bg-color: #101214;
     --dark-gray: #161616;
     --blinds-color:#EFEDED;
     --about-color: #16425B;
@@ -56,7 +56,7 @@ nav {
     width: 90vw;
     background-color: var(--main-bg-color);
     font-family: var(--main-font);
-    font-size: 1.155vw;
+    font-size: 1.15rem;
     padding: 2vw 5vw;
 }
 
@@ -71,6 +71,41 @@ nav ul {
 nav li a { 
     color: white;
     text-decoration: none;
+}
+
+#nav:checked + .nav-btn {
+      transform: rotate(45deg);
+}
+
+#nav:checked + .nav-btn i {
+      background: #fff;
+      transition: transform 0.2s ease;
+}
+
+#nav:checked + .nav-btn i:nth-child(1) {
+      transform: translateY(6px) rotate(180deg);
+}
+
+#nav:checked + .nav-btn i:nth-child(2) {
+      opacity: 0;
+}
+
+#nav:checked + .nav-btn i:nth-child(3) {
+      transform: translateY(-6px) rotate(90deg);
+}
+
+#nav:checked ~ .nav-wrapper {
+      z-index: 9990;
+      opacity: 1;
+}
+
+#nav:checked ~ .nav-wrapper ul li a {
+      opacity: 1;
+      transform: translateX(0);
+}
+
+.hidden {
+      display: none;
 }
 
 /* ----- HEADER ----- */
@@ -238,8 +273,7 @@ nav li a {
 
 .work h5:hover { 
     color: white;
-    font-size: 4.5vw;
-    transition: 1s;
+    transition: .5s;
 }
 
 
@@ -255,23 +289,6 @@ nav li a {
 }
 
 
-/* ----- CONTACT ----- */
-
-.contact { 
-    text-align: center;
-    margin-top: 7vw;
-}
-
-.contact h2 { 
-    margin: 0;
-}
-
-.contact h5 { 
-    font-size: 1.75vw;
-    font-weight: 300;
-    margin: 0;
-    letter-spacing: 1.07vw;
-}
 
 
 /* ----- LINKBOX ----- */
@@ -380,16 +397,16 @@ nav li a {
 }
 
 .inner-work-3 { 
-    background-image: url("../assets/exchange-sample.png");
+    background-image: url("../assets/transit-sample.png");
     background-repeat: no-repeat;
-    background-position: 55vw;
-    background-size: 30vw;
-    background-color: #1D2337;
+    background-position: 45vw -15vw;
+    background-size: 50vw;
+    background-color: #074362;
 }
 
 .inner-work-3:hover { 
-    background-size: 35vw;
-    background-color: #323E51;
+    background-size: 55vw;
+    background-color: #3C66BB;
 }
 
 /* --- OTHER WORKS --- */
@@ -397,115 +414,332 @@ nav li a {
     margin-left: 3vw;
 }
 
-/*--- ANIMATIONS ---*/
 
-@keyframes swipe-reveal { 
-    0% { 
-        left:0;
-        width: 0;
-        
-    }
-    50% { 
-        width:100%;
-        left:0;
-    }
-    100% { 
-        width: 0;
-        left: 100%;
-    }
+/* --- CONTACT --- */
+
+.contact { 
+    margin-left: 5vw;
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+}
+
+.contact h2 { 
+    font-size: 5vw;
+    margin: 0;
+}
+
+.contact h3 { 
+    color: gray;
+    font-size: 2.5vw;
+    font-weight: 600;
+    margin: 1rem;
+    margin-bottom:3rem;
+}
+
+.links a{ 
+    text-decoration: none;
+    color: gray;
+}
+
+.links a:hover { 
+    color: white;
+    font-weight: 600;
+}
+
+.links ul { 
+    color: gray;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    line-height: 5rem;
+    list-style-type: none;
+    border-left: 5px solid gray;
+}
+
+footer { 
+    text-align: right;
+    padding: .1rem;
+}
+
+footer p { 
+    color: gray;
+    font-weight: 300;
+    margin-right: 1.5rem;
+    font-size: .8rem;
+
 }
 
 
 /*--- fix for wonky height issues --- */
 @media only screen and (max-height: 800px) { 
-    .main-container { 
-        top: 45%;
-    }
+  
 
-    .main-container h1 { 
-        font-size: 45px;
-        letter-spacing: 3px;
-    }
+}
 
-    .about-author p, .about-site p { 
-        font-size: 15px;
-    }
+/*--- Macbooks and Macbook Pros --- */
+@media only screen and (max-width: 1200px) { 
 
-    .about-author h3, .about-site h3 { 
-        font-size: calc(15px * 1.618);
+    .landing { 
+        min-height: 45vw;
     }
+    .wrapper-left h3 { 
+        font-size: 1.255rem;
 
-    .about-author, .about-site { 
-        padding: 0px 50px 0px 0px;
-        position: absolute; 
-        top: 15%;
+    }
+    .wrapper-left p { 
+        font-size: 1rem;
+        line-height: 1.75rem;
+
     }
 
 }
 
-/*--- SMARTPHONES (iphone 5s at 320px according to google console) ---*/
+/*--- SMARTPHONES (iphone 5s at 320px according to google console) samsung fold or whatever is like...500 ish? a lil more than 500 ---*/
 @media only screen and (max-width : 500px) {
-    /* TITLE */
-    .main-container { 
-        top: 35%;
-        position: absolute;
-        padding-left: 25px;
-    }
-
-    .main-container h1 { 
-        font-size: 30px;
-        letter-spacing:2.5px;
-    }
-
-    /* HIDE NAV LIST FOR THAT SPICY MINIMALISM */
-    /* JK IM LAZY AND I DONT WANNA WRITE MORE CODE */
-    .nav-list { 
+    /*--- NAV ---*/
+    nav { 
         display: none;
     }
 
-    /* ABOUT */
-    #about { 
-        position: absolute;
-        height: auto;
-        top: 100%;
-        display: none;
-    }
+      .nav-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--main-bg-color);
+            opacity: 0;
+            transition: all 0.2s ease;
+      }
 
-    .about-site, .about-author { 
-        grid-columns-start: initial;
-        grid-column-end: initial;
-        position: relative;
-        padding: 25px;
-        margin-bottom: 50px;
-    }
+      .nav-wrapper ul {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+      }
 
-    
+      nav ul { 
 
-    /* MOBILE ONLY STUFF */
-
-    #mobile-menu { 
-        width:100%;
-        height: 50px;
-        background-color: var(--about-secondary);
-        position: fixed;
-        bottom: 0;
-        z-index: 15;
         display: block;
-        cursor: pointer;
-    }
-    
-    #mobile-menu h2{ 
-        position: absolute;
-        line-height: 0;
-        margin-left: 25px;
-        margin-top: 25px;
-        font-family: var(--secondary-font);
-        
-    }
+      }
 
-    .bg-1, .bg-2, .bg-3 { 
-        border-right: none;
-    }
+      .nav-wrapper ul li {
+            display: block;
+            float: none;
+            width: 100%;
+            text-align: right;
+            margin-bottom: 3rem;
+      }
 
+      .nav-wrapper ul li:nth-child(1) a {
+            transition-delay: 0.2s;
+      }
+
+      .nav-wrapper ul li:nth-child(2) a {
+            transition-delay: 0.3s;
+      }
+
+      .nav-wrapper ul li:nth-child(3) a {
+            transition-delay: 0.4s;
+      }
+
+      .nav-wrapper ul li:nth-child(4) a {
+            transition-delay: 0.5s;
+      }
+
+      .nav-wrapper ul li:not(:first-child) {
+            margin-left: 0;
+      }
+
+      .nav-wrapper ul li a {
+            padding: 10px 24px;
+            opacity: 0;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            transform: translateX(-20px);
+            transition: all 0.2s ease;
+      }
+
+      .nav-btn {
+            position: fixed;
+            right: 10px;
+            top: 10px;
+            display: block;
+            width: 48px;
+            height: 48px;
+            cursor: pointer;
+            z-index: 9999;
+            border-radius: 50%;
+      }
+
+      .nav-btn i {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: #fff;
+            border-radius: 2px;
+            margin-left: 14px;
+      }
+
+      .nav-btn i:nth-child(1) {
+            margin-top: 16px;
+      }
+
+      .nav-btn i:nth-child(2) {
+            margin-top: 4px;
+            opacity: 1;
+      }
+
+      .nav-btn i:nth-child(3) {
+            margin-top: 4px;
+      }
+      
+      /*--- LANDING --- */
+
+      .landing { 
+          min-height: 50rem;
+      }
+
+      .title { 
+          top: 5rem;
+      }
+
+      .landing p { 
+          top: 70%;
+      }
+
+      .title-1 .letter, .title-2 .letter { 
+          line-height:5rem;
+          font-size: 4.75rem;
+      }
+
+      .subtitle .subletter{ 
+            line-height: 2rem;
+            font-size: 1.55rem;
+      }
+
+      .bg-box, .landing-bar { 
+          display: none;
+      }
+
+
+      /* --- ABOUT --- */
+
+      .wrapper-left { 
+          border-left: 3px solid #161616;
+          padding-left: 2rem;
+          margin: 1rem;
+          margin-right: 2rem;
+          width: 80vw;
+      }
+
+      .about h3 { 
+          font-size: 1.55rem;
+          line-height: 2.5rem;
+          padding-bottom: 3rem;
+      }
+      .about p { 
+          font-size: 1rem;
+          line-height: 2.0rem;
+      }
+
+      .button-bar { 
+          display: block;
+      }
+
+      .button { 
+          font-size: 1.1rem;
+          padding: 1rem 3rem;
+          margin: 1.5rem;
+          margin-left: 0;
+          text-align: center;
+      }
+
+      /* --- WORKS --- */
+
+      .works { 
+          min-height: 10rem;
+      }
+
+      .works h2 { 
+          text-align: right;
+          float: right;
+          padding-right: 1rem;
+          font-size: 3rem;
+      }
+
+      .work-box { 
+          height: 20rem;
+          margin: 1.75rem 5vw;
+      }
+
+      .inner-box { 
+          height: 20rem;
+      }
+
+      .inner-work-1 { 
+          background-position: -2rem -5rem;
+          background-size: 27rem;
+          background-color: #667764;
+      }
+
+      .inner-work-2 { 
+          background-position: 0rem -10rem;
+          background-size: 27rem;
+          background-color: #003F87;
+      }
+
+      .inner-work-3 { 
+          background-position: 2rem -3rem;
+          background-size: 17rem;
+          background-color: #323E51;
+      }
+
+      .select-works { 
+          margin-top: 5rem;
+      }
+
+      .select-works-text p { 
+          display: none;
+      }
+
+      .select-works-text h3 { 
+          font-size: 1.75rem;
+      }
+
+
+      /* --- OTHER WORKS --- */
+
+      .other-work-title h2 { 
+          font-size: 3rem;
+      }
+      
+      .work { 
+          margin: 2rem;
+          height: auto;
+      }
+
+      /* --- CONTACT --- */
+
+      .contact { 
+          margin-top: 7rem;
+      }
+
+      .contact h2 { 
+          font-size: 3rem;
+      }
+
+      .contact h3 { 
+          margin: 2rem 0;
+          font-size: 1.5rem;
+      }
+
+      .links ul { 
+          font-size: 2rem;
+
+      }
 }
 

@@ -3,3 +3,41 @@
     margin: 10rem;
     padding-bottom: 10rem;
 }
+
+.end-card-button { 
+    color: white;
+    margin-top: 3rem;
+}
+
+
+.end-card-home-button { 
+    padding: 1.5rem;
+    font-size: 2rem;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+}
+
+.end-links { 
+    margin-top: 5rem;
+}
+
+
+.end-projects a { 
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    color: gray;
+    font-size: 1.75rem;
+    padding: 2rem;
+}
+
+.end-projects a:hover { 
+    color: white;
+}
+
+.end-links p { 
+    font-size: 3rem;
+    margin-top: 5rem;
+}
