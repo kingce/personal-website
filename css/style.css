@@ -687,15 +687,19 @@ footer p {
       }
 
       .inner-work-2 { 
-          background-position: 0rem -10rem;
+          background-position: 5rem -10rem;
           background-size: 27rem;
           background-color: #003F87;
       }
 
       .inner-work-3 { 
-          background-position: 2rem -3rem;
-          background-size: 17rem;
+          background-position: 7rem -5rem;
+          background-size: 27rem;
           background-color: #323E51;
+      }
+
+      .inner-work-2:hover, .inner-work-1:hover, .inner-work-3:hover { 
+          background-size: 30rem;
       }
 
       .select-works { 
@@ -720,6 +724,14 @@ footer p {
       .work { 
           margin: 2rem;
           height: auto;
+      }
+
+      .work-wrapper { 
+          margin-left: 0;
+      }
+
+      .work h5 { 
+          font-size: 2rem;
       }
 
       /* --- CONTACT --- */

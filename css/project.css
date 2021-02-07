@@ -222,3 +222,67 @@ h5 {
     text-align: center;
 
 }
+
+
+/* --- One breakpoint is all we need for both tablets and phones since this is basically all text --- */
+@media only screen and (max-width : 1200px) {
+
+    p { 
+        font-size: 1rem;
+        line-height: 2.0rem;
+
+    }
+
+
+    .content-wrapper { 
+        max-width: 100%;
+    }
+
+    .project-info, .back-button, .title { 
+        margin-left: 3rem;
+    }
+
+    .title { 
+        padding-left: 0;
+    }
+
+    .title h1 { 
+        font-size: 3rem;
+    }
+
+    .project-info { 
+        padding: 0;
+        display: block;
+    }
+
+    .brief, .core-challenges, .process, .research, .ideation { 
+        margin: 0;
+        margin-left: 3rem;
+        margin-top: 7rem;
+    }
+
+    .brief-text { 
+        padding: 0 2rem;
+    }
+
+    .brief p { 
+        padding: 0 2rem;
+    }
+
+    .process-wrapper { 
+        display: block;
+    }
+
+    .two-col { 
+        display: block;
+    }
+
+    .m10 { 
+        margin: 3rem;
+    }
+
+    .m3 { 
+        margin: 1rem;
+    }
+
+}
