@@ -25,138 +25,260 @@
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
     </script>
 
+    <!-- Generic favicon sizes -->
+    <link rel="icon" type="image/png" href="./assets/favicon-32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="./assets/favicon-128.png" sizes="128x128">
+    <!-- Just the one favicon size for apple lol -->
+    <link rel="apple-touch-icon" type="image/png" href="./assets/favicon-180.png" sizes="180x180">
+    <!--- ANIMATE ON SCROLL -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
 
     <div class="preloader">
-        <h1>loading unnecessary javascript...</h1>
-    </div>
-
-    <div id="mobile-menu">
-        <h2>> ABOUT</h2>
-    </div>
-
-    <div class="bg">
-        <div class="bg-1-wrapper">
-            <div class="bg-pre">
-            </div>
-            <div class="bg-1">
-            </div>
-        </div>
-
-        <div class="bg-2-wrapper">
-            <div class="bg-pre">
-            </div>
-            <div class="bg-2">
-            </div>
-        </div>
-
-        <div class="bg-3-wrapper">
-            <div class="bg-pre">
-            </div>
-            <div class="bg-3">
-            </div>
+        <div class="preloader-bar">
         </div>
     </div>
 
-    <div class="main-container">
-        <h1>THIS SITE IS <span class="title-emphasis">TEMPORARY</span></h1>
-    </div>
-    
-    <div class="nav-list">
-        <ul>
-            <li id="about-button">+ ABOUT</li>
-            <li><a href="https://github.com/kingce" target="_blank">+ GITHUB</a></li>
-            <li><a href="https://www.linkedin.com/in/daniel-king-8050aa150/" target="_blank">+ LINKEDIN</a></li>
-            <li><a href="mailto:chuan.e.king@gmail.com">+ EMAIL</a></li>
-            <li id="toggle_colorscheme">+ TOGGLE LIGHT/DARK MODE</li>
-        </ul>
-    </div>
 
-    <div id="transition_about">
-    </div>
+    <nav>
+        <input type="checkbox" id="nav" class="hidden">
+        <label for="nav" class="nav-btn">
+            <i></i>
+            <i></i>
+            <i></i>
+        </label>
+        <div class="nav-wrapper">
+            <ul>
+                <li><a href="#section-one">ABOUT</a></li>
+                <li><a href="#section-two">WORKS </a></li>
+                <li><a href="#section-three">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <div id="about">
-        <div class="about-site">
-            <h3>+ about the site</h3>
-            <p>Like a lot of student designers, the author of the site likes to experiment and frequently redesign his portfolio page way too often. This site serves as a nicer looking 'Work In Progress' sign. It might be gone tomorrow. It might be here forever.</p>
-            <p><em>Built by scratch with HTML, CSS, jQuery, and GSAP by Daniel King.</em></p>
+    <div class="landing">
+        <div class="bg-box"></div>
+        <div class="color-box"></div>
+        <div class="title">
+            <h1 class="title-1">DANIEL</h1>
+            <h1 class="title-2">KING</h1>
         </div>
 
-        <div class="about-author">
-            <h3>+ about daniel</h3>
-            <p>Daniel King is a 20 year old designer, developer, and student based in Bellingham, Washington. He is currently employed as a web designer at WWU University Residences. In his free time, he enjoys reading, writing, and powerlifting. You can view his resume <a href="assets/RESUME2018.pdf" target="_blank">here</a>.</p>
+        <div class="landing-bar"></div>
+        <p class="subtitle">'FOLIO 21</p>
+    </div>
+
+    <div class="about" id="section-one">
+        <div class="wrapper-left">
+            <h3 data-aos="fade-in" data-aos-duration="950"><strong>Heya! &#x270c; I'm Daniel - a Taiwanese American <br> UX designer based in Washington.</strong></h3>
+            <p data-aos="fade-in" data-aos-duration="950">I'm a student in WWU's Computer Science program with a double minor in Math and UX Design. My multidisciplinary background gives me a unique perspective in collaborative design environments and how each task fits into the big picture. </p>
+            <p data-aos="fade-in" data-aos-duration="950">I'm a big believer in empathy and its role in the design process. My personal UX approach is to use data-driven validation methods to iterate as often as possible in order to create an intuitive and delightful experience to all users.</p>
+            <div class="button-bar">
+                <div data-aos="fade-in" data-aos-duration="950" class="button no-fill" type="button">
+                <a href="./letter.html">
+                    A LETTER TO YOU
+                </a>
+                </div>
+                <div data-aos="fade-in" data-aos-duration="950" class="button fill" type="button">
+                <a href="./assets/RESUME.pdf" target="_blank">
+                    RESUME
+                </a>
+                </div>
+            </div>
         </div>
     </div>
+
+    <div class="works" id="section-two">
+        <h2>SELECT WORKS</h2>
+    </div>
+
+    <div class="select-works">
+        <div class="work-box work-1">
+            <a href="./mental-reminder.html">
+                <div class="inner-box inner-work-1">
+                    <div class="select-works-text">
+                        <h3>MENTAL REMINDER</h3>
+                        <p><small><em>School Project   &#9679;   UX Design Lead, Developer</em></small></p>
+                        <p>A minimal, mental-health based <br> reminder app with a focus on usability.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="work-box work-2">
+            <a href="./move-in.html">
+                <div class="inner-box inner-work-2">
+                    <div class="select-works-text">
+                        <h3>WWU Move-In App</h3>
+                        <p><small><em>Work Project &#9679; UX Designer</small></em></p>
+                        <p>Designed a progressive web app to guide over 400 <br> students through a socially distanced move-in process.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="work-box work-3">
+            <a href="./wta.html">
+                <div class="inner-box inner-work-3">
+                    <div class="select-works-text">
+                        <h3>WTA App Concept</h3>
+                        <p><small>School Project &#9679; UX Designer, Case Study</small></p>
+                        <p>Designed a first-party mobile app for finding route information<br> and trip planning with strong WTA branding.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="other-work-title">
+        <h2>OTHER WORKS</h2>
+    </div>
+    <div class="work-wrapper">
+
+
+        <div class="work">
+            <a href="https://www.behance.net/gallery/110527603/EXCHANGE-App-Concept" target="_blank">
+                <h5>EXCHANGE UX CONCEPT</h5>
+            </a>
+        </div>
+
+        <div class="work">
+            <a href="https://mgoss489.github.io/portfolio/" target="_blank">
+                <h5>M. GOSS PORTFOLIO</h5>
+            </a>
+        </div>
+
+
+        <div class="work">
+            <a href="https://acm-wwu.github.io/" target="_blank">
+                <h5>WWU x ACM WEBSITE</h5>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="contact" id="section-three">
+
+        <h2>Thanks for scrolling!  &#128591;</h2>
+        <h3><em>Get in touch - let's build something cool.</em></h3>
+
+        <div class="links">
+            <ul>
+                <li><a href="https://www.linkedin.com/in/daniel-king-8050aa150/" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/kingce" target="_blank">Github</a></li>
+                <li><a href="https://www.behance.net/danielking9" target="_blank">Behance</a></li>
+                <li><a href="mailto:chuan.e.king@gmail.com" target="_blank">Shoot me an email</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&#169; DESIGNED AND DEVELOPED BY DANIEL KING 2020</p>
+    </footer>
+
+
 
 
 <!-- SCRIPTS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-    <script src="js/baffle.min.js"></script>
+    <script src="./js/zenscroll-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
     <script type="text/javascript">
-        //PRELOADER ANIMS
-        
-        //Call baffler
-        const preloaderText = baffle(".preloader h1");
-        preloaderText.set({
-            speed: 75 
+        $(document).ready(function(){
+                AOS.init({ disable: 'mobile' });
         });
-        preloaderText.start();
-        preloaderText.reveal(3000);
-
-        setTimeout(() => { 
-            TweenMax.to(".preloader h1", 1, {
-                opacity: 0, 
-                y: 70,
-                ease: Expo.easeInOut
-            });
-
-            TweenMax.to(".preloader", 1, { 
-                delay: 1,
-                top: "-100%",
-                ease: Expo.easeInOut
-            });
-
-            TweenMax.from(".main-container h1", 1, { 
-                delay: 1.5,
-                opacity: 0,
-                y: 35, 
-                ease: Expo.easeInOut
-            });
-
-            TweenMax.staggerFrom(".nav-list li", 1, { 
-                delay: 1.7,
-                opacity: 0,
-                ease: Expo.easeInOut
-            }, 0.2);
-
-            
-        }, 3000);
-
-        
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script type="text/javascript">
-            var text = ["TEMPORARY", "EPHEMERAL", "A PLACEHOLDER", "MINIMAL", "BY DANIEL", "A PERSONAL SITE", "DISGUSTANG", "IMPERMANENT", "INTERIM", "SHORT TERM", "PRETENTIOUS" ];
-      
-        setTimeout(() => { 
-            var i = 0;
-            function changeText() { 
-                $('.title-emphasis').fadeOut(150, function() { 
-                    $('.title-emphasis').text(text[i]).fadeIn(150);
-                });
-                i=(i+1)%text.length;
-            }
 
-            setInterval(changeText, 1000);
-        }, 7000);
 
+        var textWrapper = document.querySelector('.title-1');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline()
+    .add({
+                targets: '.title-1 .letter',
+                translateY: [200,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 3000,
+                delay: (el, i) => 3000 + 50 * i
+            });
+
+    var textWrapper = document.querySelector('.title-2');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+    anime.timeline()
+    .add({
+                targets: '.title-2 .letter',
+                translateY: [200,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 3000,
+                delay: (el, i) => 3200 + 50 * i
+    });
+
+    var textWrapper = document.querySelector('.subtitle');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='subletter'>$&</span>");
+
+    anime.timeline()
+    .add({
+                targets: '.subtitle .subletter',
+                translateY: [200,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 3000,
+                delay: (el, i) => 3200 + 50 * i
+    });
+
+    anime.timeline() 
+    .add({ 
+        targets: '.landing-bar',
+        width: [0, "37vw"],
+        easing: "easeOutExpo",
+        duration: 3000,
+        delay: 3500
+    });
+
+
+    TweenMax.to(".preloader", 1.5, { 
+        top: "-100%",
+        ease: Expo.easeInOut,
+        delay: 2
+    });
+
+    var tl = new TimelineMax();
+    tl.from(".preloader-bar", 1, { 
+        scaleX: "0%",
+        ease: Expo.easeInOut,
+        transformOrigin: "0% 50%"
+    });
+
+    tl.to(".preloader-bar", 1, { 
+        scaleX: "0%",
+        ease: Expo.easeInOut,
+        transformOrigin: "100% 50%"
+    });
+    
+    var tl = new TweenMax.staggerFrom("nav ul li", 1, { 
+        opacity: 0,
+        y: 30,
+        ease: Expo.easeInOut,
+        delay: 3.5
+    }, 0.3);
 
     </script>
-    <script src="js/mousefollower.js"></script>
-    <script src="js/modals.js"></script>
-    <script src="js/color.js"></script>
-    <script src="js/responsive.js"></script>
+
+    
+    
 </body>
 </html>

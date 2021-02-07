@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,700;0,800;1,200;1,300;1,700;1,800&display=swap');
+
+:root { 
+    --main-bg-color: #0C0C0C;
+    --mental-reminder-accent: #C2D1BE;
+}
+
+.menu { 
+    position: fixed;
+    bottom: 0vh;
+    left: 1.5rem;
+    padding:  0 1.5rem;
+    opacity: 0.5;
+    transition: 1s;
+    background-color: var(--main-bg-color);
+}
+
+.menu:hover { 
+    opacity: 1;
+    transition: 1s;
+}
+
+.menu h5 { 
+    text-align: center;
+}
+
+.menu ul { 
+    list-style-type: none;
+    padding-inline-start: 1.5rem;
+    border-left: .55rem solid white;
+}
+
+.menu li { 
+    padding: .2rem 0;
+    font-size: 1.13rem;
+}
+
+.menu a { 
+    color: white;
+    text-decoration: none;
+}
+
+.menu a:hover { 
+    font-size: 1.25rem;
+    font-color: var(--mental-reminder-accent);
+    transition: .1s;
+}
+

@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,700;0,800;1,200;1,300;1,700;1,800&display=swap');
+@import 'endcard.css';
+@import 'menu.css';
+
+:root { 
+    --main-text-color: #FFFFFF;
+    --main-bg-color: #0C0C0C;
+    --main-font: 'Montserrat', sans-serif;
+    --mental-reminder-accent: #C2D1BE;
+    --mental-reminder-dark-accent: #555B53;
+    --move-in-accent: #007AC8;
+    --move-in-dark-accent: #002F5E;
+    --wta-accent: #99bce4;
+    --wta-dark-accent: #074362;
+}
+
+html, body { 
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-bg-color);
+}
+
+h1, h2, h3, h4, h5, p { 
+    color: var(--main-text-color);
+    font-family: var(--main-font);
+}
+
+i { 
+    color: var(--main-text-color);
+    font-size: 1.563rem;
+}
+
+p { 
+    font-size: 1.25rem;
+    line-height: 2rem;
+}
+
+h2 { 
+    font-size: 3.052rem;
+}
+
+h3 { 
+    font-size: 1.953rem;
+}
+
+h1 { 
+    font-size: 3.815rem;
+}
+
+.m3 { 
+    margin: 3rem;
+}
+
+.m10 { 
+    margin: 10rem;
+}
+
+.lm3 { 
+    margin-left: 3rem;
+}
+.content-wrapper { 
+    max-width: 95rem;
+    margin:auto;
+}
+
+.section-padding { 
+    margin: 10rem;
+}
+
+.mental-reminder-accent { 
+    color: var(--mental-reminder-accent);
+}
+
+.move-in-accent { 
+    color: var(--move-in-accent);
+}
+
+.wta-accent { 
+    color: var(--wta-accent);
+}
+
+li { 
+    font-size: 1.25rem;
+    color: white;
+    font-family: var(--main-font);
+    line-height: 2rem;
+}
+
+h5 { 
+    font-size: 1.563rem;
+}
+
+.back-button { 
+    display: flex;
+    margin: 3rem 9rem;
+}
+
+.back-button h5 { 
+    margin:0;
+    padding-left: 1.25rem;
+    color: white;
+}
+
+.back-button a { 
+    text-decoration: none;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------- PROJECT INFO */
+.project-info { 
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10rem;
+    padding-right: 13rem;
+}
+
+.title h1 { 
+    font-weight: 300;
+    font-size: 5.96em;
+    margin: 0;
+}
+
+.title { 
+    padding-left: 10rem;
+}
+
+/* --------------------------------------------------------------- PROJECT BRIEF */
+
+.brief, .m10 { 
+    margin: 10rem;
+}
+
+.brief h2 { 
+    font-weight: 700; 
+    font-size: 3.052rem;
+}
+
+.brief p { 
+    padding: 0 5rem;
+}
+
+.brief-text { 
+    padding: 0 5rem;
+}
+
+.brief-border-mental-reminder { 
+    border-left: 1rem solid var(--mental-reminder-dark-accent);
+}
+
+.brief-border-move-in { 
+    border-left: 1rem solid var(--move-in-dark-accent);
+}
+
+.brief-border-wta { 
+    border-left: 1rem solid var(--wta-dark-accent);
+}
+
+/* --------------------------------------------------------------- PROJECT BRIEF */
+
+.core-challenges { 
+    margin: 10rem;
+}
+
+.challenge { 
+    margin: 3rem;
+}
+
+
+/* --------------------------------------------------------------- PROCESS */
+.process { 
+    margin: 10rem;
+}
+.process-wrapper { 
+    display: flex;
+    justify-content: space-between;
+    font-size: 2.441rem;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 200px;
+}
+
+/* --------------------------------------------------------------- RESEARCH */
+
+.two-col { 
+    display: flex;
+    justify-content: space-around;
+}
+
+.research { 
+    margin: 10rem;
+}
+
+.source { 
+    font-size: .75em;
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+}
+
+
+.persona { 
+    margin-top: 3rem;
+
+}
+
+.end-card-button a { 
+    text-decoration: none;
+    font-size: 2rem;
+    color: #0C0C0C;
+    padding: 1rem;
+    background-color: white;
+    margin: 3rem;
+    font-family: var(--main-font);
+    font-weight: 700;
+
+}
+
+.center { 
+    text-align: center;
+
+}
+
+
+/* --- One breakpoint is all we need for both tablets and phones since this is basically all text --- */
+@media only screen and (max-width : 1200px) {
+
+    p { 
+        font-size: 1rem;
+        line-height: 2.0rem;
+
+    }
+
+
+    .content-wrapper { 
+        max-width: 100%;
+    }
+
+    .project-info, .back-button, .title { 
+        margin-left: 3rem;
+    }
+
+    .title { 
+        padding-left: 0;
+    }
+
+    .title h1 { 
+        font-size: 3rem;
+    }
+
+    .project-info { 
+        padding: 0;
+        display: block;
+    }
+
+    .brief, .core-challenges, .process, .research, .ideation { 
+        margin: 0;
+        margin-left: 3rem;
+        margin-top: 7rem;
+    }
+
+    .brief-text { 
+        padding: 0 2rem;
+    }
+
+    .brief p { 
+        padding: 0 2rem;
+    }
+
+    .process-wrapper { 
+        display: block;
+    }
+
+    .two-col { 
+        display: block;
+    }
+
+    .m10 { 
+        margin: 3rem;
+    }
+
+    .m3 { 
+        margin: 1rem;
+    }
+
+}
