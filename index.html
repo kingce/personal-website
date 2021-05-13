@@ -36,20 +36,159 @@
 </head>
 
 <body>
-
-    <div class="content">
-        <h3>Contents</h3>
-        <div class="table">
-            <a href="#">01 x ABOUT </a>
-            <a href="#">02 x SELECT WORKS </a>
-            <a href="#">03 x THE MENAGERIE</a>
+    <div class="nav">
+        <h3><a href="#">FOLIO '21</a></h3>
+        <div class="progress-bar">
+            <div class="line"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:serif="http://www.serif.com/" width="100%" height="100%" viewBox="0 0 111 115" version="1.1" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g><path d="M93.934,0l0,114.532l16.667,0l0,-114.532l-16.667,0Z"/><path d="M93.934,57.266l-93.934,53.521l0,-107.042l93.934,53.521Z"/></g></svg>
         </div>
     </div>
+
+        <section class="landing">
+            <div class="landing-content">
+                <h2>Heya ✌ I'm Daniel King - a UX designer based in Washington.</h2>
+
+                <p>I'm a student in WWU's Computer Science program with a double minor in Math and UX Design. My multidisciplinary background gives me a unique perspective in collaborative design environments and how each task fits into the big picture.</p>
+
+                <p>I'm a big believer in empathy and its role in the design process. My personal UX approach is to use data-driven validation methods to iterate as often as possible in order to create an intuitive and delightful experience to all users.</p>
+
+                <div class="landing-line">
+                </div>
+
+                <div class="landing-links">
+                    <a href="">be</a>
+                    <a href="">ln</a>
+                    <a href="mailto:chuan.e.king@gmail.com">email</a>
+                </div>
+
+            </div>
+
+            <div class="landing-image">
+
+                <div class="image-wrapper">
+                </div>
+
+                <p class="caption">
+                    <em>
+                    fig. 01 - A young UX designer in his natural habitat. Whether he is thinking about Swiss typography or just his next shot of espresso, we'll never know. Maybe you should <a href="">ask him</a>.
+                    </em>
+                </p>
+            </div>
+
+        </section>
+
+
+        <div class="content-wrapper">
+            <section class="select-works">
+
+                <h1>SELECT WORKS</h1>
+
+            </section>
+
+        </div>
+
+
+        <div class="project-grid">
+             <section class="project-row">
+                <a href="mental-reminder.html">
+                    <div class="project">
+                        <div class="img mental-reminder">
+
+                        </div>
+
+                        <div class="project-text-wrapper">
+                            <div class="project-text">
+                                <h4>MENTAL REMINDER</h4>
+                                <div class="project-line"></div>
+
+                                <p>A minimal, mental-health based reminder app with a focus on reducing cognitive load. </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="wta.html">
+                    <div class="project">
+                        <div class ="img"></div>
+                        <div class="project-text-wrapper">
+                            <div class="project-text">
+                                <h4>WTA App Concept</h4>
+                                <div class="project-line"></div>
+                                <p>A first-party mobile app concept for finding route information and trip planning with strong WTA branding.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </section>
+        </div>
+
+        <div class="project-grid">
+
+             <section class="project-row">
+                <a href="mental-reminder.html">
+                    <div class="project">
+                        <div class="img mental-reminder">
+
+                        </div>
+
+                        <div class="project-text-wrapper">
+                            <div class="project-text">
+                                <h4>WWU Move-In App</h4>
+                                <div class="project-line"></div>
+
+                                <p>Designed a progressive web app to guide over 400 <br> students through a socially distanced move-in process.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="project-afterwards">
+                    <div class="afterwards-text">
+                        <h3>Want more?</h3>
+                        <p>This was just a small sample of what I have to offer - if you want to view some of my branding/illustration/general design work, feel free to peruse the link below.</p>
+                        <p><a href="./menagerie.html">Visit the Menagerie</a></p>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <section class="about"></section>
+
+        <footer>
+            <div class="ref-wrapper">
+                <h2>REF.</h2>
+                <p>v3.0.1 - &copy; 2021 Daniel King</p>
+            </div>
+
+            <div class="links-wrapper">
+                <h5>LINKS</h5>
+                <p><a href="">Behance</a></p>
+                <p><a href="">LinkedIn</a></p>
+                <p><a href="">Github</a></p>
+            </div>
+
+            <div class="email-wrapper">
+                <h5>EMAIL</h5>
+                <p><a href="">chuan.e.king@gmail.com</a></p>
+            </div>
+
+            <div class="work-wrapper">
+                <h5>WORK</h5>
+                <p>I am currently available for small freelance projects! Please don't hesitate to reach out to me.</p>
+                <p>For reference, here's my <a class="footer-underline-link" href="">resume</a> again. Just in case ;)</p>
+            </div>
+
+
+        </footer>
+
+
 
 
 
 
 <!-- SCRIPTS -->
+    <script src="./js/scrollbar.js"></script>
     <script src="./js/dropdown.js"></script>
     <script src="./js/zenscroll-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
@@ -79,7 +218,7 @@
         }
     },{ paused: true });
 
-    document.querySelector(".content").addEventListener("mouseenter", dropdown);
+    document.querySelector(".content").addEventListener("mousedown", dropdown);
 
     function dropdown() { 
         drop.play(0);

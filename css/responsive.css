@@ -1,0 +1,15 @@
+@media only screen and (max-width: 1370px) { 
+    /* --- Landing fix --- */
+    .landing-content { 
+        left: 3rem;
+    }
+
+    .landing-image { 
+        right: 3rem;
+    }
+
+}
+
+@media only screen and (max-width : 500px) {
+    
+}
