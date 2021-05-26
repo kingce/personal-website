@@ -10,6 +10,7 @@
     --about-color: #16425B;
     --about-secondary: #D9DCD6;
     --main-font: 'Poppins', sans-serif;
+    font-size: 16px;
 }
 
 html, body {
@@ -24,15 +25,69 @@ html, body {
 }
 
 h1, h2, h3, h4, h5, p { 
-    color: var(--main-text-color);
+}
+
+/* --- TYPOGRAPHY --- */
+
+/* Used for hero text only */
+h2 {
+    font-size: 3em;
+    font-family: var(--main-font);
+    font-weight: 500;
+}
+
+/* --- HERO --- */
+hr { 
+    margin: 0;
+    width: calc(100vw - 45em);
+    background-color: #E0E0E0;
+    height: 1px;
+    border: none;
+}
+
+.content-wrapper { 
+    margin: 0px 15em;
+}
+
+.landing { 
+    position: relative;
+    height: calc(100vh - 9em);
+}
+
+.landing-content { 
+    position: absolute;
+    bottom: 0;
+}
+
+.landing-3-col { 
+    display: flex;
+}
+
+.landing-3-col > div { 
+    width: 16.375em;
+    margin-top: 1.5em;
+    margin-right: 9em;
+}
+
+.landing-3-col > div:first-child { 
+    width: 20.5em;
+    margin-right: 5em;
+}
+
+.hero-column { 
     font-family: var(--main-font);
 }
 
-h2 { 
-    font-weight: 700;
-    font-size: 9vw;
+.hero-column p { 
+    font-size: 1.125em;
+    line-height: 2em;
 }
 
+.hero-column h3 { 
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 24px;
+}
 
 ::selection { 
         background: black;
@@ -49,27 +104,10 @@ h2 {
 }
 
 
-/* --- FORMATTING AND WHITESPACE --- */
-
-.content-wrapper { 
-    position: relative;
-    max-width: 90rem;
-    margin: auto;
-}
-
-
-/* --- NAVIGATION --- */
-
-
-h3 { 
-    font-weight: 500;
-    font-size: 1.5rem;
-}
-
 .nav { 
     position: fixed;
     top: 0;
-    padding-left: 9rem;
+    padding-left: 15rem;
     background-color: var(--main-bg-color);
     width: 100vw;
     z-index: 3;
@@ -84,7 +122,7 @@ h3 {
     display: flex;
     position: absolute;
     top: 47%;
-    left: 17rem;
+    left: 23rem;
 }
 
 .progress-bar svg { 
@@ -98,289 +136,6 @@ h3 {
     width: 8rem;
     background-color: black;
 }
-/* Used for the landing header only */
-h2 { 
-    font-size: 2.40rem;
-    font-weight: 500;
-    line-height: 3.0rem;
-}
-
-p { 
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-
-/* --- Landing --- */
-
-.landing { 
-    position: relative;
-    min-height: 100vh;
-}
-
-.landing-content { 
-    margin-top: 20%;
-}
-
- .caption { 
-    font-size: 0.8rem;
-    font-weight: 300;
-    max-width: 20rem;
-}
-
-.caption a { 
-    color: black;
-}
-
-.landing-content { 
-    max-width: 45rem;
-    position: absolute; 
-    bottom: 5rem;
-    left: 9rem;
-}
-
-.landing-image { 
-    position: absolute;
-    right: 9rem;
-    bottom: 3rem;
-}
-
-.landing p { 
-    padding-right: 3rem;
-}
-
-.image-wrapper { 
-    background-color: gray;
-    width: 25vw;
-    height: 70vh;
-}
-
-.landing-line { 
-    border-bottom: .3rem solid #D6D6D6;
-    width: 50%;
-    margin-bottom: 1rem;
-}
-
-.landing-links a { 
-    text-decoration: none;
-    font-weight: 500;
-    padding-right: 1rem;
-    font-family: var(--main-font);
-    color: black;
-
-}
-
-/* --- SELECT WORKS --- */
-
-.select-works { 
-    margin-top: 5rem;
-    height: 9rem;
-}
-
-.select-works h1 {
-    float: right;
-    font-size: 5.8rem;
-    font-weight: 500;
-    margin: 0;
-    padding-right: 2rem;
- }
-
- .select-works::after { 
-     content: "01";
-     position: absolute;
-     right: 0rem;
-     font-weight: 600;
-     font-family: var(--main-font);
-     top: 0rem;
-     font-size: 2rem;
-
- }
-
- /* --- PROJECT CARDS --- */
-
- .img { 
-     height: 23vw;
-     background-color: gray;
- }
-
- .project-row { 
-     display: flex;
-     margin: 5vw 9vw;
- }
-
- .project { 
-     width: 33vw;
-     margin: 0vw 4vw;
-     box-shadow: 0.75vw 0.75vw 1vw darkgray;
- }
-
- .project-grid { 
-     margin-bottom: 5rem;
- }
-
- .project-afterwards { 
-     width: 33vw;
-     margin: 0vw 6vw;
-     position: relative;
- }
-
- .afterwards-text { 
-     position: absolute;
-     bottom: 1vw;
- }
-
- .afterwards-text p { 
-     font-size: .85vw;
- }
-
- .afterwards-text h3{ 
-     font-size: 3.75vw;
-     position: relative;
-     margin: 0;
-     margin-bottom: 3vw;
- }
-
- .afterwards-text h3::after { 
-     content: "";
-     width: 13vw;
-     height: .5vw;
-     background-color: black;
-     position: absolute;
-     bottom: -.75vw;
-     left: 0;
- }
-
- .afterwards-text a { 
-     text-decoration: underline;
-     color: black;
-     font-weight: 500;
-     font-size: 1.3vw;
- }
-
- .project:hover .mental-reminder { 
-     background-size: 39vw;
-     background-position: -3vw -5vw;
-     background-color: #667763;
- }
-
- .project:hover h4::after { 
-     width:10vw;
-     transition: all 0.7s ease-out;
-     -webkit-transition: all 0.7s ease-out;
- }
-
- .project-text-wrapper { 
-     height: 10vw;
-     position: relative;
- }
-
- .project-text { 
-     width: 30vw;
-     position: absolute;
-     top: 50%;
-     transform: translateY(-43%);
-     left: 2vw;
- }
-
-
- .project-text h4 { 
-     font-size: 2vw;
-     margin: 0;
- }
-
- .project-text h4::after { 
-     content: "";
-     width: 5vw;
-     height: .28vw;
-     background-color: black;
-     position: absolute;
-     left: 0;
-     bottom: 4.4vw;
-     transition: all 0.7s ease-out;
-     -webkit-transition: all 0.7s ease-out;
- }
-
- .project-text p { 
-     font-size: .85vw;
-     width: 80%;
-     padding: 0;
-     margin-top: 1.5vw;
- }
-
-
-
-
- /* --- IDK PROJECT STUFF --- */
-
- .img { 
-     transition: all 0.7s ease-out;
-     -webkit-transition: all 0.7s ease-out;
- }
-
- .mental-reminder { 
-     background-image: url("../assets/mental-reminder-thumbnail.png");
-     background-repeat: no-repeat;
-     background-size: 35vw;
-     background-position: -1vw -3vw;
-     background-color: #596257;
- }
-
-
- footer { 
-     background-color: #21282A;
-     display: flex;
-     padding: 3rem;
- }
-
- footer div { 
-     padding: 0rem 5rem;
- }
-
- footer h2 { 
-     color: gray;
-     font-size: 9rem;
-     font-weight: 300;
-     position: relative;
-     margin: 0;
-     margin-top: 3rem;
-     padding-bottom: 5rem;
-     border-bottom: .25rem solid gray;
- }
-
- .ref-wrapper h2::after { 
-     position: absolute;
-     bottom: 0;
-     left: 0;
-     width: 30%;
-     height: .5rem;
-     background-color: white;
-
- }
-
- footer h5 { 
-     margin: 0;
-     color: gray;
-     font-size: 1.2rem;
-     font-weight: 600;
- }
-
- footer a { 
-     text-decoration: none;
-     color: white;
-
- }
-
- .footer-underline-link { 
-     text-decoration: underline;
- }
-
- footer p { 
-     color: white;
-     padding: 0;
-     font-size: .85rem;
-
- }
-
- 
 
 @media only screen and (max-width: 1618px) { 
     .select-works h1 { 
