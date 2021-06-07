@@ -1,0 +1,44 @@
+::selection { 
+    background: black;
+    color: white;
+}
+
+::-moz-selection { 
+    background: black;
+    color: white;
+}
+
+/*----------------------------------------- NAV --*/
+
+.nav { 
+    position: fixed;
+    top: 0;
+    padding-left: 15rem;
+    background-color: var(--main-bg-color);
+    width: 100vw;
+    z-index: 3;
+}
+
+.nav a { 
+    text-decoration: none;
+    color: black;
+}
+
+.progress-bar { 
+    display: flex;
+    position: absolute; 
+    top: 47%;
+    left: 23rem;
+}
+
+.progress-bar svg { 
+    height: 1rem;
+    width: 1rem;
+    margin-top: -.4rem;
+}
+
+.line { 
+    height: .2rem;
+    width: 8rem;
+    background-color: black;
+}

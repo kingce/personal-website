@@ -22,6 +22,7 @@ html, body {
     background-color: var(--main-bg-color);
     -ms-overflow-style: none; /* IE and Edge scrollbar hide */
     scrollbar-width: none; /* Firefox scrollbar hide */
+    font-family: var(--main-font);
 }
 
 h1, h2, h3, h4, h5, p { 
@@ -89,6 +90,11 @@ hr {
     line-height: 24px;
 }
 
+.signature { 
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
 ::selection { 
         background: black;
         color: white;
@@ -104,6 +110,8 @@ hr {
 }
 
 
+
+/* --- NAV --- */
 .nav { 
     position: fixed;
     top: 0;
@@ -137,59 +145,197 @@ hr {
     background-color: black;
 }
 
-@media only screen and (max-width: 1618px) { 
-    .select-works h1 { 
-        padding-right: 5rem;
-    }
+/* --- WORK --- */
 
-    .select-works::after { 
-        right: 3rem;
-    }
+
+.work-card { 
+    width: 70vw;
+    background: lightgray;
+    margin: 10vw 15vw;
+    height: 22vw;
+    filter: drop-shadow(7px 7px 20px rgba(0, 0, 0, 0.3));
 }
 
-
-@media only screen and (max-width: 1370px) { 
-    /* --- Landing fix --- */
-    .landing-content { 
-        left: 3rem;
-    }
-
-    .landing-image { 
-        right: 3rem;
-    }
-
-    /* --- project stuff --- */
-    .project-row { 
-        margin: 5vw 6vw;
-    }
-
-    .project { 
-        width: 40vw;
-        margin: 0vw 2vw;
-    }
-
-    .img { 
-        height: 28vw;
-    }
-
-    .project-text-wrapper { 
-        height: 12vw;
-    }
-
-    .project-text h4::after { 
-        bottom: 5vw;
-    }
-
-    .project p { 
-        font-size: 1vw;
-        width: 95%;
-    }
-
-    /* --- footer fix --- */
-    footer div { 
-        padding: 0rem 3rem;
-    }
+.work-card-content { 
+    color: black;
+    width: 24vw;
+    height: 14vw;
+    float: right;
+    background: white;
+    padding: 4vw 2vw;
+    padding-right: 5vw;
 }
+
+.work-card-content h3 { 
+    font-size: 2.5vw;
+    font-weight: 500;
+    margin: 0;
+    margin-bottom: 2vw;
+    position: relative;
+}
+
+.work-card-content h3::after { 
+    content: "";
+    position: absolute;
+    bottom: -.75vw;
+    left: 0;
+    height: .25vw;
+    width: 7vw;
+    background-color: black;
+    transition-property: width;
+    -webkit-transition-property: width;
+    transition: 0.3s ease-out;
+    -webkit-transition: 0.3s ease-out;
+}
+
+.card-left { 
+    float: none;
+}
+
+.work-card:hover h3::after { 
+    width:10vw;
+    transition-property: width;
+    -webkit-transition-property: width;
+    transition: 0.3s ease-out;
+    -webkit-transition: 0.3s ease-out;
+}
+
+.work-card-content p { 
+    font-size: 1vw;
+    line-height: 2vw;
+}
+
+/* --- INDIVIDUAL PROJECT STYLES --- */
+
+
+/* --- FOOTER --- */
+footer { 
+    background-color: #21282A;
+    padding: 7em 15em;
+}
+
+footer p, footer a, footer h3 { 
+    color: white;
+}
+
+footer h3 { 
+    font-size: 3em;
+    font-weight: 500;
+}
+
+.footer-column-header { 
+    font-size: 1em;
+    color: #909394;
+}
+
+footer a { 
+    font-size: 1.125em;
+    text-decoration: none;
+}
+
+.footer-3-col > div { 
+    margin-right: 13em;
+}
+
+.footer-3-col { 
+    display: flex;
+}
+
+.return-to-top { 
+    float: right;
+}
+
+/* Underline From Left */
+.hvr-underline-from-left {
+    display: block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 5px;
+    margin: .5em 0em;
+}
+
+.hvr-underline-from-left:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    background: #fff;
+    height: 4px;
+    -webkit-transition-property: right;
+    transition-property: right;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
+right: 0;
+}
+
+@media only screen and (max-width: 1500px) { 
+    html { 
+    }
+
+    .content-wrapper { 
+        margin: 0 11em;
+    }
+
+    /* --- Typography --- */
+
+    .landing { 
+        height: calc(100vh - 5em);
+    }
+
+    .hero-column p { 
+        font-size: .9em;
+        line-height: 1.8em;
+    }
+
+    .landing-3-col > div { 
+        width: 13em;
+        margin-right: 7em;
+    }
+
+    .landing-3-col > div:first-child { 
+        width: 15em;
+        margin-right: 6em;
+    }
+    .hero-column h3 { 
+        font-size: .8em;
+        line-height: 19.2px;
+    }
+
+    /* --- Footer --- */
+    footer { 
+        background-color: #21282A;
+        padding: 5em 11em;
+    }
+
+    footer h3 { 
+        font-size: 2.4em;
+    }
+
+    .footer-column-header { 
+        font-size: .8em;
+    }
+
+    footer a { 
+        font-size: .9em;
+    }
+
+    .footer-3-col > div { 
+        margin-right: 10.4em;
+    }
+
+}
+
 
 /* --- BEEG YOSHI --- */
 @media only screen and (max-width: 1200px) { 
