@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,700;0,800;1,200;1,300;1,700;1,800&display=swap');
-@import 'endcard.css';
-@import 'menu.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
 
 :root { 
-    --main-text-color: #FFFFFF;
-    --main-bg-color: #0C0C0C;
-    --main-font: 'Montserrat', sans-serif;
+    --main-text-color: black;
+    --very-light-gray: #DDDDDD;
+    --background-gray: #E6EBEC;
+    --main-bg-color: #FCFCFC;
+    --slate: #21282A;
+    --main-font: 'Poppins', sans-serif;
     --mental-reminder-accent: #C2D1BE;
     --mental-reminder-dark-accent: #555B53;
     --move-in-accent: #007AC8;
@@ -19,270 +21,430 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
-    background-color: var(--main-bg-color);
+    height: auto;
 }
 
-h1, h2, h3, h4, h5, p { 
-    color: var(--main-text-color);
-    font-family: var(--main-font);
+hr { 
+    width:100%;
 }
 
-i { 
-    color: var(--main-text-color);
-    font-size: 1.563rem;
+a { 
+    text-decoration: none;
+    color: black;
 }
 
-p { 
-    font-size: 1.25rem;
-    line-height: 2rem;
+img { 
+    display: block;
+    margin: 3em auto;
 }
 
 h2 { 
-    font-size: 3.052rem;
+    font-size: 3em;
+    font-weight: 500;
+    color: black;
 }
 
 h3 { 
-    font-size: 1.953rem;
-}
-
-h1 { 
-    font-size: 3.815rem;
-}
-
-.m3 { 
-    margin: 3rem;
-}
-
-.m10 { 
-    margin: 10rem;
-}
-
-.lm3 { 
-    margin-left: 3rem;
-}
-.content-wrapper { 
-    max-width: 95rem;
-    margin:auto;
-}
-
-.section-padding { 
-    margin: 10rem;
-}
-
-.mental-reminder-accent { 
-    color: var(--mental-reminder-accent);
-}
-
-.move-in-accent { 
-    color: var(--move-in-accent);
-}
-
-.wta-accent { 
-    color: var(--wta-accent);
-}
-
-li { 
-    font-size: 1.25rem;
-    color: white;
-    font-family: var(--main-font);
-    line-height: 2rem;
+    font-size: 2.25em;
+    font-weight: 400;
 }
 
 h5 { 
-    font-size: 1.563rem;
-}
-
-.back-button { 
-    display: flex;
-    margin: 3rem 9rem;
-}
-
-.back-button h5 { 
-    margin:0;
-    padding-left: 1.25rem;
-    color: white;
-}
-
-.back-button a { 
-    text-decoration: none;
-    margin: 0;
-}
-
-/* --------------------------------------------------------------- PROJECT INFO */
-.project-info { 
-    display: flex;
-    justify-content: space-between;
-    padding-left: 10rem;
-    padding-right: 13rem;
-}
-
-.title h1 { 
-    font-weight: 300;
-    font-size: 5.96em;
-    margin: 0;
-}
-
-.title { 
-    padding-left: 10rem;
-}
-
-/* --------------------------------------------------------------- PROJECT BRIEF */
-
-.brief, .m10 { 
-    margin: 10rem;
-}
-
-.brief h2 { 
-    font-weight: 700; 
-    font-size: 3.052rem;
-}
-
-.brief p { 
-    padding: 0 5rem;
-}
-
-.brief-text { 
-    padding: 0 5rem;
-}
-
-.brief-border-mental-reminder { 
-    border-left: 1rem solid var(--mental-reminder-dark-accent);
-}
-
-.brief-border-move-in { 
-    border-left: 1rem solid var(--move-in-dark-accent);
-}
-
-.brief-border-wta { 
-    border-left: 1rem solid var(--wta-dark-accent);
-}
-
-/* --------------------------------------------------------------- PROJECT BRIEF */
-
-.core-challenges { 
-    margin: 10rem;
-}
-
-.challenge { 
-    margin: 3rem;
-}
-
-
-/* --------------------------------------------------------------- PROCESS */
-.process { 
-    margin: 10rem;
-}
-.process-wrapper { 
-    display: flex;
-    justify-content: space-between;
-    font-size: 2.441rem;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 200px;
-}
-
-/* --------------------------------------------------------------- RESEARCH */
-
-.two-col { 
-    display: flex;
-    justify-content: space-around;
-}
-
-.research { 
-    margin: 10rem;
-}
-
-.source { 
-    font-size: .75em;
-    text-decoration: none;
-    color: white;
-    font-weight: 800;
-}
-
-
-.persona { 
-    margin-top: 3rem;
-
-}
-
-.end-card-button a { 
-    text-decoration: none;
-    font-size: 2rem;
-    color: #0C0C0C;
-    padding: 1rem;
-    background-color: white;
-    margin: 3rem;
+    font-weight: 500;
     font-family: var(--main-font);
-    font-weight: 700;
+    font-size: 1.8rem;
+    margin: 0;
+    line-height: 3.15rem;
 
 }
 
-.center { 
+p { 
+    font-size: 1.125em;
+    line-height: 2em;
+    font-family: var(--main-font);
+    font-weight: 400;
+}
+
+.body-wrapper { 
+    max-width: 80em;
+    margin: auto;
+    padding: 5em;
+}
+
+
+
+/* ------------------------------------
+COLOR CLASSES
+* ------------------------------------------ */
+
+.airbnb-highlight {
+    color: #E61E4D;
+}
+
+.wta-highlight { 
+    color: #006699;
+}
+/* ------------------------------------
+
+ MOLECULE - TYPOGRAPHY
+
+ Small Title
+
+* ------------------------------------------ */
+
+.small-title { 
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 1.5em;
+}
+
+/* ------------------------------------
+HEADER INFO 
+* ------------------------------------------ */
+
+.header-img { 
+    margin: 0 auto;
+    width: 50%;
+}
+
+.header-pre { 
+    max-width: 45em;
+    padding: 3em 0;
+}
+
+.header-pre h1 { 
+    font-size: 4em;
+    margin: 0;
+    font-weight: 500;
+}
+
+.header-pre p { 
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+.horizontal-divider { 
+    border-bottom: 1px solid var(--very-light-gray);
+}
+
+
+/* ------------------------------------
+
+ MOLECULE - LAYOUT
+
+ 3-Column Header
+
+* ------------------------------------------ */
+
+.col-3-header { 
+    display: flex;
+    justify-content: space-between;
+    max-width: 60em;
+    padding: 3em 0;
+}
+
+.col-3-header-wrapper p { 
+    margin: .5em 0;
+}
+
+
+
+/* ------------------------------------
+
+ MOLECULE - LAYOUT
+
+ TEXT BLOCK
+
+* ------------------------------------------ */
+
+.text-block { 
+    margin: 3em 0;
+}
+
+.text-block-header {
+    max-width: 65em;
+}
+
+.col-2 { 
+    display: flex;
+    justify-content: space-between;
+}
+
+.col-2-showcase { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.col-2 .col:nth-child(1) { 
+    padding-right: 1em;
+}
+
+.col-2 .col:nth-child(2) { 
+    padding-left: 1em;
+}
+
+
+.col { 
+    box-sizing: border-box;
+    width: 37em;
+}
+
+/* ----------------------------------------------------- COLUMN 3 --*/
+
+.col-3 { 
+    display: flex;
+    justify-content: space-between;
+}
+
+.col-3 > div { 
+    box-sizing: border-box;
+    max-width: 22em;
+}
+
+.col-3 div:nth-child(1) { 
+    padding-right: 1em;
+}
+
+.col-3 div:nth-child(2) { 
+    padding: 0 1em;
+}
+.col-3 div:nth-child(3) { 
+    padding-left: 1em;
+}
+/* This is the wrapper for the col-3, in case you want a title */
+.three-column-block { 
+    margin: 3em 0;
+}
+
+.three-column-block > h3 { 
+    margin: 2.5em 0em;
+}
+
+.bg-gray { 
+    background-color: var(--background-gray);
+}
+
+
+/* ------------------------------------
+
+WHITE SPACE 
+
+* ------------------------------------------ */
+
+.ws-top-bottom-3 { 
+    margin: 3em 0;
+}
+
+.ws-top-bottom-5 { 
+    margin: 5em 0;
+}
+
+.ws-top-3 { 
+    margin-top: 3em;
+}
+
+.ws-pad-top-3 { 
+    padding-top:3em;
+}
+
+.ws-pad-top-5 { 
+    padding-top:5em;
+}
+
+.ws-pad-top-7 { 
+    padding-top: 7em;
+}
+
+.ws-top-5 { 
+    margin-top: 5em;
+}
+
+.ws-bottom-3 { 
+    margin-bottom: 3em;
+}
+
+.ws-bottom-5 { 
+    margin-bottom: 5em;
+}
+
+/*-----------------------------------------------------------------------END CARD ---- */
+
+.end { 
     text-align: center;
-
 }
 
+.end h3 { 
+    font-size: 2em;
+}
 
-/* --- One breakpoint is all we need for both tablets and phones since this is basically all text --- */
-@media only screen and (max-width : 1200px) {
+.end a { 
+    text-decoration: none;
+    color: gray;
+    font-size: 1.25em;
+    text-align: center;
+    padding: 0 2em;
+}
+
+.end a:hover { 
+    color: black;
+}
+
+@media only screen and (max-width: 1200px) { 
+
+    img { 
+        display: block;
+        margin: 3em auto;
+    }
+
+    h2 { 
+        font-size: 2.6em;
+    }
+
+    h3 { 
+        font-size: 2em;
+    }
+
+    h5 { 
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+
+    }
 
     p { 
-        font-size: 1rem;
-        line-height: 2.0rem;
-
+        font-size: 1em;
+        line-height: 1.9em;
+        font-family: var(--main-font);
+        font-weight: 400;
     }
 
-
-    .content-wrapper { 
-        max-width: 100%;
+    .body-wrapper { 
+        max-width: 70em;
+        margin: auto;
+        padding: 5em;
     }
 
-    .project-info, .back-button, .title { 
-        margin-left: 3rem;
+    /* ------------------------------------
+     MOLECULE - LAYOUT
+     TEXT BLOCK
+    * ------------------------------------------ */
+
+    .text-block { 
+        margin: 3em 0;
     }
 
-    .title { 
-        padding-left: 0;
+    .text-block-header {
+        max-width: 65em;
     }
 
-    .title h1 { 
-        font-size: 3rem;
+    .col-2 { 
+        display: flex;
+        justify-content: space-between;
     }
 
-    .project-info { 
+    .col-2-showcase { 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .col { 
+        width: 30em;
+    }
+
+    .col-3 { 
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .col-3 > div { 
+        max-width: 20em;
+    }
+
+    .three-column-block { 
+        margin: 3em 0;
+    }
+
+    .three-column-block > h3 { 
+        margin: 2.5em 0em;
+    }
+
+    .bg-gray { 
+        background-color: var(--background-gray);
+    }
+}
+
+/* -------------------------------------------------------------- MEDIA QUERY 
+ *
+ * -------------------------------------------------------------- MOBILE 650px */
+@media only screen and (max-width: 650px) { 
+    .body-wrapper { 
+        max-width: 100vw;
+        padding: 2em;
+    }
+
+    .col-2, .col-3, .col-3-header, .col-2-showcase { 
+        display: block;
+    }
+
+    /* ----------------------------------------------------- TYPOGRAPHY --- */
+    h2 { 
+        font-size: 2em;
+    }
+
+    .header-pre p { 
+        font-size: 1.25em;
+    }
+
+    /* ----------------------------------------------------- HEADER INFO --- */
+
+    .header-img { 
+        width: 100%;
+    }
+
+    .header-pre { 
+        padding: 1em 0;
+    }
+
+    .col-3-header-wrapper { 
+        margin-bottom: 2em;
+    }
+
+    
+    /* ----------------------------------------------------- TEXT BOX --- */
+
+    .text-block { 
+        margin-bottom: 7em;
+    }
+
+    .col { 
+        width: auto;
+    }
+
+    .col-2 .col:nth-child(1), .col-2 .col:nth-child(2) { 
         padding: 0;
+    }
+
+    .col-3 div:nth-child(1), .col-3 div:nth-child(2), .col-3 div:nth-child(3) { 
+        padding: 1em 0;
+        max-width: 100%;
+        padding-right: 2em;
+    }
+
+    .three-column-block > h3 { 
+        margin: 1em 0em;
+    }
+
+    .bg-gray .col { 
+        margin: 2em 0;
+    }
+        
+    /* ----------------------------------------------------- FOOT --- */
+
+    .end a { 
         display: block;
+        padding: 2em 0;
     }
 
-    .brief, .core-challenges, .process, .research, .ideation { 
-        margin: 0;
-        margin-left: 3rem;
-        margin-top: 7rem;
-    }
-
-    .brief-text { 
-        padding: 0 2rem;
-    }
-
-    .brief p { 
-        padding: 0 2rem;
-    }
-
-    .process-wrapper { 
-        display: block;
-    }
-
-    .two-col { 
-        display: block;
-    }
-
-    .m10 { 
-        margin: 3rem;
-    }
-
-    .m3 { 
-        margin: 1rem;
-    }
-
+    
 }

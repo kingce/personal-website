@@ -32,159 +32,107 @@
     <link rel="apple-touch-icon" type="image/png" href="./assets/favicon-180.png" sizes="180x180">
     <!--- ANIMATE ON SCROLL -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
+    <div class="nav home">
+        <div class="left">
+            <h3><a href="#">FOLIO '21</a></h3>
+            <div class="line"></div>
+        </div>
 
-    <div class="preloader">
-        <div class="preloader-bar">
+        <div class="right">
+            <a href="#work">Work</a>
+            <a href="./about.html">About</a>
         </div>
     </div>
 
+    <div class="content-wrapper">
+        <section class="landing">
+            <div class="landing-content">
+                <h2 class="heya">Heya ✌ I'm Daniel King - <br> a UX designer based in Washington.</h2>
+                <hr>
 
-    <nav>
-        <input type="checkbox" id="nav" class="hidden">
-        <label for="nav" class="nav-btn">
-            <i></i>
-            <i></i>
-            <i></i>
-        </label>
-        <div class="nav-wrapper">
-            <ul>
-                <li><a href="#section-one">ABOUT</a></li>
-                <li><a href="#section-two">WORKS </a></li>
-                <li><a href="#section-three">CONTACT</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="landing">
-        <div class="bg-box"></div>
-        <div class="color-box"></div>
-        <div class="title">
-            <h1 class="title-1">DANIEL</h1>
-            <h1 class="title-2">KING</h1>
-        </div>
-
-        <div class="landing-bar"></div>
-        <p class="subtitle">'FOLIO 21</p>
-    </div>
-
-    <div class="about" id="section-one">
-        <div class="wrapper-left">
-            <h3 data-aos="fade-in" data-aos-duration="950"><strong>Heya! &#x270c; I'm Daniel - a Taiwanese American <br> UX designer based in Washington.</strong></h3>
-            <p data-aos="fade-in" data-aos-duration="950">I'm a student in WWU's Computer Science program with a double minor in Math and UX Design. My multidisciplinary background gives me a unique perspective in collaborative design environments and how each task fits into the big picture. </p>
-            <p data-aos="fade-in" data-aos-duration="950">I'm a big believer in empathy and its role in the design process. My personal UX approach is to use data-driven validation methods to iterate as often as possible in order to create an intuitive and delightful experience to all users.</p>
-            <div class="button-bar">
-                <div data-aos="fade-in" data-aos-duration="950" class="button no-fill" type="button">
-                <a href="./letter.html">
-                    A LETTER TO YOU
-                </a>
-                </div>
-                <div data-aos="fade-in" data-aos-duration="950" class="button fill" type="button">
-                <a href="./assets/RESUME.pdf" target="_blank">
-                    RESUME
-                </a>
+                <div class="landing-3-col">
+                    <div class="hero-column">
+                        <h3>What I do</h3>
+                        <p>Use empathy, data, and my multidisciplinary background to craft delightful experiences</p>
+                    </div>
+                    <div class="hero-column">
+                        <h3>What I like</h3>
+                        <p>Architectural Digest, Jasmine Green Milk Tea, and collecting peculiar hobbies</p>
+                    </div>
+                    <div class="hero-column">
+                        <h3>What I want</h3>
+                        <p>To work with you on a meaningful project</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="signature">
+            <img src="./assets/name.png" alt="name in my handwriting" width="15%" height="auto"/>
+        </section>
+
+        <h2>Here's what I've worked on in the past.</h2>
+
+        <section class="work" id="work">
+            <a href="./airbnb.html" class="work-card">
+                <div data-aos="fade-in" data-aos-duration="1300" class="aos-init aos-animate work-wrapper airbnb"></div>
+            </a>
+
+            <a href="./wta.html" class="work-card">
+                <div data-aos="fade-in" data-aos-duration="1300" class="aos-init aos-animate work-wrapper wta"></div>
+            </a>
+
+            <a href="./mental-reminder.html" class="work-card">
+                <div data-aos="fade-in" data-aos-duration="1300" class="aos-init aos-animate work-wrapper mental-reminder"></div>
+            </a>
+        </section>
     </div>
 
-    <div class="works" id="section-two">
-        <h2>SELECT WORKS</h2>
-    </div>
 
-    <div class="select-works">
-        <div class="work-box work-1">
-            <a href="./mental-reminder.html">
-                <div class="inner-box inner-work-1">
-                    <div class="select-works-text">
-                        <h3>MENTAL REMINDER</h3>
-                        <p><small><em>School Project   &#9679;   UX Design Lead, Developer</em></small></p>
-                        <p>A minimal, mental-health based <br> reminder app with a focus on usability.</p>
+        <footer>
+
+            <div class="footer-wrapper home">
+                <h3>Let's build something cool together.</h3>
+
+                <div class="footer-3-col">
+
+                    <div class="socials">
+                        <p class="footer-column-header">Projects</p>
+                        <p class="hvr-underline-from-left"><a href="./airbnb.html">Airbnb Eco</a></p>
+                        <p class="hvr-underline-from-left"><a href="./wta.html">WTA App</a></p>
+                        <p class="hvr-underline-from-left"><a href="./mental-reminder.html">Mental Reminder</a></p>
+                    </div>
+
+                    <div class="links">
+                        <p class="footer-column-header">Links</p>
+                        <p class="hvr-underline-from-left"><a href="https://www.behance.net/danielking9">Behance</a></p>
+                        <p class="hvr-underline-from-left"><a href="https://www.linkedin.com/in/daniel-king-8050aa150/">LinkedIn</a></p>
+                        <p class="hvr-underline-from-left"><a href="https://github.com/kingce">Github</a></p>
+                    </div>
+
+                    <div class="email">
+                        <p class="footer-column-header">Email</p>
+                        <p class="hvr-underline-from-left"><a href="">chuan.e.king@gmail.com</a></p>
                     </div>
                 </div>
-            </a>
-        </div>
-
-        <div class="work-box work-2">
-            <a href="./move-in.html">
-                <div class="inner-box inner-work-2">
-                    <div class="select-works-text">
-                        <h3>WWU Move-In App</h3>
-                        <p><small><em>Work Project &#9679; UX Designer</small></em></p>
-                        <p>Designed a progressive web app to guide over 400 <br> students through a socially distanced move-in process.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="work-box work-3">
-            <a href="./wta.html">
-                <div class="inner-box inner-work-3">
-                    <div class="select-works-text">
-                        <h3>WTA App Concept</h3>
-                        <p><small>School Project &#9679; UX Designer, Case Study</small></p>
-                        <p>Designed a first-party mobile app for finding route information<br> and trip planning with strong WTA branding.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-    </div>
-
-    <div class="other-work-title">
-        <h2>OTHER WORKS</h2>
-    </div>
-    <div class="work-wrapper">
+            </div>
 
 
-        <div class="work">
-            <a href="https://www.behance.net/gallery/110527603/EXCHANGE-App-Concept" target="_blank">
-                <h5>EXCHANGE UX CONCEPT</h5>
-            </a>
-        </div>
-
-        <div class="work">
-            <a href="https://mgoss489.github.io/portfolio/" target="_blank">
-                <h5>M. GOSS PORTFOLIO</h5>
-            </a>
-        </div>
+        </footer>
 
 
-        <div class="work">
-            <a href="https://acm-wwu.github.io/" target="_blank">
-                <h5>WWU x ACM WEBSITE</h5>
-            </a>
-        </div>
-
-    </div>
-
-    <div class="contact" id="section-three">
-
-        <h2>Thanks for scrolling!  &#128591;</h2>
-        <h3><em>Get in touch - let's build something cool.</em></h3>
-
-        <div class="links">
-            <ul>
-                <li><a href="https://www.linkedin.com/in/daniel-king-8050aa150/" target="_blank">LinkedIn</a></li>
-                <li><a href="https://github.com/kingce" target="_blank">Github</a></li>
-                <li><a href="https://www.behance.net/danielking9" target="_blank">Behance</a></li>
-                <li><a href="mailto:chuan.e.king@gmail.com" target="_blank">Shoot me an email</a></li>
-            </ul>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>&#169; DESIGNED AND DEVELOPED BY DANIEL KING 2020</p>
-    </footer>
 
 
 
 
 <!-- SCRIPTS -->
+    <script src="./js/scrollbar.js"></script>
+    <script src="./js/dropdown.js"></script>
     <script src="./js/zenscroll-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
     <script type="text/javascript">
@@ -192,93 +140,11 @@
                 AOS.init({ disable: 'mobile' });
         });
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-    <script type="text/javascript">
 
-
-        var textWrapper = document.querySelector('.title-1');
-        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
-        anime.timeline()
-    .add({
-                targets: '.title-1 .letter',
-                translateY: [200,0],
-                translateZ: 0,
-                opacity: [0,1],
-                easing: "easeOutExpo",
-                duration: 3000,
-                delay: (el, i) => 3000 + 50 * i
-            });
-
-    var textWrapper = document.querySelector('.title-2');
-    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
-    anime.timeline()
-    .add({
-                targets: '.title-2 .letter',
-                translateY: [200,0],
-                translateZ: 0,
-                opacity: [0,1],
-                easing: "easeOutExpo",
-                duration: 3000,
-                delay: (el, i) => 3200 + 50 * i
-    });
-
-    var textWrapper = document.querySelector('.subtitle');
-    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='subletter'>$&</span>");
-
-    anime.timeline()
-    .add({
-                targets: '.subtitle .subletter',
-                translateY: [200,0],
-                translateZ: 0,
-                opacity: [0,1],
-                easing: "easeOutExpo",
-                duration: 3000,
-                delay: (el, i) => 3200 + 50 * i
-    });
-
-    anime.timeline() 
-    .add({ 
-        targets: '.landing-bar',
-        width: [0, "37vw"],
-        easing: "easeOutExpo",
-        duration: 3000,
-        delay: 3500
-    });
-
-
-    TweenMax.to(".preloader", 1.5, { 
-        top: "-100%",
-        ease: Expo.easeInOut,
-        delay: 2
-    });
-
-    var tl = new TimelineMax();
-    tl.from(".preloader-bar", 1, { 
-        scaleX: "0%",
-        ease: Expo.easeInOut,
-        transformOrigin: "0% 50%"
-    });
-
-    tl.to(".preloader-bar", 1, { 
-        scaleX: "0%",
-        ease: Expo.easeInOut,
-        transformOrigin: "100% 50%"
-    });
-    
-    var tl = new TweenMax.staggerFrom("nav ul li", 1, { 
-        opacity: 0,
-        y: 30,
-        ease: Expo.easeInOut,
-        delay: 3.5
-    }, 0.3);
-
-    </script>
-
-    
     
 </body>
 </html>
