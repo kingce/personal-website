@@ -11,215 +11,396 @@
         <link rel="apple-touch-icon" type="image/png" href="./assets/favicon-180.png" sizes="180x180">
 
         <script src="https://kit.fontawesome.com/c0acad0f63.js" crossorigin="anonymous"></script>
+        <script
+              src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
 
         <!--- Animate on scroll -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+        <link rel="stylesheet" type="text/css" href="css/nav.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/project.css">
     </head>
 
     <body>
 
+        <div class="nav-wrapper">
+            <div class="nav project">
+                <div class="left">
+                    <h3 class="nav-h3"><a href="./index.html">FOLIO `21</a></h3>
+                    <div class="line"></div>
+                </div>
 
-        <div class="back-button">
-            <i class="fas fa-arrow-left"></i>
-            <a href="./index.html">
-                <h5>GO BACK</h5>
-            </a>
-        </div>
-        <div class="title">
-            <h3>PROJECT:</h3>
-            <h1>MENTAL REMINDER</h1>
-        </div>
-
-        <div class="project-info">
-            <div class="project-col">
-                <h5>TIMELINE:</h5>
-                <p>January - March 2020</p>
-            </div>
-            <div class="project-col">
-                <h5>PROJECT TYPE:</h5>
-                <p>School, Web App Design</p>
-            </div>
-            <div class="project-col">
-                <h5>MY ROLE: </h5>
-                <p>UX Lead, Developer</p>
+                <div class="right">
+                    <a href="./index.html#work">Work</a>
+                    <a href="./about.html">About</a>
+                </div>
             </div>
         </div>
 
-        <div class="content-wrapper">
-            <div id="brief" class="brief">
-                <h2 class="mental-reminder-accent">1 MINUTE BRIEF - TLDR;</h2>
+        <div class="body-wrapper">
+            <img class="header-img" src="./assets/mental-reminder-thumbnail.png" width="50%" height="auto" alt="Mockups of the Mental Reminder app" />
 
-                <div class="brief-text brief-border-mental-reminder">
-                    <h3>The Problem - </h3>
-                    <p>Many people with mental health issues can get overwhelmed by the amount of things they have to do, and their anxiety only gets exacerbated by the crowded and sterile UI of popular reminder apps on the market.</p>
-                    <h3>The Solution - </h3>
-                    <p>Design and implement a cross platform application with a minimal UI and feature set to gently remind users of the things they need to do. </p>
-                    <h3>What <em>I</em> did - </h3>
-                    <p>I worked with three other students in the research and validation phases, as well as in implementation. <br> I was solely responsible for the design system/visual language, and high fidelity prototypes. I was also in charge of leading and managing the UX portion of the project in general.</p>
+            <section class="header">
+                <div class="header-pre">
+                    <h1>Mental Reminder</h1>
+                    <p>We designed and implemented a cross platform application to gently remind users of the things they need to do.</p>
                 </div>
-            </div>
+                <div class="horizontal-divider"></div>
 
-            
-
-            <div class="core-challenges">
-                <h2>Core Challenges - </h2>
-                <div class="challenge">
-                    <p><strong class="mental-reminder-accent">Carving out our product's niche and identity.</strong> <br> We have a lot of competition as far as reminder apps go - however, we had a clear goal to cater to mental-health reminders in both the look and feel or our app. Although we had a direction, we had to make sure along the way that users would recognize this quickly and be compelled to use this app over an Outlook calendar, for example. </p>
-                </div>
-
-                <div class="challenge">
-                    <p ><strong class="mental-reminder-accent">Designing for rapid development cycles.</strong> <br>Since this is a class project, we had to make sure that our designs were actually achievable within the timeline. While prototyping, I worked closely with my computer science teammates to make sure that the gestures we wanted to implement would actually be doable within the 3-5 week implementation time frame we were given.</p>
-                </div>
-            </div>
-
-            <div class="process">
-                <h2>The Process - </h2>
-                <div class="process-wrapper">
-                    <h5>RESEARCH</h5>
-                    <h5>SKETCHING</h5>
-                    <h5>PROTOTYPING</h5>
-                    <h5>VALIDATE</h5>
-                    <h5>ITERATE</h5>
-                </div>
-            </div>
-
-            <div class="research" id="research">
-                <h2>The Research - </h2>
-
-                <div class="m3">
-                    <h3 class="mental-reminder-accent">Systematic Literature Review</h3>
-                    <p><em>Our team reviewed 10 research papers on ICT-solutions on mental health as well as the ties between forgetfulness and mental-health. </em></p>
-                    <p>The most important takeaways were - </p>
-                    <p>1. Based on research analyzing mental-health app reviews, users value user interface and the user friendliness of the app. They also appreciate customization and designing for trust. <a class="source" href="">(Source)</a></p>
-                    <p>2. Keep it simple - don't overload the user's cognitive load, especially when designing for those with mental-health concerns. <a class="source" href="https://humanfactors.jmir.org/2017/1/e1/" target="_blank">(Source)</a></p>
+                <div class="col-3-header">
+                    <div class="col-3-header-wrapper">
+                        <h5 class="small-title">My Role</h5>
+                        <p>UX Lead</p>
+                        <p>Prototyping, Visual Design</p>
+                        <p>Front End Development</p>
+                    </div>
+                    <div class="col-3-header-wrapper">
+                        <h5 class="small-title">January - March 2020</h5>
+                        <p>CSCI 436</p>
+                    </div>
+                    <div class="col-3-header-wrapper">
+                        <h5 class="small-title">Project Deliverables</h5>
+                        <p><a href="">Clickable Prototype ↗</a></p>
+                        <p><a href="https://officialmentalreminder.github.io/website/">Project Website ↗</a></p>
+                    </div>
                 </div>
 
-                <div class="m3">
-                    <h3 class="mental-reminder-accent">Competitor Analysis</h3>
-                    <p><em>We looked 12 different existing ICT-based systems related to mental health reminders and identified our market niche. </em></p>
-                    <p>Between the twelve applications, the common complaints were feature bloat and pricing. Most reminder apps were too robust for our target audience's use cases, resulting in clunky UI and and overall poor experience. Additionally, most of the apps that were mental-health focused featured payment systems.</p>
-                    <p>We found that there were <strong>no 100% free apps</strong> with a <strong>friendly, intuitive user experience</strong> to simply remind users of short term things to come. </p>
-                </div>
 
-                <div class="m3">
-                    <h3 class="mental-reminder-accent">User Personas</h3>
-                    <img class="persona" src="./assets/mental-reminder/persona1.png" width="100%"></img>
-                    <img class="persona" src="./assets/mental-reminder/persona2.png" width="100%"></img>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="content-wrapper">
-
-            <div class="ideation m10" id="ideation">
-                <h2>Ideation & Iteration - </h2>
-                <div class="two-col">
-                    <div class="col-1">
-                        <h5 class="mental-reminder-accent">Preliminary feature-list</h5>
-                        <ul>
-                            <li>Add, edit, snooze, delete reminders</li>
-                            <li>Set reminders quickly through a preset system</li>
-                            <li>Set recurring reminders</li>
-                            <li>Profile</li>
-                        </ul>
+                <section class="text-block">
+                    <div class="text-block-header">
+                        <h2><span class="mental-reminder-highlight">Life can be stressful.</span> How can we put the user's mental health first in an app that's inherently productivity focused?</h2>
                     </div>
                     <div class="col-2">
-                        <h5 class="mental-reminder-accent">Features added after testing & user personas:</h5>
-                        <ul>
-                            <li>Completed reminders log for peace of mind</li>
-                            <li>Edit presets through settings menu</li>
-                            <li>Swipe to complete instead of swipe to snooze from home screen</li>
-                            <li>Mental health resources</li>
-                            <li>Export data for transparency and user trust</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="appmap">
-                    <h3 class="mental-reminder-accent">App Screen Map</h3>
-                    <img src="./assets/mental-reminder/mental-reminder-user-flow.png" width="70%"></img>
-                </div>
-
-                <div class="sketches">
-                    <h3>Sketches and wireframing</h3>
-                    <p class="m3">We chose our ideation approach based off our core philosophy of simple and friendly UI. A short-form rapid ideation session with sketches on post it notes gave us a rough idea of what screens we wanted to fit our minimal feature-list into. We spent roughly 8-10 seconds on each post-it note, attempting to suppress our inner editors and simply extract pure ideas to work with. </p>
-                    <p class="m3">Once we figured that out, we went into a more formal round of sketching, picking the layouts we enjoyed from the post-it note exercise and expanding on those. This time, I encouraged the team to go a little bit more in depth into exploring the functionality in order to prime us into thinking about how users will end up interacting with the app and what their 'happy path' would look like. </p>
-                    <p class="m3"> After that, we agreed on a core set of screens for our feature set and refined these wire frames digitally just to make sure early on that we were on the same page layout-wise, and nothing would be lost in translation between our scribbles and our actual product. </p>
-
-                </div>
-
-
-                <img class="m3" src="./assets/mental-reminder/wireframes.png" width="90%"></img>
-
-                <div class="prototype" id="prototyping">
-                    <h2>Prototyping - </h2>
-                    <p class="m3">Once we had our interaction paradigms and general app flow locked down, it was time to get into prototyping. Typically, I'd work with a lower fidelity functional prototype and move on from there, but since the core identity of our app is based on 'look and feel', higher fidelity prototypes were necessary from the get-go. <em>Luckily, since the app is designed to be minimal with few screens, this decision didn't end up eating too much of our team's resources.</em> </p>
-                    <p class="m3">We then set out to validate our initial design choices with a very preliminary and casual phase of user testing. Since a lot of friends and family members fall under the target demographics of this app, I conducted 2-3 casual interviews to gauge what was working and what wasn't. </p>
-                    <img src="./assets/mental-reminder/early-proto.png"  class="m3"   width="70%"></img>
-
-                    <div class="two-col">
-                        <div class="col-1">
-                            <h2>THE GOOD</h2>
-                            <ul>
-                                <li>Overall feel of the app</li>
-                                <li>Gestures felt good</li>
-                                <li>Liked how simple it is</li>
-                            </ul>
+                        <div class="col">
+                            <p>Many people with mental health issues can get overwhelmed by the amount of things they have to do, and their anxiety only gets exacerbated by the crowded and sterile UI of popular reminder apps on the market.</p>
                         </div>
+                        <div class="col">
+                            <p>Our goal for this project was to research, design, and ultimately implement a cross platform application with a minimal UI and feature-set to gently remind users of the things they need to do in a way that’s unobtrusive and easy to use.</p>
+                        </div>
+                    </div>
+                </section>
 
-                        <div class="col-2">
-                            <h2>THE NOT SO-GOOD</h2>
-                            <ul>
-                                <li>Pastel blue is calming but a little 'mournful'</li>
-                                <li>Pictures don't contribute much on the actual reminder</li>
-                            </ul>
+                <section class="text-block">
+                    <h3>Core Design Challenges</h3>
+                    <div class="col-2">
+                        <div class="col">
+                            <h5 class="small-title">Carving out our product's niche and identity</h5>
+                            <p>We have a lot of competition as far as reminder apps go - however, we had a clear goal to cater to mental-health reminders in both the look and feel or our app. We had to do focused research on how we can cater to our target audience through our UX choices. </p>
+                        </div>
+                        <div class="col">
+                            <h5 class="small-title">Designing for rapid development cycles</h5>
+                            <p>At the end of the day, this project was for a computer science course, and after the design phase, we only had 4 weeks to implement. From a project management perspective, we had to make sure that what we wanted to implement was actually within the scope of the course.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="text-block">
+                    <div class="text-block-header">
+                        <h2>We used <span class="mental-reminder-highlight">research</span> to better understand our market and our users.</h2>
+                    </div>
+                    <div class="col-2">
+                        <div class="col">
+                            <h3>Systematic literature review across 10 research papers helped us confirm our assumptions and learn more.</h3>
+                        </div>
+                        <div class="col">
+                            <p>We first had to confirm that the problem we were experiencing wasn’t just our own experience - we made sure to validate the ties between forgetfulness, productivity, and mental health through academic papers.</p>
+                            <p>We also wanted to use systematic literature review to better understand what users value in these apps. </p>
+                            <p>Our most important takeaways were that:</p>
+                            <p>1 - Users value the user interface and the friendliness of the app above most other things. They also appreciate customization and designing for trust. <a href="" class="source">(Source)</a></p>
+                            <p>2 - Keep it simple - don't overwhelm the user's cognitive load when designing for mental health. <a href="" class="source">(Source)</a></p>
+                            </ol>
                         </div>
                     </div>
 
-                    <p class="m3">With this input, I further refined the prototype into a version 1 that was suitable for a more formal round of user testing and heuristic evaluation.</p>
-                    <img src="./assets/mental-reminder/prototypes.png" class="m3"width="90%"></img>
-                </div>
-
-                <div class="validate" id="validate">
-                    <h2>Validate - </h2>
-                    <p class="m3">With the high fidelity prototype in hand, we conducted a more formal round of user testing. Our goal for our project was to create something simple that is intuitive to use. With that in mind, our validation was set up to test 1) the speed and ease of which users are able to conduct basic tasks, and 2) whether or not, after on boarding, app gestures felt natural. </p>
-
-                    <img class="m3" src="./assets/mental-reminder/user-testing-fixes.png" width="80%"></img>
-                    <p class="m3">The four formal user tests conducted validated our theories on the general usage and gestures. The key changes we made as a result of user testing was modifying the swipe right gesture on a reminder to complete the reminder instead of snooze - the rationale behind this was that most people who snooze from the push notification. If they were actively checking the home screen, it would make sense to enable them to complete a task ahead of time, a use case that we
-                    overlooked during ideation.</p>
-                    <p class="m3">We also made sure to clarify any affordances that weren't immediately obvious to the user. The user testing sessions offered us valuable insight into what features were valued and what features could be further cut to reduce bloat. Although our script and sample tasks were built around a 'happy path' user story, often times the user would lead us off script in a direction that would ultimately prove enlightening - for example, learning that our ambiguous notification system felt 'condescending' rather than 'friendly' was something that never occurred to us due to our proximity to the project.</p>
-                </div>
-
-                <div class="handoff" id="handoff">
-                    <h2>Handoff - </h2>
-                    <p class="m3">We're currently still in the development phase for this class project - it looks like our research has paid off though, as all of our intended features and gestures are do-able with the software frameworks we've selected for implementation. These screens are still subject to change depending on whether or not the timeframe is modified. I'll post a link along with the finalized screens once the implementation is done!</p>
-                </div>
-
-                <div class="final-screen" id="final-screen">
-                </div>
-
-            </div>
+                    <div class="col-2">
+                        <div class="col">
+                            <h3>We then conducted competitor benchmarking to identify our market and our niche.</h3>
+                        </div>
+                        <div class="col">
+                            <p>Between the twelve applications examined, the common complaints were feature bloat and pricing. Most reminder apps were too robust for our target audience's use cases, resulting in clunky UI and and overall poor experience. Additionally, most of the apps that were mental-health focused featured subscriptions or had most of their features locked behind paywalls.</p>
+                        </div>
+                    </div>
+                </section>
 
         </div>
 
-        <div class="end-card">
-            <h2>Thanks for scrolling!  &#128591;</h2>
-            <div class="end-links">
-                <div class="end-card-button">
-                    <a  href="./index.html">Take me home</a>
+        <div class="bg-gray">
+            <div class="body-wrapper">
+                <h3>We found that there were <span class="mental-reminder-highlight">no 100% free apps</span> with a <span class="mental-reminder-highlight">friendly, intuitive user experience</span> to simply remind users of the things they need to do.</h3>
+            </div>
+        </div>
+
+
+        <div class="body-wrapper">
+            <section class="text-body">
+                <div class="col-2">
+                    <div class="col">
+                        <h3>We used our research to create user personas to solidify our understanding of who we're designing for.</h3>
+                    </div>
+                    <div class="col">
+                        <p>Our initial goal for the research phase was to understand our user's needs and desires. This would give us a better understanding of what features we should include and what our end solution would look like.   We used our findings from both the competitor analysis (synthesized stories from common core features and design trends) as well as our systematic literature review to create these user personas.</p>
+                    </div>
                 </div>
-                <p>Other projects: </p>
-                <div class="end-projects">
-                    <a href="">Mental Reminder</a>
-                    <a href="./move-in.html">Move-In App</a>
+            </section>
+
+            <section class="text-body">
+
+                <img src="./assets/mental-reminder/persona1.png" width="100%" height="auto"/>
+                <img src="./assets/mental-reminder/persona2.png" width="100%" height="auto"/>
+
+            </section>
+
+            <section class="text-block">
+                <div class="text-block-header">
+                    <h2>Once we did our research, we had to <span class="mental-reminder-highlight">ideate</span> on what our solution would look like.</h2>
+                </div>
+
+                <div class="col-2">
+                    <div class="col">
+                        <h3>Using InVision's collaborative space, we used the 2x2 matrix method to determine our final feature set.</h3>
+                        <p>We eventually settled on the core feature set of:  - Add, edit, snooze, and delete reminders - Set reminders quickly through a preset system - Set recurring reminders - Profile and general statistics to measure user growth and progress - Log of completed reminders for peace of mind - Mental health resources</p>
+                    </div>
+
+                    <div class="col">
+                        <img src="./assets/mental-reminder/matrix.png" width="100%" height="auto" alt="A 2x2 matrix with different values on the axis to determine our featureset"/>
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <div class="col">
+                        <h3>With this feature set, we created a screen map and some early wireframes</h3>
+                        <p>This screen map identified early on what our core flow would be for the user and helped guide us through our wireframing phase, where we would try to flesh out potential layouts and understand what UI elements would need to be designed. </p>
+
+                        <p>We ended up doing a quick round of sketching followed by some very rough and ambiguous wireframes. These were more to identify the flow and highlight big picture navigation/interaction concepts that would be key to the final product. </p>
+                    </div>
+                    <div class="col">
+                        <img src="./assets/mental-reminder/flow.png" width="100%" height="auto" alt="screen map of our application" />
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <img src="./assets/mental-reminder/wireframes.png" width="100%" height="auto" alt="Super ambiguous wireframes to represent broad design ideas" />
+
+        <div class="body-wrapper">
+            <section class="text-block">
+                <div class="text-block-header">
+                    <h2>With all the foundational work done, we got to work on <span class="mental-reminder-highlight">prototyping</span>.</h2>
+                </div>
+                <div class="col-2">
+                    <div class="col">
+                        <p>A significant constraint and challenge for this project was the timeline. This was, at its core, a CS course, meaning that we would not only have to design the product but also leave time for development. Knowing this, we had to not only make sure that our design was feasible to implement within a 2-3 week time frame, but also we had to manage our time well during prototyping. </p>
+                    </div>
+
+                    <div class="col">
+                        <p>Luckily, the instructor was extremely ‘hands-off’ during the design portion, which allowed me to suggest practicing lean ux to prototype and validate our designs. We would test each major iteration along the way with family, friends, and classmates, and adjust accordingly. This allowed us to expediently catch mistakes along the way that we would’ve missed otherwise. </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="text-block">
+                <div class="col-2">
+                    <div class="col">
+                        <h3>Iteration 1</h3>
+                        <p>Our initial prototype’s shape, layout, and interaction paradigms were received really well upon unofficial testing with family and friends - but there were also a lot of things to fix.</p> 
+
+                        <p>Problems found from R1 testing: </p>
+                        <p>1. Blue is sad instead of calming like intended</p>
+                        <p>2. Recurring reminder icon looks like a refresh prompt</p>
+                        <p>3. Pictures aren’t necessary </p>
+                    </div>
+
+                    <div class="col">
+                        <img src="./assets/mental-reminder/iteration1.png" alt="First iteration of our prototype with a blue screen and poor affordances" width="80%" height="auto" />
+                    </div>
+                </div>
+            </section>
+
+            <section class="text-block">
+                <div class="col-2">
+
+                    <div class="col">
+                        <img src="./assets/mental-reminder/iteration2.png" alt="Second iteration of our prototype featuring the new reminder screen"  width="80%" height="auto" />
+                    </div>
+
+                    <div class="col">
+                        <h3>Iteration 2</h3>
+                        <p>We took the feedback from our first prototype and changed both the colors as well as the reminder element. By using Google’s Material.io icons, we saved development time while preserving the sense of customization.</p>
+
+                        <p>Problems found in round 2 of testing: </p>
+
+                        <p>1. Needed to clarify affordances better, especially for the custom preset input</p>
+                        <p>2. Upon more detailed testing, we realized that certain features went untouched. For example, users said they were unlikely to schedule things in advance, as they’d defualt to Outlook for those tasks.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="text-block">
+                <div class="col-2">
+
+                    <div class="col">
+                        <h3>Iteration 3</h3>
+                        <p>By this point, we had the main flow of setting reminders fairly ironed out. We focused our testing efforts on other parts of the flow, primarily those having to do with customization since our research indicates that users value that in mental-health productivity applications. </p>
+
+                        <p>During this round, we:</p>
+
+                        <p>1. Cleaned up the location of the settings and added an option to change the icons</p>
+                        <p>2. Revisited and refined the process of changing the preset reminders.</p>
+                    </div>
+
+                    <div class="col">
+                        <img src="./assets/mental-reminder/iteration3.png" alt="Third iteration of our prototype featuring a revised new reminder screen"  width="80%" height="auto" />
+                    </div>
+
+                </div>
+            </section>
+
+
+            <section class="text-block">
+                <div class="text-block-header">
+                    <h2>After multiple rounds of rapid testing and validation, we arrived at this <span class="mental-reminder-highlight">final design</span>.</h2>
+                </div>
+                <div class="col-2">
+                    <div class="col">
+                        <p>Since we made sure to validate often during our prototyping phase, we knew that the flow and the major interactions along the way were easy enough for folks to navigate through. </p>
+
+                        <p>After our final round of user testing, we had a discussion with the class instructor on the feasability of implementation. Even though our app was already fairly minimal, we were advised to cut down on a fair bit for our initial MVP.</p>
+                    </div>
+
+                    <div class="col">
+                        <p>This was what remained at the end of that discussion - the ‘heart’ of mental reminder, and the bare minimum viable product to fulfill our original product goals. </p>
+
+                        <p>What you see below is the core flow of setting reminders, and a few of the other minor screens. Unfortunately, we had to nix some customization features and menus due to lack of development time.</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="text-block">
+                <div class="col-2-showcase">
+                    <div class="col">
+                        <h2>Main Screen</h2>
+                        <p>Here, users can view all of their reminders. We tried to keep it as simple as possible - just the reminder name, due date, and an icon to make the type of reminder noticeable at a glance. </p>
+                        <p>It was important to us that the core loop be easy to use - users can swipe to complete or snooze reminders. This core interaction is becoming more commonplace these days, and would be introduced through an onboarding screen.</p>
+                    </div>
+
+                    <div class="col">
+                        <img src="./assets/mental-reminder/screen1.png" alt="Home screen of our app showing off the swipe to complete gesture" width="70%" height="auto" />
+                    </div>
+                </div>
+                <div class="col-2-showcase">
+                    <div class="col">
+                        <img src="./assets/mental-reminder/screen2.png" alt="The new reminder page of our app" width="70%" height="auto" />
+                    </div>
+
+                    <div class="col">
+                        <h2>Setting a Reminder</h2>
+                        <p>It was important to us that setting a reminder would be as easy as possible - we believe that if we provide an easy first step, users would be more inclined to follow through with the task to completion. </p>
+
+                        <p>That’s why we added preset reminders, so reminders can be set for common things with just one tap. For new reminders, users can swipe through the numerical inputs and tap options. We wanted to limit keyboard input as much as possible, since those require both hands and impede the flow ever so slightly.</p>
+                    </div>
+                </div>
+
+                <div class="col-2-showcase">
+                    <div class="col">
+                        <h2>Recurring Reminders</h2>
+                        <p>Although users noted that scheduling reminders in advance (triggering a reminder on a specific day) seemed to be out of scope, we wanted to allow for period reminders to exercise, meditate, or even just to drink water. </p>
+                        <p>With this, we knew we had to create a separate flow and distinction between recurring reminders and regular reminders. We decided to use color as the main differentiator, and reinforce this by giving recurring reminders their own page so users can toggle and edit these.</p>
+
+                    </div>
+
+                    <div class="col">
+                        <img src="./assets/mental-reminder/screen3.png" alt="Screen showing off the recurring reminders and their toggle state" width="70%" height="auto" />
+                    </div>
+                </div>
+
+                <div class="col-2-showcase">
+                    <div class="col">
+                        <img src="./assets/mental-reminder/screen4.png" alt="" width="70%" height="auto" />
+                    </div>
+
+                    <div class="col">
+                        <h2>Reminder logs</h2>
+                        <p>A lot of people that we had talked to in our user interviews noted that they don’t just forget to do things - sometimes they forget whether they’d done them at all. This is particularly important for use cases such as medication. If someone uses our app to take their medicine and forget, there’s a chance they might take it twice. </p>
+                        <p>So we created the reminder log page, where all completed and cancelled reminders can be viewed. This way, even the most forgetful user won’t have to worry about whether or not they’d done something.</p>
+                    </div>
+                </div>
+
+                <div class="col-2-showcase">
+                    <div class="col">
+                        <h2>Celebrating achievements</h2>
+
+                        <p>During our systematic literature review, we learned that positive reinforcement and reflection can be a great feature for apps targeting mental health and productivity. </p>
+                        <p>We decided to add a profile page even though the app is designed to be offline and isolated. By reminding the user of how far they’d come and providing interesting statistics, we hoped that this would encourage them to continue their positive and productive streak into the future. </p>
+
+                    </div>
+
+                    <div class="col">
+                        <img src="./assets/mental-reminder/screen5.png" alt="" width="70%" height="auto" />
+                    </div>
+                </div>
+            </section>
+
+            <section class="text-block">
+                <div class="text-block-header">
+                    <h2>Learning to look past the design - <span class="mental-reminder-highlight">acknowledging the challenges of end-to-end product ownership</span>.</h2>
+                </div>
+                <div class="col-2">
+                    <div class="col">
+                        <p>This is one of my favorite projects, even though development didn’t go as well as we had hoped, simply because it taught me a valuable lesson about workflows, timelines, and project management. </p>
+                        <p>At this point, I had a few larger UX projects under my belt and felt confident in designing a product to fit a brief. However, this was my first time doing both the design and implementation, and I learned that you can’t plan for every outcome. </p>
+                    </div>
+
+                    <div class="col">
+                        <p>Just about everything that could go wrong with development did - our back end engineers ran into integration issues, some of the interactions we had planned were a lot harder to implement with our chosen front-end framework, etc. In the end, what we had developed was only a fraction of what we had originally planned. </p>
+
+                        <p>This taught me a valuable lesson about expectations in product design and learning to adapt to whatever comes up.</p>
+                    </div>
+                </div>
+            </section>
+
+            <img class="ws-top-bottom-5" src="./assets/mental-reminder/all-screens.png" width="100%" height="auto" alt="All screens made for the app arranged in a grid" />
+
+            <section class="end">
+                <h3>- Other projects -</h3>
+                <div class="end-project-list">
+                    <a href="./airbnb.html">Airbnb Eco</a>
                     <a href="./wta.html">WTA App Concept</a>
+                    <a href="./mental-reminder.html">Mental Reminder</a>
                 </div>
-            </div>
+
         </div>
+
+        <footer>
+            <div class="footer-wrapper project">
+                <h3>Let's build something cool together.</h3>
+
+                <div class="footer-3-col">
+                    <div class="socials">
+                        <p class="footer-column-header">Projects</p>
+                        <p class="hvr-underline-from-left"><a href="./airbnb.html">Airbnb Eco</a></p>
+                        <p class="hvr-underline-from-left"><a href="./wta.html">WTA App</a></p>
+                        <p class="hvr-underline-from-left"><a href="./mental-reminder.html">Mental Reminder</a></p>
+                    </div>
+                    <div class="links">
+                        <p class="footer-column-header">Links</p>
+                        <p class="hvr-underline-from-left"><a href="https://www.behance.net/danielking9">Behance</a></p>
+                        <p class="hvr-underline-from-left"><a href="https://www.linkedin.com/in/daniel-king-8050aa150/">LinkedIn</a></p>
+                        <p class="hvr-underline-from-left"><a href="https://github.com/kingce">Github</a></p>
+                    </div>
+                    <div class="email">
+                        <p class="footer-column-header">Email</p>
+                        <p class="hvr-underline-from-left"><a href="">chuan.e.king@gmail.com</a></p>
+                    </div>
+                </div>
+        </footer>
+
+                    
+
+
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
@@ -228,6 +409,8 @@
                 AOS.init({ disable: 'mobile' });
         });
         </script>
+
+        <script src="./js/scrollbar.js"></script>
 
         <script src="./js/zenscroll-min.js"></script>
     </script>

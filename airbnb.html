@@ -6,18 +6,39 @@
 
         <title>Airbnb Eco - Daniel King</title>
 
+        <script
+              src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
 
         <!-- Animate on Scroll -->
         <link rel="stylesheet" href="hhtps://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/nav.css">
         <link rel="stylesheet" type="text/css" href="css/project.css">
     </head>
 
     <body>
 
         <!-- Nav -->
+        <div class="nav-wrapper">
+        <div class="nav project">
+            <div class="left">
+                <h3 class="nav-h3"><a href="./index.html">FOLIO `21</a></h3>
+                <div class="line"></div>
+            </div>
+
+            <div class="right">
+                <a href="./index.html#work">Work</a>
+                <a href="./about.html">About</a>
+            </div>
+        </div>
+        </div>
 
         <div class="body-wrapper">
+
+            <img class="header-img"  src="./assets/airbnb/header.png" width="50%" height="auto" alt="Mockups of the airbnb eco screens"/>
+
             <!-- Header -->
             <section class="header">
                 <div class="header-pre">
@@ -42,9 +63,9 @@
                     </div>
                     <div class="col-3-header-wrapper">
                         <h5 class="small-title">Project Deliverables</h5>
-                        <p><a href="">Pitch Deck ↗</a></p>
-                        <p><a href="">Case Study ↗</a></p>
-                        <p><a href="">Clickable Figma prototype</a></p>
+                        <p><a href="https://pitchdeck.figmatic.com/slides/knqq0fyn39869?token=LlFSR1ljU3IlJTc9Q3s%3D" target="_blank">Pitch Deck ↗</a></p>
+                        <p><a href="./assets/airbnb/AirbnbCaseStudyFinal.pdf" target="_blank">Case Study ↗</a></p>
+                        <p><a href="https://www.figma.com/proto/0z1j4sWDiRL9Ra5j9V8hkt/Final-Prototype?page-id=0%3A1&node-id=108%3A10&scaling=scale-down" target="_blank">Clickable Figma prototype ↗</a></p>
                     </div>
                 </div>
             </section>
@@ -173,7 +194,7 @@
 
             <section class="text-block">
                 <div class="text-block-header ws-bottom-3">
-                    <h2>Eventually, we created <span class="airbnb-highlight">Airbnb Eco</span>, a robust and scalable rewards system to incentivize sustainable choices.</h2>
+                    <h2>We decided to create <span class="airbnb-highlight">Airbnb Eco</span>, a robust and scalable rewards system to incentivize sustainable choices.</h2>
                 </div>
 
                 <div class="col-2">
@@ -222,7 +243,7 @@
                         <p>We ran our figma prototype through <strong>three rounds of user testing</strong> and fixed little issues with affordances and learnability along the way.</p>
                         <p>The two most important takeaways are as follows:</p>
                         <hr>
-                        <small>You can view our clickable prototype <a href="">here</a></small>
+                        <small>You can view our clickable prototype <a href="https://www.figma.com/proto/0z1j4sWDiRL9Ra5j9V8hkt/Final-Prototype?page-id=0%3A1&node-id=108%3A10&scaling=scale-down" target="_blank"><strong>here</strong></a></small>
                     </div>
                 </div>
             </section>
@@ -259,6 +280,8 @@
                 <div class="col-2 ws-top-5">
                     <div class="col" >
                         <h3 class="ws-pad-top-5" style="width:75%">Establishing a central page for Eco</h3>
+                        <p>From the get-go, we realized we would need a centralized location to host all the pertinent info related to Airbnb Eco. We created this 'eco hub' page, where users can learn more about the basics of the program, view their balance, find discounts available through credits, and more.</p>
+                        <p> We built this page to be modular and scalable using the existing DLS so that it can grow with the program.</p>
                     </div>
                     <div class="col">
                         <div style="padding:200% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/557828880?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:70%;height:70%;" title="Program Flow"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
@@ -266,28 +289,79 @@
                 </div>
             </section>
 
-            <section class="text-block ws-top-5">
+            <section class="text-block ws-bottom-5">
+                <div class="text-block-header">
+                    <h2>Creating purposeful touchpoints</h2>
+                </div>
+                <div>
+                    <p>One of the things we quickly realized while working with Ryan was that a centralized location wasn't practical and didn't fit in with the platform's design ethos - instead, we created multiple ways to get to the page. User testing later confirmed that this was more effective than keeping it tucked away in the nav or in one location.</p>
+                    <img src="./assets/airbnb/touch-points.png" width="100%" height="auto" alt="Screenshots of different screens with the links to the eco page highlighted" />
+                </div>
+            </section>
+
+            <section class="text-block ws-pad-top-5">
                 <div class="col-2">
-                    <div class="col">
-                        <div style="padding:200% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/557368293?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:70%;height:70%;" title="Checkout Flow .mov"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-                    </div>
                     <div class="col" >
                         <h3 class="ws-pad-top-5" style="width:75%">Booking a stay with credits</h3>
+                        <p>A major pain point we identified early on during our user flows was that <em>users couldn't be sustainable even if they wanted to</em>, since there was virtually no sustainability information on the listings. We made sure to add icons and information so that users can see which hosts had sustainable stays.</p>
+                        <p>The rest of the checkout flow is more or less the same - we built our feature into the existing flow without the addition of any new screens to make the process as unobtrusive as possible.</p>
+                    </div>
+                    <div class="col">
+                        <div style="padding:200% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/557368293?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:70%;height:70%;" title="Checkout Flow .mov"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
                     </div>
                 </div>
             </section>
 
-            <section class="text-block ws-top-5">
+            <section class="text-block">
                 <div class="col-2">
                     <div class="col" >
-                        <h3 class="ws-pad-top-5" style="width:75%">Using credits with local business</h3>
+                        <h3 class="ws-pad-top-3" style="width:75%">Using credits with local business</h3>
+                        <p>Similar to the eco hub page, we made sure to made the shop listings accessible through multiple touch points as well - this information is available through the trips tab, but it's also available through several touch points on the eco hub page as well.</p>
+                        <p>All users would have to do is to find a discount that interests them, pull up a QR code, and scan it at the relevant business. We did some preliminary research with popular POS system's APIs to make sure that this was feasible, and the integration should be fairly seamless with Airbnb's app.</p>
                     </div>
                     <div class="col">
                         <div style="padding:182.86% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/557831797?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:70%;height:70%;" title="Local Business Flow"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
                     </div>
                 </div>
             </section>
+
+            <section class="end">
+                <h3>- Other projects -</h3>
+                <div class="end-project-list">
+                    <a href="./airbnb.html">Airbnb Eco</a>
+                    <a href="./wta.html">WTA App Concept</a>
+                    <a href="./mental-reminder.html">Mental Reminder</a>
+                </div>
+            </section>
         </div>
+
+        <footer>
+            <div class="footer-wrapper project">
+                <h3>Let's build something cool together.</h3>
+
+                <div class="footer-3-col">
+                    <div class="socials">
+                        <p class="footer-column-header">Projects</p>
+                        <p class="hvr-underline-from-left"><a href="./airbnb.html">Airbnb Eco</a></p>
+                        <p class="hvr-underline-from-left"><a href="./wta.html">WTA App</a></p>
+                        <p class="hvr-underline-from-left"><a href="./mental-reminder.html">Mental Reminder</a></p>
+                    </div>
+
+                    <div class="links">
+                        <p class="footer-column-header">Links</p>
+                        <p class="hvr-underline-from-left"><a href="https://www.behance.net/danielking9">Behance</a></p>
+                        <p class="hvr-underline-from-left"><a href="https://www.linkedin.com/in/daniel-king-8050aa150/">LinkedIn</a></p>
+                        <p class="hvr-underline-from-left"><a href="https://github.com/kingce">Github</a></p>
+                    </div>
+
+                    <div class="links">
+                        <p class="footer-column-header">Email</p>
+                        <p class="hvr-underline-from-left"><a href="">chuan.e.king@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
 
 
 

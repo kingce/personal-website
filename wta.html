@@ -12,176 +12,260 @@
 
         <script src="https://kit.fontawesome.com/c0acad0f63.js" crossorigin="anonymous"></script>
 
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
         <!--- Animate on scroll -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/nav.css">
         <link rel="stylesheet" type="text/css" href="css/project.css">
     </head>
     <body>
 
-        <div class="back-button">
-            <i class="fas fa-arrow-left"></i>
-            <a href="./index.html">
-                <h5>GO BACK</h5>
-            </a>
-        </div>
+        <div class="nav-wrapper">
+            <div class="nav project">
+                <div class="left">
+                    <h3 class="nav-h3"><a href="./index.html">FOLIO `21</a></h3>
+                    <div class="line"></div>
+                </div>
 
-        <div class="title">
-            <h3>PROJECT:</h3>
-            <h1>WTA App Concept</h1>
-        </div>
-
-        <div class="project-info">
-            <div class="project-col">
-                <h5>TIMELINE: </h5>
-                <p>June - July 2020</p>
-            </div>
-
-            <div class="project-col">
-                <h5>PROJECT TYPE: </h5>
-                <p>School, Web App Design</p>
-            </div>
-
-            <div class="project-col">
-                <h5>MY ROLE: </h5>
-                <p>UX Designer, UX Researcher</p>
+                <div class="right">
+                    <a href="./index.html#work">Work</a>
+                    <a href="./about.html">About</a>
+                </div>
             </div>
         </div>
 
-        <div class="content-wrapper">
+        <div class="body-wrapper">
+            <img class="header-img" src="./assets/bus.png" width="50%" height="auto" alt="Flat illustration of WTA bus" />
 
-            <div id="brief" class="brief">
-                <h2 class="wta-accent">1 MINUTE BRIEF - TLDR;</h2>
-
-                <div class="brief-text brief-border-wta">
-                    <h3>The Problem - </h3>
-                    <p>There are no competitors on the market that offer a first-party app for transit systems within Whatcom county that was sufficiently feature-rich yet intuitive. 50% of respondents in a survey use Google Maps, which does not provide proprietary data on the inconsistent schedules of WTA busses.</p>
-
-                    <h3>The Solution - </h3>
-                    <p>Designed a first party, mobile application for finding route information and trip planning with strong WTA branding.</p>
-
-                    <h3>What <em>I</em> did - </h3>
-
-                    <p>Collaborated with three other students from various disciplines to research, wireframe, prototype, user test, and iterate on the final product.</p>
-                    <p>I also handled all of the visual and creative direction of the project as well. Responsible for soft rebranding of WTA and all high fidelity prototypes and assets.</p>
+            <section class="header">
+                <div class="header-pre">
+                    <h1>WTA App Concept</h1>
+                    <p>We created a first-party, WTA branded wayfinding app for Whatcom Transit riders to find route information and plan their trips reliably and intuitively.</p>
                 </div>
 
-            </div>
+                <div class="horizontal-divider"></div>
 
-            <div class="core-challenges">
-                <h2>Core Challenges - </h2>
-                <div class="challenge">
-                    <p><strong class="wta-accent">Product identity</strong><br> Since the success of our product's premise was built entirely around the idea of instilling trust in the bus system <em>through our app's UI</em>, how our app looked and felt at a glance was just as important as everything else. We initially struggled on making the app feel like a WTA product due to their outdating design system and lack of branding guidelines. </p>
+                <div class="col-3-header">
+                    <div class="col-3-header-wrapper">
+                        <h5 class="small-title">My Role</h5>
+                        <p>UI/UX Design</p>
+                        <p>Sketching and Wireframing</p>
+                        <p>Prototyping and Mockups</p>
+                        <p>User Testing</p>
+                    </div>
+
+                    <div class="col-3-header-wrapper">
+                        <h5 class="small-title">Project Timeline</h5>
+                        <p>June - July 2021</p>
+                        <p>WWU DSGN 397</p>
+                    </div>
+
+                    <div class="col-3-header-wrapper">
+                        <h5 class="small-title">Project Deliverables</h5>
+                        <p><a href="">Project Report (PDF) ↗</a></p>
+                        <p><a href="https://www.behance.net/gallery/100704733/WTA-App-ConceptCase-Study">Behance Case Study ↗</a></p>
+                    </div>
+            </section>
+
+            <!--- Opening Blurb -->
+            <section class="text-block ws-bottom-5">
+                <div class="text-block-header">
+                    <h2 class="wta-highlight">Currently, the only way to get first-party WTA bus information is through their website - which isn’t that great.</h2>
+                </div>
+                <div class="col-2">
+                    <div class="col">
+                        <p>We were intially approached with the open-ended brief to redesign any website, app, or service. As a team of four WWU students who frequently use the bus system in Bellingham, we decided initially to redesign their website.</p>
+                    </div>
+
+                    <div class="col">
+                        <p>This was born purely out of spite for the clunky and unintuitive system currently in place - the website was the only way to digitally acquire first-party route information from WTA. But the trip planner was convoluted and inaccessible on mobile.</p>
+                    </div>
+                </div>
+            </section>
+
+            <img class="ws-bottom-5" src="./assets/wta/current.png" width="100%" height="auto" alt="Screenshot of WTA website" />
+
+            <section class="text-block">
+                <div class="text-block-header">
+                    <h2>We used <span class="wta-highlight">research</span> to better understand our market and our users.</h2>
+                </div>
+                <div class="col-2">
+                    <div class="col">
+                        <p>We started with a user survey to better understand the behaviors of current WTA riders. We found that the majority of them had access to a smart phone, and that the vast majority turned to Google Maps. Qualitative surveys indicated that mobile solutions were preferred over desktop optimized experiences.</p>
+                        <p>It’s worth noting that the reliability of WTA transportation is already fairly tenuous, so users value getting information that feels trustworthy - in other words, they’d prefer first party and branded sources over Google Maps. </p>
+                    </div>
+                    <div class="col">
+                        <img src="./assets/wta/chart1.png" width="100%" height="auto" alt="Survey infographic" />
+                    </div>
                 </div>
 
-                <div class="challenge">
-                    <p><strong class="wta-accent">First time for everything</strong><br> This was my first UX class and case study ever - with that came a lot of exploration and a lot of hands on learning. I started off the class making wireframes on Powerpoint, and by the end I was making functional prototypes on Adobe XD and high fidelity mockups on Illustrator. </p>
+                <div class="col-2">
+                    <div class="col">
+                        <img src="./assets/wta/chart2.png" width="100%" height="auto" alt="Competitive benchmarking chart" />
+                    </div>
+                    <div class="col">
+                        <p>We then ran through competitive benchmarking and determined that there was nothing on the market currently that was sufficiently feature rich or intuitive.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
 
+        <div class="bg-gray ws-top-bottom-3">
+            <div class="body-wrapper">
+                <h3>Through research, we decided that our solution would be to provide users with a <span class="wta-highlight">first party, mobile-focused application</span> for finding route information and trip planning with <span class="wta-highlight">strong WTA branding</span>.</h3>
+            </div>
+        </div>
+
+        <div class="body-wrapper">
+            <h3>We created user personas to understand the needs of the diverse population of riders.</h3>
+            <img class="ws-top-bottom-3" src="./assets/wta/userpersona1.png" width="100%" height="auto" alt="First user persona" />
+            <img class="ws-top-bottom-3" src="./assets/wta/userpersona2.png" width="100%" height="auto" alt="Second user persona" />
+
+            <h3 class="ws-top-bottom-5">Using those insights, we created a basic user flow of a wayfinding app from start to finish</h3>
+
+            <img class="ws-top-bottom-3" src="./assets/wta/flow.png" width="100%" height="auto" alt="User flow" />
+
+            <div class="col-2 ws-top-3">
+                <div class="col">
+                    <h3 class="ws-top-5">Once we knew the flow, we used sketches to ideate on screens.</h3>
+                    <p>These extremely low fidelity wireframe sketches allowed us to explore how we wanted the app to feel without being immediately constrained by the minutiae of pixel-pushing UX elements around. We tried to be as open minded as possible, as this was still in a divergent line of thinking. </p>
+                    <p>Afterwards, we mapped our sketches to preliminary paper prototypes (not pictured). This was then tested against classmates and transit users to iron out basic flaws in the flow.</p>
+                </div>
+                <div class="col">
+                    <img src="./assets/wta/sketches-wta.png" alt="Sample of sketches done during the ideation phase" width="100%" height="auto" />
                 </div>
             </div>
 
-            <div class="process">
-                <h2>The Process - </h2>
-                <img src="./assets/wta/process.png" width="90%"></img>
-            </div>
 
-            <div class="research">
-                <h2>The Research - </h2>
-
-                <div class="m3">
-                    <p>We conducted a user survey to better gauge the market and our target audience. The survey was distributed around Bellingham-centered facebook groups and subreddits - we wanted to make sure our survey covered more than just students, but wanted to make sure we were only getting local respondents who actually had experience with WTA specifically.</p>
-                    <p>The survey gave us valuable insight on established user behavior regarding route discovery and travel. Our decision to go with a mobile solution was validated through smartphone usage statistics. We also identified Google Maps early on as a competitor, and that helped us further develop our product's identity to differentiate ourselves from the current popular solution.</p>
-                    <p>In a similar vein, we also conducted an early market analysis and used a competitor matrix to understand how our solution would fit into the big picture. <em>Ultimately, there were a variety of transportation apps available to the public, no competitor offered a first-party app for transit systems within Whatcom county that was sufficiently feature-rich yet intuitive.</em></p>
+            <section class="text-block">
+                <div class="text-block-header">
+                    <h2>From here, we worked on <span class="wta-highlight">prototyping</span> with the RITE methodology in mind.</h2>
                 </div>
 
-                <img src="./assets/wta/research.png" width="100%"></img>
-
-                <h3>User Personas</h3>
-
-                <img src="./assets/wta/user personas.png" width="100%"></img>
-
-            </div>
-
-            <div class="ideation m10">
-                <h2>Ideation - </h2>
-                <div class="sketches">
-                    <h3>Sketches</h3>
-                    <p class="m3">We started with basic free-form rapid prototyping, pictured left. The primary objective of this activity was to explore very early ideas of how we wanted the app to feel without being constrained by the minutiae of where to place UX elements.</p>
-
-                    <p class="m3">Afterwards, we mapped our sketches to preliminary paper prototypes that we user tested against various transit users around campus (not pictured). Once the basic flaws were fixed, we moved onto a digital prototype done through Adobe XD.</p>
+                <div class="col-2">
+                    <div class="col">
+                        <p>Rapid iterative testing and evaluation was done to polish the prototype as quickly as possible while still validating our design decisions. Betwen each sets of tests, we issues with affordances, learnability, and poor visual design that led to confusion. </p>
+                    </div>
+                    <div class="col">
+                        <p>One key takeaway was that although testing doesn’t have to be conducted on finished highest-fidelity mockups, we should strive for a level of fidelity that doesn’t cause confusion, as that is an easy fix and will distract testers from more subtle insights. </p>
+                    </div>
                 </div>
 
-                <img src="./assets/wta/sketches.png" width="100%"></img>
+                <img src="./assets/wta/proto.png" width="100%" height="auto" alt="Sample screens from all three iterations of our prototype" class="ws-bottom-5"/>
+            </section>
 
-            </div>
-
-            <div class="m10">
-                <h2>Iteration - </h2>
-                <div class="RITE">
-                    <h3>RITE Methodology</h3>
-                    <p class="m3">From here, we decided to rapidly iterate between user testing sessions. With the first digital prototype finished, we used Adobe XD's mobile app and features to quickly user test between transit riders of various backgrounds. Between each set of tests, we would fix main concerns such as features that were entirely unused or UI elements whose functions were obvious to us as the designers but didn't read as well to those unacquainted with the project.</p>
+            <section class="text-block ws-top-5">
+                <div class="text-block-header ws-top-bottom-5">
+                    <h2>Despite all the testing, our first try at high fidelity mockups was still flawed.</h2>
                 </div>
-
-                <img src="./assets/wta/prototypes.png" width="100%"></img>
-
-                <div class="user-testing">
-                    <h3>User Testing</h3>
-                    <p class="m3">Throughout the prototyping process, we would frequently user test against everyone that we could. We found that the key to getting the most out of the iterative design process was to quickly identify key problems and pain points in users and fix that. It was important to test against a variety of people to eliminate as many biases as possible. </p>
-                    
-                    <p class="m3">Thanks to our multidisciplinary team, we thought to use testing methodologies from other disciplines as well. A big influence on our thinking was black box and white box testing popular in software engineering. The idea of testing against both those who were in our class and were fairly cognizant of what we were doing to random peers/transit users was instrumental to the success of our prototyping phase. Ultimately, getting a wide range of backgrounds and worldviews involved in our project aided us greatly in rapidly developing our prototype into a finished first solution. </p>
+                <div class="col-2">
+                    <div class="col ws-top-5">
+                        <p>The tricky part here was that testers still responded positively to the visual design. They enjoyed the bright colors, and the underlying UI was clear and polished thanks to the work done during our iterative testing throughout the prototyping phase. </p>
+                        <p>However, it failed to deliver on one of our core goals - make the app feel first party and branded.</p>
+                        <p>This was my first experience doing visual design, and as a result, I didn’t have sufficient design acuity to realize that our current design language drew too much inspiration from Google’s Material Design suite. This was especially problematic as Google Maps was a strong competitor in our market niche. We had to start over from scratch.</p>
+                    </div>
+                    <div class="col">
+                        <img style="margin: 0" src="./assets/wta/first-try.png" width="80%" height="auto" alt="Main screens from our first try at a high fidelity mockup" />
+                    </div>
                 </div>
-            </div>
-
-            <div class="m10 polish">
-                
-                <h2>The Polish - </h2>
-                <p class="m3">Our first attempt at high fidelity mockups after our layouts, functionality, and user flow were finalized through user testing was unsuccessful. This was largely because our product's design language didn't match the established brand language of WTA.</p>
-                <p class="m3">Although WTA has some rather outdated and inconsistent branding, because it's so ubiquitous around town, locals know at a glance when something 'feels' like it's WTA or not. We started over from the beginning.</p>
-                
-                <h3 class="wta-accent">Colors</h3>
-                <p class="m3">We started off with the same base value as the original WTA color. From there, we altered the luminance values to get our accents, and for other primary colors, we would find an appropriate relationship on the color wheel so that the color palette felt balanced.</p>
-
-                <h3 class="wta-accent">Language</h3>
-                <p class="m3">We noticed that although the branding was fairly all over the place, the actual busses themselves had a largely universal language - soft, curved lines with gentle slopes and bubbles. These motifs point to Whatcom's heritage and its proximity to Lake Whatcom, and by working off of this idea, we quickly developed a design language that is distinctly WTA but also in the 21st century.</p>
-
-            </div>
-
-            <div class="m10 product">
-                <h2>The Product - </h2>
-                
-            </div>
-            <img src="./assets/wta/screens.png" width="100%"></img>
+            </section>
 
         </div>
 
-        <div class="center">
-
-            <p>For more information, check out the full case study on behance - </p>
-            <div class="end-card-button">
-
-                <a href="https://www.behance.net/gallery/100704733/WTA-App-ConceptCase-Study" target="_blank">BEHANCE CASE STUDY</a>
-
+        <div class="bg-gray">
+            <img src="./assets/wta/colors.png" width="100%" height="auto" alt="Color palette that we selected for the rebrand" class="ws-pad-top-5"/>
+            <div class="body-wrapper">
+                <h5 class="small-title">Revisiting the rebrand</h5>
+                <p>We figured we should’ve been more subtle in our rebranding efforts - we kept all the current elements that was central to the WTA identity: their primary blue, their usage of Futura, and the general subtle playfulness of WTA. </p>
+                <p>We then selected accent colors by modifying saturation and luminance values from the existing blue, opting to stick with an analogous color scheme so as to not visually overwhelm the users. This also allowed us to place emphasis on any direct calls to actions.</p>
+                <p>We also modified our UI elements to feature rounded bezels to create a more cohesive feel in the final product. </p>
             </div>
         </div>
-        
 
-        <div class="end-card">
-             <h2>Thanks for scrolling!  &#128591;</h2>
-
-            <div class="end-links">
-                <div class="end-card-button">
-                    <a class=""" href="./index.html">Take me home</a>
+        <div class="body-wrapper">
+            <div class="text-block-header ws-top-bottom-5">
+                <h2>After our rebranding work was tested and validated, here's our <span class="wta-highlight">final product</span>:</h2>
+            </div>
+            <div class="col-2">
+                <div class="col">
+                    <img src="./assets/wta/main.png" width="100%" height="auto" alt="Home page" />
                 </div>
-                <p>Other projects: </p>
-                <div class="end-projects">
-                    <a href="">Mental Reminder</a>
-                    <a href="./move-in.html">Move-In App</a>
+                <div class="col ws-pad-top-7">
+                    <h3>Main Screen</h3>
+                    <p>Our final main screen included a personalized greeting to the user as an attempt to design for emotion. We grouped the UI elements towards the bottom after realizing during user tests that placing the input cluster in the middle was harder to reach for those with smaller hands on bigger phones. </p>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="col ws-pad-top-7">
+                    <h3>Route Overview</h3>
+                    <p>We found throughout the process that having a clear overview of the entire route made users feel more secure. During the ideation phase we also came up with the idea of using a gradient to convey a sense of journey as well.</p>
+                </div>
+                <div class="col">
+                    <img src="./assets/wta/route-overview.png" width="100%" height="auto" alt="Route overview screens" />
+                </div>
+            </div>
+
+            <div class="col-2">
+                <div class="col">
+                    <img src="./assets/wta/rider-journey.png" width="100%" height="auto" alt="Rider journey screens" />
+                </div>
+                <div class="col ws-pad-top-7">
+                    <h3>Rider Journey</h3>
+                    <p>Intentionally straightforward, users can swipe up to see where they are in the context of the entire route. The next stop is displayed at the top to make sure that riders are always aware of where they are even without the overview. Ideally, the app would take advantage of proprietary data to let users know if they’re running on time.</p>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="col ws-pad-top-7">
+                    <h3>Arrival and Faves</h3>
+                    <p>We’ve used the brighter accent colors to alert users when their ride comes to an end. Additionally, we revamped the favorite trips page to include a bus illustration and placed each ‘trip’ into a ticket to keep the tone of the app light and playful.</p>
+                </div>
+                <div class="col">
+                    <img src="./assets/wta/arrival.png" width="100%" height="auto" alt="Arrival and favorites screen" />
+                </div>
+            </div>
+
+            <img class="ws-top-bottom-5" src="./assets/wta/end-screens.png" width="100%" height="auto" alt="All screens made for the app arranged in a grid" />
+
+            <section class="end">
+                <h3>- Other projects -</h3>
+                <div class="end-project-list">
+                    <a href="./airbnb.html">Airbnb Eco</a>
                     <a href="./wta.html">WTA App Concept</a>
+                    <a href="./mental-reminder.html">Mental Reminder</a>
                 </div>
-            </div>
+
         </div>
 
 
 
 
+        <footer>
+            <div class="footer-wrapper project">
+                <h3>Let's build something cool together.</h3>
+
+                <div class="footer-3-col">
+                    <div class="socials">
+                        <p class="footer-column-header">Projects</p>
+                        <p class="hvr-underline-from-left"><a href="./airbnb.html">Airbnb Eco</a></p>
+                        <p class="hvr-underline-from-left"><a href="./wta.html">WTA App</a></p>
+                        <p class="hvr-underline-from-left"><a href="./mental-reminder.html">Mental Reminder</a></p>
+                    </div>
+                    <div class="links">
+                        <p class="footer-column-header">Links</p>
+                        <p class="hvr-underline-from-left"><a href="https://www.behance.net/danielking9">Behance</a></p>
+                        <p class="hvr-underline-from-left"><a href="https://www.linkedin.com/in/daniel-king-8050aa150/">LinkedIn</a></p>
+                        <p class="hvr-underline-from-left"><a href="https://github.com/kingce">Github</a></p>
+                    </div>
+                    <div class="links">
+                        <p class="footer-column-header">Email</p>
+                        <p class="hvr-underline-from-left"><a href="mailto:chuan.e.king@gmail.com">chuan.e.king@gmail.com</a></p>
+                    </div>
+            </div>
+        </footer>
+
+        <script src="./js/scrollbar.js"></script>
     </body>
 </html>

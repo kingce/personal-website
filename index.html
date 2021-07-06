@@ -32,22 +32,27 @@
     <link rel="apple-touch-icon" type="image/png" href="./assets/favicon-180.png" sizes="180x180">
     <!--- ANIMATE ON SCROLL -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
-    <div class="nav">
-        <h3><a href="#">FOLIO '21</a></h3>
-        <div class="progress-bar">
+    <div class="nav home">
+        <div class="left">
+            <h3><a href="#">FOLIO '21</a></h3>
             <div class="line"></div>
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:serif="http://www.serif.com/" width="100%" height="100%" viewBox="0 0 111 115" version="1.1" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g><path d="M93.934,0l0,114.532l16.667,0l0,-114.532l-16.667,0Z"/><path d="M93.934,57.266l-93.934,53.521l0,-107.042l93.934,53.521Z"/></g></svg>
+        </div>
+
+        <div class="right">
+            <a href="#work">Work</a>
+            <a href="./about.html">About</a>
         </div>
     </div>
 
     <div class="content-wrapper">
         <section class="landing">
             <div class="landing-content">
-                <h2>Heya ✌ I'm Daniel King - <br/>a UX designer based in Washington.</h2>
+                <h2 class="heya">Heya ✌ I'm Daniel King - <br> a UX designer based in Washington.</h2>
                 <hr>
 
                 <div class="landing-3-col">
@@ -73,79 +78,47 @@
 
         <h2>Here's what I've worked on in the past.</h2>
 
-    </div>
-
-        <section class="work">
-
-            <a href="./airbnb.html" class="work-card-a">
-                <div class="work-card airbnb-eco">
-                    <div class="work-card-content">
-                        <h3>Airbnb Eco</h3>
-                        <p>Incentivizing and rewarding sustainable practices for Airbnb guests while empowering local communities.</p>
-                        <div class="work-card-tag-wrapper">
-                            <span class="tag">School Project</span>
-                            <span class="tag">UX Designer</span>
-                        </div>
-                    </div>
-                </div>
+        <section class="work" id="work">
+            <a href="./airbnb.html" class="work-card">
+                <div data-aos="fade-in" data-aos-duration="1300" class="aos-init aos-animate work-wrapper airbnb"></div>
             </a>
 
-            <a href="./wta.html" class="work-card-a">
-                <div class="work-card wta-app">
-                    <div class="work-card-content card-left">
-                        <h3>WTA App Concept</h3>
-                        <p>A first-party transit app concept for wayfinding and trip planning with strong branding.</p>
-                        <div class="work-card-tag-wrapper">
-                            <span class="tag">School Project</span>
-                            <span class="tag">UX Designer</span>
-                        </div>
-                    </div>
-                </div>
+            <a href="./wta.html" class="work-card">
+                <div data-aos="fade-in" data-aos-duration="1300" class="aos-init aos-animate work-wrapper wta"></div>
             </a>
 
-
-            <a href="" class="work-card-a">
-                <div class="work-card airbnb-eco">
-                    <div class="work-card-content">
-                        <h3>Airbnb Eco</h3>
-                        <p>Incentivizing and rewarding sustainable practices for Airbnb guests while empowering local communities.</p>
-                        <div class="work-card-tag-wrapper">
-                            <span class="tag">School Project</span>
-                            <span class="tag">UX Designer</span>
-                        </div>
-                    </div>
-                </div>
+            <a href="./mental-reminder.html" class="work-card">
+                <div data-aos="fade-in" data-aos-duration="1300" class="aos-init aos-animate work-wrapper mental-reminder"></div>
             </a>
         </section>
+    </div>
+
 
         <footer>
 
-            <h3>Let's build something cool together.</h3>
+            <div class="footer-wrapper home">
+                <h3>Let's build something cool together.</h3>
 
-            <div class="footer-wrapper">
                 <div class="footer-3-col">
 
                     <div class="socials">
-                        <p class="footer-column-header">Socials</p>
-                        <p class="hvr-underline-from-left"><a href="">LinkedIn</a>
-                        <p class="hvr-underline-from-left"><a href="">Twitter</a>
+                        <p class="footer-column-header">Projects</p>
+                        <p class="hvr-underline-from-left"><a href="./airbnb.html">Airbnb Eco</a></p>
+                        <p class="hvr-underline-from-left"><a href="./wta.html">WTA App</a></p>
+                        <p class="hvr-underline-from-left"><a href="./mental-reminder.html">Mental Reminder</a></p>
                     </div>
 
                     <div class="links">
                         <p class="footer-column-header">Links</p>
-                        <p class="hvr-underline-from-left"><a href="">Behance</a>
-                        <p class="hvr-underline-from-left"><a href="">Dribble</a>
-                        <p class="hvr-underline-from-left"><a href="">Github</a>
+                        <p class="hvr-underline-from-left"><a href="https://www.behance.net/danielking9">Behance</a></p>
+                        <p class="hvr-underline-from-left"><a href="https://www.linkedin.com/in/daniel-king-8050aa150/">LinkedIn</a></p>
+                        <p class="hvr-underline-from-left"><a href="https://github.com/kingce">Github</a></p>
                     </div>
 
                     <div class="email">
                         <p class="footer-column-header">Email</p>
-                        <p class="hvr-underline-from-left"><a href="">chuan.e.king@gmail.com</a>
+                        <p class="hvr-underline-from-left"><a href="">chuan.e.king@gmail.com</a></p>
                     </div>
-                </div>
-
-                <div class="return-to-top">
-                    <p>Return to Top</p>
                 </div>
             </div>
 
@@ -169,32 +142,8 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-    <script type="text/javascript">
-
-
-
-    var drop = new gsap.from(".table a", {
-        duration: 1,
-        opacity: 0,
-        x: -10,
-        y: 10,
-        rotate: 3,
-        ease: Expo.easeInOut,
-        transformOrigin: "left 50%",
-        stagger: { 
-            each: .3,
-            from: "start"
-        }
-    },{ paused: true });
-
-    document.querySelector(".content").addEventListener("mousedown", dropdown);
-
-    function dropdown() { 
-        drop.play(0);
-    }
-
-    </script>
 
     
 </body>

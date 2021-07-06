@@ -1,6 +1,4 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
-@import 'responsive.css';
 
 :root { 
     --main-text-color: black;
@@ -18,7 +16,7 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
     background-color: var(--main-bg-color);
     -ms-overflow-style: none; /* IE and Edge scrollbar hide */
     scrollbar-width: none; /* Firefox scrollbar hide */
@@ -39,6 +37,7 @@ h2 {
 
 /* --- HERO --- */
 hr { 
+    margin-top: 3em;
     margin: 0;
     width: calc(100vw - 45em);
     background-color: #E0E0E0;
@@ -47,7 +46,9 @@ hr {
 }
 
 .content-wrapper { 
-    margin: 0px 15em;
+    max-width: 90em;
+    padding: 0 5em;
+    margin: 0 auto;
 }
 
 .landing { 
@@ -60,19 +61,33 @@ hr {
     bottom: 0;
 }
 
+.landing-content h2 { 
+    margin: 0;
+}
+
+.landing-content h2:before { 
+    content: "";
+    position: absolute;
+    background-color: black;
+}
+
+.landing-content h2:nth-child(4) { 
+    margin-bottom: .75em;
+}
+
 .landing-3-col { 
     display: flex;
 }
 
 .landing-3-col > div { 
-    width: 16.375em;
+    max-width: 16.375em;
     margin-top: 1.5em;
-    margin-right: 9em;
+    padding-right: 9em;
 }
 
 .landing-3-col > div:first-child { 
-    width: 20.5em;
-    margin-right: 5em;
+    max-width: 20.5em;
+    padding-right: 5em;
 }
 
 .hero-column { 
@@ -111,180 +126,114 @@ hr {
 
 
 
-/* --- NAV --- */
-.nav { 
-    position: fixed;
-    top: 0;
-    padding-left: 15rem;
-    background-color: var(--main-bg-color);
-    width: 100vw;
-    z-index: 3;
+
+/* --- WORK (OLD) --- */
+
+.work { 
+    padding-bottom: 10em;
 }
 
-.nav a { 
-    text-decoration: none;
-    color: black;
-}
-
-.progress-bar { 
-    display: flex;
-    position: absolute;
-    top: 47%;
-    left: 23rem;
-}
-
-.progress-bar svg { 
-    height: 1rem;
-    width: 1rem;
-    margin-top: -.4rem;
-}
-
-.line { 
-    height: .2rem;
-    width: 8rem;
-    background-color: black;
-}
-
-/* --- WORK --- */
-
-
-.work-card { 
-    width: 70vw;
-    background: lightgray;
-    margin: 10vw 15vw;
-    height: 22vw;
+.work-wrapper{ 
+    width: 100%;
+    height: 19em;
     filter: drop-shadow(7px 7px 20px rgba(0, 0, 0, 0.3));
-}
-
-.work-card-content { 
-    color: black;
-    width: 24vw;
-    height: 14vw;
-    float: right;
-    background: white;
-    padding: 4vw 2vw;
-    padding-right: 5vw;
-}
-
-.work-card-content h3 { 
-    font-size: 2.5vw;
-    font-weight: 500;
-    margin: 0;
-    margin-bottom: 2vw;
-    position: relative;
-}
-
-.work-card-content h3::after { 
-    content: "";
-    position: absolute;
-    bottom: -.75vw;
-    left: 0;
-    height: .25vw;
-    width: 7vw;
-    background-color: black;
-    transition-property: width;
-    -webkit-transition-property: width;
-    transition: 0.3s ease-out;
-    -webkit-transition: 0.3s ease-out;
-}
-
-.card-left { 
-    float: none;
-}
-
-.work-card:hover h3::after { 
-    width:10vw;
-    transition-property: width;
-    -webkit-transition-property: width;
-    transition: 0.3s ease-out;
-    -webkit-transition: 0.3s ease-out;
-}
-
-.work-card-content p { 
-    font-size: 1vw;
-    line-height: 2vw;
+    margin: 5em 0;
 }
 
 /* --- INDIVIDUAL PROJECT STYLES --- */
 
-
-/* --- FOOTER --- */
-footer { 
-    background-color: #21282A;
-    padding: 7em 15em;
+.work-card .airbnb { 
+    background-image: url(../assets/bg1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-footer p, footer a, footer h3 { 
-    color: white;
+.work-card .wta { 
+    background-image: url(../assets/bg2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-footer h3 { 
-    font-size: 3em;
-    font-weight: 500;
+.work-card .mental-reminder { 
+    background-image: url(../assets/bg3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-.footer-column-header { 
-    font-size: 1em;
-    color: #909394;
+a .work-card:hover { 
+    background-size: 110%;
 }
 
-footer a { 
-    font-size: 1.125em;
-    text-decoration: none;
-}
+/* --- ABOUT --- */
 
-.footer-3-col > div { 
-    margin-right: 13em;
-}
-
-.footer-3-col { 
+.about-flex { 
     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5em 0em;
 }
 
-.return-to-top { 
-    float: right;
-}
-
-/* Underline From Left */
-.hvr-underline-from-left {
-    display: block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+.about-flex .col { 
+    padding: 3em;
+    max-width: 35em;
     position: relative;
-    overflow: hidden;
-    padding-bottom: 5px;
-    margin: .5em 0em;
 }
 
-.hvr-underline-from-left:before {
+.about-flex .col:first-child > img { 
+    min-width: 21em;
+}
+
+.about-flex .col:first-child > img:before { 
     content: "";
+    width: 100%;
+    height: 100%;
     position: absolute;
-    z-index: -1;
-    left: 0;
-    right: 100%;
-    bottom: 0;
-    background: #fff;
-    height: 4px;
-    -webkit-transition-property: right;
-    transition-property: right;
-    -webkit-transition-duration: 0.2s;
-    transition-duration: 0.2s;
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
+    background-color: var(--dark-gray);
 }
 
-.hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
-right: 0;
+.button { 
+    display: block;
+    width: 10em;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    text-align: center;
+    padding: 1em;
+    margin: 1.5em 0;
+    border: 1px solid black;
+}
+
+.button:hover { 
+    background-color: white;
+    color: black;
+    transition: 0.3s;
+}
+
+/*----- PLAY ---- */
+
+.play-intro { 
+    margin: 7em 0;
+}
+
+.play-intro h2 { 
+    margin: 0;
+}
+
+.play-section h3 { 
+    font-size: 2.5em;
+    font-weight: 400;
+}
+
+.play-intro p { 
+    max-width: 70em;
 }
 
 @media only screen and (max-width: 1500px) { 
     html { 
-    }
-
-    .content-wrapper { 
-        margin: 0 11em;
     }
 
     /* --- Typography --- */
@@ -299,40 +248,19 @@ right: 0;
     }
 
     .landing-3-col > div { 
-        width: 13em;
-        margin-right: 7em;
+        max-width: 13em;
+        padding-right: 7em;
     }
 
     .landing-3-col > div:first-child { 
-        width: 15em;
-        margin-right: 6em;
+        max-width: 15em;
+        padding-right: 6em;
     }
     .hero-column h3 { 
         font-size: .8em;
         line-height: 19.2px;
     }
 
-    /* --- Footer --- */
-    footer { 
-        background-color: #21282A;
-        padding: 5em 11em;
-    }
-
-    footer h3 { 
-        font-size: 2.4em;
-    }
-
-    .footer-column-header { 
-        font-size: .8em;
-    }
-
-    footer a { 
-        font-size: .9em;
-    }
-
-    .footer-3-col > div { 
-        margin-right: 10.4em;
-    }
 
 }
 
@@ -343,169 +271,94 @@ right: 0;
         font-size: 13px;
     }
     
-    /* Give 3 rem breathing room ebtween select works and right margin */
-    .select-works h1 { 
-        /* 3 rem padding + 2rem width */
-        padding-right: 5rem;
-    }
-
-    .select-works::after { 
-        right:3rem;
-    }
-
-
-}
-
-/* --- Laptops --- */
-@media only screen and (max-width: 992px) { 
-    footer h2 { 
-        font-size: 6rem;
-        margin-top: 1rem;
-        padding-bottom: 3rem;
-    }
-
-}
-
-/* --- Tablets --- */
-@media only screen and (max-width: 950px) { 
-    .landing-content, .landing-image { 
-        position: relative;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        margin: 3rem 5rem;
-        max-width: 50rem;
-    }
-
-    .landing { 
-        margin-top: 10rem;
-    }
-
-
-    .landing-image { 
-        width: 80%;
-    }
-
-    .image-wrapper { 
-        width: 80%;
-    }
-    
 }
 
 /* --- iPads are ruining my life --- */
-@media only screen and (max-width: 768px) { 
-    footer { 
-        display: block;
+@media only screen and (max-width: 800px) { 
+
+    h2 { 
+        font-size: 2.5em;
     }
 
-    footer h2 { 
-        font-size: 7rem;
+    .landing-3-col > div:first-child, .landing-3-col > div { 
+        padding-right: 4em;
     }
-
-    footer div { 
-        padding: 2rem 3rem;
-    }
-
-    footer p { 
-        font-size: 1rem;
-    }
-
-    /*---project stuff ---*/
-
-    .project-row { 
-        display: block;
-        margin: 0;
-    }
-
-    .project { 
-        width: 80vw;
-        margin: 10vw;
-    }
-
-    .img { 
-        height: 56vw;
-    }
-
-    .project-text-wrapper { 
-        height: 24vw;
-    }
-
-    .project-text { 
-        width: 70vw;
-        left: 5vw;
-    }
-
-    .project-text h4 { 
-        font-size: 6vw;
-    }
-    
-    .project-text p { 
-        font-size: 2.25vw;
-    }
-
-    .project-text h4::after { 
-        display: none;
-    }
-
-    .project-afterwards { 
-        height: 60vw;
-        width: 70vw;
-        margin: 10vw;
-        padding: 5vw;
-    }
-
-    .project-afterwards h3 { 
-        font-size: 6vw;
-    }
-
-    .project-afterwards p { 
-        font-size: 2.25vw;
-        padding-right: 17vw;
-    }
-
-    .project-afterwards a { 
-        font-size: 2.25vw;
-    }
-
 
 }
 
-/*--- SMARTPHONES (iphone 5s at 320px according to google console) samsung fold or whatever is like...500 ish? a lil more than 500 ---*/
-@media only screen and (max-width : 500px) {
-
-    .landing-content, .landing-image { 
-        margin: 3rem;
+/* ------------------------------------------------------- Ew Phones ---- */
+@media only screen and (max-width: 650px) { 
+    .content-wrapper { 
+        padding: 0 2em;
     }
 
-    .landing-image { 
-        width: 100%;
+    .work-wrapper { 
+        width: calc(100vw - 4em); 
+        height: calc(100vw - 4em);
     }
 
-    .image-wrapper { 
-        width: 80%;
+    .work-card .airbnb { 
+        background-image: url(../assets/square-bg1.png);
     }
 
-    .select-works h1 { 
-        line-height: 5.7rem;
-        
+    .work-card .wta { 
+        background-image: url(../assets/square-bg2.png);
     }
 
-    .select-works::after { 
-        right: auto;
-        left: 21rem;
-        top:-1rem;
+    .work-card .mental-reminder { 
+        background-image: url(../assets/square-bg3.png);
     }
 
-    .nav { 
-        padding-left: 3rem;
+    .about-flex { 
+        display: block;
     }
 
-    .progress-bar { 
+    .about-flex .col { 
+        padding: 0;
+    }
+
+    .about-flex .col:first-child > img { 
+        min-width: 100%;
+    }
+
+    .about-flex .col:nth-child(2) > img { 
+        width: 50%;
+    }
+
+    h2 { 
+        font-size: 2em;
+    }
+
+    .landing-3-col { 
+        display: block;
+    }
+
+    .landing-3-col > div, .landing-3-col > div:first-child { 
+        padding: 1em 0;
+        margin-top: 0;
+    }
+
+    .landing { 
+        height: auto;
+    }
+
+    .landing-content { 
+        position: relative;
+        margin-top: 7em;
+    }
+
+    .desktop-only { 
         display: none;
     }
 
-    .nav svg { 
-        display: none;
+    .signature > img { 
+        width: 50%;
     }
 }
 
+/* ----- Mobile break only --- */
+.media only screen and (min-width: 650px) { 
+    .mobile-only { 
+        display: none;
+    }
+}
