@@ -130,7 +130,7 @@ hr {
 /* --- WORK (OLD) --- */
 
 .work { 
-    padding-bottom: 10em;
+    padding-bottom: 3em;
 }
 
 .work-wrapper{ 
@@ -138,6 +138,13 @@ hr {
     height: 19em;
     filter: drop-shadow(7px 7px 20px rgba(0, 0, 0, 0.3));
     margin: 5em 0;
+}
+
+
+/* --- COMPONENT: work_card --- */
+
+.work_card { 
+
 }
 
 /* --- INDIVIDUAL PROJECT STYLES --- */
