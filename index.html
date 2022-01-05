@@ -7,11 +7,69 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link rel="stylesheet" type="text/css" href="css/home.css">
     </head>
 
     <body>
+        <nav>
+
+        </nav>
+        <div class="wrapper">
+            <div class="header">
+                <h1><span class="black">Daniel King</span> is a <span class="black">designer</span> and <span class="black">developer</span> based in <span class="black">Washington.</span></h1>
+            </div>
+
+            <section class="work">
+
+                <div class="card-wrapper" href="">
+                    <div data-aos="reveal" class="hider"></div>
+                    <a data-aos="" href="" class="card">
+                        <div class="blurb">
+                            <h2>Airbnb Eco</h2>
+                            <p>Airbnb Eco helps guests prioritize sustainable travel and rewards environmentally friendly practices while empowering local communities.</p>
+                        </div>
+                        <div class="img airbnb-img">
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card-wrapper" href="">
+                    <div data-aos="reveal" class="hider"></div>
+                    <a data-aos="" href="" class="card">
+                        <div class="blurb">
+                            <h2>Airbnb Eco</h2>
+                            <p>Airbnb Eco helps guests prioritize sustainable travel and rewards environmentally friendly practices while empowering local communities.</p>
+                        </div>
+                        <div class="img airbnb-img">
+                        </div>
+                    </a>
+                </div>
+
+            </section>
+        </div>
+
 
     </body>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="text/javascript">
+
+        var myTimeline = anime.timeline({
+            easing: 'easeOutExpo',
+        })
+
+        myTimeline.add({
+            targets: '.header h1',
+            opacity: [0, 1],
+            duration: 10000,
+        })
+
+        setTimeout(function() { AOS.init({once: true}); }, 1100);
+
+
+    </script>
 
 </html>
