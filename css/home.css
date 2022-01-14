@@ -4,6 +4,7 @@
     --main-text-color: black;
     --main-font: 'Poppins', sans-serif;
     --light-gray: #AAA;
+    --airbnb-pink: #E19DA5;
     font-size: 16px;
 }
 
@@ -103,7 +104,7 @@ html, body {
 }
 
 .airbnb-img { 
-    background-color: pink;
+    background-color: var(--airbnb-pink);
     background-image: url('../assets/airbnb-card.png');
     background-repeat: no-repeat;
     background-size: 40em;
@@ -111,7 +112,7 @@ html, body {
 }
 
 .airbnb-card { 
-    background-color: pink;
+    background-color: var(--airbnb-pink);
 }
 
 .wta-img { 
@@ -136,6 +137,16 @@ html, body {
     background-size: 50em;
 }
 
+.move-in-img, .move-in-card { 
+    background-color: #003F87;
+}
+
+.move-in-img { 
+    background-image: url('../assets/move-in-sample.png');
+    background-repeat: no-repeat;
+    background-size: 40em;
+}
+
 [data-aos="reveal"] { 
     width: 100%;
     transition-property: width;
@@ -153,6 +164,184 @@ html, body {
     opacity: 1;
 }
 
+/* --- GRID --- */
+.eight-col-grid { 
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 20px;
+}
 
+/* --- SECTION: OTHER WORK --- */
+.other-work { 
+    padding: 0 50px;
+}
+
+.other-work h2 { 
+    color: gray;
+    font-size: 1.5em;
+}
+
+.other-long { 
+    height: 17em;
+    width: calc(100%);
+    padding: 50px 0px;
+    position: relative;
+}
+
+.other-long .other-blurb { 
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+/* --- COMPONENT: OTHER WORK BLURB --- */
+.other-blurb h3 { 
+    line-height: 1em;
+}
+
+.other-blurb { 
+    max-width: 20em;
+    align-self: end;
+}
+
+
+/* --- COMPONENT: OTHER LONG CARD --- */
+.other-long-img { 
+    height: 17em;
+    background-color: gray;
+    grid-column-start: 3;
+    grid-column-end: 9;
+}
+
+.long-image { 
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+/* --- COMPONENT: OTHER SMALL CARD --- */
+.other-small-wrapper { 
+    position: relative;
+    padding: 75px 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.other-small { 
+    height: 27em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+}
+
+.other-small .other-blurb { 
+    right: 0;
+    left: auto;
+    padding-left: 20px;
+    bottom: 0;
+}
+
+.other-small-img { 
+    height: 27em;
+    background-color: gray;
+}
+
+
+/* ------------------------------------------------ IPAD STYLES --- */
+@media only screen and (max-width : 768px) { 
+
+}
+
+/* ------------------------------------------------ MOBILE STYLES --- */
+
+@media only screen and (max-width : 700px) {
+    p { 
+        font-size: .75em;
+    }
+
+    /* --- HEADER --- */
+    .header h1 { 
+        padding: 200px 15px;
+        padding-bottom: 70px;
+    }
+
+    /* --- CARDS: MOBILE --- */
+    .card-wrapper, .card { 
+        width: calc(100vw - 30px);
+        height: calc(100vw - 30px);
+    }
+
+    .card-wrapper { 
+        margin: 13vw auto;
+    }
+
+    .blurb { 
+        position: absolute;
+        top: 5vw;
+        left: 5vw;
+        width: 100%;
+    }
+
+    .blurb h2 { 
+        font-size: 9vw;
+    }
+
+    .blurb p { 
+        display: none;
+    }
+
+    .img { 
+        position: absolute; 
+        bottom: 0;
+        height: calc(70vw);
+        width: 100%;
+    }
+
+    .airbnb-img { 
+        background-size: 100vw;
+        background-position: 3vw 0vw;
+    }
+
+    .wta-img, .mental-img, .move-in-img { 
+        background-size: 110vw;
+    }
+
+
+    /* --- OTHER WORK SECTION --- */
+
+    .other-work {
+        padding: 0 15px ;
+    }
+
+    .eight-col-grid { 
+        display: block;
+    }
+
+    .other-small { 
+        display: block;
+    }
+
+    .other-small-wrapper, .other-long  { 
+        padding: 20px 0px;
+    }
+    
+    .other-long { 
+        height: auto;
+    }
+
+    .other-small-img { 
+        height: 17em;
+    }
+
+    .long-image { 
+        object-position: top left;
+    }
+
+    .other-small .other-blurb { 
+        padding-left: 5px;
+    }
+
+    
+}
 
 

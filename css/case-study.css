@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+
+:root { 
+    --main-text-color: black;
+    --main-font: 'Poppins', sans-serif;
+    --light-gray: #AAA;
+    font-size: 16px;
+}
+
+html, body {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    background-color: var(--main-bg-color);
+    -ms-overflow-style: none; /* IE and Edge scrollbar hide */
+    scrollbar-width: none; /* Firefox scrollbar hide */
+    font-family: var(--main-font);
+}
+
+p { 
+    font-size: 1.125em;
+    line-height: 1.75em;
+}
+
+/* ------------------------------------------------- SPACING/WRAPPERS --- */
+
+.wrapper { 
+    max-width: 1380px;
+    margin: auto;
+    padding: 0px 50px;
+}
+
+/* --- COMPONENT: HEADER --- */
+.header { 
+    width: 100%;
+    height: 30em;
+    background-image: url(../assets/airbnb/fransiskus-filbert-mangundap-l8OKlH71Xh0-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.text p, .text h1 {
+    color: white;
+}
+
+.text { 
+    max-width: 1380px;
+    margin: auto;
+    padding-top: 210px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.text h1 { 
+    font-size: 3.5em;
+    font-weight: 600;
+    line-height: 2em;
+    margin: 0;
+}
+
+.text p { 
+    width: 40%;
+    min-width: 400px;
+    font-size: 1.4em;
+    margin: 0;
+    font-weight: 300;
+}
+
+
+/* --- COMPONENT: BRIEF --- */
+.brief { 
+    padding: 50px 0;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 20px;
+}
+
+.brief-left { 
+    grid-column: 1 / 5;
+}
+
+.brief-right { 
+    grid-column: 6 / 8;
+}
+
+.brief-right div:first-child { 
+    padding-bottom: 50px;
+}
+
+.brief-right h3 { 
+    font-size: .875em;
+    margin: 0;
+    line-height: 1.75em;
+}
+
+.brief-right p { 
+    margin: 0.875em 0;
+    line-height: 1.125em;
+}
+
+.brief-right a { 
+    text-decoration: none;
+    color: black;
+}
+
+
+/* --- MOLECULE: text-block --- */
+.text-block h3 { 
+    font-size: 2.25em;
+    font-weight: 400;
+    max-width: 80%;
+    margin: 0;
+    margin-bottom: 1em;
+}
+
+.text-block h5 { 
+    margin: 1em 0;
+}
+
+.image-wrapper { 
+    grid-column: 6/9;
+    margin: auto 0;
+    min-height: 20em;
+}
+
+.image-wrapper > img { 
+    max-height: 100%;
+    max-width: 100%;
+}
+
+
+/* --- COMPONENT: TEXT-LEFT --- */
+.text-left .text-block { 
+    grid-column: 1/5;
+    margin: auto 0;
+}
+
+
+@media only screen and (max-width : 800px) { 
+    /* --- TEXT LEFT --- */
+    .text-left.brief { 
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .text-block h3 { 
+        max-width: 100%;
+    }
+}
+
+
+@media only screen and (max-width : 600px) {
+
+    .wrapper { 
+        padding: 0px 20px;
+    }
+
+    p { 
+        font-size: 1em;
+    }
+
+    /* --- MOBILE-HEADER --- */
+
+    .header { 
+        height: 33em;
+    }
+
+    .text { 
+        padding-top: 18em;
+        padding-left: 20px;
+    }
+
+    .text p { 
+        min-width: auto;
+        font-size: 1em;
+        width: 100%;
+    }
+
+    .text h1 { 
+        font-size: 2.75em;
+    }
+
+
+    /* --- BRIEF --- */
+    .brief { 
+        display: block;
+    }
+
+    .brief-right { 
+        display: flex;
+        justify-content: space-between;
+        padding-top: 2em;
+    }
+
+    .brief-right div { 
+        width: 45%;
+    }
+
+}

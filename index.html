@@ -21,10 +21,9 @@
             </div>
 
             <section class="work">
-
                 <div class="card-wrapper" href="">
                     <div data-aos="reveal" class="hider"></div>
-                    <a data-aos="" href="" class="card airbnb-card">
+                    <a data-aos="" href="airbnb.html" class="card airbnb-card">
                         <div class="blurb">
                             <h2>Airbnb Eco</h2>
                             <p>Airbnb Eco helps guests prioritize sustainable travel and rewards environmentally friendly practices while empowering local communities.</p>
@@ -47,18 +46,72 @@
                 </div>
 
                 <div class="card-wrapper" href="">
-                            <div data-aos="reveal" class="hider"></div>
-                            <a data-aos="" href="" class="card mental-card">
-                                <div class="blurb">
-                                    <h2>Mental Reminder</h2>
-                                    <p>A minimal, mental-health based reminder app with a focus on usability.</p>
-                                </div>
-                                <div class="img mental-img">
-                                </div>
-                            </a>
+                    <div data-aos="reveal" class="hider"></div>
+                    <a data-aos="" href="" class="card mental-card">
+                        <div class="blurb">
+                            <h2>Mental Reminder</h2>
+                            <p>A minimal, mental-health based reminder app with a focus on usability.</p>
                         </div>
-                    </section>
+                        <div class="img mental-img">
+                        </div>
+                    </a>
                 </div>
+
+                <div class="card-wrapper" href="">
+                    <div data-aos="reveal" class="hider"></div>
+                    <a data-aos="" href="" class="card move-in-card">
+                        <div class="blurb">
+                            <h2>WWU Move-In App</h2>
+                            <p>Designed a progressive web app to guide over 400 <br> students through a socially distanced move-in process.</p>
+                        </div>
+                        <div class="img move-in-img">
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="other-work">
+                <h2>OTHER WORK</h2>
+                <div class="eight-col-grid other-long">
+                    <div class="other-blurb"> 
+                        <h3>Young Tea</h3>
+                        <p class="other-blurb-smalltext"><em>Graphic Designer</em></p>
+                        <p>Visual and graphic designer for Young Tea, a boba store based in Washington. Work includes digital signage, print design, and menu design. </p>
+
+                    </div>
+                    <div class="other-long-img">
+                        <div class="other-long-hider">
+                        </div>
+                        <img src="assets/YT Preview.png" class="long-image"/>
+                    </div>
+                </div>
+
+                <div class="other-small-wrapper">
+                    <div class="other-small">
+                        <div class="other-small-img">
+                            <div class="other-small-hider"></div>
+                            <img src="assets/EXCHANGE.png" class="long-image"/>
+                        </div>
+                        <div class="other-blurb">
+                            <h3>EXCHANGE</h3>
+                            <p class="other-blurb-smalltext"><em>UX Side Project</em></p>
+                            <p>Bring the BST community closer through a dedicated platform for buying, selling, and trading hobbies.</p>
+                        </div>
+                    </div>
+                    <div class="other-small">
+                        <div class="other-small-img">
+                            <div class="other-small-hider"></div>
+                        </div>
+                        <div class="other-blurb">
+                            <h3>Interlude</h3>
+                            <p class="other-blurb-smalltext"><em>Chrome Extension</em></p>
+                            <p>Chrome Extension to help users take the breaks that they need.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
 
 
     </body>
@@ -78,7 +131,7 @@
             duration: 10000,
         })
 
-        setTimeout(function() { AOS.init({once: true}); }, 1100);
+        setTimeout(function() { AOS.init({mobile: false, once: true}); }, 1100);
 
 
     </script>
