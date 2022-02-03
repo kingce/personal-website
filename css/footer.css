@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css3?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+
+footer { 
+    background-color: #21282A;
+    margin-top: 100px;
+}
+
+footer p, footer a, footer h3 { 
+    color: white;
+}
+
+footer h3 { 
+    font-size: 3em;
+    font-weight: 500;
+}
+
+.footer-column-header { 
+    font-size: 1em;
+    color: #909394;
+}
+
+footer a { 
+    font-size: 1.125em;
+    text-decoration: none;
+}
+
+.footer-wrapper { 
+    margin: 0 auto;
+    max-width: 1380px;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+
+.footer-3-col { 
+    display: flex;
+    justify-content: space-between;
+    max-width: 55em;
+}
+
+.hvr-underline-from-left { 
+    display: block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 5px;
+    margin: .5em 0em;
+}
+
+.hvr-underline-from-left:before { 
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    background: #fff;
+    height: 4px;
+    -webkit-transition-property: right;
+    transition-property: right;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before { 
+    right: 0;
+}
+
+/* ----------------------------------------------------------------------------- MOBILE --- */
+@media only screen and (max-width: 650px) { 
+    .footer-3-col { 
+        display: block;
+    }
+
+    .footer-wrapper { 
+        padding: 5em 2em;
+    }
+
+    footer h3 { 
+        font-size: 2.5em;
+    }
+
+}

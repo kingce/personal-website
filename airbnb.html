@@ -8,15 +8,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" type="text/css" href="css/case-study.css">
+        <link rel="stylesheet" type="text/css" href="css/nav.css">
+        <link rel="stylesheet" type="text/css" href="css/footer.css" >
     </head>
 
     <body>
 
         <nav>
-
+            <div class="nav-wrapper">
+                <div class="left">
+                    <h3><a href="./index.html">FOLIO '22</a></h3>
+                    <div class="line"></div>
+                </div>
+                <div class="right">
+                    <a href="./index.html">Work</a>
+                    <a href="./about.html">About</a>
+                </div>
+            </div>
         </nav>
 
-        <div class="header">
+        <div class="header airbnb">
             <div class="text">
                 <h1>Airbnb Eco</h1>
                 <p>“How might we help Airbnb’s community be more environmentally friendly?”</p>
@@ -39,9 +50,9 @@
                     </div>
                     <div class="deliverables">
                         <h3>Deliverables</h3>
-                        <p><a href="https://pitchdeck.figmatic.com/slides/knqq0fyn39869?token=LlFSR1ljU3IlJTc9Q3s%3D">Pitchdeck ↗</a></p>
-                        <p><a href="./assets/airbnb/AirbnbCaseStudyFinal.pdf">Case Study ↗</a></p>
-                        <p><a href="https://www.figma.com/proto/0z1j4sWDiRL9Ra5j9V8hkt/Final-Prototype?page-id=0%3A1&node-id=108%3A10&scaling=scale-down">Prototype ↗</a></p>
+                        <p><a href="https://pitchdeck.figmatic.com/slides/knqq0fyn39869?token=LlFSR1ljU3IlJTc9Q3s%3D" target="_blank">Pitchdeck ↗</a></p>
+                        <p><a href="./assets/airbnb/AirbnbCaseStudyFinal.pdf"  target="_blank">Case Study ↗</a></p>
+                        <p><a href="https://www.figma.com/proto/0z1j4sWDiRL9Ra5j9V8hkt/Final-Prototype?page-id=0%3A1&node-id=108%3A10&scaling=scale-down" target="_blank">Prototype ↗</a></p>
                     </div>
                 </div>
             </div>
@@ -56,13 +67,322 @@
                     <p>Our multidisciplinary team was tasked with focusing on the guest experience. In a little under three months, we produced a scalable, guest-facing solution that would help Airbnb promote environmentally friendly behavior.</p>
                 </div>
                 
-                <div class="image-wrapper">
+                <div class="image-wrapper image-right">
                     <img src="./assets/airbnb/brief-pic.jpg" class="text-block-image" />
+                </div>
+            </div>
+
+            <div class="text-right brief">
+                <div class="image-wrapper image-left">
+                    <img src="./assets/airbnb/solution-preview.png" class="text-block-image" />
+                </div>
+
+                <div class="text-block">
+                    <h5 class="pre-title">Solution Preview</h5>
+                    <h3>Create a sustainability-focused rewards program and integrate it into the existing product</h3>
+                    <p>Our capstone project created a rewards program to encourage sustainable behavior. This program also addresses business needs by increasing user retention while acknowledging sustainability in a holilstic sense by bringing communities closer as well. </p>
+                </div>
+            </div>
+
+
+            <div class="two-col">
+                <div class="text-block">
+                    <h5 class="pre-title">Step 1 - Research</h5>
+                    <h3>Given our open ended brief, we narrowed down possible solutions by doing research.</h3>
+                </div>
+
+                <div class="text-two-col">
+                    <div class="col">
+                        <p>We conducted market and competitor research in an effort to gauge traveler sentiments on sustainability. </p>
+                        <p>Our market research confirmed that guests do care about sustainability - it’s just “much less important to consumers than things like price, type of destination, convenience and amenities”.</p>
+                    </div>
+                    <div class="col">
+                        <p>We also found through competitor research that very few competitors offered ways to guide guests to sustainable stays. More importantly, we came to realize through our research the massive impact key players in the travel industry have in local community.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="two-cards text-two-col">
+                <div class="card pink-card">
+                    <h5 class="card-small">
+                        Core Finding
+                    </h5>
+                    <h3>Users value sustainability less than other factors such as price, location, amenities, etc. </h3>
+                </div>
+                <div class="card pink-card">
+                    <h5 class="card-small">
+                        Core Finding
+                    </h5>
+                    <h3>Users value sustainability less than other factors such as price, location, amenities, etc. </h3>
+                </div>
+            </div>
+
+            <div class="two-col">
+                <div class="text-block">
+                    <h5 class="pre-title">Step 2 - Product Audit</h5>
+                    <h3>We conducted an audit of the existing experience with sustainability in mind.</h3>
+                </div>
+
+                <div class="text-two-col">
+                    <div class="col">
+                        <p>We started off with a set of preliminary <strong>user journeys</strong> (shown below) for the existing experience, created with the context of sustainability in mind. We wanted to see for ourselves how Airbnb’s current Guest flow was handling sustainability, and tackled this through two perspectives: users that are interested in sustainability, and those that aren’t.</p>
+                    </div>
+                    <div class="col">
+                        <p>From this, we realized that even though research shows that 88% of Airbnb hosts already incorporate green practices in their listings, <strong>it’s currently impossible to find which stays are more or less sustainable.</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="full-width-img">
+                <img src="assets/airbnb/user-journeys.png"/>
+            </div>
+
+            <div class="full-width-img">
+                <img src="assets/airbnb/card-audit-result.png"/>
+            </div>
+
+            <div class="text-left brief">
+                <div class="text-block not-header">
+                    <h3>Even on the listing itself, there’s no eco-friendly presence.</h3>
+
+                    <p>There’s no information on any of the listing pages for which hosts are staying eco friendly. Even the amenities section lacks any sort of sustainability information.</p>
+
+                    <p>Ultimately, we found that even if guests wanted to, <strong>it’s impossible to make sustainablle choices in the existing app.</strong></p>
+                </div>
+                
+                <div class="image-wrapper image-right">
+                    <img src="./assets/airbnb/listing-audit-screenshot.png" class="text-block-image" />
+                </div>
+            </div>
+
+            <div class="two-col">
+                <div class="text-block">
+                    <h5 class="pre-title">Step 3 - Ideation</h5>
+                    <h3>With this context, we started to ideate on ways we can bring sustainability into the Airbnb experience for guests. </h3>
+                </div>
+
+                <div class="text-two-col">
+                    <div class="col">
+                        <p>We used an affinity map to organize our ideas on how to better build eco-friendliness into the existing product. We were particularly intrigued with ideas that married <em>sustainability</em> with <em>community</em> after reading so much about how local community is affected by travel. </p>
+                    </div>
+                    <div class="col">
+                        <p>Eventually, our efforts brought us to the idea of a credit system to track sustainable stays. This incentivizes those that are on the fence to make sustainable choices, while providing those that are already eco-inclined more information to make their decisions. </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="full-width-img">
+                <img src="assets/airbnb/affinity-map.png" />
+            </div>
+
+
+            <div class="text-block">
+                <h3>From this, we came up with Airbnb Eco - a robust and scalable rewards system to incentivize sustainable choices.</h3>
+            </div>
+
+
+            <div class="two-cards text-two-col">
+                <div class="card gray-card">
+                    <h5 class="card-small">
+                        Core Finding
+                    </h5>
+                    <h3>Users value sustainability less than other factors such as price, location, amenities, etc. </h3>
+                </div>
+                <div class="card pink-card">
+                    <h5 class="card-small">
+                        Airbnb Eco can...
+                    </h5>
+                    <h3>Incentivize sustainable decision making through rewards through an eco-credit system.</h3>
+                </div>
+            </div>
+
+            <div class="two-cards text-two-col">
+                <div class="card gray-card">
+                    <h5 class="card-small">
+                        Core Finding
+                    </h5>
+                    <h3>Airbnb might disrupt local community due to the inherent drawbacks of the travel industry.</h3>
+                </div>
+                <div class="card pink-card">
+                    <h5 class="card-small">
+                        Airbnb Eco can...
+                    </h5>
+                    <h3>Empower local communities by partnering with small businesses for discounts through Airbnb Eco Credits.</h3>
+                </div>
+            </div>
+            
+
+             <div class="text-right brief">
+                <div class="image-wrapper image-left">
+                    <img src="./assets/airbnb/more-wireframes.png" class="text-block-image" />
+                </div>
+
+                <div class="text-block">
+                    <h5 class="pre-title">Step 4 - Wireframing + Exploration</h5>
+                    <h3>We used wireframes to help us flesh out the idea fully.</h3>
+                    <p>We had a good idea of the core flow going into wireframing, but we stayed open minded. This helped us to expand on our ideas as we went along. </p>
+                    <p>For example, while making screens for the listings, we also came up with the idea of creating the ‘hub page’ for all the Eco information. A large part of where our touch points for this new program would come from our wireframing efforts.</p>
+                </div>
+            </div>
+
+            <div class="two-col">
+                <div class="text-block not-header">
+                    <h3>One of the more interesting discussions with our “product manager” was the negotiation of touch points. </h3>
+                </div>
+
+                <div class="text-two-col">
+                    <div class="col">
+                        <p>In our initial pitch of the idea to the project manager, we discussed where touch points for the hub page would be located. We learned that in a product as large as Airbnb, you had to fight for any amount of space on the home screen or the nav. </p>
+                    </div>
+                    <div class="col">
+                        <p>Luckily, we planned a range from high-impact to low-impact touch point placement, so we were able to discuss freely and come up with a compromise between the last two low-impact screens during the limited meetings that we had.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="full-width-img">
+                <img src="assets/airbnb/high-low-impact.png" />
+            </div>
+            
+             <div class="two-col">
+                <div class="text-block">
+                    <h5 class="pre-title">Step 5 - Prototyping & Testing</h5>
+                    <h3>Once we had the concept down, we moved to prototyping & testing.</h3>
+                </div>
+
+                <div class="text-two-col">
+                    <div class="col">
+                        <p>Making the wireframes to pitch to our project manager gave us solid enough insight into the flow and identity of the product to where we felt comfortable jumping right into high fidelity prototypes. This was made possible due to there being an existing Airbnb DLS (design language system) that we had to adhere to, which meant that we didn’t have to design anything new. Instead, all we had to do was imitate existing assets.</p>
+                    </div>
+                    <div class="col">
+                        <p>We ran our figma prototype through three rounds of user testing and fixed little issues with affordances and learnability along the way.</p>
+                        <p>You can view the clickable prototype <a href=""><strong>here</strong></a>. </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="text-left brief">
+                <div class="text-block">
+                    <h5>User Testing Takeaway</h5>
+                    <h3>Utilize copy to make affordances and intention clear to the user</h3>
+
+                    <p>In typical designer fashion, we wanted to solve all of our problems with pretty badges or clever visual design. Our first round of user testing showed us that sometimes it’s better to just keep it simple with the copy writing and make affordances abundantly and unambiguously known.</p>
+
+                    <p><em>After changing our copy, our second round of testing saw a 100% success rate (5/5) with tasks involving that change, which was a marked improvement from before.</em></p>
+
+                </div>
+                
+                <div class="image-wrapper image-right">
+                    <img src="./assets/airbnb/copy-example.png" class="text-block-image" />
+                </div>
+            </div>
+
+            <div class="text-left brief">
+                <div class="text-block">
+                    <h5>User Testing Takeaway</h5>
+                    <h3>Addressing learnability and user's preconceived notions</h3>
+
+                    <p>During one key user test, a participant noted that certain test scenarios were unrealistic - not a lot of people are just lounging around at small shops and think to pull out the Airbnb app for discounts. These same participants didn’t know that Airbnb Experiences were a thing either.</p>
+
+                    <p>We realized quickly that we would have to provide onboarding steps to inform users of the new feature.</p>
+
+                </div>
+                
+                <div class="image-wrapper image-right">
+                    <img src="./assets/airbnb/onboarding.png" class="text-block-image" />
+                </div>
+            </div>
+
+
+            <div class="two-col">
+                <div class="text-block">
+                    <h3>After we adjusted our product based on user feedback, we arrived at our final product.</h3>
+                </div>
+            </div>
+
+            <div class="video-right">
+                <div class="video-text-block">
+                    <h3>Establishing a central page for Eco</h3>
+                    <p>From the get-go, we realized we would need a centralized location to host all the pertinent info related to Airbnb Eco. We created this 'eco hub' page, where users can learn more about the basics of the program, view their balance, find discounts available through credits, and more.</p>
+                    <p>We built this page to be modular and scalable using the existing DLS so that it can grow with the program.</p>
+                </div>
+
+                <div class="video">
+                    <div style="padding:200% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/557828880?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" style="position:absolute;top:0;left:0;width:70%;height:70%;" title="Program Flow"></iframe></div>
+                    <script src="https://player.vimeo.com/api/player.js"></script>
+                </div>
+            </div>
+
+            <div class="text-block default-padding">
+                <h3>Creating purposeful touchpoints</h3>
+                <p>One of the things we quickly realized while working with Ryan was that a centralized location wasn't practical and didn't fit in with the platform's design ethos - instead, we created multiple ways to get to the page. User testing later confirmed that this was more effective than keeping it tucked away in the nav or in one location.</p>
+            </div>
+
+            <div class="full-width-img">
+                <img src="assets/airbnb/touch-points.png" />
+            </div>
+
+             <div class="video-right pad-top">
+                <div class="video-text-block">
+                    <h3>Booking a stay with credits</h3>
+                    <p>A major pain point we identified early on during our user flows was that users couldn't be sustainable even if they wanted to, since there was virtually no sustainability information on the listings. We made sure to add icons and information so that users can see which hosts had sustainable stays.</p>
+                    <p>The rest of the checkout flow is more or less the same - we built our feature into the existing flow without the addition of any new screens to make the process as unobtrusive as possible.</p>
+                </div>
+
+                <div class="video">
+                    <div style="padding:200% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/557368293?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" style="position:absolute;top:0;left:0;width:70%;height:70%;" title="Checkout Flow .mov"></iframe></div>
+                    <script src="https://player.vimeo.com/api/player.js"></script>
                 </div>
 
             </div>
+            
+             <div class="video-right">
+                <div class="video-text-block">
+                    <h3>Using credits with local business</h3>
+                    <p>Similar to the eco hub page, we made sure to made the shop listings accessible through multiple touch points as well - this information is available through the trips tab, but it's also available through several touch points on the eco hub page as well.</p>
+                    <p>All users would have to do is to find a discount that interests them, pull up a QR code, and scan it at the relevant business. We did some preliminary research with popular POS system's APIs to make sure that this was feasible, and the integration should be fairly seamless with Airbnb's app.</p>
+                </div>
 
+                <div class="video">
+                    <div style="padding:182.86% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/557831797?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" style="position:absolute;top:0;left:0;width:70%;height:70%;" title="Local Business Flow"></iframe></div>
+                    <script src="https://player.vimeo.com/api/player.js"></script>
+                </div>
+
+            </div>
+                
         </div>
+
+        <footer>
+
+            <div class="footer-wrapper home">
+                <h3>Let's build something cool together.</h3>
+
+                <div class="footer-3-col">
+
+                    <div class="socials">
+                        <p class="footer-column-header">Projects</p>
+                        <p class="hvr-underline-from-left"><a href="./airbnb.html">Airbnb Eco</a></p>
+                        <p class="hvr-underline-from-left"><a href="./wta.html">WTA App</a></p>
+                        <p class="hvr-underline-from-left"><a href="./mental-reminder.html">Mental Reminder</a></p>
+                    </div>
+
+                    <div class="links">
+                        <p class="footer-column-header">Links</p>
+                        <p class="hvr-underline-from-left"><a href="https://www.behance.net/danielking9">Behance</a></p>
+                        <p class="hvr-underline-from-left"><a href="https://www.linkedin.com/in/daniel-king-8050aa150/">LinkedIn</a></p>
+                        <p class="hvr-underline-from-left"><a href="https://github.com/kingce">Github</a></p>
+                    </div>
+
+                    <div class="email">
+                        <p class="footer-column-header">Email</p>
+                        <p class="hvr-underline-from-left"><a href="">chuan.e.king@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
 
     </body>
 </html>

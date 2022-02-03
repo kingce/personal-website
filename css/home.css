@@ -27,14 +27,16 @@ html, body {
     max-width: 1380px;
 }
 
+
+
 /* --- COMPONENT: HOME --- */
 .header h1 { 
     font-size: 2.3em;
     font-weight: 400;
     color: var(--light-gray);
     max-width: 18em;
-    padding: 300px 50px;
-    padding-bottom: 50px;
+    padding: 250px 50px;
+    padding-bottom: 100px;
 }
 
 .black { 
@@ -259,10 +261,12 @@ html, body {
         font-size: .75em;
     }
 
+
     /* --- HEADER --- */
     .header h1 { 
         padding: 200px 15px;
-        padding-bottom: 70px;
+        padding-bottom: 150px;
+        font-size: 2em;
     }
 
     /* --- CARDS: MOBILE --- */
