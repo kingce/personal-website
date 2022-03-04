@@ -6,6 +6,7 @@
     --light-gray: #AAA;
     --very-light-gray: #EEE;
     --airbnb-pink: #E19DA5;
+    --mental-reminder-green: #acbea7;
     font-size: 16px;
 }
 
@@ -29,6 +30,10 @@ p {
 p a { 
     color: black;
     text-decoration: none;
+}
+
+ol li { 
+    padding: .5em 0;
 }
 
 .default-padding { 
@@ -120,6 +125,11 @@ nav a {
 
 .header.wta { 
     background-image: url(../assets/wta/wta-bg.png);
+}
+
+.header.mental-reminder { 
+    background-image: url(../assets/mental-reminder/header.png);
+    background-position: right;
 }
 
 .text p, .text h1 {
@@ -297,7 +307,7 @@ nav a {
     grid-column: 5/9;
 }
 
-j/* --- full-width-img --- */
+/* --- full-width-img --- */
 .full-width-img { 
     margin:50px 0;
 }
@@ -322,6 +332,53 @@ j/* --- full-width-img --- */
 .video { 
     width: 37em;
 }
+
+/* --- end links --- */
+
+.end { 
+    text-align: center;
+}
+
+.end h3 { 
+    font-size: 2em;
+}
+
+.end a { 
+    text-decoration: none;
+    color: gray; 
+    font-size: 1.25em;
+    text-align: center;
+    padding: 0 2em;
+}
+
+.end a:hover { 
+    color: black;
+}
+
+/* --- Full width text --- */
+.bg-green { 
+    background-color: #687665;
+}
+
+.full-width-text { 
+    margin-bottom: 7em;
+}
+
+.full-width-text-inner { 
+    padding-bottom: 2.5em;
+    font-size: 2.1em;
+    line-height: 1.75em;
+    font-weight: 300;
+    color: white;
+}
+
+.full-width-pre-title { 
+    font-size: 1em;
+    margin: 1em 0;
+    color: white;
+    padding-top: 5em;
+}
+
 
 
 @media only screen and (max-width : 800px) { 
@@ -355,6 +412,12 @@ j/* --- full-width-img --- */
     /* --- CARD --- */
     .card { 
         margin: 50px 0;
+    }
+
+    /* -- End card -- */
+    .end a { 
+        display: block;
+        padding: 2em 0;
     }
 
 }
@@ -414,5 +477,6 @@ j/* --- full-width-img --- */
     .brief-right div { 
         width: 45%;
     }
+
 
 }
