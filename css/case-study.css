@@ -132,6 +132,16 @@ nav a {
     background-position: right;
 }
 
+.header.move-in { 
+    background-image: url(../assets/move-in/fall_newsletter.jpg);
+    background-position: left;
+}
+
+.header.yt { 
+    background-image: url(../assets/young-tea-cover-dark.png);
+    background-position: right;
+}
+
 .text p, .text h1 {
     color: white;
 }
