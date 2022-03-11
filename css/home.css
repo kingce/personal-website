@@ -70,6 +70,7 @@ html, body {
 }
 
 .hider { 
+    /*
     position: absolute;
     width: 100%;
     height: 23em;
@@ -77,6 +78,7 @@ html, body {
     right: 0;
     background-color: white;
     z-index: 2;
+    */
 }
 
 .blurb { 
@@ -343,6 +345,10 @@ html, body {
 
     .other-small .other-blurb { 
         padding-left: 5px;
+    }
+
+    .other-long-img { 
+        margin-top: 1em;
     }
 
     

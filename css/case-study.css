@@ -430,6 +430,26 @@ nav a {
         padding: 2em 0;
     }
 
+
+    .video-right { 
+        display: block;
+    }
+
+    .video-text-block { 
+        width: auto;
+    }
+
+    .video { 
+        padding-top: 5em;
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .other-long-img { 
+        margin-top: 1em;
+    }
+
+
 }
 
 
