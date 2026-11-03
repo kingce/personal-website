@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en" class="theme-dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work ✦ Daniel King</title>
+<meta name="description" content="Select works from memory lane, 2019 to 2026, by Daniel King.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Handjet:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="site.css">
+<style>
+/* =====================================================================
+ * Work: an endless row of shots along the bottom of the screen. Wheel,
+ * trackpad, drag or arrow keys spin it; the faster it moves, the smaller
+ * the shots get, and they swell back as it settles. On load each one
+ * slides up out of its own mask, left to right. Every shot is the same height; widths follow each
+ * shot's own aspect ratio.
+ * Motion borrows brandonyasin.com's curves: a steep expo in-out for the
+ * big moves, ease-in-out-cubic for hovers.
+ * ===================================================================== */
+:root { --ease-cubic: cubic-bezier(0.645, 0.045, 0.355, 1); --hand: 'Handjet', var(--mono); }
+html, body { height: 100%; overflow: hidden; overscroll-behavior: none; }
+body { touch-action: none; }
+
+.top { position: fixed; z-index: 10; left: 0; top: 0; padding: 21px var(--margin); }
+.back { display: inline-flex; align-items: center; gap: 8px; }
+.back .ar { display: inline-block; transition: transform var(--dur-slow) var(--ease-cubic); }
+.back:hover .ar { transform: translateX(-5px); }
+
+/* Top of the page, right under Back: a big REEL, top-aligned, and a
+   small left-aligned note sitting on its baseline, pulled in from the
+   right edge. */
+.reel-head {
+  position: fixed; z-index: 2; left: var(--margin); right: var(--margin); top: 55px;
+  display: flex; justify-content: space-between; align-items: stretch; gap: 21px; pointer-events: none;
+}
+.reel-head h1 { font-size: clamp(56px, 11vw, 160px); font-weight: 600; letter-spacing: -0.05em; line-height: 0.82; align-self: flex-start; }
+.reel-head h1 .line { padding-bottom: 0.04em; }
+.reel-head p { align-self: flex-end; max-width: 20rem; margin-right: clamp(34px, 9vw, 144px); font-size: 14px; line-height: 1.45; color: var(--text-secondary); text-wrap: balance; }
+
+/* The row */
+.stage { position: fixed; inset: 0; cursor: grab; user-select: none; background: var(--bg); }
+/* Edge lensing: the whole row runs through an SVG displacement map that
+   is flat in the middle and bends space harder toward each side, like
+   light curving round something very heavy. A dark falloff sits on top
+   at the very edges. */
+.lens-on .stage { filter: url(#lens); }
+.horizon { position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, var(--bg) 0%, rgb(3 7 18 / 0.55) 4%, transparent 16%, transparent 84%, rgb(3 7 18 / 0.55) 96%, var(--bg) 100%); }
+.stage.dragging { cursor: grabbing; }
+/* The row's full band, caption to bottom edge of the shots. */
+.row-zone { position: absolute; left: 0; right: 0; top: var(--top); height: calc(var(--ch) + 26px); }
+.card { position: absolute; left: 0; top: 0; will-change: transform; transform-origin: 50% 50%; overflow: hidden; }
+/* Intro: each shot slides up out of its own mask, left to right. */
+/* A long, soft expo-out: quick to leave, a slow glide to rest. */
+.slide { transition: transform 1600ms cubic-bezier(0.16, 1, 0.3, 1); transition-delay: calc(var(--i, 0) * 130ms + 200ms); }
+.js .slide { transform: translate3d(0, 110%, 0); }
+.ready .slide { transform: none; }
+.cap { display: flex; justify-content: space-between; align-items: baseline; gap: 13px; height: 18px; margin-bottom: 8px; white-space: nowrap; color: var(--text-tertiary); transition: color var(--dur-slow) var(--ease-cubic); }
+.cap .t { font: 500 11px/1.2 var(--sans); letter-spacing: 0.06em; text-transform: uppercase; overflow: hidden; text-overflow: ellipsis; }
+.cap .tag { font: 400 13px/1 var(--hand); letter-spacing: 0.06em; text-transform: uppercase; }
+.cap .tag i { font-style: normal; margin-inline: 0.45em; font-size: 0.7em; vertical-align: 0.15em; }
+.media { position: relative; height: var(--ch); overflow: hidden; border-radius: 2px; background: var(--bg-muted); }
+.media > * { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease-expo), opacity var(--dur-slow); }
+.card:hover .media > * { transform: scale(1.06); }
+.card:hover .cap { color: var(--text-primary); }
+.stage:hover .card:not(:hover) .media > * { opacity: 0.55; }
+.stage.dragging .card .media > *, .stage.moving .card .media > * { opacity: 1 !important; }
+
+/* Placeholder until real shots go in: a gray field with its number. */
+.ph { display: grid; place-items: center; background:
+  radial-gradient(circle at var(--px, 30%) var(--py, 30%), rgb(255 255 255 / 0.06), transparent 60%),
+  linear-gradient(160deg, var(--g1), var(--g2)); }
+.ph b { font: 400 15px/1 var(--hand); letter-spacing: 0.06em; color: var(--text-tertiary); }
+
+/* Lightbox: a shot grows out of its card. */
+.lb { position: fixed; inset: 0; z-index: 50; pointer-events: none; }
+.lb-bg { position: absolute; inset: 0; background: var(--bg); opacity: 0; transition: opacity var(--dur-slower) var(--ease-cubic); }
+.lb.on { pointer-events: auto; }
+.lb.on .lb-bg { opacity: 0.94; }
+.lb-media { position: absolute; left: 0; top: 0; overflow: hidden; border-radius: 2px; background: var(--bg-muted); transform-origin: 0 0; }
+.lb-media > * { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.lb-cap { position: absolute; left: var(--margin); right: var(--margin); bottom: 21px; display: flex; justify-content: space-between; opacity: 0; transform: translateY(8px); transition: opacity var(--dur-slow) var(--ease-cubic), transform var(--dur-slow) var(--ease-cubic); }
+.lb-cap .tag { font: 400 13px/1 var(--hand); letter-spacing: 0.06em; text-transform: uppercase; }
+.lb-cap .tag i { font-style: normal; margin-inline: 0.45em; font-size: 0.7em; vertical-align: 0.15em; }
+.lb.on .lb-cap { opacity: 1; transform: none; transition-delay: 0.5s; }
+.lb-close { position: absolute; top: 21px; right: var(--margin); opacity: 0; transition: opacity var(--dur-slow) var(--ease-cubic); }
+.lb.on .lb-close { opacity: 1; transition-delay: 0.5s; }
+
+.js .top { opacity: 0; transform: translateY(-8px); transition: opacity var(--dur-slower) var(--ease-out) 0.9s, transform var(--dur-slower) var(--ease-out) 0.9s; }
+.ready .top { opacity: 1; transform: none; }
+.reel-head .rise { --d: 1100ms; }
+.reel-head .line > span { transition-delay: calc(var(--i, 0) * 89ms + 900ms); }
+
+@media (max-width: 699px) {
+  .reel-head { flex-direction: column; gap: 13px; }
+  .reel-head p { align-self: flex-start; margin-right: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .media > * { transition: none; }
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <a href="./" class="back label"><span class="ar" aria-hidden="true">←</span><span class="roll" data-roll>Back</span></a>
+</header>
+
+<div class="reel-head" data-reveal>
+  <h1><span class="line" style="--i:0"><span>REEL</span></span></h1>
+  <p class="rise">Select works from memory lane. Case studies available upon request. <strong>2019 → 2026</strong></p>
+</div>
+
+<main class="stage" aria-label="Reel. Scroll, drag or use the arrow keys." tabindex="0"></main>
+<div class="horizon" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="lens" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse" x="0" y="0" width="1440" height="900" color-interpolation-filters="sRGB">
+    <feImage result="map" x="0" y="0" width="1440" height="900" preserveAspectRatio="none"/>
+    <feDisplacementMap in="SourceGraphic" in2="map" scale="0" xChannelSelector="R" yChannelSelector="G" result="lensed"/>
+    <!-- Smear: a mostly-sideways blur, faded in toward the edges by the map's blue channel. -->
+    <feGaussianBlur in="lensed" stdDeviation="0" result="smear"/>
+    <feColorMatrix in="map" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 1 0 0" result="mask"/>
+    <feComposite in="smear" in2="mask" operator="in" result="edge"/>
+    <feComposite in="edge" in2="lensed" operator="over"/>
+  </filter>
+</svg>
+
+<div class="lb" aria-hidden="true">
+  <div class="lb-bg"></div>
+  <div class="lb-media"></div>
+  <button class="lb-close label" type="button"><span class="roll" data-roll>Close</span></button>
+  <div class="lb-cap mono t3"><span data-lb-title></span><span class="tag" data-lb-tag></span></div>
+</div>
+
+<script src="cursor.js"></script>
+<script src="site.js"></script>
+<script>
+(() => {
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
+const $ = (s, r = document) => r.querySelector(s)
+const $$ = (s, r = document) => [...r.querySelectorAll(s)]
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v))
+const mod = (a, n) => ((a % n) + n) % n
+
+/* =====================================================================
+ * The shots. Replace with your own: { title, tag, year, src, ratio }.
+ * src is an image, gif or video path. ratio is width / height; leave it
+ * out for real media and it's read from the file once it loads. Every
+ * shot is drawn at the same height. Titles and years below are
+ * placeholders.
+ * ===================================================================== */
+const SHOTS = [
+  { tag: 'Product', ratio: 4 / 5 }, { tag: 'Motion', ratio: 1 }, { tag: 'Visual', ratio: 3 / 2 },
+  { tag: 'Product', ratio: 3 / 4 }, { tag: 'Motion', ratio: 16 / 10 }, { tag: 'Visual', ratio: 1 },
+  { tag: 'Product', ratio: 4 / 5 }, { tag: 'Motion', ratio: 9 / 16 }, { tag: 'Visual', ratio: 4 / 3 },
+  { tag: 'Anything else', ratio: 1 },
+].map((s, i) => ({ title: `[Shot ${String(i + 1).padStart(2, '0')}]`, year: '2026', src: '', ...s }))
+
+const tagHTML = (s) => `${s.tag}<i aria-hidden="true">◆</i>${s.year}`
+const media = (s, i) => {
+  if (!s.src) {
+    const g = [['#1f2937', '#111827'], ['#273244', '#0f172a'], ['#1c1f26', '#0b0d12'], ['#2a2f3a', '#12151c'], ['#202733', '#0c1018']][i % 5]
+    return `<div class="ph" style="--g1:${g[0]};--g2:${g[1]};--px:${20 + (i * 37) % 60}%;--py:${15 + (i * 23) % 50}%"><b>${String(i + 1).padStart(2, '0')}</b></div>`
+  }
+  return /\.(mp4|webm|mov)$/i.test(s.src)
+    ? `<video src="${s.src}" autoplay muted loop playsinline></video>`
+    : `<img src="${s.src}" alt="" draggable="false" decoding="async">`
+}
+
+const stage = $('.stage'), N = SHOTS.length
+// The row zone sits behind the shots, so the gaps between them keep the double-arrow cursor too.
+stage.innerHTML = '<div class="row-zone" data-cursor="drag" aria-hidden="true"></div>' + SHOTS.map((s, i) =>
+  `<figure class="card" data-i="${i}" data-cursor="drag"><div class="slide"><figcaption class="cap"><span class="t">${s.title}</span><span class="tag">${tagHTML(s)}</span></figcaption><div class="media">${media(s, i)}</div></div></figure>`).join('')
+const cards = $$('.card', stage)
+
+/* ---------- Layout: same height for every shot, row pinned to the bottom ---------- */
+const CAP = 26 // caption height plus its gap
+let W = 0, H = 0, CH = 0, GAP = 10, TOP = 0, MARGIN = 34, BOTTOM = 21
+let widths = [], offs = [], TOTAL = 0, BUF = 0
+const layout = () => {
+  W = innerWidth; H = innerHeight
+  const small = W < 700
+  MARGIN = small ? 21 : 34; BOTTOM = small ? 21 : 26; GAP = small ? 8 : 10
+  CH = Math.round(H * (small ? 0.5 : 0.62))
+  TOP = H - BOTTOM - CH - CAP // top of the caption row
+  widths = SHOTS.map((s) => Math.round(CH * (s.ratio || 1)))
+  offs = []; TOTAL = 0
+  widths.forEach((w) => { offs.push(TOTAL); TOTAL += w + GAP })
+  BUF = Math.max(...widths) + GAP
+  cards.forEach((c, i) => { c.style.width = widths[i] + 'px' })
+  document.documentElement.style.setProperty('--ch', CH + 'px')
+  document.documentElement.style.setProperty('--top', TOP + 'px')
+}
+layout(); addEventListener('resize', layout)
+
+/* ---------- Edge lensing map ----------
+   A small canvas, stretched to the viewport: red is sideways
+   displacement, green is vertical, 128 is none. Flat in the middle; in
+   the outer ~10% each side, pixels are pulled from further in, away from the
+   edge and from nearer the row's centre line, so shots stretch, bow
+   and curve as they slide out, harder the closer they get. */
+const lensMaps = () => {
+  if (reduced || !W || !H) return
+  const f = $('#lens'), img = $('feImage', f)
+  const mw = 192, mh = Math.max(64, Math.round(mw * H / W))
+  const cv = document.createElement('canvas'); cv.width = mw; cv.height = mh
+  const cx = cv.getContext('2d'), data = cx.createImageData(mw, mh), px = data.data
+  const vc = (TOP + CAP + CH / 2) / H, vr = (CH / 2 + CAP) / H
+  for (let y = 0; y < mh; y++) {
+    const v = (y + 0.5) / mh, yy = clamp((v - vc) / vr, -1.4, 1.4)
+    for (let x = 0; x < mw; x++) {
+      const u = (x + 0.5) / mw, a = Math.min(u, 1 - u), side = u < 0.5 ? -1 : 1
+      let t = clamp(1 - a / 0.1, 0, 1); t = t * t * (3 - 2 * t); t = Math.pow(t, 1.5)
+      // Sideways: sample from further in, a little less above and below
+      // the centre line, so shots stretch into the edge and straight
+      // verticals bow into curves. Always inward: the browser doesn't paint
+      // past the screen, and reaching out there drew a hard seam.
+      const dx = -side * t * (1 - 0.45 * yy * yy)
+      // Vertical: sample nearer the centre line, so shots swell taller.
+      const dy = -yy * t * 0.35
+      // Blue is how much of the blur smear shows: none in the middle, all at the very edge.
+      const k = (y * mw + x) * 4
+      px[k] = 128 + 127 * clamp(dx, -1, 1); px[k + 1] = 128 + 127 * clamp(dy, -1, 1); px[k + 2] = 255 * t; px[k + 3] = 255
+    }
+  }
+  cx.putImageData(data, 0, 0)
+  img.setAttribute('href', cv.toDataURL())
+  img.setAttribute('width', W); img.setAttribute('height', H)
+  // The filter's own region reaches well past the screen, so pixels pulled
+  // in from beyond the edges are real shots (the row keeps going off
+  // screen), not empty space. Empty space there drew a hard cut-off curve:
+  // thin lines down the sides.
+  f.setAttribute('x', -Math.round(W * 0.3)); f.setAttribute('width', Math.round(W * 1.6))
+  f.setAttribute('y', -Math.round(H * 0.15)); f.setAttribute('height', Math.round(H * 1.3))
+  $('feDisplacementMap', f).setAttribute('scale', (W * 0.21).toFixed(1))
+  // Smear mostly sideways, like the edge of a lens moving past.
+  $('feGaussianBlur', f).setAttribute('stdDeviation', `${(W * 0.009).toFixed(1)} ${(W * 0.002).toFixed(1)}`)
+  document.documentElement.classList.add('lens-on')
+}
+lensMaps(); addEventListener('resize', () => { clearTimeout(lensMaps.t); lensMaps.t = setTimeout(lensMaps, 150) })
+// Real media: read each file's own ratio once it loads.
+cards.forEach((c, i) => {
+  if (SHOTS[i].src && !SHOTS[i].ratio) {
+    const m = $('.media > img, .media > video', c)
+    const set = () => { const w = m.naturalWidth || m.videoWidth, h = m.naturalHeight || m.videoHeight; if (w && h) { SHOTS[i].ratio = w / h; layout(); kick() } }
+    m.addEventListener(m.tagName === 'VIDEO' ? 'loadedmetadata' : 'load', set)
+  }
+})
+
+/* ---------- Input: wheel, drag, keys ---------- */
+let target = 0, current = 0, scale = 1
+let drag = null, moved = 0
+addEventListener('wheel', (e) => {
+  if (lbOpen) return
+  e.preventDefault()
+  target += (Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY) * (e.deltaMode === 1 ? 33 : 1) * 1.1
+  kick()
+}, { passive: false })
+stage.addEventListener('pointerdown', (e) => {
+  if (e.button !== 0) return
+  drag = { x: e.clientX, y: e.clientY, t: performance.now(), v: 0, start: target, card: e.target.closest('.card') }
+  moved = 0; stage.setPointerCapture(e.pointerId); stage.classList.add('dragging')
+  // Pointer capture stops hover events, so hold the double arrow for the whole drag.
+  window.dotCursor?.hold('drag')
+})
+stage.addEventListener('pointermove', (e) => {
+  if (!drag) return
+  const dx = e.clientX - drag.x
+  const dy = e.pointerType === 'touch' ? e.clientY - drag.y : 0
+  const d = Math.abs(dx) > Math.abs(dy) ? dx : dy
+  const now = performance.now()
+  moved = Math.max(moved, Math.abs(d))
+  const prev = target
+  target = drag.start - d * 1.4
+  drag.v = (target - prev) / Math.max(1, now - drag.t) * 16; drag.t = now
+  kick()
+})
+const endDrag = () => {
+  if (!drag) return
+  // A tap opens the shot; a drag keeps going with the flick.
+  if (moved <= 6 && drag.card) openLB(+drag.card.dataset.i)
+  else target += drag.v * 14
+  drag = null; stage.classList.remove('dragging'); window.dotCursor?.hold(null); kick()
+}
+stage.addEventListener('pointerup', endDrag)
+stage.addEventListener('pointercancel', () => { if (drag) { drag.card = null; endDrag() } })
+// Which shot sits at the left margin right now.
+const nearest = (pos) => {
+  const p = mod(pos, TOTAL)
+  let best = 0
+  offs.forEach((o, i) => { if (Math.abs(o - p) < Math.abs(offs[best] - p)) best = i })
+  return best
+}
+const goTo = (i) => { const p = mod(target, TOTAL), base = target - p; let t = base + offs[mod(i, N)]; if (i >= N) t += TOTAL; if (i < 0) t -= TOTAL; target = t; kick() }
+stage.addEventListener('keydown', (e) => {
+  const i = nearest(target)
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); goTo(i + 1) }
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(i - 1) }
+  if (e.key === 'Enter') openLB(i)
+})
+
+/* ---------- Intro: stagger the slide-ups in screen order, from the left ---------- */
+cards.map((c, i) => [c, mod(offs[i] + BUF, TOTAL) - BUF + MARGIN])
+  .sort((a, b) => a[1] - b[1]).forEach(([c], r) => c.style.setProperty('--i', r))
+setTimeout(() => document.body.classList.add('ready'), 50)
+
+/* ---------- The loop ----------
+   Sleeps once everything has settled, and wakes on input. Styles are
+   only written when they change, and shots outside the lens filter's
+   region (which is all that's ever drawn) are hidden so they aren't
+   painted into it. */
+let last = performance.now(), raf = 0, moving = false
+const prevT = [], prevV = []
+const kick = () => { if (!raf) { last = performance.now(); raf = requestAnimationFrame(frame) } }
+const frame = (now) => {
+  const dt = Math.min(3, (now - last) / 16.67); last = now
+  const k = 1 - Math.pow(1 - 0.075, dt)
+  const prev = current
+  current += (target - current) * k
+  const vel = (current - prev) / dt
+  // The faster it spins, the smaller the shots. Gentle and medium speeds
+  // follow a straight line; past that a soft knee eases the shrink off so
+  // hard flicks and fast scrolls bottom out around 85% instead of plunging.
+  const lin = Math.abs(vel) / 70 * 0.3
+  const shrink = lin < 0.1 ? lin : 0.1 + 0.05 * (1 - Math.exp(-(lin - 0.1) / 0.06))
+  const sTarget = reduced ? 1 : 1 - shrink
+  scale += (sTarget - scale) * (1 - Math.pow(1 - (sTarget < scale ? 0.18 : 0.06), dt))
+  // Settled: snap the last hair of easing, draw once more, then sleep until the next input.
+  const settled = !drag &&Math.abs(target - current) < 0.01 && Math.abs(1 - scale) < 1e-4
+  if (settled) { current = target; scale = 1 }
+  if ((Math.abs(vel) > 2) !== moving) { moving = !moving; stage.classList.toggle('moving', moving) }
+  // Anything further out than the filter region (plus a little) is never seen.
+  const vL = -W * 0.3 - 50, vR = W * 1.3 + 50
+
+  cards.forEach((c, i) => {
+    // Row position, wrapped so the row never ends.
+    const x = mod(offs[i] - current + BUF, TOTAL) - BUF + MARGIN
+    // Shots shrink about their own centres, which opens the gaps between
+    // them; draw the row in toward the middle of the screen to close half that.
+    const cx = x + widths[i] / 2, px = W / 2 + (cx - W / 2) * (1 - (1 - scale) * 0.5) - widths[i] / 2
+    const half = widths[i] / 2, vis = px + half * (1 + scale) > vL && px + half * (1 - scale) < vR
+    if (vis !== prevV[i]) {
+      prevV[i] = vis; c.style.visibility = vis ? '' : 'hidden'
+      const v = c.querySelector('video'); if (v) vis ? v.play().catch(() => {}) : v.pause()
+    }
+    if (!vis) return
+    const t = `translate3d(${px.toFixed(2)}px, ${TOP}px, 0) scale(${scale.toFixed(4)})`
+    if (t !== prevT[i]) c.style.transform = prevT[i] = t
+  })
+  raf = settled ? 0 : requestAnimationFrame(frame)
+}
+kick()
+addEventListener('resize', kick)
+
+/* ---------- Lightbox: the shot grows out of its card ---------- */
+const lb = $('.lb'), lbMedia = $('.lb-media')
+let lbOpen = false, lbFrom = null
+const openLB = (i) => {
+  const card = cards[i], m = $('.media', card), r = m.getBoundingClientRect(), s = SHOTS[i]
+  lbFrom = { card }
+  lbMedia.innerHTML = media(s, i)
+  $('[data-lb-title]').textContent = s.title; $('[data-lb-tag]').innerHTML = tagHTML(s)
+  const ratio = s.ratio || 1, maxW = innerWidth - 2 * MARGIN, maxH = innerHeight - 140
+  const tw = Math.min(maxW, maxH * ratio), th = tw / ratio
+  const tx = (innerWidth - tw) / 2, ty = (innerHeight - th) / 2
+  Object.assign(lbMedia.style, { width: tw + 'px', height: th + 'px', transform: `translate(${tx}px, ${ty}px)` })
+  lbOpen = true; lb.classList.add('on'); lb.setAttribute('aria-hidden', 'false'); m.style.visibility = 'hidden'
+  if (!reduced) lbMedia.animate([
+    { transform: `translate(${r.left}px, ${r.top}px) scale(${r.width / tw}, ${r.height / th})` },
+    { transform: `translate(${tx}px, ${ty}px)` },
+  ], { duration: 1000, easing: 'cubic-bezier(0.87, 0, 0.13, 1)' })
+  $('.lb-close').focus({ preventScroll: true })
+}
+const closeLB = () => {
+  if (!lbOpen) return
+  const { card } = lbFrom, m = $('.media', card), r = m.getBoundingClientRect()
+  const cur = lbMedia.getBoundingClientRect()
+  lb.classList.remove('on'); lb.setAttribute('aria-hidden', 'true')
+  const done = () => { lbOpen = false; m.style.visibility = ''; lbMedia.innerHTML = ''; stage.focus({ preventScroll: true }) }
+  if (reduced) return done()
+  lbMedia.animate([
+    { transform: `translate(${cur.left}px, ${cur.top}px)` },
+    { transform: `translate(${r.left}px, ${r.top}px) scale(${r.width / cur.width}, ${r.height / cur.height})` },
+  ], { duration: 800, easing: 'cubic-bezier(0.87, 0, 0.13, 1)', fill: 'forwards' }).onfinish = (e) => { e.target.cancel(); done() }
+}
+$('.lb-close').addEventListener('click', closeLB)
+$('.lb-bg').addEventListener('click', closeLB)
+addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLB() })
+stage.focus({ preventScroll: true })
+})()
+</script>
+</body>
+</html>

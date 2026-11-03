@@ -1,0 +1,59 @@
+/* A backlit rocker switch. aria-checked="true" is on: the lens lights up.
+   Fixed colours, like real plastic: it reads on any wall. Housing,
+   recessed well, a paddle with two end faces (the raised end catches the
+   light), and a honeycomb lens behind I/O. */
+.rocker {
+  --w: 42px; --h: 68px;
+  position: relative; width: var(--w); height: var(--h); padding: 4px; flex: none;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #2b2b2e 0%, #161618 55%, #0d0d0e 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.1), inset 0 -1px 0 rgb(0 0 0 / 0.7),
+    0 0 0 1px #050505, 0 3px 5px rgb(0 0 0 / 0.55), 0 8px 21px rgb(0 0 0 / 0.35);
+  transition: box-shadow 610ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.rk-well { display: block; height: 100%; padding: 2px; border-radius: 5px; background: #030303; box-shadow: inset 0 2px 5px rgb(0 0 0 / 0.95), 0 1px 0 rgb(255 255 255 / 0.06); }
+.rk-paddle {
+  position: relative; display: flex; flex-direction: column; height: 100%; overflow: hidden; border-radius: 3px;
+  transition: transform 89ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.rocker:active .rk-paddle { transform: scale(0.96); }
+/* The two end faces: whichever end is raised shows as a band. */
+.rk-end { flex: none; transition: flex-basis 233ms cubic-bezier(0.65, 0, 0.35, 1), background 233ms cubic-bezier(0.22, 1, 0.36, 1); }
+.rk-top { flex-basis: 24%; background: linear-gradient(180deg, #e7a497 0%, #c97a6c 70%, #9b4f43 100%); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5); }
+.rk-bot { flex-basis: 4%; background: #1a0503; }
+.rk-lens {
+  position: relative; flex: 1; overflow: hidden;
+  background:
+    radial-gradient(circle, rgb(255 140 110 / 0.16) 0.6px, transparent 1.1px) 0 0 / 3px 3px,
+    radial-gradient(circle, rgb(255 140 110 / 0.16) 0.6px, transparent 1.1px) 1.5px 1.5px / 3px 3px,
+    linear-gradient(180deg, #2a0a06, #3d0f09 60%, #250805);
+  box-shadow: inset 0 3px 4px rgb(0 0 0 / 0.6);
+}
+/* Backlight: a separate layer so it can flicker on like a real bulb. */
+.rk-glow {
+  position: absolute; inset: 0; opacity: 0;
+  background:
+    radial-gradient(circle, rgb(255 250 210 / 0.55) 0.6px, transparent 1.1px) 0 0 / 3px 3px,
+    radial-gradient(circle, rgb(255 250 210 / 0.55) 0.6px, transparent 1.1px) 1.5px 1.5px / 3px 3px,
+    radial-gradient(ellipse 70% 55% at 50% 58%, #fff3a6 0%, #ffc23d 28%, #ff7a1c 55%, #e3360f 80%, #b81d09 100%);
+}
+.rk-i, .rk-o { position: absolute; left: 50%; translate: -50% 0; z-index: 1; transition: opacity 233ms, filter 233ms; }
+.rk-i { top: 13%; width: 2px; height: 18%; border-radius: 1px; background: #f3e6e0; opacity: 0.8; }
+.rk-o { bottom: 14%; width: 12px; height: 12px; border-radius: 50%; border: 2px solid #f3e6e0; opacity: 0.8; }
+
+.rocker[aria-checked="true"] {
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.1), inset 0 -1px 0 rgb(0 0 0 / 0.7),
+    0 0 0 1px #050505, 0 3px 5px rgb(0 0 0 / 0.45),
+    0 0 13px 2px rgb(255 80 20 / 0.55), 0 0 34px 8px rgb(255 60 10 / 0.25);
+}
+.rocker[aria-checked="true"] .rk-top { flex-basis: 5%; background: linear-gradient(180deg, #ff6a3d, #d9300f); }
+.rocker[aria-checked="true"] .rk-bot { flex-basis: 22%; background: linear-gradient(180deg, #c42a10 0%, #ff4a1e 70%, #ff8a5c 100%); box-shadow: inset 0 -1px 0 rgb(255 220 200 / 0.6), 0 -2px 6px rgb(255 120 40 / 0.6); }
+.rocker[aria-checked="true"] .rk-glow { opacity: 1; animation: rk-on 377ms linear; }
+.rocker[aria-checked="true"] .rk-i, .rocker[aria-checked="true"] .rk-o { opacity: 1; filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 4px #ffd27a); }
+.rocker[aria-checked="true"] .rk-i { background: #fff; }
+.rocker[aria-checked="true"] .rk-o { border-color: #fff; }
+/* Bulb catching: a stutter, then on. */
+@keyframes rk-on { 0% { opacity: 0; } 15% { opacity: 0.7; } 25% { opacity: 0.15; } 45% { opacity: 0.9; } 55% { opacity: 0.5; } 100% { opacity: 1; } }
+.rocker:focus-visible { outline-offset: 4px; }

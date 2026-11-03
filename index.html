@@ -1,194 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Daniel King</title>
+<!doctype html>
+<html lang="en" class="theme-dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniel King</title>
+<meta name="description" content="Daniel King is a senior product designer currently focused on delivering the dream of home ownership at PLACE.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  document.documentElement.classList.add('js')
+  try { if (sessionStorage.getItem('dk-warp') === '1') document.documentElement.classList.add('warp-in') } catch {}
+</script>
+<link rel="stylesheet" href="site.css">
+<style>
+/* One screen, 13 columns. */
+.page {
+  min-height: 100svh; max-width: 1440px; margin: 0 auto; padding: 21px var(--margin);
+  display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); grid-template-rows: 1fr auto;
+  column-gap: var(--gutter);
+}
+.page > * { min-width: 0; }
+.mid { grid-column: 1 / 10; align-self: start; padding: 34px 0 89px; }
 
-        <!--- META --->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+/* Key words in white, the connective tissue in gray. */
+.mid h1 { color: var(--text-tertiary); }
+.mid h1 b { font-weight: inherit; color: var(--text-primary); }
 
-        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-        <link rel="stylesheet" type="text/css" href="css/home.css">
-        <link rel="stylesheet" type="text/css" href="css/nav.css">
-        <link rel="stylesheet" type="text/css" href="css/footer.css">
+/* Glitch: every so often the Dreamatorium link slips for a beat, a small easter egg.
+   Two copies sit over it; each shows a shifted slice in one of the accents. */
+[data-glitch] { position: relative; }
+.glitch { position: absolute; inset: 0; display: none; align-items: baseline; gap: inherit; background: var(--bg); pointer-events: none; }
+.glitching .glitch { display: flex; }
+.glitch-a { text-shadow: -2px 0 var(--accent); animation: glitch-a 610ms steps(1, end) both; }
+.glitch-b { text-shadow: 2px 0 var(--dream); animation: glitch-b 610ms steps(1, end) both; }
+@keyframes glitch-a {
+  0%   { clip-path: inset(8% 0 78% 0);  transform: translateX(3px); }
+  13%  { clip-path: inset(54% 0 30% 0); transform: translateX(-2px); }
+  26%  { clip-path: inset(30% 0 62% 0); transform: translateX(4px); }
+  40%  { clip-path: inset(82% 0 6% 0);  transform: translateX(-3px); }
+  55%  { clip-path: inset(18% 0 70% 0); transform: translateX(2px); }
+  70%  { clip-path: inset(66% 0 22% 0); transform: translateX(-1px); }
+  85%, 100% { clip-path: inset(50% 0 50% 0); transform: none; }
+}
+@keyframes glitch-b {
+  0%   { clip-path: inset(70% 0 14% 0); transform: translateX(-3px); }
+  13%  { clip-path: inset(12% 0 80% 0); transform: translateX(2px); }
+  26%  { clip-path: inset(44% 0 40% 0); transform: translateX(-4px); }
+  40%  { clip-path: inset(4% 0 88% 0);  transform: translateX(3px); }
+  55%  { clip-path: inset(60% 0 28% 0); transform: translateX(-2px); }
+  70%  { clip-path: inset(36% 0 56% 0); transform: translateX(1px); }
+  85%, 100% { clip-path: inset(50% 0 50% 0); transform: none; }
+}
 
-        <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-    </head>
+/* PLACE and "Say hi!": semibold, no underline. On hover the letters roll
+   and an arrow slips in. */
+.place { position: relative; display: inline-flex; color: var(--text-primary); font-weight: 600; }
+.place .roll > span { transition-duration: var(--dur-slower); transition-timing-function: var(--ease-expo); transition-delay: calc(var(--ri) * 34ms); }
+.place .ne { position: absolute; left: 100%; top: 0.2em; font-size: 0.5em; line-height: 1; margin-left: 0.2em; overflow: hidden; }
+.place .ne span { display: block; transform: translate(-100%, 100%); transition: transform var(--dur-slower) var(--ease-expo) 89ms; }
+.place:hover .ne span, .place:focus-visible .ne span { transform: none; }
 
-    <body>
-        <nav>
-            <div class="nav-wrapper home">
-                <div class="left">
-                    <h3><a href="#">FOLIO '22</a></h3>
-                    <div class="line"></div>
-                </div>
-                <div class="right">
-                    <a href="#work">Work</a>
-                    <a href="./about.html">About</a>
-                </div>
-            </div>
-        </nav>
+/* Two columns under the headline. */
+.about { margin-top: 34px; display: grid; grid-template-columns: minmax(0, 19.5rem) minmax(0, 17rem); column-gap: 34px; }
+.about p { max-width: 21rem; font-size: 15px; text-wrap: balance; }
+/* Narrower so it breaks into three lines, like the first column. */
+.about > div:nth-child(2) p { max-width: 17rem; }
 
-        <div class="wrapper">
-            <div class="header">
-                <h1><span class="black">Daniel King</span> is a <span class="black">designer</span> and <span class="black">developer</span> based in <span class="black">Washington.</span></h1>
-            </div>
+/* Bottom: place and time, then the year; the page links on the right. */
+.foot { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: end; gap: 21px; }
+.base { display: flex; gap: 21px; align-items: baseline; }
+.base .clock { display: inline; font-size: 11px; }
+.links.stack { flex-direction: column; gap: 5px; }
 
-            <section class="work">
-                <div class="card-wrapper">
-                    <div data-aos="reveal" class="hider"></div>
-                    <a href="airbnb.html" class="card airbnb-card">
-                        <div class="blurb">
-                            <h2>Airbnb Eco</h2>
-                            <p>Airbnb Eco helps guests prioritize sustainable travel and rewards environmentally friendly practices while empowering local communities.</p>
-                        </div>
-                        <div class="img airbnb-img">
-                        </div>
-                    </a>
-                </div>
+@media (max-width: 1099px) { .mid { grid-column: 1 / -1; } }
+@media (max-width: 699px) {
+  .page { grid-template-columns: minmax(0, 1fr); }
+  .br { display: none; }
+  .about { grid-template-columns: minmax(0, 1fr); row-gap: 21px; }
+  .foot { flex-direction: column-reverse; align-items: flex-start; gap: 34px; }
+}
+</style>
+</head>
+<body>
+<div class="page" data-reveal data-warp>
+  <main class="mid">
+    <h1 class="h2" data-decode>
+      <span class="line" style="--i:0"><span><b>Daniel King</b> is a <b>senior product designer</b><br class="br"> currently focused on delivering the<br class="br"> <b>dream of home ownership at <a href="http://place.com/" class="place" target="_blank" rel="noopener" aria-label="PLACE (opens in a new tab)"><span class="roll" data-roll>PLACE</span><span class="ne" aria-hidden="true"><span>↗</span></span></a></b></span></span>
+    </h1>
+    <div class="about">
+      <div><p class="t2" data-lines>Product, motion, and visual design. Always working on wearing new hats. Exploring my interests through design at Studio Coven in my free time.</p></div>
+      <div><p class="t2" data-lines>Not currently looking for new work, but always up to collab on anything interesting. <a href="mailto:[EMAIL]" class="place" aria-label="Say hi"><span class="roll" data-roll>Say hi!</span><span class="ne" aria-hidden="true"><span>↗</span></span></a></p></div>
+    </div>
+  </main>
 
-                <div class="card-wrapper" href="">
-                    <div data-aos="reveal" class="hider"></div>
-                    <a href="wta.html" class="card wta-card">
-                        <div class="blurb">
-                            <h2>WTA App Concept</h2>
-                            <p>Designed a first-party mobile app for finding route information and trip planning with strong WTA branding.</p>
-                        </div>
-                        <div class="img wta-img">
-                        </div>
-                    </a>
-                </div>
+  <footer class="foot">
+    <div class="base">
+      <span class="clock mono t3 rise" style="--i:3"></span>
+      <p class="mono t3 rise" style="--i:4">© 2026</p>
+    </div>
+    <nav aria-label="Pages">
+      <ul class="links stack h4">
+        <li class="rise" style="--i:1"><a href="work.html"><span class="mono t3">01</span><span class="roll" data-roll>Work</span></a></li>
+        <li class="rise" style="--i:2"><a href="playground.html" data-playground data-glitch aria-label="Dreamatorium"><span class="mono t3">02</span><span class="roll" data-roll>Dreamatorium™</span></a></li>
+      </ul>
+    </nav>
+  </footer>
+</div>
 
-                <div class="card-wrapper" href="">
-                    <div data-aos="reveal" class="hider"></div>
-                    <a href="./move-in.html" class="card move-in-card">
-                        <div class="blurb">
-                            <h2>WWU Move-In App</h2>
-                            <p>Designed a progressive web app to guide over 400 <br> students through a socially distanced move-in process.</p>
-                        </div>
-                        <div class="img move-in-img">
-                        </div>
-                    </a>
-                </div>
-
-                <div class="card-wrapper" href="">
-                    <div data-aos="reveal" class="hider"></div>
-                    <a href="./mental-reminder.html" class="card mental-card">
-                        <div class="blurb">
-                            <h2>Mental Reminder</h2>
-                            <p>A minimal, mental-health based reminder app with a focus on usability.</p>
-                        </div>
-                        <div class="img mental-img">
-                        </div>
-                    </a>
-                </div>
-
-            </section>
-
-            <section class="other-work">
-                <h2>OTHER WORK</h2>
-                <div class="eight-col-grid other-long">
-                    <div class="other-blurb"> 
-                        <h3>Young Tea</h3>
-                        <p class="other-blurb-smalltext"><em>Graphic Designer</em></p>
-                        <p>Visual and graphic designer for Young Tea, a boba store based in Washington. Work includes digital signage, print design, and menu design. </p>
-                        <a class="black" href="young-tea.html"><strong>View Work</strong></a>
-
-                    </div>
-                    <div class="other-long-img">
-                        <div class="other-long-hider">
-                        </div>
-                        <img src="assets/young-tea-cover-dark.png" class="long-image"/>
-                    </div>
-                </div>
-
-                <div class="other-small-wrapper">
-                    <div class="other-small">
-                        <div class="other-small-img">
-                            <div class="other-small-hider"></div>
-                            <img src="assets/EXCHANGE.png" class="long-image"/>
-                        </div>
-                        <div class="other-blurb">
-                            <h3>EXCHANGE</h3>
-                            <p class="other-blurb-smalltext"><em>UX Side Project</em></p>
-                            <p>Bring the BST community closer through a dedicated platform for buying, selling, and trading hobbies.</p>
-                            <a class="black" href="https://www.behance.net/gallery/110527603/EXCHANGE-App-Concept" target="_blank"><strong>Behance Case Study ↗</strong></a>
-                        </div>
-                    </div>
-                    <div class="other-small">
-                        <div class="other-small-img">
-                            <div class="other-small-hider"></div>
-                            <img src="assets/interlude-temp.png" class="long-image"/>
-                        </div>
-                        <div class="other-blurb">
-                            <h3>Interlude</h3>
-                            <p class="other-blurb-smalltext"><em>Chrome Extension</em></p>
-                            <p>Chrome Extension to help users take the breaks that they need.</p>
-                            <a href="https://github.com/kingce/interlude" target="_blank"><strong>Github link ↗</strong></a>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-        </div>
-
-        <footer>
-
-            <div class="footer-wrapper home">
-                <h3>Let's build something cool together.</h3>
-
-                <div class="footer-3-col">
-
-                    <div class="socials">
-                        <p class="footer-column-header">Projects</p>
-                        <p class="hvr-underline-from-left"><a href="./airbnb.html">Airbnb Eco</a></p>
-                        <p class="hvr-underline-from-left"><a href="./wta.html">WTA App</a></p>
-                        <p class="hvr-underline-from-left"><a href="./mental-reminder.html">Mental Reminder</a></p>
-                    </div>
-
-                    <div class="links">
-                        <p class="footer-column-header">Links</p>
-                        <p class="hvr-underline-from-left"><a href="https://www.behance.net/danielking9">Behance</a></p>
-                        <p class="hvr-underline-from-left"><a href="https://www.linkedin.com/in/daniel-king-8050aa150/">LinkedIn</a></p>
-                        <p class="hvr-underline-from-left"><a href="https://github.com/kingce">Github</a></p>
-                    </div>
-
-                    <div class="email">
-                        <p class="footer-column-header">Email</p>
-                        <p class="hvr-underline-from-left"><a href="">chuan.e.king@gmail.com</a></p>
-                    </div>
-                </div>
-            </div>
-
-        </footer>
-
-
-    </body>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-    <script src="./js/nav.js"></script>
-    <!---<script src="https://unpkg.com/aos@next/dist/aos.js"></script>--->
-    <!--
-    <script type="text/javascript">
-
-        var myTimeline = anime.timeline({
-            easing: 'easeOutExpo',
-        })
-
-        myTimeline.add({
-            targets: '.header h1',
-            opacity: [0, 1],
-            duration: 10000,
-        })
-
-        setTimeout(function() { AOS.init({mobile: false, once: true}); }, 1100);
-
-
-    </script>
--->
-
+<script src="cursor.js"></script>
+<script src="warp.js"></script>
+<script src="site.js"></script>
+</body>
 </html>

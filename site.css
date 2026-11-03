@@ -1,0 +1,149 @@
+/* =====================================================================
+ * The calm site (home, about): Coven design system.
+ * Gray scale plus one accent, Fibonacci spacing and durations.
+ * The big reveals borrow brandonyasin.com's steep expo in-out;
+ * everything small uses Coven's own curves.
+ * ===================================================================== */
+:root {
+  --gray-50: #F9FAFB; --gray-200: #E5E7EB; --gray-300: #D1D5DB; --gray-400: #9CA3AF;
+  --gray-500: #6B7280; --gray-700: #374151; --gray-800: #1F2937; --gray-950: #030712;
+  --accent: #EF9814;
+  --dream: #38B6FF; /* the Dreamatorium's own blue */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-expo: cubic-bezier(0.87, 0, 0.13, 1);
+  --dur-quick: 144ms; --dur-base: 233ms; --dur-slow: 377ms; --dur-slower: 610ms; --dur-reveal: 987ms;
+  --sans: 'Manrope', system-ui, sans-serif;
+  --mono: 'Geist Mono', ui-monospace, monospace;
+  --margin: 34px; --gutter: 21px;
+}
+.theme-dark {
+  --bg: var(--gray-950); --text-primary: var(--gray-50); --text-secondary: var(--gray-300);
+  --text-tertiary: var(--gray-400); --border: var(--gray-700); --border-strong: var(--gray-50);
+  color-scheme: dark;
+}
+.theme-light {
+  --bg: var(--gray-50); --text-primary: var(--gray-950); --text-secondary: var(--gray-700);
+  --text-tertiary: var(--gray-500); --border: var(--gray-300); --border-strong: var(--gray-950);
+  color-scheme: light;
+}
+/* Hovering a playground link gives the cursor a taste of what's inside. */
+html.aero-hint { --dc-outline: #0b3a78; --dc-fill: #7fd8ff; --dc-lit: #eaffff; --dc-glow: rgb(80 220 255 / 0.9); --dc-shade: #0b3a78; --dc-halo: rgb(120 230 255 / 0.95); --dc-halo-wide: rgb(80 200 255 / 0.7); }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--text-primary);
+  font: 400 16px/1.5 var(--sans); -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; }
+::selection { background: var(--accent); color: var(--gray-950); }
+:focus-visible { outline: 1px solid var(--border-strong); outline-offset: 5px; }
+
+/* ---------- Type ---------- */
+.display { font-size: clamp(38px, 4.7vw, 67px); font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; }
+.h1 { font-size: clamp(38px, 3.6vw, 51px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; }
+.h2 { font-size: clamp(28px, 3.5vw, 38px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.15; }
+.h3 { font-size: 28px; font-weight: 500; letter-spacing: -0.015em; line-height: 1.2; }
+.h4 { font-size: 21px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.25; }
+.lead { font-size: 21px; letter-spacing: -0.005em; line-height: 1.45; max-width: 36rem; }
+.label { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; line-height: 1.3; }
+.mono { font-family: var(--mono); font-size: 12px; letter-spacing: 0.02em; line-height: 1.4; font-variant-numeric: tabular-nums; }
+.t2 { color: var(--text-secondary); }
+.t3 { color: var(--text-tertiary); }
+
+/* ---------- Grid ---------- */
+.wrap { max-width: 1440px; margin: 0 auto; padding-inline: var(--margin); }
+.cols { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); column-gap: var(--gutter); }
+.cols > * { min-width: 0; }
+
+/* ---------- Top bar ---------- */
+.top { display: flex; justify-content: space-between; align-items: center; padding-block: 21px; }
+.top-r { display: flex; align-items: center; gap: 21px; }
+
+/* ---------- Motion ---------- */
+.line { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.line > span { display: block; }
+.js .line > span { transform: translate3d(0, 110%, 0); transition: transform var(--dur-reveal) var(--ease-expo); transition-delay: calc(var(--i, 0) * 89ms + 144ms); }
+.js .rise { opacity: 0; transform: translate3d(0, 13px, 0); transition: opacity var(--dur-slower) var(--ease-out), transform var(--dur-slower) var(--ease-out); transition-delay: calc(var(--i, 0) * 55ms + var(--d, 610ms)); }
+.js .in .line > span, .js .in .rise { opacity: 1; transform: none; }
+.rule { height: 1px; background: var(--border); transform-origin: 0 50%; }
+.js .rule { transform: scaleX(0); transition: transform var(--dur-reveal) var(--ease-expo); transition-delay: calc(var(--i, 0) * 55ms + 144ms); }
+.js .in .rule { transform: none; }
+
+/* Pip: the accent mark. */
+.pip { position: relative; display: inline-block; width: 8px; height: 8px; flex: none; transform: translateY(-2px); }
+.pip::before, .pip::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: var(--accent); }
+.pip::after { animation: pip 2584ms var(--ease-out) infinite; }
+@keyframes pip { 0% { transform: scale(1); opacity: 0.6; } 60%, 100% { transform: scale(3.4); opacity: 0; } }
+
+/* Decode: instead of rising, the lines type in as gibberish and settle on
+   the real letters. The real letter keeps its place, so nothing reflows;
+   the gibberish floats over it, centred. */
+.js [data-decode]:not(.ready) { visibility: hidden; }
+.js [data-decode] .line > span { transform: none; transition: none; }
+.ch { position: relative; }
+.ch.wait, .ch.scr { -webkit-text-fill-color: transparent; }
+.ch.scr::before { content: attr(data-s); position: absolute; left: 50%; transform: translateX(-50%); -webkit-text-fill-color: currentColor; }
+
+/* Lines: paragraphs rise line by line out of a mask, slow and long-tailed,
+   with a slight tilt that levels out as they land. */
+.js [data-lines]:not(.ready) { visibility: hidden; }
+.js [data-lines] .line > span {
+  transform: translate3d(0, 110%, 0) rotate(2deg); transform-origin: 0 0;
+  transition: transform 1800ms cubic-bezier(0.16, 1, 0.3, 1); transition-delay: calc(var(--i, 0) * 89ms + 610ms);
+}
+.js .in [data-lines] .line > span { transform: none; }
+
+/* Rolling links: the word rolls up, its twin rolls in, letter by letter. */
+.roll { position: relative; display: inline-flex; overflow: hidden; vertical-align: top; }
+.roll > span { display: inline-block; white-space: pre; position: relative; transition: transform var(--dur-slow) var(--ease-in-out); transition-delay: calc(var(--ri) * 13ms); }
+.roll > span::after { content: attr(data-c); position: absolute; left: 0; top: 100%; }
+a:hover .roll > span, a:focus-visible .roll > span { transform: translateY(-100%); }
+/* Hovered links warm into the accent as they roll; the Dreamatorium goes blue. */
+:is(a, button) :is(.roll, .ne, .ar) { transition: color var(--dur-slow) var(--ease-in-out); }
+:is(a, button):is(:hover, :focus-visible) :is(.roll, .ne, .ar) { color: var(--accent); }
+[data-playground]:is(:hover, :focus-visible) .roll { color: var(--dream); }
+
+/* Inline links: the underline wipes out to the right and back in from the left. */
+.ul { --uy: calc(100% - 0.14em); background: linear-gradient(currentColor, currentColor) no-repeat 0 var(--uy) / 100% 1px; }
+.ul:hover, .ul:focus-visible { animation: ul-swap var(--dur-slower) var(--ease-in-out); }
+@keyframes ul-swap {
+  0% { background-size: 100% 1px; background-position: 100% var(--uy); }
+  50% { background-size: 0% 1px; background-position: 100% var(--uy); }
+  50.01% { background-size: 0% 1px; background-position: 0 var(--uy); }
+  100% { background-size: 100% 1px; background-position: 0 var(--uy); }
+}
+
+/* Link rows: siblings step back while one is hovered. */
+.links { display: flex; gap: 34px; list-style: none; flex-wrap: wrap; }
+.links a { display: inline-flex; align-items: baseline; gap: 8px; transition: opacity var(--dur-slow) var(--ease-out); }
+.links:hover a { opacity: 0.4; }
+.links a:hover, .links a:focus-visible, .links a[aria-current] { opacity: 1; }
+
+::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+
+/* Arriving by warp: hidden until warp.js takes over, so nothing flashes sharp first. */
+.warp-in [data-warp] { visibility: hidden; }
+.hint {
+  position: fixed; left: 0; top: 0; z-index: 30; pointer-events: none;
+  font: 700 12px/1 'Trebuchet MS', sans-serif; color: #04345f; letter-spacing: 0.02em;
+  padding: 8px 13px; border-radius: 999px;
+  background: linear-gradient(#ffffff 0%, #c9f3ff 48%, #79d5ff 52%, #b8f1ff 100%);
+  border: 1px solid rgb(255 255 255 / 0.9);
+  box-shadow: 0 5px 13px rgb(0 120 200 / 0.45), inset 0 -3px 6px rgb(0 140 220 / 0.35);
+  opacity: 0; transform: translate3d(-100px, -100px, 0) scale(0.6); transform-origin: 50% 100%; white-space: nowrap;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+.hint.on { opacity: 1; }
+
+@media (max-width: 699px) {
+  :root { --margin: 21px; }
+  .clock { display: none; }
+  .links { gap: 21px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 1ms !important; transition-delay: 0ms !important; animation: none !important; }
+  .js .line > span, .js .rise, .js .rule { transform: none; opacity: 1; }
+}

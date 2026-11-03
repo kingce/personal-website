@@ -1,0 +1,2020 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aero Playground ✦ Daniel King</title>
+<meta name="description" content="Little UI shots, microinteractions and happy accidents by Daniel King. Aero edition.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600&family=Silkscreen&display=swap" rel="stylesheet">
+<script>
+  document.documentElement.classList.add('js')
+  try { if (sessionStorage.getItem('dk-portal') === '1') document.documentElement.classList.add('arriving') } catch {}
+</script>
+<style>
+/* =====================================================================
+ * PLAYGROUND :: AERO EDITION
+ * Sky, meadow, sea. Glass, gel, bubbles. Everything bounces here: the
+ * minimal site keeps its manners, this page doesn't.
+ * ===================================================================== */
+:root {
+  --sky-0: #0b56b8; --sky-1: #2d96ee; --sky-2: #8ad6ff; --sky-3: #e7fbff;
+  --aqua: #19b6ff; --aqua-d: #0378d4; --navy: #04306a; --abyss: #021838;
+  --lime: #7fd321; --lime-l: #c8f56c; --grass: #43b02a;
+  --pink: #ff5fa8; --sun: #fff7b8; --orange: #ffad33;
+  --ink: #06305f; --ink-2: #2a6198;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-expo: cubic-bezier(0.87, 0, 0.13, 1);
+  /* Springs, as linear() curves: one settles, one wobbles like jelly. */
+  --spring: linear(0, 0.006, 0.025 2.8%, 0.101 6.1%, 0.539 18.9%, 0.721 25.3%, 0.849 31.5%, 0.937 38.1%, 0.968 41.8%, 0.991 45.7%, 1.006 50.1%, 1.015 55%, 1.017 63.9%, 1.001 85.9%, 1);
+  --jelly: linear(0, 0.157 2.6%, 0.6 6.9%, 1.022 11.2%, 1.248 14.3%, 1.32 16%, 1.334 17.6%, 1.272 20.8%, 1.069 26%, 0.947 29.7%, 0.889 32.9%, 0.884 35.8%, 0.922 39.3%, 1.03 46.4%, 1.059 50.3%, 1.064 53.3%, 1.05 57%, 0.989 64.8%, 0.98 69.8%, 0.996 79.6%, 1.006 87.1%, 1);
+
+  --display: 'Baloo 2', 'Trebuchet MS', sans-serif;
+  --body: 'Hind', 'Segoe UI', 'Trebuchet MS', sans-serif;
+  --px: 'Silkscreen', ui-monospace, monospace;
+
+  /* The dot cursor, reskinned in aqua glass. */
+  --dc-outline: #06305f; --dc-fill: #9fe6ff; --dc-lit: #f2ffff;
+  --dc-glow: rgb(90 225 255 / 0.95); --dc-shade: #06305f;
+  --dc-halo: rgb(140 235 255 / 0.95); --dc-halo-wide: rgb(60 190 255 / 0.75);
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  position: relative; overflow-x: hidden;
+  font: 400 16px/1.5 var(--body); color: var(--ink);
+  background: var(--sky-3); -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+button, input, textarea { font: inherit; color: inherit; }
+button { background: none; border: 0; }
+::selection { background: var(--lime-l); color: var(--ink); }
+:focus-visible { outline: 2px solid #fff; outline-offset: 3px; box-shadow: 0 0 0 5px var(--aqua); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.px { font-family: var(--px); font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+/* ---------- Glass and gel, the two materials ---------- */
+.glass {
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.62), rgb(255 255 255 / 0.24));
+  -webkit-backdrop-filter: blur(13px) saturate(170%); backdrop-filter: blur(13px) saturate(170%);
+  border: 1px solid rgb(255 255 255 / 0.85);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.95), inset 0 -1px 0 rgb(0 90 180 / 0.12),
+    0 21px 55px -13px rgb(0 70 160 / 0.45), 0 3px 8px rgb(0 70 160 / 0.16);
+}
+.gel {
+  --c1: #6dd6ff; --c2: #0a82df;
+  position: relative; isolation: isolate; overflow: hidden;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: 600 16px/1 var(--body); color: #fff; text-shadow: 0 1px 1px rgb(0 40 110 / 0.7), 0 0 8px rgb(0 50 130 / 0.45);
+  padding: 13px 26px 11px; border-radius: 999px; text-decoration: none; white-space: nowrap;
+  background: linear-gradient(180deg, var(--c1), var(--c2));
+  border: 1px solid rgb(0 50 130 / 0.3);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.75), inset 0 -8px 13px rgb(255 255 255 / 0.28), 0 5px 13px rgb(0 80 180 / 0.35);
+  transition: transform 377ms var(--spring), box-shadow 233ms var(--ease-out), filter 233ms var(--ease-out);
+}
+.gel::before {
+  content: ''; position: absolute; z-index: -1; left: 7%; right: 7%; top: 2px; height: 50%;
+  border-radius: 999px 999px 50% 50% / 999px 999px 8px 8px;
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.95), rgb(255 255 255 / 0.1));
+  pointer-events: none;
+}
+.gel::after { /* a sheen that sweeps across on hover */
+  content: ''; position: absolute; z-index: -1; inset: 0; pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.65) 50%, transparent 65%);
+  transform: translateX(-120%); transition: transform 610ms var(--ease-out);
+}
+.gel:hover { transform: translateY(-2px) scale(1.04); filter: saturate(1.15) brightness(1.05); }
+.gel:hover::after { transform: translateX(120%); }
+.gel:active { transform: translateY(1px) scale(0.96, 0.92); transition-duration: 89ms; }
+.gel.lime { --c1: #b5ee55; --c2: #2f9410; text-shadow: 0 1px 1px rgb(10 60 0 / 0.7), 0 0 8px rgb(20 80 0 / 0.5); }
+.gel.pink { --c1: #ff94c6; --c2: #d42f7d; text-shadow: 0 1px 1px rgb(110 0 50 / 0.6), 0 0 8px rgb(130 0 60 / 0.4); }
+.gel.sun { --c1: #ffe680; --c2: #ff9a1f; color: #5a2a00; text-shadow: 0 1px 0 rgb(255 255 255 / 0.6); }
+.gel.ghost { --c1: rgb(255 255 255 / 0.9); --c2: rgb(200 236 255 / 0.7); color: var(--ink); text-shadow: 0 1px 0 #fff; }
+.gel.sm { font-size: 13px; padding: 8px 16px 6px; }
+
+/* Chrome type for big headings. */
+.chrome {
+  font-family: var(--display); font-weight: 800; letter-spacing: -0.02em; line-height: 0.9;
+  background: linear-gradient(180deg, #ffffff 0%, #eafcff 28%, #78d6ff 49%, #0b86e0 51%, #3cc0ff 78%, #c5f4ff 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  -webkit-text-stroke: 1.5px rgb(255 255 255 / 0.95);
+  filter: drop-shadow(0 4px 0 rgb(4 70 160 / 0.55)) drop-shadow(0 13px 21px rgb(0 60 140 / 0.35));
+}
+.chrome.lime-c { background-image: linear-gradient(180deg, #fff 0%, #f2ffd8 28%, #b4ef5a 49%, #39a514 51%, #8de03d 78%, #e4ffc0 100%); filter: drop-shadow(0 4px 0 rgb(30 100 10 / 0.5)) drop-shadow(0 13px 21px rgb(20 90 10 / 0.3)); }
+
+/* =====================================================================
+ * Dock (fixed taskbar)
+ * ===================================================================== */
+.dock {
+  position: fixed; z-index: 800; left: 50%; top: 13px; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 8px; padding: 6px 13px 6px 6px; border-radius: 999px;
+  max-width: calc(100vw - 26px);
+}
+.start {
+  width: 44px; height: 44px; border-radius: 50%; flex: none; position: relative; overflow: hidden;
+  font: 800 16px/1 var(--display); color: #fff; text-shadow: 0 1px 2px rgb(0 60 0 / 0.6);
+  background: radial-gradient(circle at 50% 120%, #d6ff8a 0%, transparent 60%), linear-gradient(180deg, #9be84a, #2a9a0e);
+  border: 1px solid rgb(255 255 255 / 0.9);
+  box-shadow: inset 0 -4px 8px rgb(255 255 255 / 0.35), 0 3px 8px rgb(20 90 0 / 0.45), 0 0 0 3px rgb(255 255 255 / 0.35);
+  transition: transform 610ms var(--jelly), box-shadow 233ms var(--ease-out);
+}
+.start::before { content: ''; position: absolute; left: 13%; right: 13%; top: 3px; height: 45%; border-radius: 50%; background: linear-gradient(rgb(255 255 255 / 0.95), rgb(255 255 255 / 0.05)); }
+.start span { position: relative; }
+.start:hover { transform: scale(1.12) rotate(-8deg); box-shadow: inset 0 -4px 8px rgb(255 255 255 / 0.35), 0 3px 13px rgb(20 90 0 / 0.5), 0 0 21px 3px rgb(190 255 120 / 0.8); }
+.start[aria-expanded="true"] { transform: scale(0.94); }
+.dock-icons { display: flex; align-items: flex-end; gap: 5px; list-style: none; height: 44px; }
+.dock-icons a, .dock-icons button {
+  --m: 1; width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center;
+  font-size: 18px; text-decoration: none; position: relative;
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.95), rgb(205 238 255 / 0.75));
+  border: 1px solid rgb(255 255 255 / 0.95);
+  box-shadow: 0 3px 8px rgb(0 70 160 / 0.25), inset 0 -3px 5px rgb(0 120 220 / 0.12);
+  transform-origin: 50% 100%; transform: scale(var(--m)) translateY(calc((var(--m) - 1) * -8px));
+  transition: transform 233ms var(--ease-out);
+}
+.dock-icons .tip {
+  position: absolute; bottom: -26px; left: 50%; transform: translateX(-50%) translateY(-5px) scale(0.8); opacity: 0;
+  font: 600 11px/1 var(--body); white-space: nowrap; color: #fff; background: var(--navy); padding: 5px 8px 3px; border-radius: 999px;
+  transition: opacity 144ms var(--ease-out), transform 377ms var(--spring); pointer-events: none;
+}
+.dock-icons a:hover .tip, .dock-icons button:hover .tip, .dock-icons a:focus-visible .tip { opacity: 1; transform: translateX(-50%) scale(calc(1 / var(--m))); }
+.dock-sep { width: 1px; height: 26px; background: linear-gradient(transparent, rgb(255 255 255 / 0.9), transparent); margin-inline: 3px; }
+.dock-meta { display: flex; align-items: center; gap: 13px; color: var(--ink); white-space: nowrap; }
+.dock-pops { display: inline-flex; align-items: center; gap: 5px; }
+.dock-pops i { width: 13px; height: 13px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff 0 18%, rgb(150 225 255 / 0.6) 40%, rgb(0 140 230 / 0.6) 100%); border: 1px solid #fff; }
+.dock-pops b { font-weight: 400; display: inline-block; }
+.bump { animation: bump 610ms var(--jelly); }
+@keyframes bump { 0% { transform: scale(1.6); } 100% { transform: scale(1); } }
+
+/* Start menu */
+.menu {
+  position: fixed; z-index: 799; top: 72px; left: 50%; width: min(377px, calc(100vw - 26px));
+  border-radius: 18px; padding: 8px; overflow: hidden;
+  transform-origin: 0 0; translate: -50% 0;
+  opacity: 0; scale: 0.6; pointer-events: none; visibility: hidden;
+  transition: opacity 233ms var(--ease-out), scale 610ms var(--spring), visibility 0s 610ms;
+}
+.menu.open { opacity: 1; scale: 1; pointer-events: auto; visibility: visible; transition: opacity 233ms var(--ease-out), scale 610ms var(--spring), visibility 0s; }
+.menu-head { display: flex; align-items: center; gap: 13px; padding: 13px; border-radius: 13px; background: linear-gradient(180deg, #3fb6ff, #0a6fd0); color: #fff; margin-bottom: 8px; box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.6); }
+.menu-head .av { width: 44px; height: 44px; border-radius: 10px; flex: none; background: linear-gradient(135deg, #c8f56c, #19b6ff); border: 2px solid #fff; display: grid; place-items: center; font: 800 18px var(--display); color: #fff; text-shadow: 0 1px 2px rgb(0 0 0 / 0.3); }
+.menu-head b { display: block; font: 700 18px/1.1 var(--display); }
+.menu-head small { opacity: 0.85; font-size: 13px; }
+.menu ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+.menu li a, .menu li button {
+  display: flex; align-items: center; gap: 8px; width: 100%; padding: 8px 10px; border-radius: 10px; text-align: left;
+  font-size: 14px; font-weight: 500; text-decoration: none; color: var(--ink);
+  opacity: 0; transform: translateY(8px);
+  transition: background 144ms var(--ease-out), opacity 233ms var(--ease-out), transform 610ms var(--spring);
+}
+.menu.open li a, .menu.open li button { opacity: 1; transform: none; transition-delay: 0s, calc(var(--i) * 34ms), calc(var(--i) * 34ms); }
+.menu li a:hover, .menu li button:hover { background: linear-gradient(180deg, rgb(255 255 255 / 0.95), rgb(190 235 255 / 0.9)); box-shadow: 0 0 0 1px rgb(120 200 255 / 0.6) inset; }
+.menu li .ic { width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; font-size: 14px; background: linear-gradient(180deg, #fff, #d4f1ff); box-shadow: 0 1px 3px rgb(0 70 160 / 0.25); flex: none; }
+.menu-foot { display: flex; justify-content: space-between; align-items: center; padding: 8px 8px 3px; margin-top: 5px; border-top: 1px solid rgb(255 255 255 / 0.7); }
+
+/* =====================================================================
+ * Sky (hero)
+ * ===================================================================== */
+.sky {
+  position: relative; min-height: max(700px, 100svh); overflow: hidden; z-index: 1;
+  background:
+    radial-gradient(ellipse 60% 45% at 78% 18%, rgb(255 250 210 / 0.85), transparent 70%),
+    linear-gradient(180deg, var(--sky-0) 0%, var(--sky-1) 30%, var(--sky-2) 62%, var(--sky-3) 80%);
+  display: grid; place-items: center; text-align: center; padding: 120px 21px 200px;
+}
+.rays {
+  position: absolute; left: 78%; top: 18%; width: 1600px; height: 1600px; margin: -800px 0 0 -800px; pointer-events: none;
+  background: repeating-conic-gradient(rgb(255 255 255 / 0.16) 0 6deg, transparent 6deg 18deg);
+  -webkit-mask: radial-gradient(circle, #000 0%, transparent 55%); mask: radial-gradient(circle, #000 0%, transparent 55%);
+  animation: spin 89s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.sun {
+  position: absolute; left: 78%; top: 18%; width: 144px; height: 144px; margin: -72px 0 0 -72px; border-radius: 50%; z-index: 2;
+  background: radial-gradient(circle at 45% 40%, #fff 0%, #fffbe0 35%, var(--sun) 60%, #ffd76a 100%);
+  box-shadow: 0 0 55px 21px rgb(255 245 190 / 0.9), 0 0 144px 55px rgb(255 240 170 / 0.5);
+  transition: transform 610ms var(--jelly);
+}
+.sun:hover { transform: scale(1.08); }
+.sun:active { transform: scale(0.92); transition-duration: 89ms; }
+.shades { position: absolute; left: 14%; top: 34%; width: 72%; opacity: 0; transform: translateY(-34px) rotate(-12deg); transition: opacity 233ms, transform 987ms var(--jelly); pointer-events: none; }
+.sun.cool .shades { opacity: 1; transform: none; }
+.sun.cool { box-shadow: 0 0 89px 34px rgb(255 235 150 / 1), 0 0 233px 89px rgb(255 220 120 / 0.6); }
+.flare { position: absolute; inset: 0; pointer-events: none; z-index: 3; mix-blend-mode: screen; }
+.flare i { position: absolute; left: 0; top: 0; border-radius: 50%; transform: translate(-50%, -50%); will-change: left, top; }
+
+.clouds { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.cloud { position: absolute; width: var(--w); top: var(--t); left: 0; animation: drift var(--s) linear infinite; animation-delay: var(--dl); }
+.cloud > div { transition: transform 1597ms var(--ease-out); }
+.cloud svg { width: 100%; height: auto; display: block; filter: drop-shadow(0 13px 21px rgb(0 80 170 / 0.25)); }
+@keyframes drift { from { transform: translateX(-40vw); } to { transform: translateX(120vw); } }
+
+.hero { position: relative; z-index: 4; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 13px 4px; border-radius: 999px; margin-bottom: 21px; color: var(--ink); }
+.hero-eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 3px rgb(127 211 33 / 0.3); animation: blink 1597ms ease-in-out infinite; }
+@keyframes blink { 50% { box-shadow: 0 0 0 7px rgb(127 211 33 / 0); } }
+.word { font-size: clamp(64px, 14vw, 220px); display: flex; justify-content: center; flex-wrap: wrap; user-select: none; }
+.word .ch { display: inline-block; cursor: pointer; transform-origin: 50% 90%; }
+.word .ch.wob { animation: wob 890ms var(--ease-out); }
+@keyframes wob {
+  0% { transform: scale(1, 1); } 15% { transform: scale(1.25, 0.78); } 30% { transform: scale(0.82, 1.2) translateY(-8%); }
+  45% { transform: scale(1.12, 0.9); } 60% { transform: scale(0.95, 1.05); } 75% { transform: scale(1.03, 0.98); } 100% { transform: scale(1, 1); }
+}
+.word .ch.popped { visibility: hidden; }
+.badge {
+  position: absolute; right: -5%; top: -13%; width: clamp(89px, 11vw, 144px); aspect-ratio: 1; z-index: 2;
+  display: grid; place-items: center; transform: rotate(12deg);
+  animation: badge 8s linear infinite; cursor: pointer;
+}
+.badge svg { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 5px 8px rgb(150 60 0 / 0.35)); }
+.badge span { position: relative; font: 800 clamp(13px, 1.5vw, 18px)/0.95 var(--display); color: #6a2500; text-shadow: 0 1px 0 rgb(255 255 255 / 0.7); transform: rotate(-12deg); }
+@keyframes badge { 0%, 100% { transform: rotate(12deg) scale(1); } 50% { transform: rotate(18deg) scale(1.08); } }
+.hero-sub { margin: 21px auto 0; max-width: 34rem; padding: 13px 21px 11px; border-radius: 999px; font-size: clamp(16px, 1.6vw, 19px); color: var(--ink); }
+.hero-sub b { font-weight: 600; }
+.hero-cta { margin-top: 34px; display: flex; justify-content: center; gap: 13px; flex-wrap: wrap; }
+.scroll-cue { position: absolute; z-index: 4; left: 50%; bottom: 34px; translate: -50% 0; display: grid; place-items: center; gap: 5px; color: #fff; text-decoration: none; text-shadow: 0 1px 2px rgb(0 60 0 / 0.5); }
+.scroll-cue .bub { width: 34px; height: 34px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff 0 15%, rgb(200 245 255 / 0.5) 35%, rgb(0 150 240 / 0.35) 100%); border: 1px solid #fff; display: grid; place-items: center; font-size: 14px; animation: float 2584ms ease-in-out infinite; }
+@keyframes float { 50% { transform: translateY(-8px); } }
+
+.hills { position: absolute; left: 0; right: 0; bottom: -1px; height: clamp(160px, 28vh, 300px); z-index: 3; pointer-events: none; }
+.hills svg { width: 100%; height: 100%; display: block; }
+.flowers { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
+.flower { position: absolute; bottom: var(--b); left: var(--l); width: 21px; height: 21px; pointer-events: auto; cursor: pointer; transform-origin: 50% 100%; animation: sway 3s ease-in-out infinite; animation-delay: var(--dl); }
+.flower svg { width: 100%; height: 100%; display: block; }
+@keyframes sway { 50% { transform: rotate(8deg); } }
+.flower.boop { animation: boop 890ms var(--ease-out); }
+@keyframes boop { 0% { transform: scale(1); } 20% { transform: scale(1.8) rotate(-20deg); } 100% { transform: scale(1); } }
+
+/* =====================================================================
+ * Shelf: the shots
+ * ===================================================================== */
+.shelf {
+  position: relative; z-index: 1; padding: 34px 21px 144px;
+  background: linear-gradient(180deg, #5cc12f 0%, #9ae553 5%, #dcf9b0 14%, #eefbe6 22%, #e3f8ff 45%, #b9ecff 80%, #8fdcff 100%);
+}
+.swoosh { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.swoosh svg { position: absolute; width: 140%; left: -20%; }
+.swoosh path { fill: none; stroke-linecap: round; }
+.swoosh .s1 { top: 18%; animation: swoosh 21s ease-in-out infinite; }
+.swoosh .s2 { top: 52%; animation: swoosh 34s ease-in-out infinite reverse; }
+@keyframes swoosh { 50% { transform: translateX(5%) translateY(-21px) scaleY(1.1); } }
+.bokeh { position: absolute; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, rgb(255 255 255 / 0.8), rgb(255 255 255 / 0) 70%); animation: float var(--s) ease-in-out infinite; }
+
+.shelf-head { position: relative; max-width: 1280px; margin: 0 auto 55px; display: flex; justify-content: space-between; align-items: end; gap: 21px; flex-wrap: wrap; }
+.shelf-head h2 { font-size: clamp(44px, 7vw, 96px); }
+.shelf-head p { max-width: 26rem; color: var(--ink-2); }
+.legend { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 13px; }
+.chip { font: 600 12px/1 var(--body); padding: 6px 10px 4px; border-radius: 999px; background: rgb(255 255 255 / 0.7); border: 1px solid #fff; color: var(--ink-2); box-shadow: 0 2px 5px rgb(0 70 160 / 0.12); }
+
+.grid { position: relative; max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 34px 26px; }
+.slot { --span: 4; grid-column: span var(--span); position: relative; animation: bob var(--bob, 6s) ease-in-out infinite; animation-delay: var(--bd, 0s); }
+@keyframes bob { 50% { transform: translateY(-8px); } }
+.slot.zoomed, .slot.dragging { animation-play-state: paused; z-index: 600; }
+.slot.zoomed { animation: none; }
+
+/* Entrance: windows pop up from the grass with a spring. */
+.js .slot .win { opacity: 0; transform: translateY(55px) scale(0.85); }
+.js .slot.in .win { opacity: 1; transform: none; transition: opacity 377ms var(--ease-out), transform 987ms var(--jelly); transition-delay: calc(var(--k, 0) * 89ms); }
+
+.win {
+  position: relative; height: 100%; display: flex; flex-direction: column; border-radius: 16px; overflow: hidden;
+}
+.win-bar {
+  height: 36px; flex: none; display: flex; align-items: center; gap: 8px; padding: 0 8px 0 10px;
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.95) 0%, rgb(225 246 255 / 0.75) 48%, rgb(150 214 255 / 0.55) 52%, rgb(205 240 255 / 0.6) 100%);
+  border-bottom: 1px solid rgb(255 255 255 / 0.8); cursor: grab; touch-action: none; user-select: none;
+}
+.dragging .win-bar { cursor: grabbing; }
+.win-ic { width: 20px; height: 20px; border-radius: 6px; display: grid; place-items: center; font-size: 12px; background: linear-gradient(180deg, var(--ic1, #8be0ff), var(--ic2, #0a8be0)); color: #fff; box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.7), 0 1px 2px rgb(0 60 140 / 0.3); flex: none; }
+.win-title { flex: 1; font: 600 14px/1 var(--body); color: var(--ink); text-shadow: 0 1px 0 #fff; padding-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.win-n { color: var(--ink-2); }
+.win-btns { display: flex; gap: 5px; }
+.ob {
+  --o1: #fff2a0; --o2: #f0b400; width: 17px; height: 17px; border-radius: 50%; position: relative; display: grid; place-items: center;
+  background: radial-gradient(circle at 50% 28%, rgb(255 255 255 / 0.95) 0 18%, transparent 45%), linear-gradient(180deg, var(--o1), var(--o2));
+  border: 1px solid rgb(255 255 255 / 0.9); box-shadow: inset 0 -2px 3px rgb(0 0 0 / 0.12), 0 1px 2px rgb(0 40 100 / 0.35);
+  font: 700 10px/1 var(--body); color: rgb(0 0 0 / 0); transition: transform 377ms var(--jelly), color 144ms;
+}
+.win-btns:hover .ob { color: rgb(0 30 60 / 0.6); }
+.ob:hover { transform: scale(1.25); }
+.ob.zoom { --o1: #b8f2ff; --o2: #13a4ef; }
+.ob.close { --o1: #ffc0dc; --o2: #f0418f; }
+.win-body { flex: 1; position: relative; display: grid; place-items: center; padding: 21px; min-height: 233px; }
+.win-foot { flex: none; display: flex; justify-content: space-between; gap: 8px; padding: 8px 13px 6px; color: var(--ink-2); border-top: 1px solid rgb(255 255 255 / 0.6); background: rgb(255 255 255 / 0.3); }
+.win.nope { animation: nope 610ms var(--ease-out); }
+@keyframes nope { 15%, 45%, 75% { transform: translateX(-8px) rotate(-1deg); } 30%, 60%, 90% { transform: translateX(8px) rotate(1deg); } }
+
+/* Minimised: the slot keeps its place as a dashed outline. */
+.nap {
+  position: absolute; inset: 0; border-radius: 16px; border: 2px dashed rgb(255 255 255 / 0.95);
+  display: grid; place-items: center; color: var(--ink-2); font: 600 14px var(--body); background: rgb(255 255 255 / 0.18);
+  opacity: 0; pointer-events: none; transition: opacity 377ms var(--ease-out);
+}
+.slot.min .nap { opacity: 1; pointer-events: auto; cursor: pointer; }
+.slot.min .win { visibility: hidden; }
+
+.tray { position: fixed; z-index: 700; left: 13px; bottom: 13px; display: flex; gap: 8px; flex-wrap: wrap; max-width: calc(100vw - 26px); pointer-events: none; }
+.tray .gel { pointer-events: auto; }
+
+.zoom-scrim { position: fixed; inset: 0; z-index: 590; background: radial-gradient(circle at 50% 40%, rgb(255 255 255 / 0.35), rgb(4 48 106 / 0.55)); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); opacity: 0; pointer-events: none; transition: opacity 377ms var(--ease-out); }
+.zoom-scrim.on { opacity: 1; pointer-events: auto; }
+/* The shelf is its own stack; lift it over the sea and sky while zoomed. */
+body.zooming .shelf { z-index: 650; }
+.slot.zoomed .win { position: fixed; z-index: 610; left: 50%; top: 50%; width: min(760px, calc(100vw - 34px)); height: min(560px, calc(100svh - 120px)); margin: 0; translate: -50% -50%; }
+
+/* ---------- S.01 Gel switch ---------- */
+.sw { width: 110px; height: 54px; border-radius: 999px; position: relative; padding: 0;
+  background: linear-gradient(180deg, #b9c9d9, #e6eef5); border: 1px solid rgb(255 255 255 / 0.9);
+  box-shadow: inset 0 4px 8px rgb(0 40 90 / 0.3), inset 0 -2px 3px rgb(255 255 255 / 0.9), 0 2px 0 #fff;
+  transition: background 377ms var(--ease-out);
+}
+.sw::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(180deg, #c3f565, #39a514); opacity: 0; transition: opacity 377ms var(--ease-out); box-shadow: inset 0 4px 8px rgb(20 80 0 / 0.35); }
+.sw[aria-checked="true"]::before { opacity: 1; }
+.sw .knob { position: absolute; left: 5px; top: 5px; width: 44px; height: 44px; transition: translate 610ms var(--jelly); }
+.sw[aria-checked="true"] .knob { translate: 56px 0; }
+.sw .knob i { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 50% 25%, #fff 0 20%, transparent 50%), linear-gradient(180deg, #ffffff, #cfe9fb); border: 1px solid #fff; box-shadow: 0 4px 8px rgb(0 50 110 / 0.35), inset 0 -4px 6px rgb(0 110 200 / 0.18); }
+.sw-label { margin-top: 21px; text-align: center; }
+.sw-state { display: inline-block; height: 1.3em; overflow: hidden; vertical-align: bottom; }
+.sw-state span { display: block; transition: transform 610ms var(--jelly); }
+.sw-wrap.on .sw-state span { transform: translateY(-100%); }
+
+/* ---------- S.02 Jelly button ---------- */
+.jb-wrap { display: grid; place-items: center; gap: 21px; text-align: center; }
+.jb { font-size: 21px; padding: 21px 44px 18px; touch-action: manipulation; }
+.jb .count {
+  position: absolute; z-index: 2; right: -4px; top: -6px; min-width: 26px; height: 26px; padding: 0 6px; border-radius: 999px;
+  font: 700 13px/26px var(--body); color: #fff; background: linear-gradient(180deg, #ff8fc4, #e23d8b); border: 2px solid #fff;
+  box-shadow: 0 2px 5px rgb(150 0 70 / 0.4); text-shadow: none;
+}
+.jb-host { position: relative; }
+.jb-msg { min-height: 1.5em; color: var(--ink-2); font-weight: 500; }
+.jb.gone { visibility: hidden; }
+
+/* ---------- S.03 Vial slider ---------- */
+.vial-wrap { display: flex; align-items: center; gap: 26px; }
+.vial {
+  position: relative; width: 72px; height: 233px; border-radius: 36px 36px 30px 30px; overflow: hidden; touch-action: none;
+  background: linear-gradient(90deg, rgb(255 255 255 / 0.5), rgb(255 255 255 / 0.15) 40%, rgb(255 255 255 / 0.55));
+  border: 2px solid rgb(255 255 255 / 0.95); box-shadow: 0 8px 21px rgb(0 70 160 / 0.3), inset 0 0 13px rgb(255 255 255 / 0.8);
+}
+.vial .water { position: absolute; left: 0; right: 0; bottom: 0; height: 60%; background: linear-gradient(90deg, #0a8ae0, #3cc6ff 45%, #0a8ae0); }
+.vial .water svg { position: absolute; left: 0; bottom: 100%; width: 100%; height: 13px; margin-bottom: -1px; display: block; }
+.vial .shine { position: absolute; left: 10px; top: 13px; bottom: 13px; width: 8px; border-radius: 8px; background: linear-gradient(rgb(255 255 255 / 0.9), rgb(255 255 255 / 0.1)); pointer-events: none; z-index: 2; }
+.vial .vb { position: absolute; bottom: 0; width: var(--sz); height: var(--sz); border-radius: 50%; border: 1px solid rgb(255 255 255 / 0.8); background: rgb(255 255 255 / 0.25); animation: rise var(--s) ease-in infinite; animation-delay: var(--dl); left: var(--x); }
+@keyframes rise { from { transform: translateY(0); opacity: 0; } 10% { opacity: 1; } to { transform: translateY(var(--h, -140px)); opacity: 0; } }
+.ticks { display: flex; flex-direction: column; justify-content: space-between; height: 233px; color: var(--ink-2); }
+.vol-read { font: 800 44px/1 var(--display); color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* ---------- S.04 Installer ---------- */
+.inst { width: 100%; max-width: 400px; }
+.inst-top { display: flex; gap: 13px; align-items: center; margin-bottom: 13px; }
+.inst-icon { width: 55px; height: 55px; flex: none; border-radius: 13px; display: grid; place-items: center; font-size: 28px; background: linear-gradient(135deg, #fff1a6, #ffad33); box-shadow: inset 0 1px 0 #fff, 0 3px 8px rgb(160 80 0 / 0.35); }
+.inst-icon.spin { animation: spin 1.6s linear infinite; }
+.inst-top b { display: block; font: 700 19px/1.1 var(--display); }
+.inst-top small { color: var(--ink-2); }
+.bar { height: 26px; border-radius: 8px; padding: 3px; background: linear-gradient(180deg, #e8f3fb, #fff); border: 1px solid #a7cbe6; box-shadow: inset 0 2px 4px rgb(0 50 110 / 0.2); overflow: hidden; }
+.bar-fill { height: 100%; width: 0%; border-radius: 5px; position: relative; overflow: hidden;
+  background: repeating-linear-gradient(90deg, transparent 0 13px, rgb(255 255 255 / 0.8) 13px 15px), linear-gradient(180deg, #a6f15a 0%, #5cc41f 50%, #3aa515 51%, #82dc3f 100%);
+  transition: width 377ms var(--ease-out);
+}
+.bar-fill::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.85), transparent); width: 40%; animation: shimmer 1.4s var(--ease-in-out) infinite; }
+@keyframes shimmer { from { transform: translateX(-100%); } to { transform: translateX(260%); } }
+.inst-status { display: flex; justify-content: space-between; margin: 8px 0 13px; font-size: 14px; color: var(--ink-2); min-height: 1.5em; }
+.inst-btns { display: flex; gap: 8px; justify-content: flex-end; }
+
+/* ---------- S.05 Aquarium ---------- */
+.tank { position: absolute; inset: 0; }
+.tank canvas { width: 100%; height: 100%; display: block; }
+.tank::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, rgb(255 255 255 / 0.35) 0 12%, transparent 12% 18%, rgb(255 255 255 / 0.18) 18% 21%, transparent 21%); }
+.tank-hint { position: absolute; z-index: 1; top: 13px; left: 13px; color: #fff; text-shadow: 0 1px 2px rgb(0 40 100 / 0.6); pointer-events: none; }
+
+/* ---------- S.06 Disc player ---------- */
+.player { display: flex; align-items: center; gap: 26px; width: 100%; justify-content: center; flex-wrap: wrap; }
+.disc {
+  width: 178px; height: 178px; border-radius: 50%; position: relative; flex: none; touch-action: none; cursor: grab;
+  background:
+    radial-gradient(circle, #e9f6ff 0 13%, rgb(255 255 255 / 0) 13.5%),
+    radial-gradient(circle, transparent 0 15%, rgb(255 255 255 / 0.9) 15.5% 17%, transparent 17.5%),
+    conic-gradient(from 30deg, #e8f7ff, #ffd6f0, #d7ffe0, #fff6c8, #c9e9ff, #f3d4ff, #d4fff7, #e8f7ff);
+  box-shadow: 0 8px 21px rgb(0 60 140 / 0.35), inset 0 0 0 2px rgb(255 255 255 / 0.9), inset 0 0 21px rgb(0 80 160 / 0.15);
+}
+.disc::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: repeating-radial-gradient(circle, transparent 0 2px, rgb(255 255 255 / 0.18) 2px 3px); }
+.disc::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, transparent 0 40deg, rgb(255 255 255 / 0.75) 50deg, transparent 70deg 220deg, rgb(255 255 255 / 0.55) 230deg, transparent 250deg); }
+.disc .hole { position: absolute; left: 50%; top: 50%; width: 21px; height: 21px; margin: -10.5px; border-radius: 50%; background: rgb(150 210 245 / 0.7); box-shadow: inset 0 2px 4px rgb(0 50 110 / 0.4); z-index: 1; }
+.disc .lbl { position: absolute; z-index: 1; left: 50%; top: 28%; translate: -50% 0; font: 800 13px var(--display); color: var(--ink-2); opacity: 0.7; }
+.deck { display: grid; gap: 13px; min-width: 178px; }
+.lcd { border-radius: 8px; padding: 8px 10px 6px; background: linear-gradient(180deg, #c8f5ff, #e9fdff); border: 1px solid #8fc7e6; box-shadow: inset 0 2px 5px rgb(0 70 140 / 0.25); color: #04508f; overflow: hidden; white-space: nowrap; }
+.lcd .scroll { display: inline-block; animation: tick 8s linear infinite; }
+@keyframes tick { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+.eq { display: flex; align-items: flex-end; gap: 3px; height: 55px; }
+.eq i { flex: 1; height: 100%; border-radius: 3px; transform-origin: 50% 100%; transform: scaleY(0.06); background: linear-gradient(0deg, #3aa515, #a6f15a 55%, #ffe066 80%, #ff7a3c); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.6); }
+.deck-btns { display: flex; gap: 8px; }
+.play-btn { width: 55px; height: 55px; padding: 0; font-size: 21px; }
+
+/* ---------- S.07 Bubble wrap ---------- */
+.wrap-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; width: 100%; max-width: 420px; padding: 13px; border-radius: 13px; background: rgb(255 255 255 / 0.35); border: 1px solid rgb(255 255 255 / 0.9); touch-action: none; }
+.bw { aspect-ratio: 1; border-radius: 50%; padding: 0;
+  background: radial-gradient(circle at 35% 30%, #fff 0 14%, rgb(220 245 255 / 0.6) 30%, rgb(140 210 255 / 0.45) 75%, rgb(255 255 255 / 0.7) 100%);
+  border: 1px solid rgb(255 255 255 / 0.95); box-shadow: 0 3px 6px rgb(0 70 160 / 0.25), inset 0 -3px 5px rgb(0 120 220 / 0.2);
+  transition: transform 233ms var(--ease-out);
+}
+.bw:hover { transform: scale(1.08); }
+.bw.pop { background: radial-gradient(circle, rgb(255 255 255 / 0.25), rgb(180 220 245 / 0.25)); box-shadow: inset 0 2px 4px rgb(0 70 160 / 0.2); transform: scale(0.82); border-style: dashed; }
+.bw.refill { animation: inflate 890ms var(--jelly) both; animation-delay: calc(var(--k) * 21ms); }
+@keyframes inflate { from { transform: scale(0.3); } to { transform: scale(1); } }
+.wrap-meta { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 420px; margin-top: 13px; }
+
+/* ---------- S.08 Snow globe ---------- */
+.globe-wrap { display: grid; place-items: center; touch-action: none; }
+.globe { position: relative; width: 178px; height: 178px; border-radius: 50%; overflow: hidden; cursor: grab; z-index: 1;
+  background: radial-gradient(circle at 50% 110%, #5bd0ff 0%, #a9e9ff 45%, #e9fbff 75%);
+  box-shadow: inset 0 -13px 26px rgb(0 100 200 / 0.35), inset 0 8px 21px rgb(255 255 255 / 0.9), 0 8px 21px rgb(0 60 140 / 0.25);
+}
+.globe::after { content: ''; position: absolute; left: 16%; top: 8%; width: 40%; height: 26%; border-radius: 50%; background: linear-gradient(rgb(255 255 255 / 0.95), rgb(255 255 255 / 0)); transform: rotate(-25deg); pointer-events: none; z-index: 3; }
+.globe svg { position: absolute; left: 0; bottom: 0; width: 100%; z-index: 1; }
+.globe canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; }
+.globe-base { width: 144px; height: 34px; margin-top: -13px; border-radius: 8px 8px 21px 21px / 8px 8px 21px 21px; background: linear-gradient(180deg, #c3f565, #39a514); box-shadow: inset 0 2px 0 rgb(255 255 255 / 0.7), 0 5px 13px rgb(20 90 0 / 0.35); display: grid; place-items: center; color: #fff; text-shadow: 0 1px 1px rgb(0 60 0 / 0.6); }
+
+/* ---------- S.09 Buddy chat ---------- */
+.chat { width: 100%; height: 100%; display: flex; flex-direction: column; gap: 8px; align-self: stretch; }
+.buddy { display: flex; gap: 10px; align-items: center; padding: 8px; border-radius: 10px; background: rgb(255 255 255 / 0.55); border: 1px solid #fff; }
+.buddy .av { width: 40px; height: 40px; border-radius: 10px; flex: none; position: relative; background: linear-gradient(135deg, #c8f56c, #19b6ff); border: 2px solid #fff; box-shadow: 0 2px 5px rgb(0 70 160 / 0.3); display: grid; place-items: center; font-size: 21px; }
+.buddy .av::after { content: ''; position: absolute; right: -4px; bottom: -4px; width: 13px; height: 13px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #e9ffc8, #4cbb17); border: 2px solid #fff; }
+.buddy b { display: block; font-weight: 600; line-height: 1.2; }
+.buddy small { color: var(--ink-2); font-style: italic; }
+.log { flex: 1; min-height: 144px; max-height: 210px; overflow-y: auto; padding: 8px 10px; border-radius: 10px; background: #fff; border: 1px solid #b6d8ee; font-size: 14px; line-height: 1.45; box-shadow: inset 0 2px 4px rgb(0 50 110 / 0.1); }
+.log p { animation: msgin 377ms var(--spring) both; }
+@keyframes msgin { from { opacity: 0; transform: translateY(8px); } }
+.log .me { color: #0b5fb5; } .log .dk { color: #2b8a10; } .log .sys { color: #9a4fb0; font-style: italic; }
+.log .who { font-weight: 600; }
+.typing { height: 1.4em; font-size: 13px; color: var(--ink-2); font-style: italic; }
+.compose { display: flex; gap: 8px; }
+.compose input { flex: 1; min-width: 0; padding: 8px 13px 6px; border-radius: 999px; border: 1px solid #a7cbe6; background: #fff; box-shadow: inset 0 2px 3px rgb(0 50 110 / 0.12); outline: none; }
+.compose input:focus { border-color: var(--aqua); box-shadow: inset 0 2px 3px rgb(0 50 110 / 0.12), 0 0 0 3px rgb(25 182 255 / 0.3); }
+body.nudged { animation: nudge 610ms linear; }
+@keyframes nudge { 10%, 50%, 90% { transform: translate(-13px, 5px); } 30%, 70% { transform: translate(13px, -5px); } 20%, 60% { transform: translate(5px, 8px); } 40%, 80% { transform: translate(-5px, -8px); } }
+
+/* ---------- S.10 Stickers ---------- */
+.sheet { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; padding: 13px; border-radius: 13px; background: repeating-linear-gradient(45deg, rgb(255 255 255 / 0.6) 0 8px, rgb(255 255 255 / 0.35) 8px 16px); border: 2px dashed rgb(255 255 255 / 0.95); }
+.stk { width: 55px; height: 55px; touch-action: none; cursor: grab; transition: transform 377ms var(--jelly); }
+.stk:hover { transform: scale(1.15) rotate(-8deg); }
+.stk svg, .placed svg, .flying svg { width: 100%; height: 100%; display: block; filter: drop-shadow(0 3px 3px rgb(0 50 110 / 0.3)); pointer-events: none; }
+.stickers { position: absolute; left: 0; top: 0; width: 100%; height: 0; z-index: 500; }
+.placed { position: absolute; width: 72px; height: 72px; margin: -36px 0 0 -36px; touch-action: none; cursor: grab; rotate: var(--r); }
+.placed.slap { animation: slap 610ms var(--jelly); }
+@keyframes slap { from { transform: scale(1.6); } to { transform: scale(1); } }
+.placed.peel { animation: peel 610ms var(--ease-in-out) forwards; }
+@keyframes peel { to { transform: rotate(40deg) scale(0.2) translateY(-89px); opacity: 0; } }
+.flying { position: fixed; left: 0; top: 0; z-index: 900; width: 72px; height: 72px; margin: -36px 0 0 -36px; pointer-events: none; transform: scale(1.2) rotate(-10deg); filter: drop-shadow(0 13px 13px rgb(0 50 110 / 0.35)); }
+
+/* =====================================================================
+ * Marquee strip
+ * ===================================================================== */
+.marquee { position: relative; z-index: 2; overflow: hidden; white-space: nowrap; padding: 10px 0 8px; color: #fff;
+  background: linear-gradient(180deg, #ffd65a, #ff9a1f 50%, #f07d00 51%, #ffb84d);
+  border-block: 2px solid #fff; box-shadow: 0 5px 21px rgb(160 80 0 / 0.3); text-shadow: 0 1px 1px rgb(120 50 0 / 0.6);
+  font: 800 18px/1 var(--display); transform: rotate(-1.5deg) scale(1.02); margin-block: -21px;
+}
+.marquee .track { display: inline-flex; gap: 34px; animation: marquee 34s linear infinite; padding-right: 34px; }
+.marquee:hover .track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* =====================================================================
+ * Sea
+ * ===================================================================== */
+.sea { position: relative; z-index: 1; color: #fff; padding: 144px 21px 0; overflow: hidden;
+  background: linear-gradient(180deg, #46c4ff 0%, #0b86dc 18%, #0558b0 45%, #04306a 75%, var(--abyss) 100%);
+}
+.surface { position: absolute; left: 0; right: 0; top: -1px; height: 89px; pointer-events: none; }
+.surface svg { position: absolute; width: 200%; height: 100%; animation: wave 13s linear infinite; }
+.surface svg + svg { animation-duration: 21s; animation-direction: reverse; opacity: 0.55; }
+@keyframes wave { to { transform: translateX(-50%); } }
+.beams { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.beams i { position: absolute; top: -10%; width: 89px; height: 120%; left: var(--l); transform-origin: 50% 0; transform: rotate(var(--a)); background: linear-gradient(180deg, rgb(255 255 255 / 0.35), rgb(255 255 255 / 0)); filter: blur(8px); animation: beam var(--s) ease-in-out infinite alternate; }
+@keyframes beam { to { transform: rotate(calc(var(--a) * -1)); opacity: 0.4; } }
+.sea-in { position: relative; max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 34px 26px; }
+.sea-head { grid-column: 1 / -1; text-align: center; }
+.sea-head h2 { font-size: clamp(44px, 7vw, 96px); }
+.sea-head p { color: #cdeeff; margin-top: 8px; }
+
+.panel { border-radius: 18px; padding: 21px; color: var(--ink); }
+.guest { grid-column: 1 / 8; }
+.counter-box { grid-column: 8 / 13; display: grid; gap: 21px; align-content: start; }
+.panel h3 { font: 800 26px/1 var(--display); margin-bottom: 13px; display: flex; align-items: center; gap: 8px; }
+.gb-form { display: grid; grid-template-columns: 1fr 2fr auto; gap: 8px; }
+.gb-form input { min-width: 0; padding: 8px 13px 6px; border-radius: 999px; border: 1px solid #a7cbe6; background: #fff; outline: none; }
+.gb-form input:focus { border-color: var(--aqua); box-shadow: 0 0 0 3px rgb(25 182 255 / 0.3); }
+.gb-list { list-style: none; margin-top: 13px; max-height: 233px; overflow-y: auto; display: grid; gap: 8px; }
+.gb-list li { padding: 10px 13px 8px; border-radius: 13px; background: rgb(255 255 255 / 0.75); border: 1px solid #fff; animation: msgin 610ms var(--jelly) both; }
+.gb-list b { font-weight: 600; }
+.gb-list time { float: right; color: var(--ink-2); }
+.gb-note { margin-top: 8px; color: var(--ink-2); font-size: 13px; }
+
+.odo { display: flex; gap: 5px; justify-content: center; margin: 8px 0; }
+.odo > span { width: 34px; height: 48px; border-radius: 6px; overflow: hidden; position: relative; background: linear-gradient(180deg, #1a2a44, #050c1a 50%, #1a2a44); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.25), 0 3px 6px rgb(0 0 0 / 0.3); }
+.odo > span::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgb(0 0 0 / 0.6); }
+.odo .reel { display: flex; flex-direction: column; transition: transform 1597ms var(--ease-expo); }
+.odo .reel b { height: 48px; display: grid; place-items: center; font: 800 28px/1 var(--display); color: #b8ff6a; text-shadow: 0 0 8px rgb(160 255 80 / 0.8); }
+.center { text-align: center; }
+
+.seabed { position: relative; grid-column: 1 / -1; height: 320px; margin-top: 55px; }
+.sand { position: absolute; left: -50vw; right: -50vw; bottom: 0; height: 120px; background: radial-gradient(ellipse 60% 100% at 50% 100%, #f6e3a8, #d9b96a 60%, #a88a45); border-radius: 50% 50% 0 0 / 40px 40px 0 0; }
+.weed { position: absolute; bottom: 70px; width: 34px; transform-origin: 50% 100%; animation: sway 4s ease-in-out infinite; animation-delay: var(--dl); left: var(--l); }
+.weed svg { display: block; width: 100%; height: auto; }
+.chest { position: absolute; left: 50%; bottom: 55px; width: 144px; translate: -50% 0; cursor: pointer; padding: 0; }
+.chest svg { width: 100%; height: auto; overflow: visible; display: block; filter: drop-shadow(0 8px 13px rgb(0 0 0 / 0.4)); }
+.chest .lid { transform-origin: 10px 52px; transition: transform 987ms var(--jelly); }
+.chest.open .lid { transform: rotate(-38deg); }
+.chest .glow { opacity: 0; transition: opacity 610ms var(--ease-out); }
+.chest.open .glow { opacity: 1; }
+.chest:hover:not(.open) svg { animation: rattle 610ms var(--ease-out); }
+@keyframes rattle { 20% { transform: rotate(-4deg); } 40% { transform: rotate(4deg); } 60% { transform: rotate(-2deg); } 80% { transform: rotate(1deg); } }
+.treasure { position: absolute; left: 50%; bottom: 220px; translate: -50% 0; text-align: center; width: min(400px, 90vw); opacity: 0; transform: translateY(21px) scale(0.8); pointer-events: none; transition: opacity 377ms var(--ease-out), transform 987ms var(--jelly); }
+.treasure.on { opacity: 1; transform: none; pointer-events: auto; }
+.treasure .panel { padding: 13px 21px; }
+
+.sea-foot { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 13px; flex-wrap: wrap; padding: 21px 0 34px; color: #cdeeff; }
+.surface-btn { display: inline-flex; align-items: center; gap: 8px; }
+
+/* Depth meter */
+.depth { position: fixed; z-index: 700; right: 13px; top: 50%; translate: 0 -50%; width: 44px; height: 233px; border-radius: 999px; padding: 8px 0; display: flex; flex-direction: column; align-items: center; justify-content: space-between; color: var(--ink);
+  opacity: 0; transform: translateX(34px); transition: opacity 377ms var(--ease-out), transform 610ms var(--spring); pointer-events: none; }
+.depth.on { opacity: 1; transform: none; }
+.depth .rail { position: relative; flex: 1; width: 6px; margin: 8px 0; border-radius: 6px; background: linear-gradient(#bdefff, #04306a); }
+.depth .rail i { position: absolute; left: 50%; top: var(--p, 0%); width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff 0 18%, rgb(150 225 255 / 0.7) 45%, rgb(0 140 230 / 0.7)); border: 1px solid #fff; }
+
+/* =====================================================================
+ * Global fx layers
+ * ===================================================================== */
+.fx { position: fixed; inset: 0; z-index: 950; pointer-events: none; overflow: hidden; }
+.bit { position: absolute; left: 0; top: 0; display: block; border-radius: 50%; }
+.bit.star { border-radius: 0; clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%); }
+.bit.bub { background: radial-gradient(circle at 35% 30%, #fff 0 18%, rgb(200 245 255 / 0.4) 40%, rgb(0 150 240 / 0.35)) !important; border: 1px solid rgb(255 255 255 / 0.9); }
+#bubbles, #rain { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; }
+#bubbles { z-index: 3; }
+#rain { z-index: 4; opacity: 0; transition: opacity 987ms var(--ease-out); }
+#rain.on { opacity: 1; }
+
+.toasts { position: fixed; z-index: 960; right: 13px; bottom: 13px; display: flex; flex-direction: column; gap: 8px; align-items: flex-end; pointer-events: none; }
+.toast { pointer-events: auto; width: min(300px, calc(100vw - 26px)); display: flex; gap: 13px; align-items: center; padding: 13px; border-radius: 13px; }
+.toast .ti { width: 40px; height: 40px; flex: none; border-radius: 10px; display: grid; place-items: center; font-size: 21px; background: linear-gradient(135deg, #c8f56c, #19b6ff); border: 2px solid #fff; }
+.toast b { display: block; font-weight: 600; line-height: 1.2; }
+.toast small { color: var(--ink-2); line-height: 1.3; display: block; }
+
+.ctx { position: fixed; z-index: 970; min-width: 220px; padding: 5px; border-radius: 13px; transform-origin: 0 0; opacity: 0; scale: 0.7; pointer-events: none; transition: opacity 144ms var(--ease-out), scale 377ms var(--spring); }
+.ctx.on { opacity: 1; scale: 1; pointer-events: auto; }
+.ctx button { display: flex; gap: 10px; width: 100%; padding: 8px 10px 6px; border-radius: 8px; text-align: left; font-size: 14px; color: var(--ink); }
+.ctx button:hover, .ctx button:focus-visible { background: linear-gradient(180deg, #5ccaff, #0a82df); color: #fff; outline: none; box-shadow: none; }
+.ctx hr { border: 0; height: 1px; background: rgb(255 255 255 / 0.8); margin: 3px 8px; }
+
+.saver { position: fixed; inset: 0; z-index: 990; background: radial-gradient(circle at 50% 40%, #0a5cbf, #021838 75%); opacity: 0; pointer-events: none; transition: opacity 987ms var(--ease-out); }
+.saver.on { opacity: 1; pointer-events: auto; }
+.saver canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.saver-name { position: absolute; left: 0; top: 0; font-size: clamp(34px, 5vw, 64px); white-space: nowrap; will-change: transform; }
+.saver small { position: absolute; left: 50%; bottom: 34px; translate: -50% 0; color: #9fd8ff; }
+
+.portal { display: none; position: fixed; inset: 0; z-index: 999; pointer-events: none; background: radial-gradient(circle at 50% 30%, #ffffff 0%, #bfefff 18%, #3cb8f5 45%, #0a6fd1 75%, #053b8a 100%); clip-path: circle(150vmax at var(--px, 78%) var(--py, 18%)); }
+.arriving .portal { display: block; }
+.portal.shut { transition: clip-path 1200ms var(--ease-expo); clip-path: circle(0 at var(--px, 78%) var(--py, 18%)); }
+
+/* Konami: everything gets very excited for a few seconds. */
+html.hyper .sky, html.hyper .shelf, html.hyper .sea { animation: hue 1.6s linear infinite; }
+@keyframes hue { to { filter: hue-rotate(360deg) saturate(1.4); } }
+html.hyper .word .ch { animation: wob 610ms var(--ease-out) infinite; animation-delay: calc(var(--k) * 55ms); }
+
+/* =====================================================================
+ * Responsive
+ * ===================================================================== */
+@media (max-width: 1099px) {
+  .slot { --span: 6 !important; }
+  .slot.wide { --span: 12 !important; }
+  .guest, .counter-box { grid-column: 1 / -1; }
+  .dock-meta .clock { display: none; }
+}
+@media (max-width: 699px) {
+  .slot { --span: 12 !important; }
+  .dock { gap: 5px; padding-right: 8px; }
+  .dock-icons a, .dock-icons button { width: 32px; height: 32px; font-size: 16px; }
+  .dock-sep, .dock-meta .px:not(.dock-pops) { display: none; }
+  .badge { right: 0; top: -34%; }
+  .gb-form { grid-template-columns: 1fr; }
+  .depth { display: none; }
+  .marquee { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; transition-delay: 0ms !important; }
+  html { scroll-behavior: auto; }
+  .js .slot .win { opacity: 1; transform: none; }
+  #bubbles, .flare, .portal { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Symbols reused across the page -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="cloudG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="0.7" stop-color="#f3fbff"/><stop offset="1" stop-color="#cfeaff"/></linearGradient>
+    <symbol id="cloud" viewBox="0 0 220 110"><path fill="url(#cloudG)" d="M40 100c-20 0-34-13-34-30 0-16 13-28 30-29 4-20 22-34 43-34 17 0 32 9 39 23 6-4 13-6 21-6 21 0 38 15 40 34 18 2 32 15 32 31 0 6-6 11-14 11H40z"/></symbol>
+    <radialGradient id="glossY" cx="40%" cy="30%" r="75%"><stop offset="0" stop-color="#fffbe0"/><stop offset="0.45" stop-color="#ffd84a"/><stop offset="1" stop-color="#f29a00"/></radialGradient>
+    <radialGradient id="glossP" cx="40%" cy="30%" r="75%"><stop offset="0" stop-color="#ffe3f1"/><stop offset="0.45" stop-color="#ff6fb5"/><stop offset="1" stop-color="#c41f6d"/></radialGradient>
+    <radialGradient id="glossG" cx="40%" cy="30%" r="75%"><stop offset="0" stop-color="#f1ffd5"/><stop offset="0.45" stop-color="#8fe03a"/><stop offset="1" stop-color="#2f9410"/></radialGradient>
+    <radialGradient id="glossB" cx="40%" cy="30%" r="75%"><stop offset="0" stop-color="#e8fbff"/><stop offset="0.45" stop-color="#3cc4ff"/><stop offset="1" stop-color="#0565c4"/></radialGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0.95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <symbol id="st-star" viewBox="0 0 100 100"><path fill="url(#glossY)" stroke="#fff" stroke-width="5" stroke-linejoin="round" d="M50 6l13 28 30 4-22 21 6 30-27-15-27 15 6-30L7 38l30-4z"/><ellipse cx="44" cy="34" rx="16" ry="8" fill="url(#shine)" transform="rotate(-20 44 34)"/></symbol>
+    <symbol id="st-heart" viewBox="0 0 100 100"><path fill="url(#glossP)" stroke="#fff" stroke-width="5" stroke-linejoin="round" d="M50 88S8 62 8 34C8 20 19 10 32 10c8 0 14 4 18 10 4-6 10-10 18-10 13 0 24 10 24 24 0 28-42 54-42 54z"/><ellipse cx="30" cy="28" rx="12" ry="7" fill="url(#shine)" transform="rotate(-30 30 28)"/></symbol>
+    <symbol id="st-smile" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="url(#glossY)" stroke="#fff" stroke-width="5"/><ellipse cx="37" cy="40" rx="5" ry="8" fill="#5a2a00"/><ellipse cx="63" cy="40" rx="5" ry="8" fill="#5a2a00"/><path d="M30 60q20 20 40 0" fill="none" stroke="#5a2a00" stroke-width="5" stroke-linecap="round"/><ellipse cx="40" cy="22" rx="18" ry="8" fill="url(#shine)"/></symbol>
+    <symbol id="st-flower" viewBox="0 0 100 100"><g fill="url(#glossG)" stroke="#fff" stroke-width="4"><circle cx="50" cy="24" r="17"/><circle cx="76" cy="44" r="17"/><circle cx="66" cy="74" r="17"/><circle cx="34" cy="74" r="17"/><circle cx="24" cy="44" r="17"/></g><circle cx="50" cy="52" r="14" fill="url(#glossY)" stroke="#fff" stroke-width="4"/><ellipse cx="46" cy="18" rx="8" ry="4" fill="url(#shine)"/></symbol>
+    <symbol id="st-spark" viewBox="0 0 100 100"><path fill="url(#glossB)" stroke="#fff" stroke-width="5" stroke-linejoin="round" d="M50 4c4 26 20 42 46 46-26 4-42 20-46 46-4-26-20-42-46-46 26-4 42-20 46-46z"/><ellipse cx="44" cy="34" rx="6" ry="10" fill="url(#shine)"/></symbol>
+    <symbol id="st-dk" viewBox="0 0 100 100"><rect x="6" y="18" width="88" height="64" rx="32" fill="url(#glossB)" stroke="#fff" stroke-width="5"/><text x="50" y="62" text-anchor="middle" font-family="Baloo 2, sans-serif" font-weight="800" font-size="34" fill="#fff" stroke="#04306a" stroke-width="1">dk</text><ellipse cx="44" cy="30" rx="28" ry="7" fill="url(#shine)"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============================== Dock ============================== -->
+<nav class="dock glass" aria-label="Site">
+  <button class="start" type="button" aria-expanded="false" aria-controls="menu" aria-label="Start menu"><span>dk</span></button>
+  <ul class="dock-icons">
+    <li><a href="index.html" data-mag aria-label="Home">🏠<span class="tip">Home (the calm one)</span></a></li>
+    <li><a href="#shots" data-mag aria-label="Shots">✨<span class="tip">The shots</span></a></li>
+    <li><a href="#sea" data-mag aria-label="The sea">🐠<span class="tip">The deep end</span></a></li>
+    <li><a href="mailto:[EMAIL]" data-mag aria-label="Say hello">💌<span class="tip">Say hello</span></a></li>
+    <li><button type="button" data-mag data-mute aria-label="Mute sounds" aria-pressed="false">🔊<span class="tip">Sound on</span></button></li>
+  </ul>
+  <span class="dock-sep" aria-hidden="true"></span>
+  <span class="dock-meta">
+    <span class="dock-pops px" title="Bubbles popped"><i aria-hidden="true"></i><b data-pops>0</b></span>
+    <span class="clock px" aria-label="Local time"></span>
+  </span>
+</nav>
+
+<div class="menu glass" id="menu" role="menu" aria-label="Start menu">
+  <div class="menu-head">
+    <span class="av">dk</span>
+    <span><b>Daniel King</b><small>Senior product designer at <a href="http://place.com/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline">PLACE</a> · Bellingham, WA</small></span>
+  </div>
+  <ul>
+    <li><a href="index.html" role="menuitem" style="--i:0"><span class="ic">🏠</span>Home</a></li>
+    <li><a href="mailto:[EMAIL]" role="menuitem" style="--i:2"><span class="ic">💌</span>Say hello</a></li>
+    <li><button type="button" role="menuitem" style="--i:3" data-act="rain"><span class="ic">🌧️</span>Make it rain</button></li>
+    <li><button type="button" role="menuitem" style="--i:4" data-act="storm"><span class="ic">🫧</span>Bubble storm</button></li>
+    <li><button type="button" role="menuitem" style="--i:5" data-act="nudge"><span class="ic">📳</span>Nudge</button></li>
+    <li><button type="button" role="menuitem" style="--i:6" data-act="saver"><span class="ic">🌌</span>Screensaver</button></li>
+    <li><button type="button" role="menuitem" style="--i:7" data-act="hyper"><span class="ic">🌈</span>Hyper mode</button></li>
+  </ul>
+  <div class="menu-foot px"><span>try ↑↑↓↓←→←→ba</span><span>v2.0 aero</span></div>
+</div>
+
+<!-- ============================== Sky ============================== -->
+<header class="sky" id="top">
+  <div class="rays" aria-hidden="true"></div>
+  <div class="clouds" aria-hidden="true">
+    <div class="cloud" style="--w:260px;--t:14%;--s:110s;--dl:-20s"><div data-depth="13"><svg viewBox="0 0 220 110"><use href="#cloud"/></svg></div></div>
+    <div class="cloud" style="--w:180px;--t:34%;--s:80s;--dl:-55s"><div data-depth="34"><svg viewBox="0 0 220 110"><use href="#cloud"/></svg></div></div>
+    <div class="cloud" style="--w:340px;--t:6%;--s:150s;--dl:-90s"><div data-depth="8"><svg viewBox="0 0 220 110"><use href="#cloud"/></svg></div></div>
+    <div class="cloud" style="--w:140px;--t:48%;--s:70s;--dl:-10s"><div data-depth="55"><svg viewBox="0 0 220 110"><use href="#cloud"/></svg></div></div>
+    <div class="cloud" style="--w:220px;--t:26%;--s:95s;--dl:-70s"><div data-depth="21"><svg viewBox="0 0 220 110"><use href="#cloud"/></svg></div></div>
+  </div>
+  <button class="sun" type="button" aria-label="The sun. Don't stare.">
+    <svg class="shades" viewBox="0 0 100 34" aria-hidden="true"><path d="M2 6h96" stroke="#111" stroke-width="5" stroke-linecap="round"/><path d="M6 6h38c0 14-6 24-19 24S6 20 6 6zM56 6h38c0 14-6 24-19 24S56 20 56 6z" fill="#111"/><path d="M12 10h12M62 10h12" stroke="#5be0ff" stroke-width="3" stroke-linecap="round"/></svg>
+  </button>
+  <div class="flare" aria-hidden="true"></div>
+
+  <div class="hero">
+    <span class="hero-eyebrow glass px"><span class="dot" aria-hidden="true"></span>Daniel King's</span>
+    <div style="position:relative">
+      <h1 class="word chrome" aria-label="Playground" data-word>Playground</h1>
+      <button class="badge" type="button" aria-label="Badge: aero edition">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><path fill="url(#glossY)" stroke="#fff" stroke-width="3" d="M50 2l8 14 15-7 2 16 16 1-6 15 13 9-13 9 6 15-16 1-2 16-15-7-8 14-8-14-15 7-2-16-16-1 6-15L2 50l13-9-6-15 16-1 2-16 15 7z"/></svg>
+        <span>aero<br>edition!</span>
+      </button>
+    </div>
+    <p class="hero-sub glass">Little <b>UI shots</b>, microinteractions and happy accidents. Everything here is real. Poke it.</p>
+    <div class="hero-cta">
+      <a class="gel" href="#shots">✦ See the shots</a>
+      <a class="gel ghost" href="index.html">← Back to calm</a>
+    </div>
+  </div>
+
+  <div class="hills" aria-hidden="true">
+    <svg viewBox="0 0 1440 300" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="h1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b5ef62"/><stop offset="1" stop-color="#57bd2c"/></linearGradient>
+        <linearGradient id="h2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9be84a"/><stop offset="1" stop-color="#5cc12f"/></linearGradient>
+      </defs>
+      <path d="M0 160C200 70 420 60 640 130s420 40 560-30 240-60 240-60V300H0z" fill="url(#h1)" opacity="0.85"/>
+      <path d="M0 210c240-90 480-100 760-40s520 40 680-30V300H0z" fill="url(#h2)"/>
+      <path d="M0 210c240-90 480-100 760-40s520 40 680-30" fill="none" stroke="#fff" stroke-opacity="0.6" stroke-width="3"/>
+    </svg>
+    <div class="flowers"></div>
+  </div>
+  <a class="scroll-cue px" href="#shots" aria-label="Scroll to the shots"><span class="bub" aria-hidden="true">↓</span>scroll</a>
+</header>
+
+<!-- ============================== Shelf ============================== -->
+<main class="shelf" id="shots">
+  <div class="zoom-scrim" aria-hidden="true"></div>
+  <div class="swoosh" aria-hidden="true">
+    <svg class="s1" viewBox="0 0 1600 300"><path d="M0 220C300 40 700 300 1000 120S1500 60 1600 100" stroke="rgb(255 255 255 / 0.7)" stroke-width="34"/><path d="M0 250C300 70 700 330 1000 150S1500 90 1600 130" stroke="rgb(255 255 255 / 0.35)" stroke-width="8"/></svg>
+    <svg class="s2" viewBox="0 0 1600 300"><path d="M0 100C400 260 800 0 1200 160S1600 200 1600 200" stroke="rgb(120 220 255 / 0.35)" stroke-width="55"/><path d="M0 70C400 230 800 -30 1200 130" stroke="rgb(255 255 255 / 0.6)" stroke-width="5"/></svg>
+  </div>
+
+  <div class="shelf-head">
+    <div>
+      <h2 class="chrome lime-c">The shots</h2>
+      <div class="legend"><span class="chip">10 toys</span><span class="chip">drag the title bars</span><span class="chip">try the ◯ buttons</span><span class="chip">sound on 🔊</span></div>
+    </div>
+    <p>A shelf of small interactions. Each window says how it moves in the footer, because the easing is the point.</p>
+  </div>
+
+  <div class="grid" data-grid>
+    <!-- S.01 -->
+    <div class="slot" style="--span:4;--bob:6s;--bd:-1s;--k:0">
+      <article class="win glass" aria-labelledby="t1">
+        <header class="win-bar"><span class="win-ic" style="--ic1:#c3f565;--ic2:#39a514">⏻</span><h3 class="win-title" id="t1">Gel switch</h3><span class="win-n px">S.01</span><span class="win-btns"></span></header>
+        <div class="win-body">
+          <div class="sw-wrap" style="text-align:center">
+            <button class="sw" type="button" role="switch" aria-checked="false" aria-label="Rain"><span class="knob"><i></i></span></button>
+            <p class="sw-label">Weather: <span class="sw-state"><span>dry ☀️</span><span>raining 🌧️</span></span></p>
+          </div>
+        </div>
+        <footer class="win-foot px"><span>knob :: jelly 610ms</span><span>squash 1.4 / 0.7</span></footer>
+      </article>
+    </div>
+    <!-- S.02 -->
+    <div class="slot" style="--span:4;--bob:7s;--bd:-3s;--k:1">
+      <article class="win glass" aria-labelledby="t2">
+        <header class="win-bar"><span class="win-ic" style="--ic1:#ffa3cf;--ic2:#e23d8b">♥</span><h3 class="win-title" id="t2">Jelly button</h3><span class="win-n px">S.02</span><span class="win-btns"></span></header>
+        <div class="win-body">
+          <div class="jb-wrap">
+            <div class="jb-host"><button class="gel pink jb" type="button">Press me<span class="count" aria-live="polite">0</span></button></div>
+            <p class="jb-msg" aria-live="polite">go on</p>
+          </div>
+        </div>
+        <footer class="win-foot px"><span>press :: 89ms squish</span><span>release :: jelly 890ms</span></footer>
+      </article>
+    </div>
+    <!-- S.03 -->
+    <div class="slot" style="--span:4;--bob:6.5s;--bd:-2s;--k:2">
+      <article class="win glass" aria-labelledby="t3">
+        <header class="win-bar"><span class="win-ic">♪</span><h3 class="win-title" id="t3">Vial volume</h3><span class="win-n px">S.03</span><span class="win-btns"></span></header>
+        <div class="win-body">
+          <div class="vial-wrap">
+            <div class="vial" role="slider" tabindex="0" aria-label="Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60">
+              <div class="water"><svg viewBox="0 0 72 13" preserveAspectRatio="none" aria-hidden="true"><path fill="#3cc6ff"/></svg></div>
+              <div class="shine"></div>
+            </div>
+            <div>
+              <div class="vol-read" data-vol>60</div>
+              <p class="px" style="color:var(--ink-2)">volume · drag it<br>slosh it · fill it</p>
+            </div>
+          </div>
+        </div>
+        <footer class="win-foot px"><span>surface :: sine × velocity</span><span>decay 0.94/frame</span></footer>
+      </article>
+    </div>
+    <!-- S.04 -->
+    <div class="slot" style="--span:6;--bob:7.5s;--bd:-4s;--k:3">
+      <article class="win glass" aria-labelledby="t4">
+        <header class="win-bar"><span class="win-ic" style="--ic1:#ffe680;--ic2:#ff9a1f">⚙</span><h3 class="win-title" id="t4">Setup wizard</h3><span class="win-n px">S.04</span><span class="win-btns"></span></header>
+        <div class="win-body">
+          <div class="inst">
+            <div class="inst-top"><span class="inst-icon" aria-hidden="true">💿</span><span><b>creativity.exe</b><small>Installer v2.0 · 1.44MB of pure vibes</small></span></div>
+            <div class="bar" role="progressbar" aria-label="Install progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="bar-fill"></div></div>
+            <div class="inst-status"><span data-inst-msg>Ready when you are.</span><span class="px" data-inst-pct>0%</span></div>
+            <div class="inst-btns"><button class="gel ghost sm" type="button" data-inst-cancel>Cancel</button><button class="gel lime sm" type="button" data-inst-go>Install ✦</button></div>
+          </div>
+        </div>
+        <footer class="win-foot px"><span>fill :: ease-out 377ms/step</span><span>stalls at 99. obviously</span></footer>
+      </article>
+    </div>
+    <!-- S.05 -->
+    <div class="slot" style="--span:6;--bob:6s;--bd:-5s;--k:4">
+      <article class="win glass" aria-labelledby="t5">
+        <header class="win-bar"><span class="win-ic">🐟</span><h3 class="win-title" id="t5">Desk aquarium</h3><span class="win-n px">S.05</span><span class="win-btns"></span></header>
+        <div class="win-body" style="padding:0">
+          <div class="tank" data-cursor="hand"><canvas aria-label="Aquarium. Click to feed the fish." role="img"></canvas><span class="tank-hint px">click to feed · they follow you</span></div>
+        </div>
+        <footer class="win-foot px"><span>steer :: lerp 0.04</span><span>poke a fish 3×</span></footer>
+      </article>
+    </div>
+    <!-- S.06 -->
+    <div class="slot" style="--span:5;--bob:7s;--bd:-1.5s;--k:5">
+      <article class="win glass" aria-labelledby="t6">
+        <header class="win-bar"><span class="win-ic" style="--ic1:#f3d4ff;--ic2:#9a4fb0">◉</span><h3 class="win-title" id="t6">Disc player</h3><span class="win-n px">S.06</span><span class="win-btns"></span></header>
+        <div class="win-body">
+          <div class="player">
+            <div class="disc" data-cursor="hand" role="img" aria-label="Spinning disc. Drag to scratch."><span class="lbl">dk mix</span><span class="hole"></span></div>
+            <div class="deck">
+              <div class="lcd px"><span class="scroll">♪ dk :: glass hours (aero mix) ♪ 128kbps ♪</span></div>
+              <div class="eq" aria-hidden="true"></div>
+              <div class="deck-btns"><button class="gel play-btn" type="button" aria-label="Play">▶</button><span class="px" style="align-self:center;color:var(--ink-2)">drag the<br>disc to scratch</span></div>
+            </div>
+          </div>
+        </div>
+        <footer class="win-foot px"><span>spin :: inertia 0.04</span><span>webaudio, made live</span></footer>
+      </article>
+    </div>
+    <!-- S.07 -->
+    <div class="slot wide" style="--span:7;--bob:6.5s;--bd:-3.5s;--k:6">
+      <article class="win glass" aria-labelledby="t7">
+        <header class="win-bar"><span class="win-ic">◯</span><h3 class="win-title" id="t7">Bubble wrap</h3><span class="win-n px">S.07</span><span class="win-btns"></span></header>
+        <div class="win-body" style="display:flex;flex-direction:column">
+          <div class="wrap-grid" data-wrap aria-label="Bubble wrap"></div>
+          <div class="wrap-meta"><span class="px" data-wrap-left>28 left</span><button class="gel sm lime" type="button" data-wrap-refill>Refill</button></div>
+        </div>
+        <footer class="win-foot px"><span>pop :: 233ms + random pitch</span><span>hold and drag to pop a row</span></footer>
+      </article>
+    </div>
+    <!-- S.08 -->
+    <div class="slot" style="--span:4;--bob:7s;--bd:-2.5s;--k:7">
+      <article class="win glass" aria-labelledby="t8">
+        <header class="win-bar"><span class="win-ic">❄</span><h3 class="win-title" id="t8">Shake globe</h3><span class="win-n px">S.08</span><span class="win-btns"></span></header>
+        <div class="win-body">
+          <div class="globe-wrap">
+            <div class="globe" data-cursor="hand" role="img" aria-label="A snow globe with a tiny island. Drag it to shake.">
+              <svg viewBox="0 0 178 90" aria-hidden="true"><ellipse cx="89" cy="86" rx="70" ry="18" fill="#f6e3a8"/><path d="M92 76c2-20-2-36-12-48" stroke="#8a5a2b" stroke-width="5" fill="none" stroke-linecap="round"/><g fill="#43b02a"><path d="M80 28c-14-6-26 0-30 8 10-6 20-6 30-8z"/><path d="M80 28c-6-12-18-14-26-10 10 0 18 4 26 10z"/><path d="M80 28c10-10 24-8 30-2-10-2-20-2-30 2z"/><path d="M80 28c14-2 24 6 26 14-8-8-16-10-26-14z"/></g><circle cx="120" cy="74" r="6" fill="#ff6fb5"/></svg>
+              <canvas></canvas>
+            </div>
+            <div class="globe-base px">shake me</div>
+          </div>
+        </div>
+        <footer class="win-foot px"><span>flakes :: gravity 0.03</span><span>return :: jelly</span></footer>
+      </article>
+    </div>
+    <!-- S.09 -->
+    <div class="slot" style="--span:5;--bob:6s;--bd:-4.5s;--k:8">
+      <article class="win glass" aria-labelledby="t9">
+        <header class="win-bar"><span class="win-ic" style="--ic1:#c3f565;--ic2:#19b6ff">☺</span><h3 class="win-title" id="t9">dk is online</h3><span class="win-n px">S.09</span><span class="win-btns"></span></header>
+        <div class="win-body" style="padding:13px">
+          <div class="chat">
+            <div class="buddy"><span class="av" aria-hidden="true">🌱</span><span><b>Daniel King</b><small>♫ probably nudging pixels</small></span></div>
+            <div class="log" aria-live="polite"><p class="sys">Daniel King has signed in.</p></div>
+            <div class="typing" aria-live="polite"></div>
+            <form class="compose"><input type="text" placeholder="say something…" aria-label="Message" maxlength="140"><button class="gel sm" type="submit">Send</button><button class="gel sm sun" type="button" data-nudge>Nudge!</button></form>
+          </div>
+        </div>
+        <footer class="win-foot px"><span>msg in :: spring 377ms</span><span>nudge shakes everything</span></footer>
+      </article>
+    </div>
+    <!-- S.10 -->
+    <div class="slot" style="--span:3;--bob:7.5s;--bd:-0.5s;--k:9">
+      <article class="win glass" aria-labelledby="t10">
+        <header class="win-bar"><span class="win-ic" style="--ic1:#ffe680;--ic2:#ff9a1f">★</span><h3 class="win-title" id="t10">Stickers</h3><span class="win-n px">S.10</span><span class="win-btns"></span></header>
+        <div class="win-body" style="display:flex;flex-direction:column;gap:13px">
+          <div class="sheet" data-sheet></div>
+          <p class="px center" style="color:var(--ink-2)">drag anywhere · they stay<br>double-click to peel</p>
+        </div>
+        <footer class="win-foot px"><span>slap :: jelly 610ms</span><span>saved</span></footer>
+      </article>
+    </div>
+  </div>
+</main>
+
+<div class="marquee" aria-hidden="true"><div class="track"></div></div>
+
+<!-- ============================== Sea ============================== -->
+<section class="sea" id="sea" aria-label="The deep end">
+  <div class="surface" aria-hidden="true">
+    <svg viewBox="0 0 2880 89" preserveAspectRatio="none"><path fill="#b9ecff" d="M0 0h2880v40c-120 0-120 30-240 30s-120-30-240-30-120 30-240 30-120-30-240-30-120 30-240 30-120-30-240-30-120 30-240 30-120-30-240-30-120 30-240 30-120-30-240-30-120 30-240 30S120 40 0 40z"/></svg>
+    <svg viewBox="0 0 2880 89" preserveAspectRatio="none"><path fill="#8fdcff" d="M0 0h2880v52c-180 0-180 24-360 24s-180-24-360-24-180 24-360 24-180-24-360-24-180 24-360 24-180-24-360-24-180 24-360 24S180 52 0 52z"/></svg>
+  </div>
+  <div class="beams" aria-hidden="true">
+    <i style="--l:10%;--a:12deg;--s:7s"></i><i style="--l:28%;--a:-8deg;--s:9s"></i><i style="--l:52%;--a:10deg;--s:6s"></i><i style="--l:70%;--a:-12deg;--s:8s"></i><i style="--l:88%;--a:6deg;--s:10s"></i>
+  </div>
+
+  <div class="sea-in">
+    <div class="sea-head">
+      <h2 class="chrome">The deep end</h2>
+      <p>Where the bubbles come from. Leave a note, count your visits, open the chest.</p>
+    </div>
+
+    <div class="guest panel glass">
+      <h3>📖 Guestbook</h3>
+      <form class="gb-form">
+        <input type="text" placeholder="name" aria-label="Your name" maxlength="24" required>
+        <input type="text" placeholder="leave a lil note" aria-label="Your note" maxlength="120" required>
+        <button class="gel sm lime" type="submit">Sign ✦</button>
+      </form>
+      <ul class="gb-list"></ul>
+      <p class="gb-note">Notes stay in your browser only, like a diary with extra steps.</p>
+    </div>
+
+    <div class="counter-box">
+      <div class="panel glass center">
+        <h3 style="justify-content:center">🔢 Hit counter</h3>
+        <div class="odo" data-odo aria-live="polite"></div>
+        <p class="px" style="color:var(--ink-2)">times you've been here</p>
+      </div>
+      <div class="panel glass center">
+        <h3 style="justify-content:center">🌊 Status</h3>
+        <p><b>Not taking new work.</b><br>Up for weird, good collaborations. Open the chest ↓</p>
+      </div>
+    </div>
+
+    <div class="seabed">
+      <div class="sand"></div>
+      <div class="weed" style="--l:6%;--dl:-1s"><svg viewBox="0 0 34 160"><path d="M17 160C5 120 30 100 17 70S28 20 17 0" stroke="#3fae2a" stroke-width="8" fill="none" stroke-linecap="round"/></svg></div>
+      <div class="weed" style="--l:14%;--dl:-2.4s;width:26px"><svg viewBox="0 0 34 160"><path d="M17 160C30 120 5 100 17 70S6 20 17 10" stroke="#7fd321" stroke-width="8" fill="none" stroke-linecap="round"/></svg></div>
+      <div class="weed" style="--l:80%;--dl:-0.6s"><svg viewBox="0 0 34 160"><path d="M17 160C5 120 30 100 17 70S28 20 17 0" stroke="#7fd321" stroke-width="8" fill="none" stroke-linecap="round"/></svg></div>
+      <div class="weed" style="--l:90%;--dl:-3s;width:40px"><svg viewBox="0 0 34 160"><path d="M17 160C30 120 5 100 17 70S6 20 17 10" stroke="#3fae2a" stroke-width="7" fill="none" stroke-linecap="round"/></svg></div>
+      <div class="treasure"><div class="panel glass"><b>✦ Collab treasure ✦</b><br>Making something strange and good? <a href="mailto:[EMAIL]">Say hello →</a></div></div>
+      <button class="chest" type="button" aria-label="Treasure chest. Open it." aria-expanded="false">
+        <svg viewBox="0 0 144 110" aria-hidden="true">
+          <defs><linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c7782f"/><stop offset="1" stop-color="#7a3f12"/></linearGradient><radialGradient id="gold"><stop offset="0" stop-color="#fff7b0"/><stop offset="1" stop-color="#ffb400" stop-opacity="0"/></radialGradient></defs>
+          <ellipse class="glow" cx="72" cy="52" rx="70" ry="44" fill="url(#gold)"/>
+          <rect x="10" y="52" width="124" height="54" rx="6" fill="url(#wood)" stroke="#4a2408" stroke-width="3"/>
+          <rect x="10" y="66" width="124" height="8" fill="#ffc94a" stroke="#8a5a00" stroke-width="2"/>
+          <rect x="62" y="60" width="20" height="24" rx="4" fill="#ffd95e" stroke="#8a5a00" stroke-width="2"/>
+          <g class="lid"><path d="M10 52V34c0-18 28-28 62-28s62 10 62 28v18z" fill="url(#wood)" stroke="#4a2408" stroke-width="3"/><path d="M10 44h124" stroke="#ffc94a" stroke-width="7"/><path d="M28 20c10-6 24-9 40-9" stroke="#fff" stroke-opacity="0.5" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <footer class="sea-foot">
+    <span class="px">© 2026 Daniel King · made with gloss and too many springs</span>
+    <a class="gel ghost sm surface-btn" href="#top">🫧 Back to the surface</a>
+    <a class="px" href="index.html" style="color:#cdeeff">← the calm version</a>
+  </footer>
+</section>
+
+<!-- Global layers -->
+<div class="stickers" aria-hidden="true"></div>
+<canvas id="bubbles" aria-hidden="true"></canvas>
+<canvas id="rain" aria-hidden="true"></canvas>
+<div class="tray" aria-label="Minimised windows"></div>
+<div class="depth glass px" aria-hidden="true"><span>0m</span><span class="rail"><i></i></span><span data-depth-n>0m</span></div>
+<div class="toasts" aria-live="polite"></div>
+<div class="ctx glass" role="menu" aria-label="Playground menu">
+  <button type="button" role="menuitem" data-act="rain">🌧️ Make it rain</button>
+  <button type="button" role="menuitem" data-act="storm">🫧 Bubble storm</button>
+  <button type="button" role="menuitem" data-act="nudge">📳 Nudge</button>
+  <button type="button" role="menuitem" data-act="saver">🌌 Screensaver</button>
+  <hr>
+  <button type="button" role="menuitem" data-act="calm">← Back to the calm site</button>
+  <button type="button" role="menuitem" data-act="source">👀 View source (it's fine)</button>
+</div>
+<div class="saver" aria-hidden="true"><canvas></canvas><div class="saver-name chrome">Daniel King</div><small class="px">move the mouse to wake up</small></div>
+<div class="fx" aria-hidden="true"></div>
+<div class="portal" aria-hidden="true"></div>
+
+<script src="cursor.js"></script>
+<script>
+(() => {
+const html = document.documentElement
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
+const fine = matchMedia('(hover: hover) and (pointer: fine)').matches
+const $ = (s, r = document) => r.querySelector(s)
+const $$ = (s, r = document) => [...r.querySelectorAll(s)]
+const rand = (a, b) => a + Math.random() * (b - a)
+const pick = (a) => a[(Math.random() * a.length) | 0]
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v))
+const JELLY = getComputedStyle(html).getPropertyValue('--jelly').trim() || 'ease-out'
+const SPRING = getComputedStyle(html).getPropertyValue('--spring').trim() || 'ease-out'
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v) } catch { return d } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)) } catch {} },
+}
+
+// The shared cursor lives in cursor.js; the page still works without it.
+if (window.DotCursor) DotCursor()
+
+/* =====================================================================
+ * Sound: everything is synthesised on the spot, no files.
+ * ===================================================================== */
+const Sound = (() => {
+  let ctx, master, vol = 0.6, muted = store.get('dk-mute', false)
+  const ac = () => {
+    if (!ctx) {
+      ctx = new (window.AudioContext || window.webkitAudioContext)()
+      master = ctx.createGain(); master.gain.value = muted ? 0 : vol; master.connect(ctx.destination)
+    }
+    if (ctx.state === 'suspended') ctx.resume()
+    return ctx
+  }
+  const tone = (freq, { type = 'sine', dur = 0.15, gain = 0.2, attack = 0.005, slide = 0, delay = 0, out } = {}) => {
+    try {
+      const c = ac(), t = c.currentTime + delay
+      const o = c.createOscillator(), g = c.createGain()
+      o.type = type; o.frequency.setValueAtTime(freq, t)
+      if (slide) o.frequency.exponentialRampToValueAtTime(Math.max(20, freq * slide), t + dur)
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + attack)
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur)
+      o.connect(g).connect(out || master); o.start(t); o.stop(t + dur + 0.05)
+    } catch {}
+  }
+  const noise = (dur = 0.05, freq = 2000, gain = 0.3, delay = 0) => {
+    try {
+      const c = ac(), t = c.currentTime + delay
+      const len = Math.floor(c.sampleRate * dur), buf = c.createBuffer(1, len, c.sampleRate), d = buf.getChannelData(0)
+      for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3)
+      const s = c.createBufferSource(); s.buffer = buf
+      const f = c.createBiquadFilter(); f.type = 'bandpass'; f.frequency.value = freq; f.Q.value = 1.4
+      const g = c.createGain(); g.gain.value = gain
+      s.connect(f).connect(g).connect(master); s.start(t)
+    } catch {}
+  }
+  return {
+    tone, noise,
+    pop: (p = 1) => { tone(700 * p, { dur: 0.09, gain: 0.25, slide: 0.35 }); noise(0.03, 3200 * p, 0.2) },
+    blip: (p = 1) => tone(520 * p, { type: 'triangle', dur: 0.12, gain: 0.16, slide: 1.6 }),
+    chime: () => [1046.5, 1318.5, 1568, 2093].forEach((f, i) => tone(f, { dur: 0.7, gain: 0.09, delay: i * 0.08 })),
+    sad: () => [523, 440, 349].forEach((f, i) => tone(f, { type: 'triangle', dur: 0.25, gain: 0.12, delay: i * 0.12 })),
+    buzz: () => { for (let i = 0; i < 7; i++) tone(98, { type: 'square', dur: 0.06, gain: 0.06, delay: i * 0.07 }) },
+    click: () => noise(0.02, 4200, 0.25),
+    drip: () => { tone(1400, { dur: 0.12, gain: 0.12, slide: 0.5 }); tone(900, { dur: 0.1, gain: 0.08, slide: 1.8, delay: 0.05 }) },
+    fanfare: () => [523, 659, 784, 1046, 784, 1046].forEach((f, i) => tone(f, { type: 'square', dur: 0.18, gain: 0.06, delay: i * 0.1 })),
+    get ctx() { return ac() }, get out() { ac(); return master },
+    setVol(v) { vol = v; if (master) master.gain.setTargetAtTime(muted ? 0 : vol, ctx.currentTime, 0.05) },
+    toggle() { muted = !muted; store.set('dk-mute', muted); if (master) master.gain.setTargetAtTime(muted ? 0 : vol, ctx.currentTime, 0.02); return muted },
+    get muted() { return muted },
+  }
+})()
+
+/* =====================================================================
+ * Fx helpers: particle bursts and toasts
+ * ===================================================================== */
+const fx = $('.fx')
+const burst = (x, y, { n = 14, colors = ['#fff', '#8ae6ff', '#c8f56c', '#ffe066', '#ff8fc4'], size = [5, 12], dist = [34, 110], shape = 'dot', dur = 800, fall = 0 } = {}) => {
+  if (reduced) return
+  for (let i = 0; i < n; i++) {
+    const s = document.createElement('i'), sz = rand(...size)
+    s.className = `bit ${shape}`
+    s.style.width = s.style.height = sz + 'px'
+    s.style.background = pick(colors)
+    fx.append(s)
+    const a = rand(0, Math.PI * 2), d = rand(...dist)
+    const dx = Math.cos(a) * d, dy = Math.sin(a) * d
+    s.animate([
+      { transform: `translate(${x - sz / 2}px, ${y - sz / 2}px) scale(1) rotate(0deg)`, opacity: 1 },
+      { transform: `translate(${x + dx - sz / 2}px, ${y + dy + fall - sz / 2}px) scale(0) rotate(${rand(-180, 180)}deg)`, opacity: 0.2 },
+    ], { duration: dur * rand(0.7, 1.3), easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }).onfinish = () => s.remove()
+  }
+}
+const toasts = $('.toasts')
+const toast = (title, body = '', icon = '✦', sound = true) => {
+  const t = document.createElement('div')
+  t.className = 'toast glass'
+  t.innerHTML = `<span class="ti" aria-hidden="true">${icon}</span><span><b></b><small></small></span>`
+  t.querySelector('b').textContent = title; t.querySelector('small').textContent = body
+  toasts.append(t)
+  if (sound) Sound.chime()
+  t.animate([{ transform: 'translateY(120%) scale(0.8)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 890, easing: JELLY })
+  setTimeout(() => {
+    t.animate([{ transform: 'none', opacity: 1 }, { transform: 'translateX(110%)', opacity: 0 }], { duration: 377, easing: 'cubic-bezier(0.64, 0, 0.78, 0)', fill: 'forwards' }).onfinish = () => t.remove()
+  }, 4200)
+}
+
+/* =====================================================================
+ * Arrival: the portal from the calm site closes into the sun
+ * ===================================================================== */
+const portal = $('.portal')
+let arrived = false
+try { arrived = sessionStorage.getItem('dk-portal') === '1'; sessionStorage.removeItem('dk-portal') } catch {}
+if (arrived && !reduced) {
+  const s = $('.sun').getBoundingClientRect()
+  portal.style.setProperty('--px', s.left + s.width / 2 + 'px'); portal.style.setProperty('--py', s.top + s.height / 2 + 'px')
+  requestAnimationFrame(() => requestAnimationFrame(() => portal.classList.add('shut')))
+  setTimeout(() => portal.remove(), 1400)
+} else portal.remove()
+
+/* =====================================================================
+ * Dock: magnification, clock, mute, start menu, pop counter
+ * ===================================================================== */
+const mags = $$('[data-mag]')
+const dockIcons = $('.dock-icons')
+if (fine && !reduced) {
+  dockIcons.addEventListener('pointermove', (e) => {
+    mags.forEach((m) => {
+      const r = m.getBoundingClientRect(), d = Math.abs(e.clientX - (r.left + r.width / 2))
+      m.style.setProperty('--m', (1 + 0.55 * Math.max(0, 1 - d / 110)).toFixed(3))
+    })
+  })
+  dockIcons.addEventListener('pointerleave', () => mags.forEach((m) => m.style.setProperty('--m', 1)))
+}
+const clockEl = $('.dock .clock')
+const tickClock = () => { clockEl.textContent = new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) }
+tickClock(); setInterval(tickClock, 15000)
+
+const muteBtn = $('[data-mute]')
+const paintMute = () => {
+  muteBtn.firstChild.nodeValue = Sound.muted ? '🔇' : '🔊'
+  muteBtn.querySelector('.tip').textContent = Sound.muted ? 'Sound off' : 'Sound on'
+  muteBtn.setAttribute('aria-pressed', Sound.muted)
+}
+paintMute()
+muteBtn.addEventListener('click', () => { Sound.toggle(); paintMute(); if (!Sound.muted) Sound.blip(1.5) })
+
+const startBtn = $('.start'), menu = $('.menu')
+const setMenu = (open) => {
+  menu.classList.toggle('open', open); startBtn.setAttribute('aria-expanded', open)
+  if (open) { Sound.blip(1.2); const r = startBtn.getBoundingClientRect(); menu.style.transformOrigin = `${r.left + 22 - menu.getBoundingClientRect().left}px 0` }
+}
+startBtn.addEventListener('click', (e) => { e.stopPropagation(); setMenu(!menu.classList.contains('open')) })
+document.addEventListener('click', (e) => { if (!menu.contains(e.target) && e.target !== startBtn) setMenu(false) })
+addEventListener('keydown', (e) => { if (e.key === 'Escape') { setMenu(false); closeCtx() } })
+
+let pops = store.get('dk-pops', 0)
+const popsEl = $('[data-pops]')
+popsEl.textContent = pops
+const addPop = () => {
+  pops++; store.set('dk-pops', pops); popsEl.textContent = pops
+  popsEl.classList.remove('bump'); void popsEl.offsetWidth; popsEl.classList.add('bump')
+  if (pops === 50) toast('50 bubbles popped', 'You have a gift. Or a problem.', '🫧')
+  if (pops === 200) toast('200 bubbles!!', 'Professional bubble popper. Hire yourself.', '🏆')
+}
+
+/* =====================================================================
+ * Sky: clouds parallax, sun + lens flare, flowers, the wordmark
+ * ===================================================================== */
+const sky = $('.sky'), sun = $('.sun'), flare = $('.flare')
+const FLARES = [
+  [0.25, 34, 'rgb(180 255 120 / 0.35)'], [0.45, 13, 'rgb(255 255 255 / 0.6)'], [0.6, 72, 'rgb(90 210 255 / 0.22)'],
+  [0.8, 21, 'rgb(255 160 220 / 0.4)'], [1.05, 110, 'rgb(120 230 255 / 0.15)'], [1.3, 8, 'rgb(255 255 255 / 0.7)'],
+]
+flare.innerHTML = FLARES.map(([, s, c]) => `<i style="width:${s}px;height:${s}px;background:radial-gradient(circle, ${c}, transparent 70%);box-shadow:0 0 0 1px ${c} inset"></i>`).join('')
+const flareEls = $$('i', flare)
+const clouds = $$('[data-depth]')
+let skyX = 0.5, skyY = 0.5
+const paintSky = () => {
+  const r = sky.getBoundingClientRect(), s = sun.getBoundingClientRect()
+  const sx = s.left + s.width / 2 - r.left, sy = s.top + s.height / 2 - r.top
+  const px = skyX * r.width, py = skyY * r.height
+  flareEls.forEach((el, i) => {
+    const t = FLARES[i][0]
+    el.style.left = sx + (px - sx) * t * 1.4 + 'px'; el.style.top = sy + (py - sy) * t * 1.4 + 'px'
+  })
+  clouds.forEach((c) => { const d = +c.dataset.depth; c.style.transform = `translate(${(skyX - 0.5) * -d}px, ${(skyY - 0.5) * -d * 0.5}px)` })
+}
+if (!reduced) {
+  sky.addEventListener('pointermove', (e) => {
+    const r = sky.getBoundingClientRect()
+    skyX = (e.clientX - r.left) / r.width; skyY = (e.clientY - r.top) / r.height
+    requestAnimationFrame(paintSky)
+  })
+}
+paintSky(); addEventListener('resize', paintSky)
+
+let sunHits = 0
+sun.addEventListener('click', (e) => {
+  sunHits++
+  Sound.blip(1 + sunHits * 0.2)
+  burst(e.clientX, e.clientY, { colors: ['#fff7b8', '#ffe066', '#fff'], shape: 'star', n: 10 })
+  if (sunHits === 5) {
+    sun.classList.add('cool'); Sound.fanfare()
+    toast('The sun is now wearing shades', 'Some things are too bright to look at directly.', '😎')
+  } else if (sunHits === 10) {
+    sun.classList.remove('cool'); sunHits = 0
+    toast('Shades returned', 'Back to normal staring levels.', '☀️', false)
+  }
+})
+
+// Flowers on the hills, booped on click.
+const flowerBox = $('.flowers')
+const FL = ['#ff6fb5', '#fff', '#ffe066', '#c8f56c', '#8ae6ff']
+for (let i = 0; i < 16; i++) {
+  const c = pick(FL)
+  const f = document.createElement('span'); f.className = 'flower'; f.dataset.click = ''
+  f.style.cssText = `--l:${rand(2, 96)}%;--b:${rand(4, 26)}%;--dl:${rand(-3, 0)}s`
+  f.innerHTML = `<svg viewBox="0 0 20 20"><g fill="${c}" stroke="#fff" stroke-width="0.8"><circle cx="10" cy="5" r="3.5"/><circle cx="15" cy="9" r="3.5"/><circle cx="13" cy="15" r="3.5"/><circle cx="7" cy="15" r="3.5"/><circle cx="5" cy="9" r="3.5"/></g><circle cx="10" cy="10" r="2.6" fill="#ffd23a"/></svg>`
+  f.addEventListener('click', (e) => {
+    f.classList.remove('boop'); void f.offsetWidth; f.classList.add('boop')
+    Sound.blip(rand(1.4, 2)); burst(e.clientX, e.clientY, { colors: [c, '#fff'], n: 8, dist: [21, 55] })
+  })
+  flowerBox.append(f)
+}
+
+// Wordmark: each letter wobbles on hover and pops on click, then grows back.
+const word = $('[data-word]')
+word.innerHTML = [...word.textContent].map((c, i) => `<span class="ch" data-click style="--k:${i}" aria-hidden="true">${c}</span>`).join('')
+$$('.ch', word).forEach((ch, i) => {
+  const wob = () => { if (reduced) return; ch.classList.remove('wob'); void ch.offsetWidth; ch.classList.add('wob') }
+  ch.addEventListener('pointerenter', wob)
+  ch.addEventListener('click', () => {
+    const r = ch.getBoundingClientRect()
+    burst(r.left + r.width / 2, r.top + r.height / 2, { n: 21, shape: 'bub', size: [8, 21], dist: [55, 160] })
+    Sound.pop(0.8 + i * 0.08); addPop()
+    ch.classList.add('popped')
+    setTimeout(() => {
+      ch.classList.remove('popped')
+      ch.animate([{ transform: 'scale(0)' }, { transform: 'scale(1)' }], { duration: 890, easing: JELLY })
+      Sound.blip(0.8 + i * 0.08)
+    }, 2584)
+  })
+})
+const badge = $('.badge')
+let badgeN = 0
+const BADGE = ['aero<br>edition!', 'now with<br>gloss', '100%<br>jelly', 'best in<br>1024×768', 'free<br>bubbles', 'y2k<br>ready']
+badge.addEventListener('click', (e) => {
+  badgeN = (badgeN + 1) % BADGE.length
+  badge.querySelector('span').innerHTML = BADGE[badgeN]
+  badge.animate([{ scale: '1.4', rotate: '-30deg' }, { scale: '1', rotate: '0deg' }], { duration: 890, easing: JELLY })
+  burst(e.clientX, e.clientY, { colors: ['#ffe066', '#ffad33', '#fff'], shape: 'star' }); Sound.blip(1.3)
+})
+
+/* =====================================================================
+ * Ambient bubbles: rise across the whole page, pop when clicked
+ * ===================================================================== */
+const bc = $('#bubbles'), bx = bc.getContext('2d')
+let bw = 0, bh = 0, dpr = 1
+const bubs = []
+const sizeCanvas = (c, ctx) => {
+  dpr = Math.min(2, devicePixelRatio || 1)
+  c.width = innerWidth * dpr; c.height = innerHeight * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+}
+const resizeB = () => { bw = innerWidth; bh = innerHeight; sizeCanvas(bc, bx) }
+resizeB(); addEventListener('resize', resizeB)
+const spawn = (x = rand(0, bw), y = bh + 40, r = rand(6, 26), vy = rand(0.3, 0.9)) => bubs.push({ x, y, r, vy, ph: rand(0, 6.28), sw: rand(0.3, 1.2) })
+for (let i = 0; i < 9; i++) spawn(rand(0, bw), rand(0, bh))
+const drawBub = (b) => {
+  const g = bx.createRadialGradient(b.x - b.r * 0.35, b.y - b.r * 0.4, b.r * 0.1, b.x, b.y, b.r)
+  g.addColorStop(0, 'rgba(255,255,255,0.85)'); g.addColorStop(0.35, 'rgba(210,245,255,0.18)'); g.addColorStop(0.85, 'rgba(120,210,255,0.22)'); g.addColorStop(1, 'rgba(255,255,255,0.75)')
+  bx.fillStyle = g; bx.beginPath(); bx.arc(b.x, b.y, b.r, 0, Math.PI * 2); bx.fill()
+  bx.strokeStyle = 'rgba(255,255,255,0.7)'; bx.lineWidth = 1; bx.stroke()
+  bx.fillStyle = 'rgba(255,255,255,0.9)'; bx.beginPath(); bx.ellipse(b.x - b.r * 0.38, b.y - b.r * 0.42, b.r * 0.22, b.r * 0.12, -0.6, 0, Math.PI * 2); bx.fill()
+}
+let t0 = performance.now()
+const bubLoop = (now) => {
+  const dt = Math.min(3, (now - t0) / 16.7); t0 = now
+  bx.clearRect(0, 0, bw, bh)
+  if (bubs.length < 9 && Math.random() < 0.02) spawn()
+  for (let i = bubs.length - 1; i >= 0; i--) {
+    const b = bubs[i]
+    b.ph += 0.02 * dt; b.y -= b.vy * dt; b.x += Math.sin(b.ph) * b.sw * 0.5 * dt
+    if (b.y < -b.r * 2) { bubs.splice(i, 1); continue }
+    drawBub(b)
+  }
+  requestAnimationFrame(bubLoop)
+}
+if (!reduced) requestAnimationFrame(bubLoop)
+const storm = (n = 60) => { for (let i = 0; i < n; i++) setTimeout(() => spawn(rand(0, bw), bh + 30, rand(8, 34), rand(1.2, 3)), i * 34) }
+// Popping: only clicks on empty space, never on the UI.
+const INTERACTIVE = 'a, button, input, textarea, [role], .win, .stk, .placed, .menu, .ctx, .dock, .chest, .flower, .ch, .sun, .badge'
+document.addEventListener('pointerdown', (e) => {
+  if (e.button !== 0 || e.target.closest(INTERACTIVE)) return
+  for (let i = bubs.length - 1; i >= 0; i--) {
+    const b = bubs[i]
+    if (Math.hypot(e.clientX - b.x, e.clientY - b.y) < b.r + 8) {
+      bubs.splice(i, 1)
+      burst(b.x, b.y, { n: 12, colors: ['#fff', '#bdf0ff'], size: [3, 7], dist: [b.r, b.r * 3] })
+      Sound.pop(clamp(30 / b.r, 0.6, 2)); addPop(); return
+    }
+  }
+})
+
+/* =====================================================================
+ * Rain (S.01 switches it)
+ * ===================================================================== */
+const rc = $('#rain'), rx = rc.getContext('2d')
+let raining = false, drops = [], rainRaf = 0
+const resizeR = () => sizeCanvas(rc, rx)
+resizeR(); addEventListener('resize', resizeR)
+const rainLoop = () => {
+  rx.clearRect(0, 0, innerWidth, innerHeight)
+  if (raining && drops.length < 160) for (let i = 0; i < 4; i++) drops.push({ x: rand(-100, innerWidth), y: -20, v: rand(9, 15), l: rand(10, 24) })
+  rx.strokeStyle = 'rgba(20,110,210,0.45)'; rx.lineWidth = 1.5; rx.lineCap = 'round'
+  rx.beginPath()
+  for (let i = drops.length - 1; i >= 0; i--) {
+    const d = drops[i]
+    d.y += d.v; d.x += d.v * 0.25
+    if (d.y > innerHeight + 30) { drops.splice(i, 1); continue }
+    rx.moveTo(d.x, d.y); rx.lineTo(d.x - d.l * 0.25, d.y - d.l)
+  }
+  rx.stroke()
+  if (raining || drops.length) rainRaf = requestAnimationFrame(rainLoop)
+}
+const setRain = (on) => {
+  raining = on; rc.classList.toggle('on', on)
+  const sw = $('.sw'); sw.setAttribute('aria-checked', on); sw.closest('.sw-wrap').classList.toggle('on', on)
+  if (on && !reduced) { cancelAnimationFrame(rainRaf); rainRaf = requestAnimationFrame(rainLoop) }
+}
+
+/* =====================================================================
+ * Windows: drag the title bar (springs home), minimise, zoom, close
+ * ===================================================================== */
+const tray = $('.tray'), scrim = $('.zoom-scrim')
+let zoomed = null
+$$('.slot').forEach((slot) => {
+  const win = $('.win', slot), bar = $('.win-bar', win), title = $('.win-title', win).textContent
+  $('.win-btns', win).innerHTML =
+    '<button class="ob min" type="button" aria-label="Minimise">–</button>' +
+    '<button class="ob zoom" type="button" aria-label="Zoom">+</button>' +
+    '<button class="ob close" type="button" aria-label="Close">×</button>'
+  const ghost = document.createElement('button')
+  ghost.className = 'nap'; ghost.type = 'button'; ghost.textContent = `${title} is napping · click to wake`
+  slot.append(ghost)
+
+  // Drag: follows the pointer with a tilt from its speed, then wobbles home.
+  let sx = 0, sy = 0, dx = 0, dy = 0, lastX = 0, dragging = false
+  bar.addEventListener('pointerdown', (e) => {
+    if (e.target.closest('button') || zoomed) return
+    dragging = true; sx = e.clientX; sy = e.clientY; lastX = e.clientX
+    bar.setPointerCapture(e.pointerId); slot.classList.add('dragging')
+    win.getAnimations().forEach((a) => a.cancel())
+  })
+  bar.addEventListener('pointermove', (e) => {
+    if (!dragging) return
+    dx = e.clientX - sx; dy = e.clientY - sy
+    const tilt = clamp((e.clientX - lastX) * 0.6, -8, 8); lastX = e.clientX
+    win.style.translate = `${dx}px ${dy}px`; win.style.rotate = `${tilt}deg`
+  })
+  const drop = () => {
+    if (!dragging) return
+    dragging = false; slot.classList.remove('dragging')
+    const from = { translate: `${dx}px ${dy}px`, rotate: win.style.rotate || '0deg' }
+    win.style.translate = ''; win.style.rotate = ''
+    if (Math.hypot(dx, dy) > 34) Sound.tone(260, { type: 'sine', dur: 0.3, gain: 0.12, slide: 1.5 })
+    win.animate([from, { translate: '0px 0px', rotate: '0deg' }], { duration: 987, easing: JELLY })
+  }
+  bar.addEventListener('pointerup', drop); bar.addEventListener('pointercancel', drop)
+
+  const minimise = () => {
+    const r = win.getBoundingClientRect()
+    const pill = document.createElement('button')
+    pill.className = 'gel sm ghost'; pill.type = 'button'; pill.textContent = '▢ ' + title
+    tray.append(pill)
+    const p = pill.getBoundingClientRect()
+    Sound.tone(660, { dur: 0.25, gain: 0.12, slide: 0.4 })
+    win.animate([
+      { transform: 'none', opacity: 1 },
+      { transform: `translate(${p.left - r.left}px, ${p.top - r.top}px) scale(0.08, 0.04) skewX(20deg)`, opacity: 0.2 },
+    ], { duration: 610, easing: 'cubic-bezier(0.65, 0, 0.35, 1)' }).onfinish = () => slot.classList.add('min')
+    pill.animate([{ transform: 'scale(0)' }, { transform: 'scale(1)' }], { duration: 610, easing: JELLY, delay: 377, fill: 'backwards' })
+    const restore = () => {
+      const p2 = pill.getBoundingClientRect()
+      slot.classList.remove('min'); pill.remove(); ghost.blur()
+      const r2 = win.getBoundingClientRect()
+      Sound.tone(260, { dur: 0.25, gain: 0.12, slide: 2.5 })
+      win.animate([
+        { transform: `translate(${p2.left - r2.left}px, ${p2.top - r2.top}px) scale(0.08, 0.04)`, opacity: 0.2 },
+        { transform: 'none', opacity: 1 },
+      ], { duration: 890, easing: JELLY })
+    }
+    pill.addEventListener('click', restore)
+    ghost.onclick = restore
+  }
+  const zoom = () => {
+    if (zoomed === slot) return unzoom()
+    if (zoomed) return
+    const a = win.getBoundingClientRect()
+    zoomed = slot; slot.classList.add('zoomed'); scrim.classList.add('on'); document.body.classList.add('zooming')
+    const b = win.getBoundingClientRect()
+    Sound.tone(330, { dur: 0.3, gain: 0.12, slide: 2 })
+    win.animate([
+      { transform: `translate(${a.left + a.width / 2 - (b.left + b.width / 2)}px, ${a.top + a.height / 2 - (b.top + b.height / 2)}px) scale(${a.width / b.width}, ${a.height / b.height})` },
+      { transform: 'none' },
+    ], { duration: 890, easing: SPRING })
+    resizeAll()
+  }
+  const unzoom = () => {
+    const a = win.getBoundingClientRect()
+    slot.classList.remove('zoomed'); scrim.classList.remove('on'); zoomed = null
+    setTimeout(() => { if (!zoomed) document.body.classList.remove('zooming') }, 900)
+    const b = win.getBoundingClientRect()
+    Sound.tone(660, { dur: 0.3, gain: 0.12, slide: 0.5 })
+    win.animate([
+      { transform: `translate(${a.left + a.width / 2 - (b.left + b.width / 2)}px, ${a.top + a.height / 2 - (b.top + b.height / 2)}px) scale(${a.width / b.width}, ${a.height / b.height})` },
+      { transform: 'none' },
+    ], { duration: 890, easing: SPRING })
+    resizeAll()
+  }
+  slot._unzoom = unzoom
+  const NOPE = ['This window is load-bearing.', 'Nope. Try minimise.', 'Closing is not a microinteraction.', 'It said no.', 'You can’t close fun.']
+  let nopes = 0
+  $('.ob.min', win).addEventListener('click', minimise)
+  $('.ob.zoom', win).addEventListener('click', zoom)
+  bar.addEventListener('dblclick', (e) => { if (!e.target.closest('button')) zoom() })
+  $('.ob.close', win).addEventListener('click', () => {
+    win.classList.remove('nope'); void win.offsetWidth; win.classList.add('nope')
+    Sound.sad(); toast(NOPE[nopes++ % NOPE.length], `${title} refuses to close.`, '🙅', false)
+  })
+})
+scrim.addEventListener('click', () => zoomed && zoomed._unzoom())
+addEventListener('keydown', (e) => { if (e.key === 'Escape' && zoomed) zoomed._unzoom() })
+const resizers = []
+const resizeAll = () => requestAnimationFrame(() => resizers.forEach((f) => f()))
+
+// Windows pop up as they scroll into view.
+const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }), { rootMargin: '0px 0px -8% 0px' })
+$$('.slot').forEach((s) => io.observe(s))
+
+/* =====================================================================
+ * S.01 Gel switch
+ * ===================================================================== */
+{
+  const sw = $('.sw'), knob = $('.knob i', sw)
+  sw.addEventListener('click', () => {
+    const on = sw.getAttribute('aria-checked') !== 'true'
+    setRain(on)
+    knob.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.4, 0.7)', offset: 0.25 }, { transform: 'scale(0.85, 1.15)', offset: 0.55 }, { transform: 'scale(1)' }], { duration: 610, easing: 'ease-out' })
+    const r = knob.getBoundingClientRect()
+    setTimeout(() => burst(r.left + r.width / 2 + (on ? 56 : -56), r.top + r.height / 2, { colors: ['#8ae6ff', '#fff', '#3cc6ff'], n: 12, dist: [21, 72], fall: 34 }), 120)
+    on ? Sound.drip() : Sound.blip(0.8)
+  })
+}
+
+/* =====================================================================
+ * S.02 Jelly button
+ * ===================================================================== */
+{
+  const b = $('.jb'), count = $('.count', b), msg = $('.jb-msg')
+  const LINES = { 1: 'nice', 3: 'ooh squishy', 5: 'keep going', 10: 'ok you can stop', 15: 'seriously', 20: 'it’s getting tired', 25: 'last warning', 29: 'one more and it leaves' }
+  let n = 0, gone = false, pressed = false
+  b.addEventListener('pointerdown', () => { if (!gone) pressed = true, b.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.18, 0.82)' }], { duration: 89, fill: 'forwards', easing: 'ease-out' }) })
+  const release = () => {
+    if (gone || !pressed) return
+    pressed = false
+    b.getAnimations().forEach((a) => a.cancel())
+    b.animate([{ transform: 'scale(1.18, 0.82)' }, { transform: 'scale(1)' }], { duration: 890, easing: JELLY })
+  }
+  b.addEventListener('pointerup', release); b.addEventListener('pointerleave', release)
+  b.addEventListener('click', (e) => {
+    if (gone) return
+    n++; count.textContent = n
+    count.animate([{ transform: 'scale(1.7)' }, { transform: 'scale(1)' }], { duration: 610, easing: JELLY })
+    Sound.blip(1 + n * 0.03)
+    if (LINES[n]) msg.textContent = LINES[n]
+    const r = b.getBoundingClientRect()
+    burst(e.clientX || r.left + r.width / 2, e.clientY || r.top + r.height / 2, { colors: ['#ff8fc4', '#fff', '#ffd1e8'], shape: 'star', n: 6 + Math.min(n, 20), dist: [34, 89 + n * 3] })
+    if (n >= 30) {
+      gone = true; msg.textContent = 'it left. give it a sec.'
+      Sound.sad()
+      const fly = b.cloneNode(true); fly.style.cssText = `position:fixed;left:${r.left}px;top:${r.top}px;width:${r.width}px;margin:0;z-index:900;pointer-events:none`
+      document.body.append(fly); b.classList.add('gone')
+      fly.animate([
+        { transform: 'translate(0,0) rotate(0)', borderRadius: '999px' },
+        { transform: `translate(${rand(-89, 89)}px, -${innerHeight}px) rotate(${rand(-40, 40)}deg) scale(0.6)`, borderRadius: '50%' },
+      ], { duration: 3200, easing: 'cubic-bezier(0.5, 0, 0.75, 0)' }).onfinish = () => fly.remove()
+      setTimeout(() => {
+        gone = false; n = 0; count.textContent = 0; b.classList.remove('gone'); msg.textContent = 'it came back. be gentle.'
+        b.animate([{ transform: 'translateY(-233px) scale(0.6)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 1200, easing: JELLY })
+        Sound.chime()
+      }, 5200)
+    }
+  })
+}
+
+/* =====================================================================
+ * S.03 Vial volume
+ * ===================================================================== */
+{
+  const vial = $('.vial'), water = $('.water', vial), path = $('.water path', vial), read = $('[data-vol]')
+  let v = 60, amp = 0, t = 0, dragging = false, lastV = v, overflowed = false
+  for (let i = 0; i < 6; i++) {
+    const b = document.createElement('i'); b.className = 'vb'
+    b.style.cssText = `--sz:${rand(4, 9)}px;--x:${rand(14, 56)}px;--s:${rand(2, 4)}s;--dl:${rand(-4, 0)}s`
+    water.append(b)
+  }
+  const set = (nv) => {
+    v = clamp(Math.round(nv), 0, 100)
+    amp = clamp(amp + Math.abs(v - lastV) * 0.5, 0, 6); lastV = v
+    water.style.height = v + '%'; read.textContent = v
+    water.style.setProperty('--h', -(v / 100 * 233) + 'px')
+    $$('.vb', water).forEach((b) => b.style.setProperty('--h', -(v / 100 * 220) + 'px'))
+    vial.setAttribute('aria-valuenow', v); Sound.setVol(v / 100)
+    if (v === 100 && !overflowed) {
+      overflowed = true
+      const r = vial.getBoundingClientRect()
+      burst(r.left + r.width / 2, r.top, { n: 34, shape: 'bub', size: [6, 16], dist: [34, 144], fall: -55 })
+      Sound.drip(); toast('It’s overflowing!!', 'Maximum volume. Your neighbours have been notified.', '💦', false)
+    }
+    if (v < 90) overflowed = false
+  }
+  const fromY = (y) => { const r = vial.getBoundingClientRect(); set((1 - (y - r.top) / r.height) * 100) }
+  vial.addEventListener('pointerdown', (e) => { dragging = true; vial.setPointerCapture(e.pointerId); fromY(e.clientY) })
+  vial.addEventListener('pointermove', (e) => dragging && fromY(e.clientY))
+  vial.addEventListener('pointerup', () => { dragging = false; Sound.blip(0.6 + v / 100) })
+  vial.addEventListener('keydown', (e) => {
+    const k = { ArrowUp: 5, ArrowRight: 5, ArrowDown: -5, ArrowLeft: -5, PageUp: 20, PageDown: -20 }[e.key]
+    if (k) { e.preventDefault(); set(v + k); Sound.blip(0.6 + v / 100) }
+  })
+  const wave = () => {
+    t += 0.08; amp *= 0.94
+    let d = 'M0 13 '
+    for (let x = 0; x <= 72; x += 4) d += `L${x} ${(6.5 + Math.sin(x / 72 * Math.PI * 2 + t) * (1 + amp) + Math.sin(x / 20 - t * 1.6) * amp * 0.4).toFixed(2)} `
+    path.setAttribute('d', d + 'L72 13Z')
+    requestAnimationFrame(wave)
+  }
+  set(60); wave()
+}
+
+/* =====================================================================
+ * S.04 Setup wizard
+ * ===================================================================== */
+{
+  const fill = $('.bar-fill'), bar = $('.bar'), msg = $('[data-inst-msg]'), pct = $('[data-inst-pct]')
+  const go = $('[data-inst-go]'), cancel = $('[data-inst-cancel]'), icon = $('.inst-icon'), win = go.closest('.win')
+  const STEPS = ['Unpacking gradients…', 'Polishing the glass…', 'Inflating bubbles…', 'Calibrating lens flares…', 'Hydrating pixels…', 'Teaching buttons to bounce…', 'Installing more gloss…', 'Asking the sun for permission…']
+  let p = 0, timer = 0, running = false
+  const paint = () => { fill.style.width = p + '%'; pct.textContent = Math.floor(p) + '%'; bar.setAttribute('aria-valuenow', Math.floor(p)) }
+  const step = () => {
+    if (p < 99) {
+      p = Math.min(99, p + rand(3, 11)); paint()
+      if (Math.random() < 0.5) msg.textContent = pick(STEPS)
+      Sound.click()
+      timer = setTimeout(step, rand(200, 520))
+    } else {
+      msg.textContent = 'Almost…'
+      timer = setTimeout(() => { msg.textContent = 'Almost… (for real)' ; timer = setTimeout(done, 1597) }, 1597)
+    }
+  }
+  const done = () => {
+    p = 100; paint(); running = false; icon.classList.remove('spin')
+    msg.textContent = 'Installed! Please reboot your imagination.'; go.textContent = 'Run again ↻'
+    const r = win.getBoundingClientRect()
+    burst(r.left + r.width / 2, r.top + r.height / 2, { n: 55, shape: 'star', size: [8, 18], dist: [55, 260] })
+    Sound.fanfare()
+  }
+  go.addEventListener('click', () => {
+    if (running) return
+    running = true; p = 0; paint(); icon.classList.add('spin'); go.textContent = 'Installing…'
+    msg.textContent = 'Starting up…'; step()
+  })
+  let cancels = 0
+  cancel.addEventListener('click', () => {
+    win.classList.remove('nope'); void win.offsetWidth; win.classList.add('nope'); Sound.buzz()
+    msg.textContent = ['You can’t cancel creativity.', 'Cancel button is decorative.', 'Have you tried not cancelling?'][cancels++ % 3]
+  })
+}
+
+/* =====================================================================
+ * S.05 Aquarium
+ * ===================================================================== */
+{
+  const tank = $('.tank'), c = $('canvas', tank), x = c.getContext('2d')
+  let w = 0, h = 0, px = -1, py = -1, visible = false
+  const COL = [['#ffb347', '#ff7a00'], ['#8ae6ff', '#0a8ae0'], ['#c8f56c', '#3aa515'], ['#ffa3cf', '#e23d8b'], ['#fff3a0', '#f0b400']]
+  const fish = Array.from({ length: 8 }, () => ({ x: rand(30, 300), y: rand(30, 180), vx: rand(-1, 1), vy: rand(-0.4, 0.4), s: rand(9, 15), c: pick(COL), ph: rand(0, 6), pokes: 0, say: 0 }))
+  const food = [], bubbles = []
+  const size = () => {
+    const r = tank.getBoundingClientRect(); w = r.width; h = r.height
+    const d = Math.min(2, devicePixelRatio || 1); c.width = w * d; c.height = h * d; x.setTransform(d, 0, 0, d, 0, 0)
+  }
+  resizers.push(size); new ResizeObserver(size).observe(tank)
+  tank.addEventListener('pointermove', (e) => { const r = tank.getBoundingClientRect(); px = e.clientX - r.left; py = e.clientY - r.top })
+  tank.addEventListener('pointerleave', () => { px = py = -1 })
+  tank.addEventListener('click', (e) => {
+    const r = tank.getBoundingClientRect(), cx = e.clientX - r.left, cy = e.clientY - r.top
+    const hit = fish.find((f) => Math.hypot(f.x - cx, f.y - cy) < f.s * 1.4)
+    if (hit) {
+      hit.pokes++; hit.vx *= -2; Sound.blip(2)
+      if (hit.pokes % 3 === 0) { hit.say = 120; hit.line = null; Sound.tone(300, { dur: 0.2, gain: 0.15, slide: 2 }) }
+      return
+    }
+    for (let i = 0; i < 4; i++) food.push({ x: cx + rand(-13, 13), y: Math.max(8, cy - rand(0, 13)), v: rand(0.3, 0.6) })
+    Sound.drip()
+  })
+  const draw = () => {
+    x.clearRect(0, 0, w, h)
+    const g = x.createLinearGradient(0, 0, 0, h); g.addColorStop(0, '#7fd8ff'); g.addColorStop(1, '#0a6fd0')
+    x.fillStyle = g; x.fillRect(0, 0, w, h)
+    // sand + weeds
+    x.fillStyle = '#f2dc9a'; x.beginPath(); x.moveTo(0, h); x.quadraticCurveTo(w * 0.3, h - 30, w * 0.6, h - 16); x.quadraticCurveTo(w * 0.85, h - 6, w, h - 22); x.lineTo(w, h); x.fill()
+    const T = performance.now() / 1000
+    x.lineWidth = 5; x.lineCap = 'round'
+    ;[[0.08, '#3fae2a', 70], [0.14, '#7fd321', 50], [0.82, '#3fae2a', 80], [0.9, '#7fd321', 55]].forEach(([fx_, col, len]) => {
+      const bx_ = w * fx_; x.strokeStyle = col; x.beginPath(); x.moveTo(bx_, h - 10)
+      x.quadraticCurveTo(bx_ + Math.sin(T + fx_ * 9) * 13, h - 10 - len / 2, bx_ + Math.sin(T * 1.3 + fx_) * 8, h - 10 - len); x.stroke()
+    })
+    // food
+    for (let i = food.length - 1; i >= 0; i--) {
+      const f = food[i]; if (f.y < h - 20) f.y += f.v
+      x.fillStyle = '#ffcc55'; x.fillRect(f.x - 2, f.y - 2, 4, 4)
+    }
+    // fish
+    for (const f of fish) {
+      let tx, ty
+      const near = food.reduce((b, fd) => (!b || Math.hypot(fd.x - f.x, fd.y - f.y) < Math.hypot(b.x - f.x, b.y - f.y) ? fd : b), null)
+      if (near) { tx = near.x; ty = near.y }
+      else if (px >= 0) { tx = px + Math.cos(f.ph) * 34; ty = py + Math.sin(f.ph) * 21 }
+      else { tx = w / 2 + Math.cos(T * 0.3 + f.ph) * w * 0.38; ty = h / 2 + Math.sin(T * 0.5 + f.ph * 2) * h * 0.3 }
+      const dx = tx - f.x, dy = ty - f.y, d = Math.hypot(dx, dy) || 1
+      const sp = near ? 2.2 : px >= 0 ? 1.8 : 1
+      f.vx += (dx / d * sp - f.vx) * 0.04; f.vy += (dy / d * sp - f.vy) * 0.04
+      for (const o of fish) if (o !== f) { const ox = f.x - o.x, oy = f.y - o.y, od = Math.hypot(ox, oy); if (od < 21) { f.vx += ox / (od || 1) * 0.08; f.vy += oy / (od || 1) * 0.08 } }
+      f.x = clamp(f.x + f.vx, 10, w - 10); f.y = clamp(f.y + f.vy, 10, h - 26); f.ph += 0.2
+      if (near && d < f.s) { food.splice(food.indexOf(near), 1); f.s = Math.min(22, f.s + 0.6); bubbles.push({ x: f.x, y: f.y, r: 3 }) }
+      if (Math.random() < 0.004) bubbles.push({ x: f.x, y: f.y, r: rand(2, 4) })
+      const a = Math.atan2(f.vy, f.vx)
+      x.save(); x.translate(f.x, f.y); x.rotate(a)
+      const fg = x.createLinearGradient(0, -f.s, 0, f.s); fg.addColorStop(0, f.c[0]); fg.addColorStop(1, f.c[1])
+      x.fillStyle = fg
+      x.beginPath(); const tw = Math.sin(f.ph) * f.s * 0.35
+      x.moveTo(-f.s * 0.8, 0); x.lineTo(-f.s * 1.6, -f.s * 0.6 + tw); x.lineTo(-f.s * 1.6, f.s * 0.6 + tw); x.fill()
+      x.beginPath(); x.ellipse(0, 0, f.s, f.s * 0.6, 0, 0, Math.PI * 2); x.fill()
+      x.fillStyle = 'rgba(255,255,255,0.6)'; x.beginPath(); x.ellipse(-f.s * 0.1, -f.s * 0.25, f.s * 0.5, f.s * 0.15, 0, 0, Math.PI * 2); x.fill()
+      x.fillStyle = '#fff'; x.beginPath(); x.arc(f.s * 0.5, -f.s * 0.1, f.s * 0.2, 0, Math.PI * 2); x.fill()
+      x.fillStyle = '#06305f'; x.beginPath(); x.arc(f.s * 0.56, -f.s * 0.1, f.s * 0.1, 0, Math.PI * 2); x.fill()
+      x.restore()
+      if (f.say > 0) {
+        f.say--
+        x.font = '600 13px Hind, sans-serif'; const txt = f.line || (f.line = pick(['blub', 'blub blub', '!!', 'hi'])), tw2 = x.measureText(txt).width + 13
+        x.fillStyle = 'rgba(255,255,255,0.95)'; x.beginPath(); x.roundRect(f.x - tw2 / 2, f.y - f.s - 30, tw2, 21, 10); x.fill()
+        x.fillStyle = '#06305f'; x.fillText(txt, f.x - tw2 / 2 + 6.5, f.y - f.s - 15)
+      }
+    }
+    for (let i = bubbles.length - 1; i >= 0; i--) {
+      const b = bubbles[i]; b.y -= 0.8; b.x += Math.sin(b.y / 8) * 0.3
+      if (b.y < -5) { bubbles.splice(i, 1); continue }
+      x.strokeStyle = 'rgba(255,255,255,0.85)'; x.lineWidth = 1; x.beginPath(); x.arc(b.x, b.y, b.r, 0, Math.PI * 2); x.stroke()
+    }
+    if (visible) requestAnimationFrame(draw)
+  }
+  new IntersectionObserver(([e]) => { const was = visible; visible = e.isIntersecting; if (visible && !was) requestAnimationFrame(draw) }).observe(tank)
+}
+
+/* =====================================================================
+ * S.06 Disc player: an original loop, synthesised; drag to scratch
+ * ===================================================================== */
+{
+  const disc = $('.disc'), btn = $('.play-btn'), eq = $('.eq')
+  eq.innerHTML = '<i></i>'.repeat(13)
+  const bars = $$('i', eq)
+  let playing = false, angle = 0, omega = 0, drag = null, analyser, musicOut, sched = 0, nextT = 0, stepN = 0, detune = 0
+  const midi = (m) => 440 * Math.pow(2, (m - 69) / 12)
+  // Am9 → Fmaj7 → Cmaj7 → G6: soft, glassy, a little wistful.
+  const CH = [[57, 60, 64, 67, 71], [53, 57, 60, 64, 69], [48, 55, 59, 64, 67], [55, 59, 62, 64, 71]]
+  const ARP = [0, 2, 4, 3, 1, 3, 2, 4]
+  const setup = () => {
+    if (musicOut) return
+    const c = Sound.ctx
+    musicOut = c.createGain(); musicOut.gain.value = 0.9
+    analyser = c.createAnalyser(); analyser.fftSize = 64
+    musicOut.connect(analyser); analyser.connect(Sound.out)
+  }
+  const schedule = () => {
+    const c = Sound.ctx, spb = 60 / 104 / 2
+    while (nextT < c.currentTime + 0.12) {
+      const chord = CH[Math.floor(stepN / 8) % 4], i = stepN % 8
+      const det = Math.pow(2, detune / 12)
+      Sound.tone(midi(chord[ARP[i]] + 12) * det, { type: 'triangle', dur: 0.4, gain: 0.07, delay: nextT - c.currentTime, out: musicOut })
+      Sound.tone(midi(chord[ARP[i]] + 24) * det, { type: 'sine', dur: 0.25, gain: 0.03, delay: nextT - c.currentTime, out: musicOut })
+      if (i === 0) {
+        Sound.tone(midi(chord[0] - 12) * det, { type: 'sine', dur: spb * 7, gain: 0.14, attack: 0.02, delay: nextT - c.currentTime, out: musicOut })
+        chord.slice(1, 4).forEach((n) => Sound.tone(midi(n) * det, { type: 'sine', dur: spb * 8, gain: 0.025, attack: 0.3, delay: nextT - c.currentTime, out: musicOut }))
+      }
+      if (i % 4 === 2) Sound.noise(0.04, 7000, 0.05, nextT - c.currentTime)
+      nextT += spb; stepN++
+    }
+  }
+  btn.addEventListener('click', () => {
+    setup(); playing = !playing
+    btn.textContent = playing ? '❚❚' : '▶'; btn.setAttribute('aria-label', playing ? 'Pause' : 'Play')
+    if (playing) { nextT = Sound.ctx.currentTime + 0.05; sched = setInterval(schedule, 25) }
+    else clearInterval(sched)
+  })
+  const angleAt = (e) => { const r = disc.getBoundingClientRect(); return Math.atan2(e.clientY - (r.top + r.height / 2), e.clientX - (r.left + r.width / 2)) }
+  disc.addEventListener('pointerdown', (e) => { disc.setPointerCapture(e.pointerId); drag = { a: angleAt(e), t: performance.now() }; disc.style.cursor = 'grabbing' })
+  disc.addEventListener('pointermove', (e) => {
+    if (!drag) return
+    const a = angleAt(e); let da = a - drag.a
+    if (da > Math.PI) da -= Math.PI * 2; if (da < -Math.PI) da += Math.PI * 2
+    const now = performance.now(), dt = Math.max(1, now - drag.t)
+    angle += da; omega = da / dt * 16.7; drag = { a, t: now }
+    detune = clamp(omega * 30, -12, 12)
+    if (Math.abs(da) > 0.05) Sound.noise(0.05, clamp(800 + Math.abs(omega) * 4000, 600, 6000), 0.2)
+  })
+  const up = () => { drag = null; disc.style.cursor = ''; detune = 0 }
+  disc.addEventListener('pointerup', up); disc.addEventListener('pointercancel', up)
+  const data = new Uint8Array(32)
+  const loop = () => {
+    if (!drag) { omega += ((playing ? 0.06 : 0) - omega) * 0.04; angle += omega; detune *= 0.9 }
+    disc.style.transform = `rotate(${angle}rad)`
+    if (analyser && playing) {
+      analyser.getByteFrequencyData(data)
+      bars.forEach((b, i) => { b.style.transform = `scaleY(${Math.max(0.06, data[i + 1] / 255).toFixed(3)})` })
+    } else bars.forEach((b, i) => { b.style.transform = `scaleY(${(0.06 + Math.abs(Math.sin(performance.now() / 700 + i * 0.6)) * 0.05).toFixed(3)})` })
+    requestAnimationFrame(loop)
+  }
+  loop()
+}
+
+/* =====================================================================
+ * S.07 Bubble wrap
+ * ===================================================================== */
+{
+  const grid = $('[data-wrap]'), left = $('[data-wrap-left]'), refill = $('[data-wrap-refill]')
+  grid.innerHTML = Array.from({ length: 28 }, (_, k) => `<button class="bw" type="button" aria-label="Bubble" style="--k:${k}"></button>`).join('')
+  const all = $$('.bw', grid)
+  let down = false
+  const count = () => { const n = all.filter((b) => !b.classList.contains('pop')).length; left.textContent = n ? `${n} left` : 'all popped ✦'; return n }
+  const pop = (b) => {
+    if (b.classList.contains('pop')) return
+    b.classList.remove('refill'); b.classList.add('pop'); b.setAttribute('aria-label', 'Popped bubble')
+    const r = b.getBoundingClientRect()
+    burst(r.left + r.width / 2, r.top + r.height / 2, { n: 6, colors: ['#fff', '#cdf3ff'], size: [3, 6], dist: [13, 34], dur: 377 })
+    Sound.pop(rand(0.7, 1.4)); addPop()
+    if (count() === 0) { Sound.chime(); toast('Sheet cleared', 'Very professional popping.', '🫧', false) }
+  }
+  grid.addEventListener('pointerdown', (e) => { down = true; const b = e.target.closest('.bw'); if (b) pop(b); grid.setPointerCapture?.(e.pointerId) })
+  grid.addEventListener('pointermove', (e) => { if (!down) return; const el = document.elementFromPoint(e.clientX, e.clientY); const b = el && el.closest('.bw'); if (b && grid.contains(b)) pop(b) })
+  addEventListener('pointerup', () => { down = false })
+  grid.addEventListener('keydown', (e) => { if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('.bw')) { e.preventDefault(); pop(e.target) } })
+  refill.addEventListener('click', () => {
+    all.forEach((b) => { b.classList.remove('pop', 'refill'); void b.offsetWidth; b.classList.add('refill'); b.setAttribute('aria-label', 'Bubble') })
+    count(); Sound.tone(200, { dur: 0.5, gain: 0.12, slide: 3 })
+  })
+}
+
+/* =====================================================================
+ * S.08 Shake globe
+ * ===================================================================== */
+{
+  const globe = $('.globe'), c = $('canvas', globe), x = c.getContext('2d')
+  const S = 178, R = 84, d = Math.min(2, devicePixelRatio || 1)
+  c.width = S * d; c.height = S * d; x.setTransform(d, 0, 0, d, 0, 0)
+  const COLS = ['#ffffff', '#ffffff', '#bdf0ff', '#ffe066', '#ff9fd0', '#c8f56c']
+  const flakes = Array.from({ length: 90 }, () => ({ x: rand(40, 138), y: rand(150, 165), vx: 0, vy: 0, r: rand(1, 2.6), c: pick(COLS), star: Math.random() < 0.25 }))
+  let drag = null, ox = 0, oy = 0, lastX = 0, lastY = 0, active = 0
+  const kick = (kx, ky) => { flakes.forEach((f) => { f.vx += kx * rand(0.5, 1.5) + rand(-0.6, 0.6); f.vy += ky * rand(0.5, 1.5) + rand(-1.2, 0.3) }); active = 300 }
+  globe.addEventListener('pointerdown', (e) => { globe.setPointerCapture(e.pointerId); drag = { x: e.clientX, y: e.clientY }; lastX = e.clientX; lastY = e.clientY; globe.getAnimations().forEach((a) => a.cancel()); start() })
+  globe.addEventListener('pointermove', (e) => {
+    if (!drag) return
+    ox = clamp(e.clientX - drag.x, -55, 55); oy = clamp(e.clientY - drag.y, -34, 34)
+    globe.style.translate = `${ox}px ${oy}px`
+    const vx = e.clientX - lastX, vy = e.clientY - lastY; lastX = e.clientX; lastY = e.clientY
+    if (Math.abs(vx) + Math.abs(vy) > 6) { kick(-vx * 0.12, -vy * 0.12); if (Math.random() < 0.3) Sound.noise(0.04, rand(3000, 6000), 0.08) }
+  })
+  const up = () => {
+    if (!drag) return
+    drag = null
+    globe.animate([{ translate: `${ox}px ${oy}px` }, { translate: '0px 0px' }], { duration: 987, easing: JELLY })
+    globe.style.translate = ''; kick(ox * 0.05, oy * 0.05); ox = oy = 0
+  }
+  globe.addEventListener('pointerup', up); globe.addEventListener('pointercancel', up)
+  globe.addEventListener('dblclick', () => { kick(0, -6); Sound.chime() })
+  let running = false
+  const draw = () => {
+    x.clearRect(0, 0, S, S)
+    for (const f of flakes) {
+      f.vy += 0.03; f.vx *= 0.985; f.vy *= 0.985
+      f.x += f.vx; f.y += f.vy
+      const dx = f.x - S / 2, dy = f.y - S / 2, dist = Math.hypot(dx, dy)
+      if (dist > R - f.r) { const nx = dx / dist, ny = dy / dist; f.x = S / 2 + nx * (R - f.r); f.y = S / 2 + ny * (R - f.r); const dot = f.vx * nx + f.vy * ny; f.vx -= 1.6 * dot * nx; f.vy -= 1.6 * dot * ny }
+      if (f.y > 164) { f.y = 164; f.vy *= -0.2; f.vx *= 0.8 }
+      x.fillStyle = f.c
+      if (f.star) { x.save(); x.translate(f.x, f.y); x.rotate(f.x / 10); x.fillRect(-f.r * 1.4, -0.6, f.r * 2.8, 1.2); x.fillRect(-0.6, -f.r * 1.4, 1.2, f.r * 2.8); x.restore() }
+      else { x.beginPath(); x.arc(f.x, f.y, f.r, 0, Math.PI * 2); x.fill() }
+    }
+    if (active-- > 0 || drag) requestAnimationFrame(draw)
+    else running = false
+  }
+  const start = () => { if (!running) { running = true; requestAnimationFrame(draw) } }
+  active = 2; start()
+}
+
+/* =====================================================================
+ * S.09 Buddy chat (canned replies, nothing leaves your browser)
+ * ===================================================================== */
+const nudge = () => {
+  if (!reduced) { document.body.classList.remove('nudged'); void document.body.offsetWidth; document.body.classList.add('nudged') }
+  Sound.buzz()
+}
+{
+  const log = $('.log'), typing = $('.typing'), form = $('.compose'), input = $('input', form)
+  const REPLIES = [
+    'omg hiii', 'brb, kerning something', 'lol', 'ok but have you tried adding more gloss',
+    'is this a collab pitch?? 👀 the email’s in the start menu', 'currently: PLACE, pixels, too much coffee',
+    'not taking new work, but i do like weird ideas', 'sorry was watching a loading bar', 'that’s a very good point (i didn’t read it)',
+    ':) ', 'try the konami code', 'have you popped the letters up top', 'the fish are named after fonts. don’t ask which',
+  ]
+  const add = (cls, who, text) => {
+    const p = document.createElement('p'); p.className = cls
+    if (who) { const b = document.createElement('span'); b.className = 'who'; b.textContent = who + ': '; p.append(b) }
+    p.append(document.createTextNode(text)); log.append(p); log.scrollTop = log.scrollHeight
+  }
+  let queue = []
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const t = input.value.trim(); if (!t) return
+    add('me', 'you', t); input.value = ''; Sound.blip(1.6)
+    setTimeout(() => { typing.textContent = 'Daniel is typing…' }, 600)
+    queue.push(setTimeout(() => { typing.textContent = ''; add('dk', 'dk', pick(REPLIES)); Sound.tone(880, { dur: 0.2, gain: 0.12 }); Sound.tone(1320, { dur: 0.3, gain: 0.1, delay: 0.1 }) }, rand(1400, 2600)))
+  })
+  $('[data-nudge]').addEventListener('click', () => { add('sys', '', 'You have just sent a Nudge!'); nudge(); setTimeout(() => add('dk', 'dk', pick(['woah', 'ok ok i’m here', 'who nudged me'])), 1500) })
+}
+
+/* =====================================================================
+ * S.10 Stickers: peel off the sheet, slap anywhere, they stay
+ * ===================================================================== */
+{
+  const KINDS = ['star', 'heart', 'smile', 'flower', 'spark', 'dk']
+  const sheet = $('[data-sheet]'), layer = $('.stickers')
+  const svg = (k) => `<svg viewBox="0 0 100 100"><use href="#st-${k}"/></svg>`
+  sheet.innerHTML = KINDS.map((k) => `<span class="stk" data-k="${k}" role="button" tabindex="0" aria-label="${k} sticker">${svg(k)}</span>`).join('')
+  let saved = store.get('dk-stickers', [])
+  const save = () => store.set('dk-stickers', saved)
+  const place = (s, slap) => {
+    const el = document.createElement('span')
+    el.className = 'placed' + (slap ? ' slap' : ''); el.innerHTML = svg(s.k); el.style.left = s.x + 'px'; el.style.top = s.y + 'px'; el.style.setProperty('--r', s.r + 'deg')
+    el.style.pointerEvents = 'auto'; layer.append(el)
+    el.addEventListener('dblclick', () => {
+      el.classList.remove('slap'); el.classList.add('peel'); Sound.tone(900, { dur: 0.2, gain: 0.1, slide: 0.4 })
+      saved = saved.filter((o) => o !== s); save(); setTimeout(() => el.remove(), 640)
+    })
+    el.addEventListener('pointerdown', (e) => {
+      e.preventDefault(); el.setPointerCapture(e.pointerId)
+      const move = (ev) => { s.x = ev.pageX; s.y = ev.pageY; el.style.left = s.x + 'px'; el.style.top = s.y + 'px' }
+      const end = () => { el.removeEventListener('pointermove', move); el.removeEventListener('pointerup', end); save(); el.classList.remove('slap'); void el.offsetWidth; el.classList.add('slap'); Sound.click() }
+      el.addEventListener('pointermove', move); el.addEventListener('pointerup', end)
+    })
+  }
+  saved.forEach((s) => place(s, false))
+  const pickUp = (k, e) => {
+    const fly = document.createElement('span'); fly.className = 'flying'; fly.innerHTML = svg(k); document.body.append(fly)
+    const move = (ev) => { fly.style.left = ev.clientX + 'px'; fly.style.top = ev.clientY + 'px' }
+    move(e); Sound.tone(500, { dur: 0.15, gain: 0.1, slide: 1.8 })
+    const end = (ev) => {
+      removeEventListener('pointermove', move); removeEventListener('pointerup', end)
+      const sr = sheet.getBoundingClientRect()
+      if (ev.clientX > sr.left && ev.clientX < sr.right && ev.clientY > sr.top && ev.clientY < sr.bottom) { fly.remove(); return }
+      fly.remove()
+      const s = { k, x: ev.pageX, y: ev.pageY, r: Math.round(rand(-20, 20)) }
+      saved.push(s); save(); place(s, true)
+      Sound.noise(0.06, 1500, 0.35); burst(ev.clientX, ev.clientY, { n: 8, shape: 'star', colors: ['#fff', '#ffe066'], dist: [34, 72] })
+      if (saved.length === 12) toast('Sticker collector', 'That’s a lot of stickers. Double-click to peel.', '⭐', false)
+    }
+    addEventListener('pointermove', move); addEventListener('pointerup', end)
+  }
+  $$('.stk', sheet).forEach((el) => {
+    el.addEventListener('pointerdown', (e) => { e.preventDefault(); pickUp(el.dataset.k, e) })
+    el.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter' && e.key !== ' ') return
+      e.preventDefault()
+      const s = { k: el.dataset.k, x: rand(80, innerWidth - 80), y: scrollY + rand(120, innerHeight - 120), r: Math.round(rand(-20, 20)) }
+      saved.push(s); save(); place(s, true); Sound.noise(0.06, 1500, 0.35)
+    })
+  })
+}
+
+/* =====================================================================
+ * Marquee, sea: hit counter, guestbook, chest, depth meter
+ * ===================================================================== */
+{
+  const items = ['★ welcome to the playground', '✦ best viewed at 1024×768', '◯ bubbles popped are bubbles earned', '☺ not taking new work', '♥ yes to weird collabs', '✿ made at night, mostly', '☀ don’t stare at the sun (click it)', '⌨ ↑↑↓↓←→←→ b a']
+  const half = items.map((t) => `<span>${t}</span>`).join('')
+  $('.marquee .track').innerHTML = half + half
+}
+{
+  const visits = store.get('dk-visits', 0) + 1
+  store.set('dk-visits', visits)
+  const digits = String(Math.min(visits, 999999)).padStart(6, '0').split('')
+  const odo = $('[data-odo]')
+  odo.setAttribute('aria-label', `${visits} visits`)
+  odo.innerHTML = digits.map(() => `<span><span class="reel">${'0123456789'.split('').map((n) => `<b>${n}</b>`).join('')}</span></span>`).join('')
+  const reels = $$('.reel', odo)
+  const roll = () => reels.forEach((r, i) => { r.style.transitionDelay = i * 89 + 'ms'; r.style.transform = `translateY(${-digits[i] * 48}px)` })
+  new IntersectionObserver(([e], o) => { if (e.isIntersecting) { roll(); o.disconnect() } }).observe(odo)
+}
+{
+  const form = $('.gb-form'), list = $('.gb-list')
+  const [nameI, noteI] = $$('input', form)
+  let entries = store.get('dk-guestbook', [{ n: 'dk', m: 'first! (it’s my own site)', t: '2026' }])
+  const render = () => {
+    list.innerHTML = ''
+    entries.slice().reverse().forEach((en) => {
+      const li = document.createElement('li'), b = document.createElement('b'), tm = document.createElement('time'), p = document.createElement('div')
+      b.textContent = en.n; tm.className = 'px'; tm.textContent = en.t; p.textContent = en.m
+      li.append(tm, b, p); list.append(li)
+    })
+  }
+  render()
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    entries.push({ n: nameI.value.trim().slice(0, 24), m: noteI.value.trim().slice(0, 120), t: new Date().toLocaleDateString([], { month: 'short', day: 'numeric' }) })
+    entries = entries.slice(-30); store.set('dk-guestbook', entries); render(); noteI.value = ''
+    const r = form.getBoundingClientRect(); burst(r.right - 40, r.top + 20, { shape: 'star', n: 16 }); Sound.chime()
+  })
+}
+{
+  const chest = $('.chest'), treasure = $('.treasure')
+  chest.addEventListener('click', (e) => {
+    const open = !chest.classList.contains('open')
+    chest.classList.toggle('open', open); treasure.classList.toggle('on', open); chest.setAttribute('aria-expanded', open)
+    if (open) {
+      const r = chest.getBoundingClientRect()
+      burst(r.left + r.width / 2, r.top + 20, { n: 34, colors: ['#ffd23a', '#fff7b0', '#ffad33', '#fff'], shape: 'star', size: [8, 16], dist: [55, 180], fall: -34 })
+      Sound.fanfare()
+    } else Sound.tone(300, { dur: 0.2, gain: 0.12, slide: 0.5 })
+  })
+}
+{
+  const sea = $('#sea'), depth = $('.depth'), dn = $('[data-depth-n]'), rail = $('.depth .rail')
+  const onScroll = () => {
+    const r = sea.getBoundingClientRect()
+    const inSea = r.top < innerHeight * 0.5 && r.bottom > innerHeight * 0.3
+    depth.classList.toggle('on', inSea)
+    const p = clamp((innerHeight * 0.5 - r.top) / (r.height - innerHeight * 0.5), 0, 1)
+    dn.textContent = '-' + Math.round(p * 233) + 'm'; rail.style.setProperty('--p', p * 100 + '%')
+  }
+  addEventListener('scroll', onScroll, { passive: true }); onScroll()
+}
+
+/* =====================================================================
+ * Sparkle trail behind the cursor
+ * ===================================================================== */
+if (fine && !reduced) {
+  let last = 0
+  addEventListener('pointermove', (e) => {
+    const now = performance.now(); if (now - last < 45) return; last = now
+    const s = document.createElement('i'), sz = rand(5, 10)
+    s.className = 'bit star'; s.style.width = s.style.height = sz + 'px'; s.style.background = pick(['#fff', '#bdf0ff', '#fff7b0', '#ffd1e8'])
+    fx.append(s)
+    s.animate([
+      { transform: `translate(${e.clientX + 13}px, ${e.clientY + 13}px) scale(1) rotate(0deg)`, opacity: 0.95 },
+      { transform: `translate(${e.clientX + 13 + rand(-13, 13)}px, ${e.clientY + 34}px) scale(0) rotate(90deg)`, opacity: 0 },
+    ], { duration: 610, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }).onfinish = () => s.remove()
+  }, { passive: true })
+}
+
+/* =====================================================================
+ * Easter eggs: context menu, typed words, konami, screensaver
+ * ===================================================================== */
+const ctx = $('.ctx')
+const closeCtx = () => ctx.classList.remove('on')
+const ACTIONS = {
+  rain: () => setRain(!raining),
+  storm: () => { storm(); Sound.tone(200, { dur: 1.2, gain: 0.1, slide: 4 }) },
+  nudge,
+  saver: () => setTimeout(startSaver, 200),
+  hyper: () => hyper(),
+  calm: () => { location.href = 'index.html' },
+  source: () => toast('View source?', 'It’s one HTML file and a lot of easing curves. Go for it: ⌥⌘U.', '👀', false),
+}
+document.addEventListener('contextmenu', (e) => {
+  if (e.target.closest('input, textarea, a')) return
+  e.preventDefault()
+  ctx.style.left = Math.min(e.clientX, innerWidth - 240) + 'px'; ctx.style.top = Math.min(e.clientY, innerHeight - 260) + 'px'
+  ctx.classList.remove('on'); void ctx.offsetWidth; ctx.classList.add('on'); Sound.click()
+  ctx.querySelector('button').focus({ preventScroll: true })
+})
+document.addEventListener('click', (e) => { if (!ctx.contains(e.target)) closeCtx() })
+$$('[data-act]').forEach((b) => b.addEventListener('click', () => { closeCtx(); setMenu(false); ACTIONS[b.dataset.act]?.() }))
+
+const hyper = () => {
+  html.classList.add('hyper'); storm(80); Sound.fanfare()
+  toast('HYPER AERO UNLOCKED', 'Maximum gloss for 8 seconds. Hold on.', '🌈', false)
+  setTimeout(() => html.classList.remove('hyper'), 8000)
+}
+const KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a']
+let kpos = 0, typed = ''
+addEventListener('keydown', (e) => {
+  if (e.target.closest && e.target.closest('input, textarea')) return
+  kpos = e.key === KONAMI[kpos] || e.key.toLowerCase() === KONAMI[kpos] ? kpos + 1 : e.key === KONAMI[0] ? 1 : 0
+  if (kpos === KONAMI.length) { kpos = 0; hyper() }
+  if (e.key.length === 1) {
+    typed = (typed + e.key.toLowerCase()).slice(-12)
+    if (typed.endsWith('rain')) setRain(!raining)
+    if (typed.endsWith('bubbles')) storm()
+    if (typed.endsWith('nudge')) nudge()
+    if (typed.endsWith('aero')) toast('aero aero aero', 'You said the word. Here’s a bubble.', '🫧')
+    if (typed.endsWith('hello')) toast('hi!!', 'The email is in the start menu, by the way.', '👋')
+  }
+})
+
+// Screensaver after a minute of nothing: orbs and a name that bounce around.
+const saver = $('.saver'), sc = $('canvas', saver), sx = sc.getContext('2d'), sname = $('.saver-name', saver)
+let saverOn = false, idle = 0
+const startSaver = () => {
+  if (saverOn || reduced) return
+  saverOn = true; saver.classList.add('on')
+  sizeCanvas(sc, sx)
+  const W = innerWidth, H = innerHeight
+  const orbs = Array.from({ length: 14 }, () => ({ x: rand(0, W), y: rand(0, H), vx: rand(-2, 2), vy: rand(-2, 2), r: rand(21, 89), h: pick([190, 200, 95, 330, 45]) }))
+  let nx = rand(0, W - 300), ny = rand(0, H - 80), nvx = 2, nvy = 1.6, hue = 0
+  const nr = sname.getBoundingClientRect()
+  const loop = () => {
+    if (!saverOn) return
+    sx.clearRect(0, 0, W, H)
+    for (const o of orbs) {
+      o.x += o.vx; o.y += o.vy
+      if (o.x < o.r || o.x > W - o.r) o.vx *= -1
+      if (o.y < o.r || o.y > H - o.r) o.vy *= -1
+      const g = sx.createRadialGradient(o.x - o.r * 0.3, o.y - o.r * 0.35, o.r * 0.05, o.x, o.y, o.r)
+      g.addColorStop(0, 'rgba(255,255,255,0.95)'); g.addColorStop(0.3, `hsla(${o.h},90%,70%,0.55)`); g.addColorStop(1, `hsla(${o.h},90%,40%,0.25)`)
+      sx.fillStyle = g; sx.beginPath(); sx.arc(o.x, o.y, o.r, 0, Math.PI * 2); sx.fill()
+    }
+    nx += nvx; ny += nvy
+    if (nx < 0 || nx > W - nr.width) { nvx *= -1; hue += 60 }
+    if (ny < 0 || ny > H - nr.height) { nvy *= -1; hue += 60 }
+    sname.style.transform = `translate(${nx}px, ${ny}px)`; sname.style.filter = `hue-rotate(${hue}deg) drop-shadow(0 4px 0 rgb(4 70 160 / 0.55))`
+    requestAnimationFrame(loop)
+  }
+  loop()
+}
+const wake = () => { idle = 0; if (saverOn) { saverOn = false; saver.classList.remove('on') } }
+;['pointermove', 'keydown', 'scroll', 'pointerdown', 'wheel'].forEach((ev) => addEventListener(ev, wake, { passive: true }))
+setInterval(() => { if (++idle >= 60) startSaver() }, 1000)
+
+/* ---------- Hello ---------- */
+setTimeout(() => toast('Daniel King has signed in', 'Welcome to the loud part of the site. Right-click for secrets.', '🌱', false), 1800)
+console.log('%c✦ playground ✦', 'font: 800 34px "Baloo 2", sans-serif; color: #19b6ff; text-shadow: 0 2px 0 #04306a')
+console.log('%chi, fellow source-viewer. try: ↑↑↓↓←→←→ b a, or type "rain", "bubbles", "nudge".', 'color: #2a6198')
+})()
+</script>
+</body>
+</html>
